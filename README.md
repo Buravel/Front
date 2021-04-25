@@ -19,3 +19,5 @@ http://localhost:3000/ 접속
 </br>
 
 ### #각자 브런치 생성해서 개발 후 dev에 pull request하기
+
+feature/개발하는 서비스명
