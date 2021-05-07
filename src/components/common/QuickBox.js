@@ -4,7 +4,9 @@ import './quickBox.scss';
 const QuickBox = () => {
     return (
         <div className="quick-menu">
-            <div className="close-btn">X</div>
+            <div className="close-btn">
+                <span>x</span>
+            </div>
             <div className="quick-btn">
                 <Link to="/mypage">
                     <div className="icon">
