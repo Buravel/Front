@@ -1,7 +1,8 @@
 import React from 'react';
+import WritePlanContainer from '../containers/write/WritePlanContainer';
 
 const WritePlan = () => {
-    return <div>writeplan</div>;
+    return <WritePlanContainer />;
 };
 
 export default WritePlan;
