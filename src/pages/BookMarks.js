@@ -1,7 +1,12 @@
 import React from 'react';
+import Responsive from '../components/common/Responsive';
 
 const BookMarks = () => {
-    return <div>bookmarks</div>;
+    return (
+        <Responsive>
+            <div>bookmarks</div>
+        </Responsive>
+    );
 };
 
 export default BookMarks;
