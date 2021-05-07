@@ -1,0 +1,33 @@
+.quick-menu {
+    position: absolute;
+    width: 310px;
+    height : 227px;
+    top:75px;
+    right :45px;
+    border-radius: 10px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .close-btn {
+        width: 100%;
+        text-align: right;
+    }
+    .quick-btn {
+        width : 61px;
+        height : 70px;
+        margin : 10px 21px;
+        text-align :center;
+        div {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        span {
+            font-size:12px;
+        }
+    }
+}
