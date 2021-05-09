@@ -20,6 +20,23 @@ import {
 } from "./image/iconimg";
 
 const Popup = (props) => {
+  //나중에 별 이미지로 바꿀 것
+  function reducer(rate) {
+    switch (rate) {
+      case "1":
+        return "A";
+      case 2:
+        return "B";
+      case 3:
+        return "C";
+      case 4:
+        return "D";
+      case 5:
+        return "E";
+      default:
+        return "none";
+    }
+  }
   return (
     <div className="popupBackground">
       <div className="popupBox">
@@ -42,7 +59,7 @@ const Popup = (props) => {
             235 경기도 성남시 분당구 서현동
           </span>
           <span className="popConLocationLine"></span>
-          <span className="popConStar">별 아이콘</span>
+          <span className="popConStar">{reducer(props.star)}</span>
           <span className="popConTag">
             <span className="popConTagText">#루프트한자</span>
           </span>

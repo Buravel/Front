@@ -11,9 +11,9 @@ const PostLine = (props) => {
         <img src={day} className="dayCircle" alt="날짜표시" />
         <div className="dayLine" />
         <div className="container">
-          <Post />
-          <Post />
-          <Post />
+          <Post transport="ktx" posttitle="이코노미" />
+          <Post transport="ktx" posttitle="이코노미" />
+          <Post transport="ktx" posttitle="이코노미" />
         </div>
       </div>
     </>

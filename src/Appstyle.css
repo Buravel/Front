@@ -71,13 +71,6 @@ html {
   height: 93px;
 }
 
-.postBox {
-  width: 200px;
-  height: 278px;
-  border-radius: 3px;
-  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
-}
 .postHashTag {
   position: absolute;
   width: 51px;
@@ -615,4 +608,26 @@ html {
   letter-spacing: normal;
   text-align: left;
   color: #535353;
+}
+
+.postBox:hover {
+  position: relative;
+  top: -8px;
+}
+
+.postButton {
+  z-index: +1;
+  position: absolute;
+  width: 200px;
+  height: 278px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.postBox {
+  width: 200px;
+  height: 278px;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
 }

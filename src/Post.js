@@ -20,20 +20,26 @@ import {
   shopping,
 } from "./image/iconimg";
 
-function Post() {
+function Post(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
+
+  console.log(props.handleClose);
   return (
     <>
-      <div className="postBox" onClick={togglePopup}>
+      <div className="postBox">
+        <input type="button" onClick={togglePopup} className="postButton" />
+
         <div className="postPicture">
           <img src={bookmark} alt="북마크" className="postBookmarkIcon" />
         </div>
         <div className="postContent">
-          <span className="postName">[루프트한자] 이코노미</span>
+          <span className="postName">
+            [{props.transport}] {props.posttitle}
+          </span>
           <img src={Airplane} alt="교통" className="postNameIcon" />
           <img src={rating} alt="평점" className="postRateIcon" />
           <span className="rateValue">4.5</span>
@@ -43,6 +49,7 @@ function Post() {
         </div>
         {isOpen && (
           <Popup
+            star="1"
             content={
               <>
                 {/* <div>시범내용</div> */}

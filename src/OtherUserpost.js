@@ -3,7 +3,7 @@ import axios from "axios";
 import PostLine from "./PostLine";
 import Post from "./Post";
 
-function ServerMock() {
+function OtherUserpost() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -41,4 +41,4 @@ function ServerMock() {
   return dayArray.map((num) => <PostLine day={num} />);
 }
 
-export default ServerMock;
+export default OtherUserpost;
