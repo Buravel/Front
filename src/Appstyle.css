@@ -183,10 +183,10 @@ html {
 .container {
   display: flex;
   position: absolute;
-  width: 1135px;
+  width: 1159px;
   height: 278px;
   top: 54px;
-  left: 145px;
+  left: 121px;
 }
 
 .dayCircle {
@@ -329,8 +329,36 @@ html {
   object-fit: contain;
 }
 
-.TotalMoney > span {
+.TotalMoney {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0070ef;
+}
+
+.TotalMoneyname {
   width: 16px;
+  height: 20px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.TotalMoneylist {
+  width: 24px;
   height: 20px;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: NotoSansKR;
@@ -630,4 +658,37 @@ html {
   border-radius: 3px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
+}
+
+.connectDotFirst {
+  position: relative;
+  top: 137px;
+  width: 2px;
+  height: 2px;
+  background-color: #b5b5b5;
+  margin: 0 0 0 7px;
+}
+.connectDotSecond {
+  position: relative;
+  top: 137px;
+  width: 2px;
+  height: 2px;
+  background-color: #b5b5b5;
+  margin: 0 2px;
+}
+.connectDotLast {
+  position: relative;
+  top: 137px;
+  width: 2px;
+  height: 2px;
+  background-color: #b5b5b5;
+  margin: 0 7px 0 0;
+}
+
+.hideDot {
+  z-index: +1;
+  position: absolute;
+  height: 278px;
+  width: 17px;
+  background-color: #f5f5f5;
 }

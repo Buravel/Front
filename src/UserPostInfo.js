@@ -35,7 +35,7 @@ function UserPostInfo(props) {
       <span className="CostBackground">
         <span className="TotalCost">
           <span className="TotalMoney">377</span>
-          <span>만원</span>
+          <span className="TotalMoneyname">만원</span>
         </span>
         <span className="TotalImg">
           <img src={Airplane} className="TotalAirplane" alt="budget icon" />
@@ -44,7 +44,7 @@ function UserPostInfo(props) {
           <img src={bus} className="Totalbus" alt="budget icon" />
           <img src={bed} className="Totalbed" alt="budget icon" />
         </span>
-        <span className="TotalMoney">
+        <span className="TotalMoneylist">
           <span className="TotalAirplaneCost">120</span>
           <span className="TotalfoodCost">120</span>
           <span className="TotalshoppingCost">120</span>

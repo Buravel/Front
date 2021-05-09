@@ -19,6 +19,7 @@ import {
   search,
   shopping,
 } from "./image/iconimg";
+import Postconnect from "./Postconnect";
 
 function Post(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,6 +31,7 @@ function Post(props) {
   console.log(props.handleClose);
   return (
     <>
+      <Postconnect />
       <div className="postBox">
         <input type="button" onClick={togglePopup} className="postButton" />
 
