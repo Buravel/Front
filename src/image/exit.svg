@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#000;stroke-linecap:round;stroke-width:2px}
+        </style>
+    </defs>
+    <g id="그룹_244" transform="translate(-1215 -109)">
+        <circle id="타원_21" cx="20" cy="20" r="20" fill="rgba(255,255,255,0.4)" transform="translate(1215 109)"/>
+        <g id="그룹_76" transform="translate(-93.173 -957.682)">
+            <path id="선_13" d="M15.364 0L0 15.364" class="cls-2" transform="translate(1320.491 1079.491)"/>
+            <path id="선_14" d="M0 0L15.364 15.364" class="cls-2" transform="translate(1320.491 1079.491)"/>
+        </g>
+    </g>
+</svg>

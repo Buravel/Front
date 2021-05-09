@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import Popup from "./Popup";
 import Appstyle from "./Appstyle.css";
 import {
   Airplane,
@@ -20,9 +21,14 @@ import {
 } from "./image/iconimg";
 
 function Post() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <>
-      <div className="postBox">
+      <div className="postBox" onClick={togglePopup}>
         <div className="postPicture">
           <img src={bookmark} alt="북마크" className="postBookmarkIcon" />
         </div>
@@ -35,6 +41,17 @@ function Post() {
           <span className="moneyName">만원</span>
           <span className="postHashTag">#KTX</span>
         </div>
+        {isOpen && (
+          <Popup
+            content={
+              <>
+                {/* <div>시범내용</div> */}
+                {/* 여기에 변수내용 입력할 것 */}
+              </>
+            }
+            handleClose={togglePopup}
+          />
+        )}
       </div>
     </>
   );

@@ -1,0 +1,76 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "day" : 1,
+      "money" : 10,
+      "rate" : 3,
+      "picture" : "https://s.pstatic.net/static/newsstand/2020/logo/light/0604/904.png",
+      "title": "강원도",
+      "body": "춘천"
+    },
+    {
+      "id": 2,
+      "day" : 1,
+      "money" : 120,
+      "rate" : 3,
+      "picture" : "",
+      "title": "경기도",
+      "body": "성남시"
+    },
+    {
+      "id": 3,
+      "day" : 2,
+      "money" : 150,
+      "rate" : 3,
+      "picture" : "",
+      "title": "제주도",
+      "body": "제주도 한라감귤"
+    },
+    {
+      "id": 4,
+      "day" : 2,
+      "money" : 810,
+      "rate" : 3,
+      "picture" : "",
+      "title": "부산",
+      "body": "해운대"
+    },
+    {
+      "id": 5,
+      "day" : 3,
+      "money" : 150,
+      "rate" : 3,
+      "picture" : "",
+      "title": "서울",
+      "body": "한강"
+    },
+    {
+      "id": 6,
+      "day" : 4,
+      "money" : 110,
+      "rate" : 3,
+      "picture" : "",
+      "title": "전라도",
+      "body": "여수"
+    },
+    {
+      "id": 7,
+      "day" : 5,
+      "money" : 130,
+      "rate" : 1,
+      "picture" : "",
+      "title": "충청도",
+      "body": "대전"
+    },
+    {
+      "id": 8,
+      "day" : 5,
+      "money" : 190,
+      "rate" : 2,
+      "picture" : "",
+      "title": "경상도",
+      "body": "대구"
+    }
+  ]
+}

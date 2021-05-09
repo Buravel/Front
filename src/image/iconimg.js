@@ -14,6 +14,7 @@ import nextButton from "./nextButton.svg";
 import rating from "./rating.svg";
 import search from "./search.svg";
 import shopping from "./shopping.svg";
+import exit from "./exit.svg";
 
 export {
   Airplane,
@@ -32,4 +33,5 @@ export {
   rating,
   search,
   shopping,
+  exit,
 };
