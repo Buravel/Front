@@ -13,9 +13,10 @@ const PostLine = (props) => {
         <div className="dayLine" />
         <div className="container">
           <span className="hideDot" />
-
           <Post transport="ktx" posttitle="이코노미" />
-
+          <Post transport="ktx" posttitle="이코노미" />
+          <Post transport="ktx" posttitle="이코노미" />
+          <Post transport="ktx" posttitle="이코노미" />
           <Post transport="ktx" posttitle="이코노미" />
           <Post transport="ktx" posttitle="이코노미" />
         </div>

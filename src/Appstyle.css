@@ -184,9 +184,10 @@ html {
   display: flex;
   position: absolute;
   width: 1159px;
-  height: 278px;
+  height: 291px;
   top: 54px;
   left: 121px;
+  overflow-x: hidden;
 }
 
 .dayCircle {
@@ -653,6 +654,7 @@ html {
 }
 
 .postBox {
+  margin-top: 8px;
   width: 200px;
   height: 278px;
   border-radius: 3px;
@@ -663,7 +665,8 @@ html {
 .connectDotFirst {
   position: relative;
   top: 137px;
-  width: 2px;
+  padding-left: 1px;
+  padding-right: 1px;
   height: 2px;
   background-color: #b5b5b5;
   margin: 0 0 0 7px;
@@ -671,7 +674,8 @@ html {
 .connectDotSecond {
   position: relative;
   top: 137px;
-  width: 2px;
+  padding-left: 1px;
+  padding-right: 1px;
   height: 2px;
   background-color: #b5b5b5;
   margin: 0 2px;
@@ -679,7 +683,8 @@ html {
 .connectDotLast {
   position: relative;
   top: 137px;
-  width: 2px;
+  padding-left: 1px;
+  padding-right: 1px;
   height: 2px;
   background-color: #b5b5b5;
   margin: 0 7px 0 0;
