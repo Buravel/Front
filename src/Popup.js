@@ -51,7 +51,7 @@ const Popup = (props) => {
           <span className="popupMemo">메모</span>
         </span>
         <span className="popupContent">
-          <span className="popConTitle">[루프트한자] 이코노미</span>
+          <span className="popConTitle">[루프트한자] {props.posttitle}</span>
           <img src={Airplane} alt="교통수단" className="popConIcon" />
           <span className="popConCost">120</span>
           <span className="popConCostname">만원</span>

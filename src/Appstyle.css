@@ -149,11 +149,13 @@ html {
   color: #0070ef;
 }
 .postBookmarkIcon {
+  z-index: 1;
+  position: absolute;
+  top: 14.2px;
+  right: 16.6px;
   width: 17px;
   height: 22.7px;
   object-fit: contain;
-  margin: 14.2px 16.6px 148.1px 166.4px;
-
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
 }
 
@@ -696,4 +698,11 @@ html {
   height: 278px;
   width: 17px;
   background-color: #f5f5f5;
+}
+
+.postPictureArray {
+  position: relative;
+  width: 200px;
+  height: 185px;
+  overflow: hidden;
 }

@@ -29,6 +29,8 @@ function Post(props) {
   };
 
   console.log(props.handleClose);
+  const Icon = props.nameIcon;
+  console.log(Icon);
   return (
     <>
       <Postconnect />
@@ -36,6 +38,7 @@ function Post(props) {
         <input type="button" onClick={togglePopup} className="postButton" />
 
         <div className="postPicture">
+          <img src={props.postpicture} className="postPictureArray" />
           <img src={bookmark} alt="북마크" className="postBookmarkIcon" />
         </div>
         <div className="postContent">
@@ -50,16 +53,7 @@ function Post(props) {
           <span className="postHashTag">#KTX</span>
         </div>
         {isOpen && (
-          <Popup
-            star="1"
-            content={
-              <>
-                {/* <div>시범내용</div> */}
-                {/* 여기에 변수내용 입력할 것 */}
-              </>
-            }
-            handleClose={togglePopup}
-          />
+          <Popup posttitle={props.posttitle} handleClose={togglePopup} />
         )}
       </div>
     </>

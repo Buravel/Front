@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Appstyle from "./Appstyle.css";
 import { day, dayLine } from "./image/iconimg";
 import Post from "./Post";
 import Postconnect from "./Postconnect";
+import axios from "axios";
 
 const PostLine = (props) => {
   return (
