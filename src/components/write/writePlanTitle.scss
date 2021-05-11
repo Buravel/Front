@@ -1,0 +1,63 @@
+.title-container {
+    height: 200px;
+    position: fixed;
+    display: flex;
+    width: 1280px;
+    justify-content: space-between;
+    background-color: #f5f5f5;
+    .plan-info {
+        margin : 80px 0 0 150px;
+        height : 86px;
+        .plan-date{
+            height: 18px;
+            font-size: 14px;
+            color: #b5b5b5;
+            margin:0;
+        }
+        .plan-title {
+            height: 68px;
+            font-size: 43px;
+            font-weight: bold;
+            color: #0070ef;
+            margin : 0;
+        }
+    }
+    .plan-remote {
+        width: 361px;
+        height: 68px;
+        margin: 97px 42px 0 0 ;
+        border-radius: 3px;
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        .total{
+            color : #535353;
+            font-size: 20px;
+            margin : 12px 25px;
+            font-weight: 500;
+            .blue-text {
+                color : #0070ef;
+                font-size: 30px;
+                font-weight: bold;
+            }
+        }
+        .individual{
+            display: flex;
+            width: 160px;
+            flex-wrap: wrap;
+            align-content: center;
+            div {
+                img {
+                    margin-right:5px;
+                }
+                width: 53px;
+                color: #0070ef;
+            }
+        }
+    }
+}
+.title-block {
+    height: 200px;
+    width: 100%;
+}

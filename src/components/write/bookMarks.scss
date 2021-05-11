@@ -1,0 +1,59 @@
+.bookmark-container {
+    position: fixed;
+    width : 1280px;
+    transition-duration: 0.5s;
+    
+    .bookmark-arrow{
+        width: 225px;
+        height : 30px;
+        margin: 0 auto;
+        text-align: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border: solid 1px #0070ef;
+        border-bottom: solid 1px white;
+        position: relative;
+        z-index: 99;
+        margin-bottom:-2px;
+    }
+    .bookmark-activation-color {
+        color : #535353;
+        background-color: #ffffff;
+    }
+    .bookmark-deactivation-color {
+        color:#ffffff;
+        background-color: #0070ef;
+    }
+    
+    .bookmark-info {
+        width: 1280px;
+        height: 370px;
+        border: solid 1px #0070ef;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        background-color: #ffffff;
+        position: relative;
+        z-index: 98;
+        p {
+        
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            color: #535353;
+        }
+        .bookmark-list {
+            display: flex;
+            overflow-x: hidden;
+            height: 300px;
+            width: 1235px;
+            margin: 0 0 0 43px;
+        }
+    }
+}
+.bookmark-activation {
+    bottom:0px;
+}
+.bookmark-deactivation {
+    bottom:-370px;
+    
+}
