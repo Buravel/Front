@@ -1,60 +1,98 @@
 .title-container {
-    height: 200px;
+    height: 160px;
     position: fixed;
     display: flex;
-    width: 1280px;
+    width: 100%;
+    left:0;
     justify-content: space-between;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
+    border-bottom: 2px solid #d9d9d9;
     .plan-info {
-        margin : 80px 0 0 150px;
+        margin : 36px 0 0 150px;
         height : 86px;
+        border-bottom: 2px solid #7dbaff;
         .plan-date{
             height: 18px;
             font-size: 14px;
             color: #b5b5b5;
             margin:0;
+            letter-spacing: -0.5px;
+            .start-date {
+                color : #707070
+            }
         }
         .plan-title {
             height: 68px;
             font-size: 43px;
             font-weight: bold;
-            color: #0070ef;
+            color: #535353;
             margin : 0;
+        }
+        button {
+            border: none;
+            // width: 32px;
+            // height: 32px;
+            cursor: pointer;
+            float: right;
+            margin-top: 25px;
         }
     }
     .plan-remote {
-        width: 361px;
-        height: 68px;
-        margin: 97px 42px 0 0 ;
-        border-radius: 3px;
-        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
-        background-color: #ffffff;
         display: flex;
-        justify-content: space-between;
-        .total{
-            color : #535353;
-            font-size: 20px;
-            margin : 12px 25px;
-            font-weight: 500;
-            .blue-text {
-                color : #0070ef;
-                font-size: 30px;
-                font-weight: bold;
-            }
-        }
-        .individual{
+        margin: 47px 42px 0 0 ;
+        .white-box {
+            width: 361px;
+            height: 68px;
+            border-radius: 3px;
+            box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+            background-color: #ffffff;
             display: flex;
-            width: 160px;
-            flex-wrap: wrap;
-            align-content: center;
-            div {
-                img {
-                    margin-right:5px;
+            justify-content: space-between;
+            .total{
+                color : #535353;
+                font-size: 20px;
+                margin : 12px 25px;
+                font-weight: 500;
+                .blue-text {
+                    color : #0070ef;
+                    font-size: 30px;
+                    font-weight: bold;
                 }
-                width: 53px;
-                color: #0070ef;
+            }
+            .individual{
+                display: flex;
+                width: 215px;
+                flex-wrap: wrap;
+                align-content: center;
+                div {
+                    img {
+                        margin-right:5px;
+                    }
+                    width: 53px;
+                    color: #0070ef;
+                }
             }
         }
+        .button-container{
+            margin-left:25px;
+            button {
+                display:block;
+                width: 72px;
+                height: 33px;
+                border-radius: 5px;
+            }
+            .plan-save{
+                background-color: #0070ef;;
+                color:white;
+                margin-bottom: 5px;
+            }
+            .plan-delete{
+                background-color: white;
+                border: 1px solid #d9d9d9;
+                color:#535353;
+            }
+        }
+        
     }
 }
 .title-block {

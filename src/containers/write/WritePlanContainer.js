@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import BookMarks from '../../components/write/BookMarks';
 import PlanList from '../../components/write/PlanList';
 import WritePlanTitle from '../../components/write/WritePlanTitle';
+import { getNight, splitDate, getToday } from '../../util/date';
 
 const WritePlanContainer = () => {
     // title 플랜 입력 관련
     const [disclosure, setdisclosure] = useState(false);
-    const [startDate, setStartDate] = useState('20210310');
-    const [endDate, setEndDate] = useState('20210320');
+    const [startDate, setStartDate] = useState(getToday().join(''));
+    const [endDate, setEndDate] = useState(getToday().join(''));
     const [planTitle, setPlanTitle] = useState('지수님의 강릉');
 
     // title 금액관련
@@ -19,7 +20,12 @@ const WritePlanContainer = () => {
         type5: 0,
         type6: 0,
     });
-
+    // posts
+    const [sY, sM, sD] = splitDate(startDate);
+    const [eY, eM, eD] = splitDate(endDate);
+    const night = getNight(`${sY}-${sM}-${sD}`, `${eY}-${eM}-${eD}`);
+    const [plans, setPlans] = useState([new Array(night + 1).fill([])]);
+    console.log(new Date('2021-05-32'));
     // bookmark
     const [bookmarks, setBookmarks] = useState([
         {
@@ -104,7 +110,7 @@ const WritePlanContainer = () => {
                 planTitle={planTitle}
                 account={account}
             />
-            <PlanList />
+            <PlanList plans={plans} endDate={endDate} startDate={startDate} />
             <BookMarks cards={bookmarks} />
         </>
     );
