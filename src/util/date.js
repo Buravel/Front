@@ -20,3 +20,14 @@ export const getToday = () => {
     const date = today.getDate(); // 날짜
     return [year, month, date];
 };
+export const getNextDate = (_date) => {
+    const date = new Date(_date);
+    date.setDate(date.getDate() + 1);
+
+    const y = date.getFullYear(); // 년도
+    let m = date.getMonth() + 1; // 월
+    m = m < 10 ? `0${m}` : '' + m; // 월
+    const d = date.getDate(); // 날짜
+
+    return [y, m, d];
+};

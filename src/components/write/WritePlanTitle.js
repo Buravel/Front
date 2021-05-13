@@ -1,11 +1,10 @@
 import React from 'react';
 import './writePlanTitle.scss';
 import { getNight, splitDate } from '../../util/date';
-const PlanInfo = ({ startDate, endDate, planTitle }) => {
+const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
     const [sY, sM, sD] = splitDate(startDate);
     const [eY, eM, eD] = splitDate(endDate);
     const night = getNight(`${sY}-${sM}-${sD}`, `${eY}-${eM}-${eD}`);
-    console.log(night);
     return (
         <div className="plan-info">
             <p className="plan-date">
@@ -14,7 +13,7 @@ const PlanInfo = ({ startDate, endDate, planTitle }) => {
                 {parseInt(night + 1)}일)
             </p>
             <span className="plan-title">{planTitle}</span>
-            <button>
+            <button onClick={openModal}>
                 <img src="./images/write/modify.png" alt="" />
             </button>
         </div>
@@ -71,6 +70,7 @@ const WritePlanTitle = ({
     endDate,
     planTitle,
     account,
+    openModal,
 }) => {
     return (
         <>
@@ -79,6 +79,7 @@ const WritePlanTitle = ({
                     startDate={startDate}
                     endDate={endDate}
                     planTitle={planTitle}
+                    openModal={openModal}
                 />
                 <PlanRemote account={account} />
             </div>

@@ -2,7 +2,7 @@
     position: fixed;
     width : 1280px;
     transition-duration: 0.5s;
-    
+    z-index: 30;
     .bookmark-arrow{
         cursor: pointer;
         width: 225px;
@@ -14,7 +14,7 @@
         border: solid 1px #0070ef;
         border-bottom: solid 1px white;
         position: relative;
-        z-index: 99;
+        z-index: 30;
         margin-bottom:-2px;
     }
     .bookmark-activation-color {
@@ -34,9 +34,9 @@
         border-top-right-radius: 20px;
         background-color: #ffffff;
         position: relative;
-        z-index: 98;
+        z-index: 29;
         p {
-        
+            margin-top:10px;
             font-size: 16px;
             font-weight: bold;
             text-align: center;
@@ -47,7 +47,7 @@
             overflow-x: hidden;
             height: 300px;
             width: 1235px;
-            margin: 0 0 0 43px;
+            margin: 17px 0 0 43px;
         }
     }
 }
@@ -56,5 +56,12 @@
 }
 .bookmark-deactivation {
     bottom:-370px;
-    
+    background: #f5f5f5;
+}
+.bookmark-on {
+    height: 400px;
+}
+.bookmark-off {
+    height: 50px;
+
 }

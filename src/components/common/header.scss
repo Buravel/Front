@@ -3,11 +3,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
+    height: 77px;
     width: 100%;
     border: solid 1px #dfdfdf;
     background : #ffffff;
-    z-index: 99;
+    z-index: 40;
     .search-container {
         display: flex;
         margin-left : 45px;
@@ -32,7 +32,7 @@
             height: 31px;
             border: solid 1px #b5b5b5;
             color: #535353;
-            font-size: 16px;
+            font-family: "Noto Sans KR";
         }
         .profile-ficture{
             width: 38px;
@@ -49,5 +49,5 @@
 
 }
 .spacer {
-    height: 10vh;
+    height: 77px;
 }
