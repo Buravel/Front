@@ -8,7 +8,7 @@ import MyPage from "./pages/MyPage";
 import Plan from "./pages/Plan";
 import SearchPage from "./pages/SearchPage";
 import WritePlan from "./pages/WritePlan";
-
+//login 추가
 const App = () => {
   return (
     <>
