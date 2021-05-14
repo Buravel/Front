@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './planList.scss';
 import PostList from './PostList';
-const PlanList = ({ plans, addDate, openModal }) => {
+const PlanList = ({ plans, onClickAddBtn, onClickAddPost }) => {
     return (
         <div className="plan-list-container">
             {plans.map((plan, idx) => (
@@ -9,10 +9,10 @@ const PlanList = ({ plans, addDate, openModal }) => {
                     key={`plan${idx}`}
                     plan={plan}
                     day={idx + 1}
-                    openModal={openModal}
+                    onClickAddPost={onClickAddPost}
                 />
             ))}
-            <div className="add-btn" onClick={addDate}>
+            <div className="add-btn" onClick={onClickAddBtn}>
                 <span className="icon">+</span>
                 <span className="text">추가하기</span>
             </div>

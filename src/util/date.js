@@ -21,7 +21,7 @@ export const getToday = () => {
     return [year, month, date];
 };
 export const getNextDate = (_date) => {
-    const date = new Date(_date);
+    const date = new Date(splitDate(_date).join('-'));
     date.setDate(date.getDate() + 1);
 
     const y = date.getFullYear(); // 년도

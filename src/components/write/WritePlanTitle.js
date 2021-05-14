@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './writePlanTitle.scss';
 import { getNight, splitDate } from '../../util/date';
+import TitleModal from './TitleModal';
 const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
     const [sY, sM, sD] = splitDate(startDate);
     const [eY, eM, eD] = splitDate(endDate);
@@ -70,8 +71,13 @@ const WritePlanTitle = ({
     endDate,
     planTitle,
     account,
-    openModal,
+    onChangePlanInfo,
 }) => {
+    // modal 관련
+    const [titleVisible, setTitleVisible] = useState(false);
+    const openTitleModal = () => setTitleVisible(true);
+    const closeTitleModal = () => setTitleVisible(false);
+
     return (
         <>
             <div className="title-container">
@@ -79,11 +85,20 @@ const WritePlanTitle = ({
                     startDate={startDate}
                     endDate={endDate}
                     planTitle={planTitle}
-                    openModal={openModal}
+                    openModal={openTitleModal}
                 />
                 <PlanRemote account={account} />
             </div>
             <div className="title-block"></div>
+            {titleVisible && (
+                <TitleModal
+                    closeModal={closeTitleModal}
+                    disclosure={disclosure}
+                    startDate={startDate}
+                    planTitle={planTitle}
+                    onChangePlanInfo={onChangePlanInfo}
+                />
+            )}
         </>
     );
 };

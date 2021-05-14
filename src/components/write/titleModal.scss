@@ -71,26 +71,50 @@
             .modal-public-input {
                 display: inline-flex;
                 align-items: center;
-                .modal-public-btn {
+                .modal-public-box {
                     width: 60px;
                     height: 30px;
-                    border : 3px solid #b5b5b5;
                     display: inline-flex;
-                    border-radius: 20px;
                     align-items: center;
+                    border-radius: 20px;
+                    cursor: pointer;
                     .modal-public-circle {
+                        transition: 0.1s;
                         width: 16px;
                         height: 16px;
                         border-radius: 16px;
+                    }
+                }
+                .modal-public-btn {
+                    border : 3px solid #b5b5b5;
+                    .modal-public-circle { 
                         background-color: #0070ef;      
                         margin-left:5px;
-                        cursor: pointer;
+                    }
+                }
+                .modal-private-btn {
+                    border : 3px solid #b5b5b5;
+                    background-color: #b5b5b5;     
+                    .modal-public-circle { 
+                        background-color: white;      
+                        margin-left:33px;
                     }
                 }
                 .modal-public-icon {
                     margin-left: 10px;
                     font-size: 14px;
-                    color:#0070ef;
+                    display: flex;
+                    align-items: center;
+                    span {
+                        width: 70px;
+                        padding-left:5px;
+                    }
+                    .blue {
+                        color: #0070ef;
+                    } 
+                    .gray {
+                        color:#535353;
+                    }   
                 }
             }
             

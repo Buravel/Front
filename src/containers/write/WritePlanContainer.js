@@ -1,27 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import TitleModal from '../../components/write/TitleModal';
 import BookMarks from '../../components/write/BookMarks';
 import PlanList from '../../components/write/PlanList';
 import WritePlanTitle from '../../components/write/WritePlanTitle';
-import { getNight, splitDate, getToday, getNextDate } from '../../util/date';
-import PostModal from '../../components/write/PostModal';
 import Map from '../../components/common/Map';
+import { useDispatch, useSelector } from 'react-redux';
+import { addDate, changePlanInfo, addPost } from '../../modules/write';
 
 const WritePlanContainer = () => {
+    const dispatch = useDispatch();
+
     // title 플랜 입력 관련
-    const [disclosure, setdisclosure] = useState(false);
-    const [startDate, setStartDate] = useState(getToday().join(''));
-    const [endDate, setEndDate] = useState(getToday().join(''));
-    const [planTitle, setPlanTitle] = useState('강릉-해돋이보자!');
-    const [titleVisible, setTitleVisible] = useState(false);
-    const [postVisible, setPostVisible] = useState(false);
+    const planTitle = useSelector((state) => state.write.planTitle);
+    const startDate = useSelector((state) => state.write.startDate);
+    const endDate = useSelector((state) => state.write.endDate);
+    const disclosure = useSelector((state) => state.write.disclosure);
 
-    const openTitleModal = () => setTitleVisible(true);
-    const closeTitleModal = () => setTitleVisible(false);
+    // plan 정보 저장
+    const onChangePlanInfo = ({ planTitle, startDate, disclosure, hashTags }) =>
+        dispatch(
+            changePlanInfo({ planTitle, startDate, disclosure, hashTags }),
+        );
 
-    const openPostModal = (n) => setPostVisible(true);
-    const closePostModal = () => setPostVisible(false);
+    // plans 관련
+    const plans = useSelector((state) => state.write.plans);
+    const onClickAddBtn = () => dispatch(addDate());
+    const onClickAddPost = (param) => dispatch(addPost(param));
 
+    // bookmarks 관련
+    const bookmarks = useSelector((state) => state.write.bookmarks);
     // title 금액관련
     const [account, setAccount] = useState({
         type1: 0,
@@ -32,93 +38,6 @@ const WritePlanContainer = () => {
         type6: 0,
     });
 
-    // posts
-    const [sY, sM, sD] = splitDate(startDate);
-    const [eY, eM, eD] = splitDate(endDate);
-    const night = getNight(`${sY}-${sM}-${sD}`, `${eY}-${eM}-${eD}`);
-    const [plans, setPlans] = useState([new Array(night + 1).fill([])]);
-    const addDate = () => {
-        setEndDate(getNextDate(`${eY}-${eM}-${eD}`).join(''));
-        setPlans([...plans, []]);
-    };
-    // bookmark
-    const [bookmarks, setBookmarks] = useState([
-        {
-            id: 0,
-            postTitle: '[루프트한자] 이코노미',
-            price: 1200000,
-            postImage: null,
-            category: '비행기',
-            rating: 4.5,
-            lat: 0,
-            lng: 0,
-            memo: '111',
-            tags: ['ktx', 'ktx', 'ktx'],
-        },
-        {
-            id: 1,
-            postTitle: '[루프트한자] 이코노미',
-            price: 1200000,
-            postImage: null,
-            category: '비행기',
-            rating: 4.5,
-            lat: 0,
-            lng: 0,
-            memo: '111',
-            tags: ['ktx', 'ktx', 'ktx'],
-        },
-        {
-            id: 2,
-            postTitle: '[루프트한자] 이코노미',
-            price: 1200000,
-            postImage: null,
-            category: '비행기',
-            rating: 4.5,
-            lat: 0,
-            lng: 0,
-            memo: '111',
-            tags: ['ktx', 'ktx', 'ktx'],
-        },
-        {
-            id: 3,
-            postTitle: '[루프트한자] 이코노미',
-            price: 1200000,
-            postImage: null,
-            category: '비행기',
-            rating: 4.5,
-            lat: 0,
-            lng: 0,
-            memo: '111',
-            tags: ['ktx', 'ktx', 'ktx'],
-        },
-        {
-            id: 4,
-            postTitle: '[루프트한자] 이코노미',
-            price: 1200000,
-            postImage: null,
-            category: '비행기',
-            rating: 4.5,
-            lat: 0,
-            lng: 0,
-            memo: '111',
-            tags: ['ktx', 'ktx', 'ktx'],
-        },
-        {
-            id: 5,
-            postTitle: '[루프트한자] 이코노미',
-            price: 1200000,
-            postImage: null,
-            category: '비행기',
-            rating: 4.5,
-            lat: 0,
-            lng: 0,
-            memo: '111',
-            tags: ['ktx', 'ktx', 'ktx'],
-        },
-    ]);
-    //map
-    const [mapVisible, setMapVisible] = useState(false);
-    const onMap = () => setMapVisible(!mapVisible);
     return (
         <>
             <WritePlanTitle
@@ -127,19 +46,17 @@ const WritePlanContainer = () => {
                 endDate={endDate}
                 planTitle={planTitle}
                 account={account}
-                openModal={openTitleModal}
+                onChangePlanInfo={onChangePlanInfo}
             />
             <PlanList
                 plans={plans}
                 endDate={endDate}
                 startDate={startDate}
-                addDate={addDate}
-                openModal={openPostModal}
+                onClickAddBtn={onClickAddBtn}
+                onClickAddPost={onClickAddPost}
             />
             <BookMarks cards={bookmarks} />
-            <Map visible={mapVisible} onMap={onMap} />
-            <TitleModal visible={titleVisible} closeModal={closeTitleModal} />
-            <PostModal visible={postVisible} closeModal={closePostModal} />
+            <Map />
         </>
     );
 };

@@ -26,7 +26,10 @@ const divStyle = {
     fontSize: '0.6rem',
 };
 
-const Map = ({ visible, onMap }) => {
+const Map = () => {
+    const [visible, setVisible] = useState(false);
+    const onMap = () => setVisible(!visible);
+
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: process.env.REACT_APP_MAP_API_KEY,
@@ -46,7 +49,7 @@ const Map = ({ visible, onMap }) => {
     };
 
     useEffect(() => {
-        console.log(selectPlace);
+        // console.log(selectPlace);
     }, [selectPlace]);
 
     return isLoaded && visible ? (

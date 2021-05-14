@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './postModal.scss';
 import SearchPlace from './SearchPlace';
-const PostModal = ({ visible, closeModal }) => {
-    if (!visible) return null;
+const PostModal = ({ closeModal, onSave }) => {
+    const [title1, setTitle1] = useState('');
+    const [title2, setTitle2] = useState('');
+    const [price, setPrice] = useState('');
+    const [location, setLocation] = useState({
+        name: '',
+        lng: '',
+        lat: '',
+    });
+    const [rating, setRating] = useState('');
+    const [hashTags, setHashTags] = useState([]);
+    const [memo, setMemo] = useState('');
+
+    const onClickSave = () => {
+        onSave({ title1, title2, price, location, rating, hashTags, memo });
+        closeModal();
+    };
     return (
         <div className="post-modal-container">
             <div className="modal-white-box">
@@ -18,11 +33,19 @@ const PostModal = ({ visible, closeModal }) => {
                             type="text"
                             placeholder="ex) KTX"
                             className="input-gray"
+                            value={title1}
+                            onChange={(e) => {
+                                setTitle1(e.target.value);
+                            }}
                         />
                         <input
                             type="text"
                             placeholder="ex) 일반실"
                             className="input-gray"
+                            value={title2}
+                            onChange={(e) => {
+                                setTitle2(e.target.value);
+                            }}
                         />
                     </label>
                     <label>
@@ -30,9 +53,13 @@ const PostModal = ({ visible, closeModal }) => {
                             <span className="modal-star">*</span>비용
                         </span>
                         <input
-                            type="text"
+                            type="number"
                             className="input-blue input-price"
                             placeholder="53,000"
+                            value={price}
+                            onChange={(e) => {
+                                setPrice(e.target.value);
+                            }}
                         />
                         원
                     </label>
@@ -41,9 +68,6 @@ const PostModal = ({ visible, closeModal }) => {
                             <span className="modal-star">*</span>위치
                         </span>
                         <SearchPlace />
-                        {/* <button>
-                            <img src="./images/write/search.png" alt="search" />
-                        </button> */}
                     </label>
                     <label>
                         <span>
@@ -53,6 +77,10 @@ const PostModal = ({ visible, closeModal }) => {
                             type="text"
                             placeholder=""
                             className="input-blue input-location"
+                            value={rating}
+                            onChange={(e) => {
+                                setRating(e.target.value);
+                            }}
                         />
                     </label>
                     <label>
@@ -61,12 +89,21 @@ const PostModal = ({ visible, closeModal }) => {
                     </label>
                     <label>
                         <span>메모</span>
-                        <input type="textarea" cols="20" />
+                        <input
+                            type="textarea"
+                            cols="20"
+                            value={memo}
+                            onChange={(e) => {
+                                setMemo(e.target.value);
+                            }}
+                        />
                     </label>
                 </div>
             </div>
             <div className="modal-btn-container">
-                <button className="modal-save">저장</button>
+                <button className="modal-save" onClick={onClickSave}>
+                    저장
+                </button>
                 <button className="modal-cancel" onClick={closeModal}>
                     취소
                 </button>
