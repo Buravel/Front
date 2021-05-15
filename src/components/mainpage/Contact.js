@@ -31,13 +31,14 @@ export default class Contact extends React.Component {
         //         return (<ContactInfo contact={contact} key={i}/>);
         //     });
         // };
+        //cm.없어도 된다고 하심
 
         return (
             <div className="search-container">
                 {/* <h1>Contacts</h1> */}
                 <button>
                         <img
-                            src="./search_button.png"
+                            src="/images/mainpage/search_icon.png"
                             alt="search"
                         />
                 </button>

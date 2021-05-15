@@ -6,7 +6,7 @@ import Mainpage from './Mainpage'
 import Product from './Product'
 import Search from './Search'
 import SelectBox from './SelectBox'
-import Demo from './demo';
+import Demo from './Selectbox_demo';
 import Contact from './Contact'
 
 import Mainpage_afterlogin from "./Mainpage_afterlogin";

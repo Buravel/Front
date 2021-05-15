@@ -20,7 +20,7 @@ class selectBox extends React.Component {
 
   handleChange(event) {
     this.setState({value: event.target.value});
-  }
+  } 
 
   handleSubmit(event) {
     alert('확인용' + this.state.value);
@@ -38,7 +38,7 @@ class selectBox extends React.Component {
             <option value="mango">Mango</option>
           </select>
         </label>
-        <input type="submit" value="Submit" />
+        {/* <input type="submit" value="Submit" /> */}
       </form>
     );
   }

@@ -7,7 +7,7 @@ import Advertise from './Advertise'
 import SelectBox from './SelectBox'
 import { Carousel, Navbar } from 'react-bootstrap'
 import Data from './Data'
-import Demo from './demo';
+import Demo from './Selectbox_demo';
 import axios from 'axios';
 
 const Topbar = () => {

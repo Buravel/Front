@@ -7,3 +7,5 @@ export default class ContactInfo extends React.Component {
         )
     }
 }
+
+ //cm.없어도 된다고 하심(안씀.)
