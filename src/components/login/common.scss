@@ -1,0 +1,219 @@
+$darkblue: #2b71f3;
+$blue: #66a7ff;
+$darkgray: #535353;
+$gray: #c1c1c1;
+$lightgray: #d9d9d9;
+$lightergray: #f5f5f5;
+
+.full-screen {
+  position: absolute;
+  display: flex;
+  background-color: $lightergray;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  justify-content: center;
+  height: 100vh;
+}
+
+.white-screen01 {
+  display: flex;
+  background-color: white;
+  width: 82.9vw;
+  height: 110%;
+  margin: 14% 3% 14% 3%;
+}
+
+.white-screen02 {
+  display: grid;
+  background-color: white;
+  width: 82.9vw;
+  height: 110%;
+  margin: 14% 3% 14% 3%;
+}
+
+a {
+  height: 0;
+}
+
+.logo {
+  width: 8.9vw;
+  display: inline-block;
+}
+
+.logo.style01 {
+  margin: 1.9vw 0 0 1.7vw;
+}
+
+.logo.style02 {
+  margin: 3vw 37.6vw;
+}
+
+.logo2 {
+  width: 6.8vw;
+  margin-top: 10.1vw;
+  margin-bottom: 6.4vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo3 {
+  width: 6.8vw;
+  margin: 9.3vw 38.1vw 4.2vw;
+}
+
+.basicImage {
+  width: 32.3vw;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 200;
+  color: $darkgray;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.3vw;
+}
+
+h2 {
+  font-size: 2.2vw;
+}
+
+h3 {
+  font-size: 1.8vw;
+}
+
+h4 {
+  font-size: 1.3vw;
+}
+
+h5 {
+  font-size: 1vw;
+}
+
+h6 {
+  .style01 {
+    font-size: 1.1vw;
+  }
+  .style02 {
+    font-size: 0.8vw;
+  }
+}
+
+.button01 {
+  width: 26.8vw;
+  height: 7vh;
+  border: solid $blue;
+  border-radius: 2.1vw;
+  font-size: 1.3vw;
+  background-color: $darkblue;
+  color: white;
+}
+
+.button01.style01 {
+  margin-top: 2.1vw;
+}
+
+.button01.style02 {
+  margin-bottom: 1.1vw;
+}
+
+.button01.style03 {
+  width: 14.9vw;
+  background-color: $darkblue;
+  border: none;
+
+  margin-top: 3vw;
+}
+
+.button01.style04 {
+  width: 14.9vw;
+  background-color: $lightgray;
+  border: none;
+  color: $darkgray;
+  margin-top: 3vw;
+}
+
+.button01.style05 {
+  margin-top: 2.4vw;
+}
+
+.button02 {
+  width: 8.8vw;
+  height: 3.1vw;
+  border: none;
+  border-radius: 0.5vw;
+
+  font-size: 1.3vw;
+
+  background-color: $darkblue;
+  margin-left: 0.9vw;
+  margin-right: 0.9vw;
+}
+
+.button02.style01 {
+  background-color: $darkblue;
+  color: white;
+}
+
+.button02.style02 {
+  background-color: $gray;
+  color: $darkgray;
+}
+
+.button03 {
+  color: white;
+  font-size: 1.3vw;
+  border: none;
+  margin-left: 0.7vw;
+  margin-right: 0.7vw;
+}
+
+.button03.style01 {
+  width: 10vw;
+  height: 3.1vw;
+  background-color: $darkblue;
+  border-radius: 0.5vw;
+}
+
+.button03.style02 {
+  width: 17.4vw;
+  height: 3.1vw;
+
+  border-radius: 0.5vw;
+  border: 0.2vw solid $darkblue;
+  color: $darkblue;
+}
+
+.inputBox {
+  .inputCell {
+    width: 26.8vw;
+    height: 3.7vw;
+    outline: none;
+    border: none;
+    border-bottom: 0.2vw solid $gray;
+    margin-bottom: 0.7vw;
+  }
+
+  .inputCell:hover {
+    border-bottom: 0.2vw solid $blue;
+  }
+}
+
+.buttonsection {
+  margin: 0vw;
+  margin: 2.8vw 26.3vw 9vw 26.4vw;
+}
+
+.buttonsection02 {
+  margin: 0vw;
+  margin: 3.6vw 30.8vw 7.8vw 30.8vw;
+}
