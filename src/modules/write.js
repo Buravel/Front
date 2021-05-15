@@ -9,11 +9,11 @@ const ADD_POST = 'write/ADD_POST';
 //action 생성
 export const changePlanInfo = createAction(
     CHANGE_PLAN_INFO,
-    ({ planTitle, startDate, disclosure, hashTags }) => ({
+    ({ planTitle, startDate, disclosure, hashTag }) => ({
         planTitle,
         startDate,
         disclosure,
-        hashTags,
+        hashTag,
     }),
 );
 export const addDate = createAction(ADD_DATE);
@@ -23,7 +23,7 @@ const initialState = {
     startDate: getToday().join(''),
     endDate: getToday().join(''),
     disclosure: false,
-    hashTags: [],
+    hashTag: '',
     plans: [[]],
     bookmarks: [
         {
@@ -135,13 +135,13 @@ const write = handleActions(
         }),
         [CHANGE_PLAN_INFO]: (
             state,
-            { payload: { planTitle, startDate, disclosure, hashTags } },
+            { payload: { planTitle, startDate, disclosure, hashTag } },
         ) => ({
             ...state,
             planTitle,
             startDate,
             disclosure,
-            hashTags,
+            hashTag,
         }),
         [ADD_POST]: (
             state,

@@ -2,34 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { splitDate } from '../../util/date';
 import './titleModal.scss';
 const TitleModal = ({
-    visible,
     closeModal,
     disclosure,
     startDate,
     planTitle,
+    hashTag,
     onChangePlanInfo,
 }) => {
     const [title, setTitle] = useState(planTitle);
     const [date, setDate] = useState(startDate);
     const [closure, setClosure] = useState(disclosure);
-    const [hash, setHash] = useState([]);
+    const [hash, setHash] = useState(hashTag);
 
-    // useEffect(() => {
-    //     if (visible) {
-    //         setTitle(planTitle);
-    //         setDate(startDate);
-    //         setClosure(disclosure);
-    //         setHash([]);
-    //     }
-    // }, [visible, planTitle, startDate, disclosure]);
-
+    const [inputHash, setInputHash] = useState(false);
+    const [textHash, setTextHash] = useState(hashTag);
     // 저장
     const onChange = () => {
         onChangePlanInfo({
             planTitle: title,
             startDate: date,
             disclosure: closure,
-            hashTags: hash,
+            hashTag: hash,
         });
         closeModal();
     };
@@ -37,7 +30,15 @@ const TitleModal = ({
     const onChangeTitle = (e) => setTitle(e.target.value);
     const onChangeDate = (e) => setDate(e.target.value.split('-').join(''));
     const onChangeClosure = () => setClosure(!closure);
-    // if (!visible) return null;
+
+    const onClickAddHashBtn = () => setInputHash(true);
+
+    const onClickAddHash = () => {
+        setHash(textHash);
+        setTextHash('');
+        setInputHash(false);
+    };
+
     return (
         <div className="title-modal-container">
             <div className="modal-white-box">
@@ -94,7 +95,44 @@ const TitleModal = ({
                     </label>
                     <label>
                         <span>해시태그</span>
-                        <button>+</button>
+                        {inputHash ? (
+                            <>
+                                <input
+                                    type="text"
+                                    value={textHash}
+                                    onChange={(e) =>
+                                        setTextHash(e.target.value)
+                                    }
+                                />
+                                <div
+                                    className="add-hash"
+                                    onClick={onClickAddHash}
+                                >
+                                    <img
+                                        src="./images/write/check.png"
+                                        alt="check"
+                                    />
+                                </div>
+                            </>
+                        ) : hash.length === 0 ? (
+                            <div
+                                className="add-hash-btn"
+                                onClick={onClickAddHashBtn}
+                            >
+                                +
+                            </div>
+                        ) : (
+                            <div className="hash-btn-close">
+                                #{hash}
+                                <span
+                                    onClick={() => {
+                                        setHash('');
+                                    }}
+                                >
+                                    ×
+                                </span>
+                            </div>
+                        )}
                     </label>
                 </div>
             </div>

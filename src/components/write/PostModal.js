@@ -14,6 +14,10 @@ const PostModal = ({ closeModal, onSave }) => {
     const [hashTags, setHashTags] = useState([]);
     const [memo, setMemo] = useState('');
 
+    const [inputHash, setInputHash] = useState(false);
+
+    const [textHash, setTextHash] = useState('');
+
     const onClickSave = () => {
         onSave({ title1, title2, price, location, rating, hashTags, memo });
         closeModal();
@@ -21,6 +25,14 @@ const PostModal = ({ closeModal, onSave }) => {
     const addPlace = ({ name, lng, lat }) => {
         setLocation({ name, lng, lat });
     };
+    const onClickAddHashBtn = () => setInputHash(true);
+
+    const onClickAddHash = () => {
+        setHashTags([...hashTags, textHash]);
+        setTextHash('');
+        setInputHash(false);
+    };
+
     return (
         <div className="post-modal-container">
             <div className="modal-white-box">
@@ -88,7 +100,55 @@ const PostModal = ({ closeModal, onSave }) => {
                     </label>
                     <label>
                         <span className="modal-hash-label">해시태그</span>
-                        <button className="modal-hashtag">+</button>
+                        {inputHash ? (
+                            <>
+                                <input
+                                    type="text"
+                                    value={textHash}
+                                    className="input-gray"
+                                    onChange={(e) =>
+                                        setTextHash(e.target.value)
+                                    }
+                                />
+                                <div
+                                    className="add-hash"
+                                    onClick={onClickAddHash}
+                                >
+                                    <img
+                                        src="./images/write/check.png"
+                                        alt="check"
+                                    />
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {hashTags.length < 3 ? (
+                                    <div
+                                        className="add-hash-btn"
+                                        onClick={onClickAddHashBtn}
+                                    >
+                                        +
+                                    </div>
+                                ) : null}
+                                {hashTags?.map((hashTag, idx) => (
+                                    <div className="hash-btn-close" key={idx}>
+                                        <span className="hash-text">{`#${hashTag}`}</span>
+                                        <span
+                                            className="hash-close"
+                                            onClick={() => {
+                                                setHashTags(
+                                                    hashTags.filter(
+                                                        (hash, i) => idx !== i,
+                                                    ),
+                                                );
+                                            }}
+                                        >
+                                            ×
+                                        </span>
+                                    </div>
+                                ))}
+                            </>
+                        )}
                     </label>
                     <label>
                         <span>메모</span>

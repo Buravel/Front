@@ -32,6 +32,7 @@
                 display: flex;
                 margin-bottom: 13px;
                 align-items: center;
+                height: 34px;
                 span {
                     padding-left : 22px;
                     display: inline-block;
@@ -57,16 +58,43 @@
                     background-color: #e1efff;
                     padding: 3.5px 13px;
                 }
-                button {
-                    width:21px;
-                    height:21px;
-                    border:none;
+                .add-hash-btn {
+                    width: 21px;
+                    height: 21px;
+                    border: none;
                     border-radius: 21px;
-                    font-size:18px;
+                    font-size: 18px;
                     background-color: #eeeeee;
                     line-height: 0;
-                    color : #535353;
+                    color: #535353;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
                 }
+                .hash-btn-close {
+                    padding: 0 10px;
+                    height: 21px;
+                    border: none;
+                    border-radius: 21px;
+                    font-size: 12px;
+                    background-color: #eeeeee;
+                    line-height: 0;
+                    color: #535353;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    span {
+                        width: 10px;
+                        padding: 0 10px;
+                        color:#b5b5b5;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .add-hash {
+                margin-left : -30px;
+                cursor: pointer;
             }
             .modal-public-input {
                 display: inline-flex;
@@ -117,7 +145,19 @@
                     }   
                 }
             }
-            
+            .modal-hash-label {
+                width: 100px;
+            }
+            .modal-hashtag {
+                width:21px;
+                height:21px;
+                border:none;
+                border-radius: 21px;
+                font-size:18px;
+                background-color: #eeeeee;
+                line-height: 0;
+                color : #535353;
+            }
         }
     }
     .modal-btn-container {

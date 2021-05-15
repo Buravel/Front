@@ -70,6 +70,7 @@ const WritePlanTitle = ({
     startDate,
     endDate,
     planTitle,
+    hashTag,
     account,
     onChangePlanInfo,
 }) => {
@@ -96,6 +97,7 @@ const WritePlanTitle = ({
                     disclosure={disclosure}
                     startDate={startDate}
                     planTitle={planTitle}
+                    hashTag={hashTag}
                     onChangePlanInfo={onChangePlanInfo}
                 />
             )}

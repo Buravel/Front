@@ -14,12 +14,11 @@ const WritePlanContainer = () => {
     const startDate = useSelector((state) => state.write.startDate);
     const endDate = useSelector((state) => state.write.endDate);
     const disclosure = useSelector((state) => state.write.disclosure);
+    const hashTag = useSelector((state) => state.write.hashTag);
 
     // plan 정보 저장
-    const onChangePlanInfo = ({ planTitle, startDate, disclosure, hashTags }) =>
-        dispatch(
-            changePlanInfo({ planTitle, startDate, disclosure, hashTags }),
-        );
+    const onChangePlanInfo = ({ planTitle, startDate, disclosure, hashTag }) =>
+        dispatch(changePlanInfo({ planTitle, startDate, disclosure, hashTag }));
 
     // plans 관련
     const plans = useSelector((state) => state.write.plans);
@@ -45,6 +44,7 @@ const WritePlanContainer = () => {
                 startDate={startDate}
                 endDate={endDate}
                 planTitle={planTitle}
+                hashTag={hashTag}
                 account={account}
                 onChangePlanInfo={onChangePlanInfo}
             />
