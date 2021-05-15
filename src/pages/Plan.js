@@ -1,12 +1,14 @@
-import React from 'react';
-import Responsive from '../components/common/Responsive';
-
+import React from "react";
+import Responsive from "../components/common/Responsive";
+import UserPostInfo from "../components/plan/UserPostInfo";
+import OtherUserpost from "../components/plan/OtherUserpost";
 const Plan = () => {
-    return (
-        <Responsive>
-            <div>plan</div>
-        </Responsive>
-    );
+  return (
+    <Responsive>
+      <UserPostInfo UserName="사과" date="8" />
+      <OtherUserpost />
+    </Responsive>
+  );
 };
 
 export default Plan;

@@ -1,0 +1,722 @@
+*,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "NotoSansKR";
+  src: url(./NotoSansKR.otf);
+}
+
+.MainBody {
+  width: 1280px;
+  height: 959px;
+  position: relative;
+  background-color: #f5f5f5;
+}
+
+.mainTop {
+  width: 1278px;
+  height: 79px;
+  border: solid 1px #dfdfdf;
+  background-color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.buravelIcon {
+  width: 128.1px;
+  height: 31.2px;
+  margin: 24.8px 577.4px 23px 574.4px;
+  object-fit: contain;
+}
+
+.totalBuget {
+  position: absolute;
+  width: 361px;
+  height: 68px;
+  margin: 78px 42px 799px 877px;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.airplane {
+  position: absolute;
+  width: 15.2px;
+  height: 13.5px;
+  margin: 4.1px 5.8px 8.3px 1.5px;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.postPicture {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  position: relative;
+  width: 200px;
+  height: 185px;
+
+  /* 위치 부분은 n일차 박스 전체를 만들고 나서 지정해 줄 것. */
+  background-color: #bfbfbf;
+}
+
+.postContent {
+  position: relative;
+  width: 200px;
+  height: 93px;
+}
+
+.hashTagLine {
+  display: flex;
+  overflow-x: hidden;
+  margin-left: 9px;
+  position: absolute;
+  top: 61px;
+  width: 191px;
+  height: 21px;
+}
+
+.postHashTag {
+  margin-right: 10px;
+  white-space: nowrap;
+  width: auto;
+  height: 21px;
+  top: 61px;
+  left: 9px;
+  font-size: 13px;
+  padding: 0 12px 2px 9px;
+  border-radius: 11px;
+  background-color: #eeeeee;
+}
+.postName {
+  position: absolute;
+  top: 7.8px;
+  left: 9px;
+  width: 121px;
+  height: 18px;
+  font-family: NotoSansKR;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.rateValue {
+  position: absolute;
+  width: 17px;
+  height: 18px;
+  top: 7.8px;
+  right: 10.4px;
+  font-family: NotoSansKR;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ef9f00;
+}
+
+.money {
+  position: absolute;
+  width: 32px;
+  height: 27px;
+  top: 25.2px;
+  left: 9px;
+  font-family: NotoSansKR;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0070ef;
+}
+
+.moneyName {
+  position: absolute;
+  width: 36px;
+  height: 20px;
+  top: 29.2px;
+  left: 44px;
+  font-family: NotoSansKR;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0070ef;
+}
+.postBookmarkIcon {
+  z-index: 1;
+  position: absolute;
+  top: 14.2px;
+  right: 16.6px;
+  width: 17px;
+  height: 22.7px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+}
+
+.postNameIcon {
+  position: absolute;
+  top: 12.2px;
+  left: 126px;
+  width: 13.2px;
+  height: 11.5px;
+}
+
+.postRateIcon {
+  position: absolute;
+  top: 13.2px;
+  right: 30.9px;
+  width: 9px;
+  height: 9px;
+  object-fit: fill;
+}
+
+.dayBackground {
+  position: relative;
+  width: 1280px;
+  height: 370.5px;
+  background-color: #f5f5f5;
+}
+.container {
+  display: flex;
+  position: absolute;
+  width: 1159px;
+  height: 291px;
+  top: 54px;
+  left: 121px;
+  overflow-x: hidden;
+}
+
+.dayCircle {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  z-index: 1;
+  margin: 0 0 0 95px;
+}
+.dayLine {
+  position: absolute;
+  width: 1px;
+  height: 370.5px;
+  top: 0px;
+  left: 105px;
+  margin: 0 39.5px 0 0;
+  background-color: #707070;
+}
+
+.dayName {
+  position: absolute;
+  margin: 0 0 0 145px;
+  font-family: NotoSansKR;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+  width: 64px;
+  height: 20px;
+
+  /* 폰트 사이즈가 14면 width가 34면 너무 적어서 글자가 뒤로 밀려나감. 확인부탁 */
+}
+
+.InfoBackground {
+  position: relative;
+  width: 1280px;
+  height: 196px;
+  background-color: #f5f5f5;
+}
+.UserName {
+  font-family: NotoSansKR;
+  font-size: 43px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0070ef;
+}
+.PostDay {
+  position: absolute;
+  top: 61px;
+  left: 147px;
+  width: 132px;
+  height: 20px;
+}
+
+.PostDate {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #535353;
+}
+.PostTerm {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 14px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #535353;
+}
+.UserPostName {
+  position: absolute;
+  top: 81px;
+  left: 145px;
+  width: 366px;
+  height: 64px;
+}
+.UserPlace {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 43px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.CostBackground {
+  position: absolute;
+  top: 78px;
+  right: 42px;
+  width: 361px;
+  height: 68px;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.TotalCost {
+  position: absolute;
+  top: 12px;
+  left: 25px;
+  width: 90px;
+  height: 45px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.TotalImg > img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.TotalMoney {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0070ef;
+}
+
+.TotalMoneyname {
+  width: 16px;
+  height: 20px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.TotalMoneylist {
+  width: 24px;
+  height: 20px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0070ef;
+}
+
+.TotalAirplane {
+  position: absolute;
+  top: 15.1px;
+  left: 150px;
+}
+
+.Totalfood {
+  position: absolute;
+  top: 15.1px;
+  left: 206px;
+}
+.Totalshopping {
+  position: absolute;
+  top: 14.1px;
+  left: 257px;
+}
+.Totalbus {
+  position: absolute;
+  top: 14.1px;
+  right: 38px;
+}
+.Totalbed {
+  position: absolute;
+  top: 43.5px;
+  left: 148.5px;
+}
+.TotalAirplaneCost {
+  position: absolute;
+  top: 11px;
+  left: 171px;
+}
+.TotalfoodCost {
+  position: absolute;
+  top: 11px;
+  left: 221px;
+}
+.TotalshoppingCost {
+  position: absolute;
+  top: 11px;
+  left: 273px;
+}
+.TotalbusCost {
+  position: absolute;
+  top: 11px;
+  left: 327px;
+}
+.TotalbedCost {
+  position: absolute;
+  top: 37px;
+  left: 171px;
+}
+
+.popupBackground {
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
+  /* 이 방법이 옳지 못한거 같은데 다른 방법이 없을지? */
+  z-index: 100;
+  background: #00000050;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.popupBox {
+  position: relative;
+  width: 367px;
+  margin: 0 auto;
+  height: 664px;
+  max-height: 90vh;
+  margin-top: calc(100vh - 50vh - 332px);
+  /* 이부분 다시 정리해서 수정할것 */
+  background: #fff;
+  box-shadow: 2px 2px 30px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  overflow: auto;
+}
+
+.exit {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.popupPicture {
+  position: relative;
+  width: 367px;
+  height: 335px;
+  background-color: #bfbfbf;
+}
+
+.popupList {
+  height: 20px;
+  font-family: NotoSansKR;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.popupTitle {
+  position: absolute;
+  left: 21.8px;
+  top: 361.4px;
+}
+.popupCost {
+  position: absolute;
+  left: 21.8px;
+  top: 407.5px;
+}
+.popupLocation {
+  position: absolute;
+  left: 21.8px;
+  top: 452.3px;
+}
+.popupvalue {
+  position: absolute;
+  left: 21.8px;
+  top: 497px;
+}
+.popupTag {
+  position: absolute;
+  left: 21.8px;
+  top: 541.8px;
+}
+.popupMemo {
+  position: absolute;
+  left: 21.8px;
+  top: 586.5px;
+}
+
+.popConTitle {
+  position: absolute;
+  left: 74.5px;
+  top: 356.7px;
+  width: 166px;
+  height: 27px;
+  font-family: NotoSansKR;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.popConIcon {
+  position: absolute;
+  left: 249px;
+  top: 362.5px;
+  width: 20.2px;
+  height: 17.5px;
+  object-fit: contain;
+}
+.popConCost {
+  position: absolute;
+  top: 403.8px;
+  left: 78.4px;
+  width: 31px;
+  height: 27px;
+  font-family: NotoSansKR;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+.popConCostname {
+  position: absolute;
+  top: 405.1px;
+  left: 115.9px;
+  height: 24px;
+  font-family: NotoSansKR;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+.popConLocation {
+  position: absolute;
+  top: 451.5px;
+  left: 77px;
+  width: 249px;
+  height: 24px;
+  font-family: NotoSansKR;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.popConLocationLine {
+  position: absolute;
+  top: 475.5px;
+  left: 76.5px;
+  width: 262px;
+  height: 0;
+  background-color: #0070ef;
+  border: solid 1px #0070ef;
+}
+
+.popConStar {
+  position: absolute;
+  top: 499.5px;
+  left: 73.8px;
+  width: 60px;
+  height: 30px;
+
+  /* 이미지이므로 나중에 다시 변경할 것 */
+}
+.popConTag {
+  position: absolute;
+  top: 541.2px;
+  left: 93.9px;
+  width: 86px;
+  height: 21px;
+  padding: 0 10px 2px 9px;
+  border-radius: 11px;
+  background-color: #eeeeee;
+}
+.popConTagText {
+  font-family: NotoSansKR;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.46;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+.popConMemo {
+  position: absolute;
+  top: 584.9px;
+  left: 78.4px;
+  width: 240px;
+  height: 48px;
+  font-family: NotoSansKR;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.postBox:hover {
+  position: relative;
+  top: -8px;
+}
+
+.postButton {
+  z-index: +1;
+  position: absolute;
+  width: 200px;
+  height: 278px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.postBox {
+  margin-top: 8px;
+  width: 200px;
+  height: 278px;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.connectDotFirst {
+  position: relative;
+  top: 137px;
+  padding-left: 1px;
+  padding-right: 1px;
+  height: 2px;
+  background-color: #b5b5b5;
+  margin: 0 0 0 7px;
+}
+.connectDotSecond {
+  position: relative;
+  top: 137px;
+  padding-left: 1px;
+  padding-right: 1px;
+  height: 2px;
+  background-color: #b5b5b5;
+  margin: 0 2px;
+}
+.connectDotLast {
+  position: relative;
+  top: 137px;
+  padding-left: 1px;
+  padding-right: 1px;
+  height: 2px;
+  background-color: #b5b5b5;
+  margin: 0 7px 0 0;
+}
+
+.hideDot {
+  z-index: +1;
+  position: absolute;
+  height: 278px;
+  width: 17px;
+  background-color: #f5f5f5;
+}
+
+.postPictureArray {
+  position: relative;
+  width: 200px;
+  height: 185px;
+  overflow: hidden;
+}
