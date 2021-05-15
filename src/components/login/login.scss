@@ -1,0 +1,28 @@
+$blue: #66a7ff;
+$gray: #c1c1c1;
+$darkblue: #2b71f3;
+
+.loginBlock {
+  margin-left: 8.3vw;
+  width: 26.8vw;
+  .h101 {
+    margin: 0;
+    margin-bottom: 5.2vw;
+    width: 26.8vw;
+  }
+
+  .inputBox {
+    .h501 {
+      text-align: left;
+      font-weight: 500;
+      margin: 0%;
+    }
+  }
+}
+
+.loginFooter {
+  text-align: center;
+  font-size: 1vw;
+  font-weight: 200;
+  width: 26.8vw;
+}
