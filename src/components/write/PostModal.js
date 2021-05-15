@@ -18,6 +18,9 @@ const PostModal = ({ closeModal, onSave }) => {
         onSave({ title1, title2, price, location, rating, hashTags, memo });
         closeModal();
     };
+    const addPlace = ({ name, lng, lat }) => {
+        setLocation({ name, lng, lat });
+    };
     return (
         <div className="post-modal-container">
             <div className="modal-white-box">
@@ -53,9 +56,9 @@ const PostModal = ({ closeModal, onSave }) => {
                             <span className="modal-star">*</span>비용
                         </span>
                         <input
-                            type="number"
+                            type="text"
                             className="input-blue input-price"
-                            placeholder="53,000"
+                            placeholder="50000"
                             value={price}
                             onChange={(e) => {
                                 setPrice(e.target.value);
@@ -67,7 +70,7 @@ const PostModal = ({ closeModal, onSave }) => {
                         <span>
                             <span className="modal-star">*</span>위치
                         </span>
-                        <SearchPlace />
+                        <SearchPlace addPlace={addPlace} />
                     </label>
                     <label>
                         <span>

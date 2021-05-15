@@ -19,10 +19,15 @@ const SearchPlace = compose(
                     refs.searchBox = ref;
                 },
                 onPlacesChanged: () => {
-                    const places = refs.searchBox.getPlaces();
-
-                    this.setState({
-                        places,
+                    const [place] = refs.searchBox.getPlaces();
+                    const {
+                        formatted_address,
+                        geometry: { location },
+                    } = place;
+                    this.props.addPlace({
+                        name: formatted_address,
+                        lat: location.lat(),
+                        lng: location.lng(),
                     });
                 },
             });
