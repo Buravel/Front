@@ -4,12 +4,14 @@ import Popup from "./Popup";
 import Appstyle from "./Appstyle.css";
 import Postconnect from "./Postconnect";
 import Icon from "./Icon";
+import BookmarkPopup from "./BookmarkPopup";
 
 function Post(props) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [isbmarkOpen, setBmarkisOpen] = useState(false);
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -31,6 +33,9 @@ function Post(props) {
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
+  const toggleBmarkPopup = () => {
+    setBmarkisOpen(!isbmarkOpen);
+  };
 
   function HashTagArray(a) {
     return posts.filter((k) => k.id === a);
@@ -42,12 +47,20 @@ function Post(props) {
   return (
     <>
       <Postconnect />
+
       <div className="postBox">
         <input type="button" onClick={togglePopup} className="postButton" />
+        <div className="bmark">
+          <input
+            type="button"
+            onClick={toggleBmarkPopup}
+            className="bmarkButton"
+          />
+          <Icon picture="bookmark" className="postBookmarkIcon" />
+        </div>
 
         <div className="postPicture">
           <img src={props.postPicture} className="postPictureArray" />
-          <Icon picture="bookmark" className="postBookmarkIcon" />
         </div>
         <div className="postContent">
           <span className="postName">
@@ -55,7 +68,7 @@ function Post(props) {
           </span>
           <Icon picture={props.nameIcon} className="postNameIcon" />
           <Icon picture="rating" className="postRateIcon" />
-          <span className="rateValue">{props.rateValue}</span>
+          <span className="rateValue">{props.rate}</span>
           <span className="money">{props.postMoney}</span>
           <span className="moneyName">만원</span>
           <span className="hashTagLine">
@@ -69,6 +82,13 @@ function Post(props) {
             postTitle={props.postTitle}
             star={props.rate}
             handleClose={togglePopup}
+          />
+        )}
+        {isbmarkOpen && (
+          <BookmarkPopup
+            postTitle={props.postTitle}
+            star={props.rate}
+            handleClose={toggleBmarkPopup}
           />
         )}
       </div>

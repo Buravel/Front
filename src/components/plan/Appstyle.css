@@ -162,9 +162,6 @@ html {
 }
 .postBookmarkIcon {
   z-index: 1;
-  position: absolute;
-  top: 14.2px;
-  right: 16.6px;
   width: 17px;
   height: 22.7px;
   object-fit: contain;
@@ -267,7 +264,7 @@ html {
 
 .PostDate {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
-  font-family: NotoSansKR;
+  font-family: NotoSansKR-Medium;
   font-size: 14px;
   font-weight: 500;
   font-stretch: normal;
@@ -279,7 +276,7 @@ html {
 }
 .PostTerm {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
-  font-family: NotoSansKR;
+  font-family: NotoSansKR-Light;
   font-size: 14px;
   font-weight: 300;
   font-stretch: normal;
@@ -293,7 +290,7 @@ html {
   position: absolute;
   top: 81px;
   left: 145px;
-  width: 366px;
+  width: 500px;
   height: 64px;
 }
 .UserPlace {
@@ -324,7 +321,7 @@ html {
   position: absolute;
   top: 12px;
   left: 25px;
-  width: 90px;
+  width: 110px;
   height: 45px;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: NotoSansKR;
@@ -358,7 +355,7 @@ html {
 }
 
 .TotalMoneyname {
-  width: 16px;
+  width: 18px;
   height: 20px;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: NotoSansKR;
@@ -524,6 +521,32 @@ html {
   left: 21.8px;
   top: 586.5px;
 }
+.halfIcon {
+  position: relative;
+  width: 16.5px;
+  height: 16px;
+}
+.popupStar {
+  width: 16.5px;
+  height: 16px;
+  margin-right: 8.7px;
+  object-fit: contain;
+}
+.halfStar {
+  position: absolute;
+  top: 1px;
+  left: -2.4px;
+  z-index: 2;
+  width: 11.2px;
+  height: 18.9px;
+  object-fit: contain;
+}
+
+.starempty {
+  width: 16.5px;
+  height: 16px;
+  object-fit: contain;
+}
 
 .popConTitle {
   position: absolute;
@@ -612,8 +635,8 @@ html {
   position: absolute;
   top: 499.5px;
   left: 73.8px;
-  width: 60px;
-  height: 30px;
+  width: 288.7px;
+  height: 16px;
 
   /* 이미지이므로 나중에 다시 변경할 것 */
 }
@@ -670,6 +693,7 @@ html {
 }
 
 .postBox {
+  position: relative;
   margin-top: 8px;
   width: 200px;
   height: 278px;
@@ -719,4 +743,23 @@ html {
   width: 200px;
   height: 185px;
   overflow: hidden;
+}
+
+.bmark {
+  z-index: 2;
+  position: absolute;
+  top: 14.2px;
+  right: 16.6px;
+  width: 17px;
+  height: 22.7px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+}
+.bmarkButton {
+  z-index: 3;
+  position: inherit;
+  width: 17px;
+  height: 22.7px;
+  background-color: transparent;
+  border-color: transparent;
 }

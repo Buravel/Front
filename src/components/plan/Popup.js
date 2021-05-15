@@ -1,16 +1,19 @@
 import React from "react";
+import HalfStar from "./HalfStar";
 import Icon from "./Icon";
 
 const Popup = (props) => {
   const starArray = [];
 
-  console.log(props.postTitle);
   if (props.star % 1 === 0) {
     for (let i = 0; i < props.star; i++) {
       starArray.push(i);
     }
+  } else {
+    for (let i = 0; i < props.star - 1; i++) {
+      starArray.push(i);
+    }
   }
-  console.log(starArray);
   return (
     <div className="popupBackground">
       <div className="popupBox">
@@ -40,9 +43,11 @@ const Popup = (props) => {
           <span className="popConStar">
             {starArray.map(() => (
               <>
-                <div>개</div>
+                <Icon picture="rating" className="popupStar" />
               </>
             ))}
+
+            {props.star % 1 !== 0 && <HalfStar />}
           </span>
           <span className="popConTag">
             <span className="popConTagText">#루프트한자</span>

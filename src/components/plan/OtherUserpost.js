@@ -59,9 +59,9 @@ function OtherUserpost() {
                 {Lineposts(num).map((a) => (
                   <Post
                     postPicture={a.picture}
-                    transport={a.transport}
+                    transport={a.body}
                     postTitle={a.title}
-                    nameIcon={a.nameicon}
+                    nameIcon={a.sorts}
                     rate={a.rate}
                     postMoney={a.money}
                     id={a.id}
