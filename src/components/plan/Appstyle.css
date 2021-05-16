@@ -901,7 +901,6 @@ html {
   height: 37.1px;
   object-fit: contain;
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
-  background-color: rgba(83, 83, 83, 0.25);
 }
 .pupbmark {
   z-index: 1;
@@ -925,4 +924,13 @@ html {
 .popupbmarkpopup {
   position: relative;
   z-index: 200;
+}
+
+.addBmarkButtonClick {
+  z-index: 200;
+  position: absolute;
+  width: 26.53px;
+  height: 26.53px;
+  top: 308.2px;
+  right: 24.7px;
 }

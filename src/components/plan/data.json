@@ -24,16 +24,17 @@
       "title": "뉴욕"
     },
     {
+      "뉴욕": [
+        {}
+      ]
+    },
+    {
       "id": 5,
-      "title": "name"
+      "title": ""
     },
     {
       "id": 6,
-      "title": "name"
-    },
-    {
-      "id": 7,
-      "title": "name"
+      "title": ""
     }
   ],
   "posts": [

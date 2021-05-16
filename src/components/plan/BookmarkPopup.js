@@ -6,7 +6,8 @@ function BookmarkPopup(props) {
   const [bmark, setBmark] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [name, setName] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const [bmarkinputValue, setBmarkinputValue] = useState("");
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -28,7 +29,9 @@ function BookmarkPopup(props) {
   const bmarkArray = bmark.map((posts) => posts.title);
   const bmarkIdArray = bmark.map((posts) => posts.id);
   const bmarkIdMax = Math.max.apply(null, bmarkIdArray) + 1;
+  const inMyBookmark = "http://localhost:4000/bookmark/" + bmarkinputValue;
 
+  console.log(inMyBookmark);
   return (
     <div className="popupBackground">
       <div className="bmarkpopupBox">
@@ -43,21 +46,42 @@ function BookmarkPopup(props) {
         <div className="blank"></div>
         <div className="bmarkChoice">
           {bmarkArray.map((num) => (
-            <div className="bmarkName">
+            <button
+              className="bmarkName"
+              onClick={() => setBmarkinputValue(num)}
+            >
               <div className="bmarkNameText">{num}</div>
-            </div>
+            </button>
           ))}
         </div>
         <div className="bmarklineone" />
-        <input className="addBmark" placeholder="북마크 추가" />
+        <input
+          className="addBmark"
+          placeholder="북마크 추가"
+          onChange={(event) => setSearchValue(event.target.value)}
+        />
         <Icon picture="addBmarkButton" className="addBmarkButton" />
+        <button
+          className="addBmarkButtonClick"
+          onClick={() => {
+            axios.post(inMyBookmark, {
+              postTitle: props.postTitle,
+              postPicture: props.postPicture,
+              star: props.star,
+              transport: props.transport,
+              money: props.money,
+              icon: props.icon,
+              id: props.id,
+            });
+          }}
+        />
         <div className="bmarklinetwo" />
         <button
           className="bamrkGet"
           onClick={() => {
             axios.post("http://localhost:4000/bookmark", {
               id: bmarkIdMax,
-              title: "",
+              title: searchValue,
             });
           }}
         >

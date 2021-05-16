@@ -94,7 +94,12 @@ function Post(props) {
         {isbmarkOpen && (
           <BookmarkPopup
             postTitle={props.postTitle}
+            postPicture={props.postPicture}
             star={props.rate}
+            transport={props.transport}
+            money={props.postMoney}
+            icon={props.nameIcon}
+            id={props.id}
             handleClose={toggleBmarkPopup}
           />
         )}
