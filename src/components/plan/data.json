@@ -4,6 +4,23 @@
     "month":7,
     "title":"얼음의 땅에서 죽다살다"
     }],
+    "bookmark" : [
+      {
+        "id":1,
+        "title":"강릉"
+        },
+        {
+          "id":2,
+          "title":"스위스"
+          },
+          {
+            "id":3,
+            "title":"바르셀로나"
+            },
+            {
+              "id":1,
+              "title":"뉴욕"
+              }],
   "posts": [ 
     {
       "id": 1,
@@ -84,6 +101,72 @@
     },
     {
       "id": 8,
+      "day" : 5,
+      "money" : 190,
+      "rate" : 2,
+      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "title": "경상도",
+      "body": "대구",
+      "hashtag": ["ktx","무궁화호","itx"],
+      "sorts": "shopping"
+    },
+    {
+      "id": 9,
+      "day" : 5,
+      "money" : 190,
+      "rate" : 2,
+      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "title": "경상도",
+      "body": "대구",
+      "hashtag": ["ktx","무궁화호","itx"],
+      "sorts": "shopping"
+    },
+    {
+      "id": 10,
+      "day" : 5,
+      "money" : 190,
+      "rate" : 2,
+      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "title": "경상도",
+      "body": "대구",
+      "hashtag": ["ktx","무궁화호","itx"],
+      "sorts": "shopping"
+    },
+    {
+      "id": 11,
+      "day" : 5,
+      "money" : 190,
+      "rate" : 2,
+      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "title": "경상도",
+      "body": "대구",
+      "hashtag": ["ktx","무궁화호","itx"],
+      "sorts": "shopping"
+    },
+    {
+      "id": 12,
+      "day" : 5,
+      "money" : 190,
+      "rate" : 2,
+      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "title": "경상도",
+      "body": "대구",
+      "hashtag": ["ktx","무궁화호","itx"],
+      "sorts": "shopping"
+    },
+    {
+      "id": 13,
+      "day" : 5,
+      "money" : 190,
+      "rate" : 2,
+      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "title": "경상도",
+      "body": "대구",
+      "hashtag": ["ktx","무궁화호","itx"],
+      "sorts": "shopping"
+    },
+    {
+      "id": 14,
       "day" : 5,
       "money" : 190,
       "rate" : 2,

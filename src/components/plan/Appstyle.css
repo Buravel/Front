@@ -763,3 +763,128 @@ html {
   background-color: transparent;
   border-color: transparent;
 }
+
+.bmarkpopupBox {
+  position: relative;
+  width: 264px;
+  margin: 0 auto;
+  height: 440px;
+  max-height: 90vh;
+  margin-top: calc(100vh - 50vh - 318px);
+  /* 이부분 다시 정리해서 수정할것 */
+  background: #fff;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: auto;
+}
+.bmarkexit {
+  position: absolute;
+  top: 28px;
+  right: 25px;
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+}
+
+.bmarkHeader {
+  position: relative;
+  width: 264px;
+  height: 49px;
+}
+
+.BmarkHead {
+  position: absolute;
+  top: 20px;
+  left: 22px;
+  width: 152px;
+  height: 29px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #535353;
+}
+
+.blank {
+  position: relative;
+  width: 152px;
+  height: 12.5px;
+}
+
+.bmarkChoice {
+  position: relative;
+  width: 152px;
+  height: 231px;
+}
+.bmarklineone {
+  width: 264px;
+  height: 0;
+  object-fit: contain;
+  border: solid 1px #eeeeee;
+}
+
+.addBmark {
+  position: relative;
+  top: 13.5px;
+  left: 13px;
+  width: 189px;
+  height: 31px;
+  padding: 3px 101px 4px 11px;
+  border-radius: 3px;
+  background-color: #f3f3f3;
+  border-color: transparent;
+}
+.addBmarkButton {
+  position: absolute;
+  top: 308.2px;
+  right: 24.7px;
+}
+.bmarklinetwo {
+  position: absolute;
+  bottom: 89.5px;
+  width: 264px;
+  height: 0;
+  border: solid 1px #eeeeee;
+}
+.bamrkGet {
+  position: absolute;
+  bottom: 30px;
+  left: 38px;
+}
+.bmarkCancel {
+  position: absolute;
+  bottom: 30px;
+  right: 38px;
+}
+.bmarkName {
+  position: relative;
+  border-top: solid 1px #eeeeee;
+  border-bottom: solid 1px #eeeeee;
+  width: 264px;
+  height: 58px;
+}
+.bmarkName:hover {
+  background-color: #e1efff;
+}
+.bmarkNameText {
+  position: absolute;
+  top: 16px;
+  left: 24.3px;
+  width: 200px;
+  height: 24px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.88;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
