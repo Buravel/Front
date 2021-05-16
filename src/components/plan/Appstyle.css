@@ -818,8 +818,9 @@ html {
 
 .bmarkChoice {
   position: relative;
-  width: 152px;
+  width: 264px;
   height: 231px;
+  overflow: hidden;
 }
 .bmarklineone {
   width: 264px;

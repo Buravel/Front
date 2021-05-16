@@ -44,6 +44,8 @@ function Post(props) {
 
   const hashTags = hash.pop();
   if (!hashTags) return null;
+
+  console.log(isOpen);
   return (
     <>
       <Postconnect />
@@ -80,7 +82,11 @@ function Post(props) {
         {isOpen && (
           <Popup
             postTitle={props.postTitle}
+            postPicture={props.postPicture}
             star={props.rate}
+            transport={props.transport}
+            money={props.postMoney}
+            icon={props.nameIcon}
             handleClose={togglePopup}
           />
         )}

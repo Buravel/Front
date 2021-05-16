@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import HalfStar from "./HalfStar";
 import Icon from "./Icon";
 
@@ -14,10 +15,11 @@ const Popup = (props) => {
       starArray.push(i);
     }
   }
+
   return (
     <div className="popupBackground">
       <div className="popupBox">
-        <div className="popupPicture"></div>
+        <img src={props.postPicture} className="popupPicture" />
         <img
           src="/images/planImg/exit.svg"
           className="exit"
@@ -32,13 +34,13 @@ const Popup = (props) => {
           <span className="popupMemo">메모</span>
         </span>
         <span className="popupContent">
-          <span className="popConTitle">[루프트한자] {props.postTitle}</span>
-          <Icon picture="Airplane" className="popConIcon" />
-          <span className="popConCost">120</span>
-          <span className="popConCostname">만원</span>
-          <span className="popConLocation">
-            235 경기도 성남시 분당구 서현동
+          <span className="popConTitle">
+            [{props.transport}] {props.postTitle}
           </span>
+          <Icon picture={props.icon} className="popConIcon" />
+          <span className="popConCost">{props.money}</span>
+          <span className="popConCostname">만원</span>
+          <span className="popConLocation">{props.location}</span>
           <span className="popConLocationLine"></span>
           <span className="popConStar">
             {starArray.map(() => (
@@ -49,12 +51,8 @@ const Popup = (props) => {
 
             {props.star % 1 !== 0 && <HalfStar />}
           </span>
-          <span className="popConTag">
-            <span className="popConTagText">#루프트한자</span>
-          </span>
-          <span className="popConMemo">
-            일주일 전에 구함ㅋㅋ..생각보다 편했다
-          </span>
+          <span className="popConTag"></span>
+          <span className="popConMemo">{props.memo} </span>
         </span>
         {props.content}
       </div>

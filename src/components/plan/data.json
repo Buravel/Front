@@ -1,179 +1,250 @@
-{ "info" : [
-  {
-    "year":2020,
-    "month":7,
-    "title":"얼음의 땅에서 죽다살다"
-    }],
-    "bookmark" : [
-      {
-        "id":1,
-        "title":"강릉"
-        },
-        {
-          "id":2,
-          "title":"스위스"
-          },
-          {
-            "id":3,
-            "title":"바르셀로나"
-            },
-            {
-              "id":1,
-              "title":"뉴욕"
-              }],
-  "posts": [ 
+{
+  "info": [
+    {
+      "year": 2020,
+      "month": 7,
+      "title": "얼음의 땅에서 죽다살다"
+    }
+  ],
+  "bookmark": [
     {
       "id": 1,
-      "day" : 1,
-      "money" : 10,
-      "rate" : 3,
-      "picture" : "https://smallstartour.com/wp-content/uploads/2020/05/SA_page3_top1080x700-compressor.jpg",
+      "title": "강릉"
+    },
+    {
+      "id": 2,
+      "title": "스위스"
+    },
+    {
+      "id": 3,
+      "title": "바르셀로나"
+    },
+    {
+      "id": 4,
+      "title": "뉴욕"
+    },
+    {
+      "id": 5,
+      "title": "name"
+    },
+    {
+      "id": 6,
+      "title": "name"
+    },
+    {
+      "id": 7,
+      "title": "name"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "day": 1,
+      "money": 10,
+      "rate": 3,
+      "picture": "https://smallstartour.com/wp-content/uploads/2020/05/SA_page3_top1080x700-compressor.jpg",
       "title": "강원도",
       "body": "춘천",
-      "hashtag": ["ktx","아시아나항공","itx"],
+      "hashtag": [
+        "ktx",
+        "아시아나항공",
+        "itx"
+      ],
       "sorts": "Airplane"
     },
     {
       "id": 2,
-      "day" : 1,
-      "money" : 120,
-      "rate" : 3.5,
-      "picture" : "https://pds.joins.com/news/component/htmlphoto_mmdata/201903/01/faf54c9e-e268-440d-995c-eea6834d559a.jpg",
+      "day": 1,
+      "money": 120,
+      "rate": 3.5,
+      "picture": "https://pds.joins.com/news/component/htmlphoto_mmdata/201903/01/faf54c9e-e268-440d-995c-eea6834d559a.jpg",
       "title": "경기도",
       "body": "성남시",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "food"
     },
     {
       "id": 3,
-      "day" : 2,
-      "money" : 150,
-      "rate" : 1.5,
-      "picture" : "https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/3fuW/image/oKAZIY6tS8e4z_7r4oOgDS-BPgU.jpg",
+      "day": 2,
+      "money": 150,
+      "rate": 1.5,
+      "picture": "https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/3fuW/image/oKAZIY6tS8e4z_7r4oOgDS-BPgU.jpg",
       "title": "제주도",
       "body": "제주도 한라감귤",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "shopping"
     },
     {
       "id": 4,
-      "day" : 2,
-      "money" : 810,
-      "rate" : 4.5,
-      "picture" : "http://www.travelnbike.com/news/photo/201903/77604_141293_4837.png",
+      "day": 2,
+      "money": 810,
+      "rate": 4.5,
+      "picture": "http://www.travelnbike.com/news/photo/201903/77604_141293_4837.png",
       "title": "부산",
       "body": "해운대",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "bus"
     },
     {
       "id": 5,
-      "day" : 3,
-      "money" : 150,
-      "rate" : 5,
-      "picture" : "https://travelblog.expedia.co.kr/wp-content/uploads/2016/12/08.jpg",
+      "day": 3,
+      "money": 150,
+      "rate": 5,
+      "picture": "https://travelblog.expedia.co.kr/wp-content/uploads/2016/12/08.jpg",
       "title": "서울",
       "body": "한강",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "bed"
     },
     {
       "id": 6,
-      "day" : 4,
-      "money" : 110,
-      "rate" : 1,
-      "picture" : "https://img.insight.co.kr/static/2017/08/24/700/o1970r670o9gfyx65u94.jpg",
+      "day": 4,
+      "money": 110,
+      "rate": 1,
+      "picture": "https://img.insight.co.kr/static/2017/08/24/700/o1970r670o9gfyx65u94.jpg",
       "title": "전라도",
       "body": "여수",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "Airplane"
     },
     {
       "id": 7,
-      "day" : 5,
-      "money" : 130,
-      "rate" : 1.5,
-      "picture" : "https://post-phinf.pstatic.net/MjAxOTA3MDRfMTc5/MDAxNTYyMjA4NDg3NjQx.zAC7kRdNv--RVXm8XryPs_nk3Bqu_uZ_8d7a6OaUAFYg.15QsNrqnToB5H-CrEbDHofScS2-5YQ5yIdPX8aayJ74g.JPEG/Traveling_with_friends_Main.jpg?type=w1200",
+      "day": 5,
+      "money": 130,
+      "rate": 1.5,
+      "picture": "https://post-phinf.pstatic.net/MjAxOTA3MDRfMTc5/MDAxNTYyMjA4NDg3NjQx.zAC7kRdNv--RVXm8XryPs_nk3Bqu_uZ_8d7a6OaUAFYg.15QsNrqnToB5H-CrEbDHofScS2-5YQ5yIdPX8aayJ74g.JPEG/Traveling_with_friends_Main.jpg?type=w1200",
       "title": "충청도",
       "body": "대전",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "food"
     },
     {
       "id": 8,
-      "day" : 5,
-      "money" : 190,
-      "rate" : 2,
-      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "day": 5,
+      "money": 190,
+      "rate": 2,
+      "picture": "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
       "title": "경상도",
       "body": "대구",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "shopping"
     },
     {
       "id": 9,
-      "day" : 5,
-      "money" : 190,
-      "rate" : 2,
-      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "day": 5,
+      "money": 190,
+      "rate": 2,
+      "picture": "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
       "title": "경상도",
       "body": "대구",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "shopping"
     },
     {
       "id": 10,
-      "day" : 5,
-      "money" : 190,
-      "rate" : 2,
-      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "day": 5,
+      "money": 190,
+      "rate": 2,
+      "picture": "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
       "title": "경상도",
       "body": "대구",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "shopping"
     },
     {
       "id": 11,
-      "day" : 5,
-      "money" : 190,
-      "rate" : 2,
-      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "day": 5,
+      "money": 190,
+      "rate": 2,
+      "picture": "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
       "title": "경상도",
       "body": "대구",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "shopping"
     },
     {
       "id": 12,
-      "day" : 5,
-      "money" : 190,
-      "rate" : 2,
-      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "day": 5,
+      "money": 190,
+      "rate": 2,
+      "picture": "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
       "title": "경상도",
       "body": "대구",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "shopping"
     },
     {
       "id": 13,
-      "day" : 5,
-      "money" : 190,
-      "rate" : 2,
-      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "day": 5,
+      "money": 190,
+      "rate": 2,
+      "picture": "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
       "title": "경상도",
       "body": "대구",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "shopping"
     },
     {
       "id": 14,
-      "day" : 5,
-      "money" : 190,
-      "rate" : 2,
-      "picture" : "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
+      "day": 5,
+      "money": 190,
+      "rate": 2,
+      "picture": "https://content.presspage.com/uploads/685/1920_solaceinsolo1.jpg?10000",
       "title": "경상도",
       "body": "대구",
-      "hashtag": ["ktx","무궁화호","itx"],
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
       "sorts": "shopping"
     }
   ]

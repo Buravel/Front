@@ -6,6 +6,7 @@ function BookmarkPopup(props) {
   const [bmark, setBmark] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [name, setName] = useState("");
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -22,11 +23,12 @@ function BookmarkPopup(props) {
 
     fetchPosts();
   }, []);
-  if (loading) return <div>로딩중..</div>;
-  if (error) return <div>에러가 발생했습니다</div>;
+
   if (!bmark) return null;
   const bmarkArray = bmark.map((posts) => posts.title);
-  console.log(bmarkArray);
+  const bmarkIdArray = bmark.map((posts) => posts.id);
+  const bmarkIdMax = Math.max.apply(null, bmarkIdArray) + 1;
+
   return (
     <div className="popupBackground">
       <div className="bmarkpopupBox">
@@ -50,7 +52,15 @@ function BookmarkPopup(props) {
         <input className="addBmark" placeholder="북마크 추가" />
         <Icon picture="addBmarkButton" className="addBmarkButton" />
         <div className="bmarklinetwo" />
-        <button className="bamrkGet">
+        <button
+          className="bamrkGet"
+          onClick={() => {
+            axios.post("http://localhost:4000/bookmark", {
+              id: bmarkIdMax,
+              title: "",
+            });
+          }}
+        >
           <Icon picture="bmarkGet" />
         </button>
         <button className="bmarkCancel" onClick={props.handleClose}>
