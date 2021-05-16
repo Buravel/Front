@@ -1,20 +1,50 @@
-.product {
-    position: absolute;
+.col-xs-2 {
+    position: relative;
     /* relative */
     top:50px;
-    left: 10px;
+    left: 20px;
 
     width: 200px;
     height: 264px;
-    margin: 0 0 12px;
-    padding: 0 0 8.8px;
+    margin: 0 9px 50px 15px;
+    padding: 0 0 8px;
     border-radius: 3px;
-    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08);
-    background-color: #ffffff;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);  
+}
+
+.product{
+    width: 200px;
+    height: 264px;
+}
+.product_container{
+    position: relative;
+    /* relative */
+    width: 200px;
+    top: 1px;
+}
+.product_img{
+    position: relative;
+    top:0;
+    width: 200px;
+}
+
+.img-full {
+    max-width: 120%; 
+    width: auto;
+}
+.tag {
+    position: absolute;
+    top: 165px;
+    left: 0;
+    width: 100px;
+    height: 20px;
+    padding: 1px 1px 1px 3px;
+    background-color: #0070ef;
+    
 }
 
 .tag_text{
-    width: 80px;
+    width: 100px;
     height: 18px;
     margin-left: 3px;
     font-family: 'Noto Sans KR', sans-serif;    font-size: 12px;
@@ -26,28 +56,18 @@
     text-align: left;
     color: #ffffff;
 }
-
-.tag {
-    position: absolute;
-    top:165px;
-    left: 0;
-    width: 50px;
-    height: 20px;
-    padding: 1px 1px 1px 3px;
-    background-color: #0070ef;
-    
+.product_topline {
+    position: relative;
+    top:2px;
 }
-/* 
-.product_position {
-    position: absolute;
-    top:50px;
-    left: 10px;
-} */
 
 .product_name {
-    width: 55px;
+    position: absolute;
+    top:40%;
+    left: 5px;
+    width: 100px;
     height: 22px;
-    margin: 10.3px 65px 0 9px;
+    margin: 2px;
     font-family: 'Noto Sans KR', sans-serif;    font-size: 15px;
     font-weight: bold;
     font-stretch: normal;
@@ -57,20 +77,43 @@
     text-align: left;
     color: #535353;
 }
+.price {
+    position: absolute;
+    top:40%;
+    left: 60%;
+    color: #0070ef;
+    font-size: 18px;
+    font-weight: bolder;
+
+    width: 100px;
+    height: 27px;
+    margin: 0 2px 0 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #0070ef;
+}
 
 .icons{
-    display: inline;
+    position: absolute;
+    top:70%;
     float: left;
-    font-size: 12px;
-    margin: 2px 0px 2px 6px;
   }
 
   
 .icons_threeof{
-  display: inline;
+  position: absolute;
+  top:20px;
   width: 13px;
   height: 18px;
-  margin: 0 9.2px 0 2.6px;
+  float: left;
+  
+  /* margin: 0 9.2px 0 2.6px; */
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: 'Noto Sans KR', sans-serif;  font-size: 12px;
   font-weight: normal;
@@ -83,12 +126,25 @@
 }
 .icons_star{
     display: inline;
+    position: absolute;
+    top:27px;
 }
+.icon {
+    margin: 0 auto;
+    display: inline-block; /*이부분에 성질을 inline-block로 바꿔줘서 가로배치를 해줬다.*/
 
-.plan {
-    width: 51px;
+}
+.plan{
+    width: 13px;
     height: 18px;
-    margin: 32.3px 67px 2px 11px;
+    vertical-align: top;
+}
+.plan_text {
+    position: absolute;
+    top: 25px;
+    left: 5px;
+    width: 60px;
+    height: 18px;
     font-family: 'Noto Sans KR', sans-serif;    font-size: 12px;
     font-weight: normal;
     font-stretch: normal;
@@ -98,20 +154,14 @@
     text-align: left;
     color: #b5b5b5;
 }
-
-.price {
-    position: absolute;
-    top:75%;
-    right: 10px;
-    color: #0070ef;
-    font-size: 18px;
-    font-weight: bolder;
-}
-
+/* 사용자 표시 박스 디자이너님 삭제........혹시 모르니까 일단 냅둬
 .product_Writer_container{
+    position: absolute;
+    top:85%;
     padding-top: 50px;
     padding-bottom: 30px;
     padding-left: 10px;
+    margin-bottom: 60px;
 }
 .product_Writer_day{
     width: 120px;
@@ -138,7 +188,7 @@
 .product_Writer{
     width: 120px;
     height: 20px;
-    margin: 5px 10px 2px 10px;
+    margin: 5px 50px 2px 10px;
     font-family: 'Noto Sans KR', sans-serif;    font-size: 14px;
     font-weight: bold;
     font-stretch: normal;
@@ -148,3 +198,4 @@
     text-align: left;
     color: #707070;
 }
+*/

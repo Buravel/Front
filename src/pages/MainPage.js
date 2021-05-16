@@ -1,10 +1,17 @@
 import React from 'react';
 import Responsive from '../components/common/Responsive';
-
+import 'bootstrap/dist/css/bootstrap.css';
 import Contact from '../components/mainpage/Contact';
 import Mainpage from '../components/mainpage/Mainpage';
-import Demo from '../components/mainpage/Selectbox_demo';
 import SelectBox from '../components/mainpage/SelectBox';
+import Advertise from '../components/mainpage/Advertise'
+import Product from '../components/mainpage/Product'
+import Mainpage_afterlogin from '../components/mainpage/Mainpage_afterlogin'
+import After_topBar from '../components/mainpage/After_topBar'
+import After_Topnav from '../components/mainpage/After_Topnav'
+
+
+
 const MainPage = () => {
     return (
         <div>
@@ -12,7 +19,7 @@ const MainPage = () => {
             <div>mainPage</div>
         </Responsive>
 
-        <SelectBox/>
+        <Mainpage_afterlogin/>
         </div>
     );
 };

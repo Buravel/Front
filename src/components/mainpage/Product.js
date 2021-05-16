@@ -15,30 +15,23 @@ const Product = (props) => {
     //props로 부모 component의 함수를 가져온다.
     return (
         <>
-        <div className="col-md-2">
-            <div className="product">
-                <div className="product_container">
-                    <p><img className="img-full" src="http://placehold.it/200x185" alt="Product Images"/><span className="tag"><span className="tag_text">#{props.product.title}</span></span></p>
-                    <div>
-                        <div><span className="product_name">&nbsp;{props.product.title}</span><span className="price">&nbsp;{props.product.price}</span></div>
-                        <span className="plan">&nbsp;{props.product.day}</span>
-                    </div>
-                    <div className="icons">
-                        <div className="icons_threeof">
-                            <div><IoAirplaneSharp color="#bfbfbf"/><span className="plan">25</span></div>
-                            <div><FaBed color="#bfbfbf"/><span className="plan">21</span></div>
-                            <div><GiForkKnifeSpoon color="#bfbfbf"/><span className="plan">26</span></div>
-                        </div>
-                        
-                        <div className="icons_star"><AiFillStar color="#ef9f00"/> {props.product.mark}&nbsp; </div></div>
-                </div>
-
-                <div className="product_Writer_container">
-                    <img className="product_Writer_img" src="http://placehold.it/40x40" alt="글쓴이 이미지 Images"/>
-                    <span className="product_Writer">엄마는 외계인</span>
-                    <span className="product_Writer_day">2021-02-12</span>
-                </div>
+        <div className="col-xs-2">
+            <p className="product_img"><img className="img-full" src="http://placehold.it/200x185" alt="Product Images"/><div className="tag"><span className="tag_text">#{props.product.title}</span></div></p>
+            
+            <div className="product_container">
+                <div className="product_topline"><span className="product_name">&nbsp;{props.product.title}</span><span className="price">&nbsp;{props.product.price}</span></div>
+                <div className="plan"><span className="plan_text">&nbsp;{props.product.day}</span></div>
             </div>
+
+
+            {/*사용자 표시 박스 디자이너님 삭제........혹시 모르니까 일단 냅둬
+            <div className="product_Writer_container">
+                <img className="product_Writer_img" src="http://placehold.it/40x40" alt="글쓴이 이미지 Images"/>
+                <span className="product_Writer">엄마는 외계인</span>
+                <span className="product_Writer_day">2021-02-12</span>
+            </div> */}
+
+
         </div>
         </>
     );

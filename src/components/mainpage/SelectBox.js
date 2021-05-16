@@ -10,7 +10,7 @@ import { Carousel, Navbar } from 'react-bootstrap'
 import Data from './Data'
 import axios from 'axios';
 
-class selectBox extends React.Component {
+class SelectBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: 'by_latest'};
@@ -44,4 +44,4 @@ class selectBox extends React.Component {
     );
   }
 }
-export default selectBox;
+export default SelectBox;
