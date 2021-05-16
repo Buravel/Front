@@ -5,7 +5,7 @@ import OtherUserpost from "../components/plan/OtherUserpost";
 const Plan = () => {
   return (
     <Responsive>
-      <UserPostInfo UserName="사과" date="8" />
+      <UserPostInfo />
       <OtherUserpost />
     </Responsive>
   );
