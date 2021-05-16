@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41">
+    <g transform="translate(16)" style="isolation:isolate">
+        <rect width="122" height="41" fill="#d9d9d9" rx="3" transform="translate(-16)"/>
+        <text fill="#535353" font-family="NotoSansKR-Regular, Noto Sans KR" font-size="16px" transform="translate(45 28)">
+            <tspan x="-14.72" y="0">닫기</tspan>
+        </text>
+    </g>
+</svg>

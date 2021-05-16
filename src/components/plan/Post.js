@@ -88,6 +88,7 @@ function Post(props) {
             money={props.postMoney}
             icon={props.nameIcon}
             handleClose={togglePopup}
+            id={props.id}
           />
         )}
         {isbmarkOpen && (
