@@ -17,8 +17,7 @@
     width: 80px;
     height: 18px;
     margin-left: 3px;
-    font-family: NotoSansKR;
-    font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;    font-size: 12px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -32,8 +31,6 @@
     position: absolute;
     top:165px;
     left: 0;
-    
-
     width: 50px;
     height: 20px;
     padding: 1px 1px 1px 3px;
@@ -51,8 +48,7 @@
     width: 55px;
     height: 22px;
     margin: 10.3px 65px 0 9px;
-    font-family: NotoSansKR;
-    font-size: 15px;
+    font-family: 'Noto Sans KR', sans-serif;    font-size: 15px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -76,8 +72,7 @@
   height: 18px;
   margin: 0 9.2px 0 2.6px;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
-  font-family: NotoSansKR;
-  font-size: 12px;
+  font-family: 'Noto Sans KR', sans-serif;  font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -94,8 +89,7 @@
     width: 51px;
     height: 18px;
     margin: 32.3px 67px 2px 11px;
-    font-family: NotoSansKR;
-    font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;    font-size: 12px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -123,8 +117,7 @@
     width: 120px;
     height: 18px;
     margin: 2px 10px 0 10px;
-    font-family: NotoSansKR;
-    font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;    font-size: 12px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -146,8 +139,7 @@
     width: 120px;
     height: 20px;
     margin: 5px 10px 2px 10px;
-    font-family: NotoSansKR;
-    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;    font-size: 14px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
