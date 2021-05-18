@@ -942,20 +942,21 @@ html {
   z-index: 20;
   position: absolute;
   right: 0px;
-  width: 222px;
+  width: 72px;
   height: 291px;
   background: linear-gradient(to left, #f5f5f5, transparent);
 }
 .nxtbtn {
+  position: relative;
   width: 29px;
   height: 29px;
-  margin: 84.1px 0 0 0.6px;
   object-fit: contain;
 }
 .nextbtn {
   z-index: 40;
   position: absolute;
   right: 43px;
+  bottom: 128px;
   width: 29px;
   height: 29px;
 }
@@ -973,4 +974,27 @@ html {
   top: 54px;
   left: 121px;
   overflow-x: hidden;
+}
+.prevButton {
+  z-index: 20;
+  position: absolute;
+  left: 0px;
+  width: 72px;
+  height: 291px;
+  background: linear-gradient(to right, #f5f5f5, transparent);
+}
+.prevbtn {
+  z-index: 40;
+  position: absolute;
+  left: 43px;
+  bottom: 128px;
+  width: 29px;
+  height: 29px;
+}
+
+.prebtn {
+  position: relative;
+  width: 29px;
+  height: 29px;
+  object-fit: contain;
 }

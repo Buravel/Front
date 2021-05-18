@@ -61,6 +61,7 @@ function OtherUserpost() {
                 <span className="hideDot" />
                 {Lineposts(num).map((a) => (
                   <Post
+                    day={num}
                     postPicture={a.picture}
                     transport={a.body}
                     postTitle={a.title}
@@ -75,6 +76,7 @@ function OtherUserpost() {
           </>
         ))}
       </div>
+      <Slider />
     </>
   );
 }

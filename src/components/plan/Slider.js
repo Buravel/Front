@@ -76,8 +76,8 @@ function Slider(props) {
             {currentSlide === 0 ? (
               ""
             ) : (
-              <span>
-                <button onClick={prevSlide} className="prevButton">
+              <span className="prevButton">
+                <button onClick={prevSlide} className="prevbtn">
                   <img
                     src="/images/planImg/nextButton.svg"
                     className="prebtn"
@@ -85,7 +85,7 @@ function Slider(props) {
                 </button>
               </span>
             )}
-            {currentSlide === daycountArray(1).length - 5 ? (
+            {currentSlide === daycountArray(props.day).length - 5 ? (
               ""
             ) : (
               <span className="nextButton">
@@ -100,7 +100,7 @@ function Slider(props) {
           </>
         )}
         <div className="SliderContainer" ref={slideRef}>
-          {Lineposts(1).map((a) => (
+          {Lineposts(props.day).map((a) => (
             <Post
               postPicture={a.picture}
               transport={a.body}
