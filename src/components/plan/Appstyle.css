@@ -802,7 +802,7 @@ html {
   position: absolute;
   top: 20px;
   left: 22px;
-  width: 152px;
+  width: 200px;
   height: 29px;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: NotoSansKR;
@@ -933,4 +933,44 @@ html {
   height: 26.53px;
   top: 308.2px;
   right: 24.7px;
+}
+
+.prebtn {
+  transform: scaleX(-1);
+}
+.nextButton {
+  z-index: 20;
+  position: absolute;
+  right: 0px;
+  width: 222px;
+  height: 291px;
+  background: linear-gradient(to left, #f5f5f5, transparent);
+}
+.nxtbtn {
+  width: 29px;
+  height: 29px;
+  margin: 84.1px 0 0 0.6px;
+  object-fit: contain;
+}
+.nextbtn {
+  z-index: 40;
+  position: absolute;
+  right: 43px;
+  width: 29px;
+  height: 29px;
+}
+.SliderContainer {
+  position: relative;
+  width: 1159px;
+  height: 291px;
+  display: flex;
+}
+
+.BContainer {
+  display: flex;
+  position: absolute;
+
+  top: 54px;
+  left: 121px;
+  overflow-x: hidden;
 }

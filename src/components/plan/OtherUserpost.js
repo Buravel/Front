@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import styled from "styled-components";
 import PostLine from "./PostLine";
 import Post from "./Post";
 import Icon from "./Icon";
+import Slider from "./Slider";
 
 function OtherUserpost() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -29,11 +32,11 @@ function OtherUserpost() {
   if (error) return <div>에러가 발생했습니다</div>;
   if (!posts) return null;
   const nameArray = posts.map((posts) => posts.title);
-  console.log(nameArray);
 
   const newArray = posts.map((posts) => posts.day);
   const dayMax = Math.max.apply(null, newArray);
   const dayArray = [];
+
   function Lineposts(e) {
     return posts.filter((k) => k.day === e);
   }

@@ -69,6 +69,81 @@
       "sorts": "food"
     },
     {
+      "id": 14,
+      "day": 1,
+      "money": 810,
+      "rate": 4.5,
+      "picture": "http://www.travelnbike.com/news/photo/201903/77604_141293_4837.png",
+      "title": "부산",
+      "body": "해운대",
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
+      "sorts": "bus"
+    },
+    {
+      "id": 15,
+      "day": 1,
+      "money": 810,
+      "rate": 4.5,
+      "picture": "http://www.travelnbike.com/news/photo/201903/77604_141293_4837.png",
+      "title": "부산",
+      "body": "해운대",
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
+      "sorts": "bus"
+    },
+    {
+      "id": 16,
+      "day": 1,
+      "money": 810,
+      "rate": 4.5,
+      "picture": "http://www.travelnbike.com/news/photo/201903/77604_141293_4837.png",
+      "title": "부산",
+      "body": "해운대",
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
+      "sorts": "bus"
+    },
+    {
+      "id": 17,
+      "day": 1,
+      "money": 810,
+      "rate": 4.5,
+      "picture": "http://www.travelnbike.com/news/photo/201903/77604_141293_4837.png",
+      "title": "부산",
+      "body": "해운대",
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
+      "sorts": "bus"
+    },
+    {
+      "id": 18,
+      "day": 1,
+      "money": 810,
+      "rate": 4.5,
+      "picture": "http://www.travelnbike.com/news/photo/201903/77604_141293_4837.png",
+      "title": "부산",
+      "body": "해운대",
+      "hashtag": [
+        "ktx",
+        "무궁화호",
+        "itx"
+      ],
+      "sorts": "bus"
+    },
+    {
       "id": 3,
       "day": 2,
       "money": 150,

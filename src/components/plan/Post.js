@@ -45,7 +45,6 @@ function Post(props) {
   const hashTags = hash.pop();
   if (!hashTags) return null;
 
-  console.log(isOpen);
   return (
     <>
       <Postconnect />
