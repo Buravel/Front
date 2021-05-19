@@ -5,8 +5,9 @@ export default [
         title : "제주도 여행",
         day: 1 + '박' + 2 + '일',
         picture : "Born in France",
-        price : 120000,
-        mark : 4 + '.' + 5 
+        price : 120 + '만원',
+        mark : 4 + '.' + 5 ,
+        icon : 21
       },
     
       {
@@ -14,8 +15,9 @@ export default [
         title : "미국 여행",
         day: 1 + '박' + 2 + '일',
         picture : "Born in France",
-        price : 720000,
-        mark : 4 + '.' + 5  
+        price : 720 + '만원',
+        mark : 4 + '.' + 5 ,
+        icon : 22
       },
     
       {
@@ -23,8 +25,9 @@ export default [
         title : "호주 여행",
         day: 1 + '박' + 2 + '일',
         picture : "Born in France",
-        price : 340000,
-        mark : 4 + '.' + 5  
+        price : 340 + '만원',
+        mark : 4 + '.' + 5,
+        icon : 22  
       },
 
       {
@@ -32,8 +35,9 @@ export default [
         title : "네덜란드 여행",
         day: 1 + '박' + 2 + '일',
         picture : "Born in France",
-        price : 560000,
-        mark : 4 + '.' + 5  
+        price : 560 + '만원',
+        mark : 4 + '.' + 5,
+        icon : 22
       },
 
       {
@@ -41,16 +45,18 @@ export default [
         title : "유럽 여행",
         day: 1 + '박' + 2 + '일',
         picture : "Born in France",
-        price : 26000,
-        mark : 4 + '.' + 5  
+        price : 260 + '만원',
+        mark : 4 + '.' + 5,
+        icon : 22  
       },
       {
         id : 5,
         title : "제주도 여행",
         day: 1 + '박' + 2 + '일',
         picture : "Born in France",
-        price : 120000,
-        mark : 4 + '.' + 5 
+        price : 120 + '만원',
+        mark : 4 + '.' + 5,
+        icon : 22
       }
 ]
 // this.handleChange = this.handleChange.bind(this);

@@ -1,9 +1,10 @@
 .col-xs-2 {
+    
     position: relative;
     /* relative */
     top:50px;
     left: 20px;
-
+    
     width: 200px;
     height: 264px;
     margin: 0 9px 50px 15px;
@@ -36,7 +37,7 @@
     position: absolute;
     top: 165px;
     left: 0;
-    width: 100px;
+    width: 50px;
     height: 20px;
     padding: 1px 1px 1px 3px;
     background-color: #0070ef;
@@ -47,7 +48,8 @@
     width: 100px;
     height: 18px;
     margin-left: 3px;
-    font-family: 'Noto Sans KR', sans-serif;    font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;    
+    font-size: 12px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -58,7 +60,7 @@
 }
 .product_topline {
     position: relative;
-    top:2px;
+    top:-5px;
 }
 
 .product_name {
@@ -130,19 +132,31 @@
     top:27px;
 }
 .icon {
-    margin: 0 auto;
-    display: inline-block; /*이부분에 성질을 inline-block로 바꿔줘서 가로배치를 해줬다.*/
-
+    width: 5px;
+    height: 12.9px;
+    margin: 3.3px 1.5px 1.9px 0;
+    object-fit: contain;
 }
 .plan{
-    width: 13px;
+    
+    width: 5px;
     height: 18px;
-    vertical-align: top;
+    margin: 0 9.6px 0 1.5px;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+    font-family: 'Noto Sans KR', sans-serif;  
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #535353;
 }
 .plan_text {
     position: absolute;
-    top: 25px;
-    left: 5px;
+    top: 220px;
+    left: 8px;
     width: 60px;
     height: 18px;
     font-family: 'Noto Sans KR', sans-serif;    font-size: 12px;
@@ -154,6 +168,19 @@
     text-align: left;
     color: #b5b5b5;
 }
+
+.plan_star{
+    color: #ef9f00;
+}
+.product_box{
+    position:relative;
+    width:220px;
+    height: 18px;
+    left: 10px;
+    top: 20px;
+}
+
+
 /* 사용자 표시 박스 디자이너님 삭제........혹시 모르니까 일단 냅둬
 .product_Writer_container{
     position: absolute;
