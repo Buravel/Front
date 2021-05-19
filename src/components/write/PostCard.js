@@ -10,6 +10,7 @@ const Tag = ({ hashTag }) => {
 const PostCard = ({ card }) => {
     const { title1, title2, price, postImage, category, rating, hashTags } =
         card;
+
     return (
         <div className="card-container">
             <div className="card-thumbnail">
@@ -19,7 +20,11 @@ const PostCard = ({ card }) => {
                 <div className="card-header-conatiner">
                     <div className="card-header left">
                         <span className="card-title">{`[${title1}] ${title2}`}</span>
-                        <img src="./images/write/plane_icon.png" alt="1" />
+                        <img
+                            src={`./images/write/${category}.png`}
+                            alt="1"
+                            style={{ maxWidth: '14px' }}
+                        />
                     </div>
                     <div className="card-header right">
                         <img src="./images/write/star.png" alt="rating" />

@@ -15,6 +15,7 @@ const PostList = ({ plan, day, onClickAddPost }) => {
         rating,
         hashTags,
         memo,
+        category,
     }) => {
         const param = {
             day: parseInt(day) - 1,
@@ -25,6 +26,7 @@ const PostList = ({ plan, day, onClickAddPost }) => {
             rating,
             hashTags,
             memo,
+            category,
         };
         onClickAddPost(param);
     };

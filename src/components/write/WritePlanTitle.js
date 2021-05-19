@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './writePlanTitle.scss';
 import { getNight, splitDate } from '../../util/date';
 import TitleModal from './TitleModal';
+import { category_type } from '../../modules/write';
 const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
     const [sY, sM, sD] = splitDate(startDate);
     const [eY, eM, eD] = splitDate(endDate);
@@ -33,28 +34,28 @@ const PlanRemote = ({ account }) => {
                 </div>
                 <div className="individual">
                     <div>
-                        <img src="./images/write/plane_icon.png" alt="1" />
-                        {account.type1}
+                        <img src="./images/write/AIRPLANE.png" alt="1" />
+                        {account.AIRPLANE}
                     </div>
                     <div>
-                        <img src="./images/write/plane_icon.png" alt="1" />
-                        {account.type2}
+                        <img src="./images/write/EAT.png" alt="1" />
+                        {account.EAT}
                     </div>
                     <div>
-                        <img src="./images/write/plane_icon.png" alt="1" />
-                        {account.type3}
+                        <img src="./images/write/SHOPPING.png" alt="1" />
+                        {account.SHOPPING}
                     </div>
                     <div>
-                        <img src="./images/write/plane_icon.png" alt="1" />
-                        {account.type4}
+                        <img src="./images/write/TRANSPORTAION.png" alt="1" />
+                        {account.TRANSPORTAION}
                     </div>
                     <div>
-                        <img src="./images/write/plane_icon.png" alt="1" />
-                        {account.type5}
+                        <img src="./images/write/ROOMS.png" alt="1" />
+                        {account.ROOMS}
                     </div>
                     <div>
-                        <img src="./images/write/plane_icon.png" alt="1" />
-                        {account.type6}
+                        <img src="./images/write/ETC.png" alt="1" />
+                        {account.ETC}
                     </div>
                 </div>
             </div>

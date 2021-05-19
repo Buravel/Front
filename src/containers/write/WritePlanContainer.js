@@ -1,11 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import BookMarks from '../../components/write/BookMarks';
 import PlanList from '../../components/write/PlanList';
 import WritePlanTitle from '../../components/write/WritePlanTitle';
 import Map from '../../components/common/Map';
 import { useDispatch, useSelector } from 'react-redux';
-import { addDate, changePlanInfo, addPost } from '../../modules/write';
-
+import {
+    addDate,
+    changePlanInfo,
+    addPost,
+    category_type,
+} from '../../modules/write';
+const getAccount = (arr) => {
+    let account = {
+        [category_type.AIRPLANE]: 0,
+        [category_type.EAT]: 0,
+        [category_type.ETC]: 0,
+        [category_type.ROOMS]: 0,
+        [category_type.SHOPPING]: 0,
+        [category_type.TRANSPORTAION]: 0,
+    };
+    for (const arr1 of arr) {
+        for (const arr2 of arr1) {
+            account[arr2.category] =
+                account[arr2.category] + parseInt(arr2.price) / 10000;
+        }
+    }
+    return { ...account };
+};
 const WritePlanContainer = () => {
     const dispatch = useDispatch();
 
@@ -28,14 +49,7 @@ const WritePlanContainer = () => {
     // bookmarks 관련
     const bookmarks = useSelector((state) => state.write.bookmarks);
     // title 금액관련
-    const [account, setAccount] = useState({
-        type1: 0,
-        type2: 0,
-        type3: 0,
-        type4: 0,
-        type5: 0,
-        type6: 0,
-    });
+    const account = useMemo(() => getAccount(plans), [plans]);
 
     return (
         <>

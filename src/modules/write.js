@@ -1,6 +1,13 @@
 import { createAction, handleActions } from 'redux-actions';
 import { getNextDate, getToday } from '../util/date';
-
+export const category_type = {
+    AIRPLANE: 'AIRPLANE',
+    EAT: 'EAT',
+    SHOPPING: 'SHOPPING',
+    TRANSPORTAION: 'TRANSPORTAION',
+    ROOMS: 'ROOMS',
+    ETC: 'ETC',
+};
 //type 생성
 const INITIALIZE = 'write/INITIALIZE';
 const ADD_DATE = 'write/ADD_DATE';
@@ -32,7 +39,7 @@ const initialState = {
             title2: '이코노미',
             price: 1200000,
             postImage: null,
-            category: '비행기',
+            category: category_type.AIRPLANE,
             location: {
                 name: '',
                 lat: 0,
@@ -48,7 +55,7 @@ const initialState = {
             title2: '이코노미',
             price: 1200000,
             postImage: null,
-            category: '비행기',
+            category: category_type.EAT,
             location: {
                 name: '',
                 lat: 0,
@@ -64,7 +71,7 @@ const initialState = {
             title2: '이코노미',
             price: 1200000,
             postImage: null,
-            category: '비행기',
+            category: category_type.ETC,
             location: {
                 name: '',
                 lat: 0,
@@ -80,7 +87,7 @@ const initialState = {
             title2: '이코노미',
             price: 1200000,
             postImage: null,
-            category: '비행기',
+            category: category_type.ROOMS,
             location: {
                 name: '',
                 lat: 0,
@@ -96,7 +103,7 @@ const initialState = {
             title2: '이코노미',
             price: 1200000,
             postImage: null,
-            category: '비행기',
+            category: category_type.SHOPPING,
             location: {
                 name: '',
                 lat: 0,
@@ -112,7 +119,7 @@ const initialState = {
             title2: '이코노미',
             price: 1200000,
             postImage: null,
-            category: '비행기',
+            category: category_type.TRANSPORTAION,
             location: {
                 name: '',
                 lat: 0,
@@ -155,6 +162,7 @@ const write = handleActions(
                     rating,
                     hashTags,
                     memo,
+                    category,
                 },
             },
         ) => {
@@ -166,6 +174,7 @@ const write = handleActions(
                 rating,
                 hashTags,
                 memo,
+                category,
             };
             return {
                 ...state,

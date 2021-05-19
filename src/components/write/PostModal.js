@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import './postModal.scss';
 import SearchPlace from './SearchPlace';
+import { category_type } from '../../modules/write';
+
 const PostModal = ({ closeModal, onSave }) => {
+    const { AIRPLANE, EAT, SHOPPING, TRANSPORTAION, ROOMS, ETC } =
+        category_type;
     const [title1, setTitle1] = useState('');
     const [title2, setTitle2] = useState('');
     const [price, setPrice] = useState('');
@@ -13,13 +17,22 @@ const PostModal = ({ closeModal, onSave }) => {
     const [rating, setRating] = useState('');
     const [hashTags, setHashTags] = useState([]);
     const [memo, setMemo] = useState('');
-
+    const [category, setCategory] = useState(AIRPLANE);
     const [inputHash, setInputHash] = useState(false);
 
     const [textHash, setTextHash] = useState('');
 
     const onClickSave = () => {
-        onSave({ title1, title2, price, location, rating, hashTags, memo });
+        onSave({
+            title1,
+            title2,
+            price,
+            location,
+            rating,
+            hashTags,
+            memo,
+            category,
+        });
         closeModal();
     };
     const addPlace = ({ name, lng, lat }) => {
@@ -32,7 +45,9 @@ const PostModal = ({ closeModal, onSave }) => {
         setTextHash('');
         setInputHash(false);
     };
-
+    const onChangeCategory = (e) => {
+        setCategory(e.target.value);
+    };
     return (
         <div className="post-modal-container">
             <div className="modal-white-box">
@@ -62,6 +77,18 @@ const PostModal = ({ closeModal, onSave }) => {
                                 setTitle2(e.target.value);
                             }}
                         />
+                        <select
+                            value={category}
+                            style={{ width: '50px' }}
+                            onChange={onChangeCategory}
+                        >
+                            <option value={AIRPLANE}>비행기</option>
+                            <option value={EAT}>식사</option>
+                            <option value={SHOPPING}>쇼핑</option>
+                            <option value={TRANSPORTAION}>교통</option>
+                            <option value={ROOMS}>숙소</option>
+                            <option value={ETC}>기타</option>
+                        </select>
                     </label>
                     <label>
                         <span>
