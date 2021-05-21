@@ -1,0 +1,180 @@
+{
+  "post": {
+    "id": 6,
+    "planTitle": "blue",
+    "planImage": "plan의 이미지 data uri",
+    "published": true,
+    "startDate": "2021-05-02",
+    "endDate": "2021-05-03",
+    "totalPrice": 130000,
+    "outputPlanTotalPrice": "13만원",
+    "flightTotalPrice": 10000,
+    "dishTotalPrice": 20000,
+    "shoppingTotalPrice": 10000,
+    "hotelTotalPrice": 40000,
+    "trafficTotalPrice": 20000,
+    "etcTotalPrice": 30000,
+    "top3List": ["HOTEL", "ETC", "TRAFFIC"],
+    "planRating": 3.7,
+    "accountResponseDto": {
+      "id": 1,
+      "username": "kiseok",
+      "profileImage": null,
+      "email": "kisa0828@naver.com",
+      "emailVerified": false
+    },
+    "planTagResponseDtos": [
+      {
+        "planTagTitle": "swiss"
+      },
+      {
+        "planTagTitle": "itlay"
+      }
+    ],
+    "postForPlanResponseDtos": [
+      {
+        "id": 7,
+        "postTitle": "first",
+        "price": 10000,
+        "outputPrice": "1만원",
+        "postImage": "image",
+        "category": "FLIGHT",
+        "rating": 4.5,
+        "closed": false,
+        "lat": 12.12,
+        "log": 21.21,
+        "day": 0,
+        "ordering": 0,
+        "memo": null,
+        "postTagResponseDtoList": [
+          {
+            "postTagTitle": "spring"
+          },
+          {
+            "postTagTitle": "hello"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "postTitle": "secocnd",
+        "price": 20000,
+        "outputPrice": "2만원",
+        "postImage": "개별 post마다 이미지 data uri",
+        "category": "DISH",
+        "rating": 4.5,
+        "closed": false,
+        "lat": 12.12,
+        "log": 21.21,
+        "day": 0,
+        "ordering": 1,
+        "memo": null,
+        "postTagResponseDtoList": [
+          {
+            "postTagTitle": "spring"
+          },
+          {
+            "postTagTitle": "hello"
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "postTitle": "third",
+        "price": 30000,
+        "outputPrice": "3만원",
+        "postImage": "222",
+        "category": "ETC",
+        "rating": 3.2,
+        "closed": false,
+        "lat": 12.12,
+        "log": 21.21,
+        "day": 1,
+        "ordering": 0,
+        "memo": null,
+        "postTagResponseDtoList": [
+          {
+            "postTagTitle": "spring"
+          },
+          {
+            "postTagTitle": "hello"
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "postTitle": "forth",
+        "price": 40000,
+        "outputPrice": "4만원",
+        "postImage": "개별 post마다 이미지 data uri",
+        "category": "HOTEL",
+        "rating": 3.5,
+        "closed": false,
+        "lat": 12.12,
+        "log": 21.21,
+        "day": 1,
+        "ordering": 1,
+        "memo": null,
+        "postTagResponseDtoList": [
+          {
+            "postTagTitle": "spring"
+          },
+          {
+            "postTagTitle": "hello"
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "postTitle": "fifth",
+        "price": 10000,
+        "outputPrice": "1만원",
+        "postImage": "개별 post마다 이미지 data uri",
+        "category": "SHOPPING",
+        "rating": 4.0,
+        "closed": false,
+        "lat": 12.12,
+        "log": 21.21,
+        "day": 2,
+        "ordering": 0,
+        "memo": null,
+        "postTagResponseDtoList": [
+          {
+            "postTagTitle": "spring"
+          },
+          {
+            "postTagTitle": "hello"
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "postTitle": "sixth",
+        "price": 20000,
+        "outputPrice": "2만원",
+        "postImage": "개별 post마다 이미지 data uri",
+        "category": "TRAFFIC",
+        "rating": 3.0,
+        "closed": false,
+        "lat": 12.12,
+        "log": 21.21,
+        "day": 2,
+        "ordering": 1,
+        "memo": null,
+        "postTagResponseDtoList": [
+          {
+            "postTagTitle": "spring"
+          },
+          {
+            "postTagTitle": "hello"
+          }
+        ]
+      }
+    ],
+    "_links": {
+      "index": {
+        "href": "http://localhost:8080/"
+      }
+    }
+  }
+}

@@ -71,7 +71,7 @@ function Slider(props) {
   return (
     <>
       <div className="BContainer">
-        {daycountArray(1).length >= 6 && (
+        {daycountArray(props.day).length >= 6 && (
           <>
             {currentSlide === 0 ? (
               ""

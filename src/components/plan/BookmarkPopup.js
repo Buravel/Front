@@ -67,6 +67,16 @@ function BookmarkPopup(props) {
           <button
             className="addBmarkButtonClick"
             onClick={() => {
+              axios.post("http://localhost:4000/bookmark", {
+                id: bmarkIdMax,
+                title: searchValue,
+              });
+            }}
+          />
+          <div className="bmarklinetwo" />
+          <button
+            className="bamrkGet"
+            onClick={() => {
               axios.post(inMyBookmark, {
                 postTitle: props.postTitle,
                 postPicture: props.postPicture,
@@ -75,16 +85,6 @@ function BookmarkPopup(props) {
                 money: props.money,
                 icon: props.icon,
                 id: props.id,
-              });
-            }}
-          />
-          <div className="bmarklinetwo" />
-          <button
-            className="bamrkGet"
-            onClick={() => {
-              axios.post("http://localhost:4000/bookmark", {
-                id: bmarkIdMax,
-                title: searchValue,
               });
             }}
           >

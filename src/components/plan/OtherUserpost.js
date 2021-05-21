@@ -59,24 +59,12 @@ function OtherUserpost() {
               <div className="dayLine" />
               <div className="container">
                 <span className="hideDot" />
-                {Lineposts(num).map((a) => (
-                  <Post
-                    day={num}
-                    postPicture={a.picture}
-                    transport={a.body}
-                    postTitle={a.title}
-                    nameIcon={a.sorts}
-                    rate={a.rate}
-                    postMoney={a.money}
-                    id={a.id}
-                  />
-                ))}
+                <Slider day={num} />
               </div>
             </div>
           </>
         ))}
       </div>
-      <Slider />
     </>
   );
 }
