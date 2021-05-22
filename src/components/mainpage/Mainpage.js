@@ -44,11 +44,12 @@ const Mainpage = () => {
                 </div>
                 
                 <div className = "btn">
-                <button className="btn" onClick={()=>{
+                <button onClick={()=>{
             axios.get('https://codingapple1.github.io/shop/data2.json')
             .then((result)=>{   setProduct([...product, ...result.data ])   })
             .catch(()=>{ })
-            }}>더보기</button></div>
+            }}>더보기</button>
+            </div>
             {/* axios를 시험하기 위한 버튼입니다. */}
             </div>
         
