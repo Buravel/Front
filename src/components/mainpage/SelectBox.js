@@ -13,7 +13,7 @@ import axios from 'axios';
 class SelectBox extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'by_latest'};
+    this.state = {value: '0'};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,10 +33,10 @@ class SelectBox extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           <select value={this.state.value} onChange={this.handleChange}>
-            <option value="by_latest">최신순</option>
-            <option value="by_price">가격순</option>
-            <option value="by_star">별점순</option>
-            <option value="mango">Mango</option>
+            <option value="0">최신순</option>
+            <option value="1">오래된순</option>
+            <option value="2">낮은가격순</option>
+            <option value="3">높은가격순</option>
           </select>
         </label>
         {/* <input type="submit" value="Submit" /> */}

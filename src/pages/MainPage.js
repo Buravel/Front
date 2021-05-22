@@ -19,7 +19,7 @@ const MainPage = () => {
             <div>mainPage</div>
         </Responsive>
 
-        <Mainpage_afterlogin/>
+        <Contact/>
         </div>
     );
 };
