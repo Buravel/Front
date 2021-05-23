@@ -1,0 +1,43 @@
+//0523 - 1차 수정 완료
+.select_label {
+    width:60px;
+    height: 24px;
+    padding: 0;
+    margin:4px;
+    font-family: 'Noto Sans KR', sans-serif;   
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #535353;
+    border: none;
+
+        select { 
+            -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+            -moz-appearance: none; 
+            appearance: none;
+            background: url(https://drive.google.com/file/d/1iSibLMAekCd4vD5P_cUVVALZJflMO1Ng/view?usp=sharing) no-repeat 95% 50%; /* 화살표 모양의 이미지 */ 
+            font-size: 16px;
+            text-align: center; 
+            padding: 3px;
+            font-family: 'Noto Sans KR', sans-serif;  
+            border: none;
+
+
+            /* text가운데 정렬 안됨
+            text-align-last: center;
+            text-align: center;
+            -ms-text-align-last: center;
+            -moz-text-align-last: center; */
+        } 
+    select::-ms-expand { display: none; }
+    option {
+            font-family: 'Noto Sans KR', sans-serif;    
+            font-size: 14px;
+            /* text-align-last: center;적용안됨 */
+    }
+}
+
