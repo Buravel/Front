@@ -33,14 +33,14 @@ body {
 .btn {
   position:absolute;
     /* width:100%; */
-  top:500px;
-  left:10px;
+  top:110%;
+  left:50%;
 }
 
 .topbar {
   position: relative;
   left: 20%;
-  top: 40px;
+  top: 50px;
 }
 
 .After_topbar {
@@ -50,6 +50,6 @@ body {
 }
 .container {
   position:absolute;
-  top:65%;
+  top:-50px;
   left: 10%;
 }
