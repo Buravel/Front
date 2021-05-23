@@ -20,7 +20,7 @@ function Popup(props) {
         setError(null);
         setPosts(null);
         setLoading(true);
-        const response = await axios.get("http://localhost:4000/posts");
+        const response = await axios.get("http://localhost:8080/post");
         setPosts(response.data);
       } catch (e) {
         setError(e);
@@ -32,14 +32,30 @@ function Popup(props) {
   }, []);
   if (!posts) return null;
 
-  function HashTagArray(a) {
-    return posts.filter((k) => k.id === a);
-  }
-  const hash = HashTagArray(props.id).map((posts) => posts.hashtag);
+  // function HashTagArray(a) {
+  //   return posts.filter((k) => k.id === a);
+  // }
+  // const hash = HashTagArray(props.id).map((posts) => posts.hashtag);
 
-  const hashTags = hash.pop();
-  if (!hashTags) return null;
+  // const hashTags = hash.pop();
+  // if (!hashTags) return null;
   const starArray = [];
+
+  const postTerm = posts.postForPlanResponseDtos;
+  const postId = postTerm && postTerm.filter((k) => k.id === props.id);
+  const hashTag = postId && postId.map((k) => k.postTagResponseDtoList);
+  const postMemo = postId && postId.map((k) => k.memo)[0];
+  const tags = hashTag && hashTag.map((k) => k).length;
+  const tagsArray = [];
+  for (let i = 0; i <= tags; i++) {
+    tagsArray.push(hashTag && hashTag.map((k) => k[i].postTagTitle));
+  }
+  const K = [];
+  for (let i = 0; i < tagsArray.length - 1; i++) {
+    K.push(tagsArray && tagsArray.map((k) => k[i]));
+  }
+  const tagTitle = K[0];
+  console.log(tagTitle);
 
   if (props.star % 1 === 0) {
     for (let i = 0; i < props.star; i++) {
@@ -89,9 +105,7 @@ function Popup(props) {
               <span className="popupMemo">메모</span>
             </span>
             <span className="popupContent">
-              <span className="popConTitle">
-                [{props.transport}] {props.postTitle}
-              </span>
+              <span className="popConTitle">{props.postTitle}</span>
               <Icon picture={props.icon} className="popConIcon" />
               <span className="popConCost">{props.money}</span>
               <span className="popConCostname">만원</span>
@@ -107,11 +121,12 @@ function Popup(props) {
                 {props.star % 1 !== 0 && <HalfStar />}
               </span>
               <span className="popConTag">
-                {hashTags.map((num) => (
-                  <span className="popConTagText">#{num}</span>
-                ))}
+                {tagTitle &&
+                  tagTitle.map((num) => (
+                    <span className="popConTagText">#{num}</span>
+                  ))}
               </span>
-              <span className="popConMemo">{props.memo} </span>
+              <span className="popConMemo">{postMemo} </span>
             </span>
             {props.content}
           </div>

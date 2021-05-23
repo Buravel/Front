@@ -8,13 +8,14 @@ function UserPostInfo(props) {
   const [info, setInfo] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         setError(null);
         setPosts(null);
         setLoading(true);
-        const response = await axios.get("http://localhost:4000/posts");
+        const response = await axios.get("http://localhost:8080/post");
         setPosts(response.data);
       } catch (e) {
         setError(e);
@@ -31,7 +32,7 @@ function UserPostInfo(props) {
         setError(null);
         setInfo(null);
         setLoading(true);
-        const response = await axios.get("http://localhost:4000/info");
+        const response = await axios.get("http://localhost:8080/post");
         setInfo(response.data);
       } catch (e) {
         setError(e);
@@ -41,6 +42,7 @@ function UserPostInfo(props) {
 
     fetchInfo();
   }, []);
+  console.log(posts);
 
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;

@@ -18,7 +18,7 @@ function Post(props) {
         setError(null);
         setPosts(null);
         setLoading(true);
-        const response = await axios.get("http://localhost:4000/posts");
+        const response = await axios.get("http://localhost:8080/post");
         setPosts(response.data);
       } catch (e) {
         setError(e);
@@ -36,14 +36,38 @@ function Post(props) {
   const toggleBmarkPopup = () => {
     setBmarkisOpen(!isbmarkOpen);
   };
-
-  function HashTagArray(a) {
-    return posts.filter((k) => k.id === a);
+  const postTerm = posts.postForPlanResponseDtos;
+  const postId = postTerm && postTerm.filter((k) => k.id === props.id);
+  const category = postId && postId.map((k) => k.category)[0];
+  const postImg = postId && postId.map((k) => k.postImage)[0];
+  const price = postId && postId.map((k) => k.price)[0];
+  const postTitle = postId && postId.map((k) => k.postTitle)[0];
+  const rating = postId && postId.map((k) => k.rating)[0];
+  const hashTag = postId && postId.map((k) => k.postTagResponseDtoList);
+  const tags = hashTag && hashTag.map((k) => k).length;
+  const tagsArray = [];
+  for (let i = 0; i <= tags; i++) {
+    tagsArray.push(hashTag && hashTag.map((k) => k[i].postTagTitle));
   }
-  const hash = HashTagArray(props.id).map((posts) => posts.hashtag);
+  const K = [];
+  for (let i = 0; i < tagsArray.length - 1; i++) {
+    K.push(tagsArray && tagsArray.map((k) => k[i]));
+  }
+  const tagTitle = K[0];
+  console.log(tagTitle);
 
-  const hashTags = hash.pop();
-  if (!hashTags) return null;
+  // function HashTagArray(a) {
+  //   if (postTerm && postTerm.filter((k) => k.id === a)) {
+  //     return postTerm.filter((k) => k.id === a);
+  //   } else {
+  //     return "";
+  //   }
+  // }
+
+  // const hash = postTerm && HashTagArray(props.id).map((posts) => posts.hashtag);
+
+  // const hashTags = hash.pop();
+  // if (!hashTags) return null;
 
   return (
     <>
@@ -61,43 +85,49 @@ function Post(props) {
         </div>
 
         <div className="postPicture">
-          <img src={props.postPicture} className="postPictureArray" />
+          <img src={postImg} className="postPictureArray" />
         </div>
         <div className="postContent">
-          <span className="postName">
-            [{props.transport}] {props.postTitle}
-          </span>
-          <Icon picture={props.nameIcon} className="postNameIcon" />
+          <span className="postName">{postTitle}</span>
+          <Icon picture={category} className="postNameIcon" />
           <Icon picture="rating" className="postRateIcon" />
-          <span className="rateValue">{props.rate}</span>
-          <span className="money">{props.postMoney}</span>
-          <span className="moneyName">만원</span>
+          <span className="rateValue">{rating}</span>
+          <div className="moneyBox">
+            <span className="money">
+              {String(price).substr(0, String(price).length - 4)}
+            </span>
+            <span className="moneyName">만원</span>
+          </div>
           <span className="hashTagLine">
-            {hashTags.map((num) => (
+            {tagTitle &&
+              tagTitle.map((num) => (
+                <span className="postHashTag">#{num}</span>
+              ))}
+            {/* {hashTags.map((num) => (
               <span className="postHashTag">#{num}</span>
-            ))}
+            ))} */}
           </span>
         </div>
         {isOpen && (
           <Popup
-            postTitle={props.postTitle}
-            postPicture={props.postPicture}
-            star={props.rate}
-            transport={props.transport}
-            money={props.postMoney}
-            icon={props.nameIcon}
+            postTitle={postTitle}
+            postPicture={postImg}
+            star={rating}
+            // transport={category}
+            money={String(price).substr(0, String(price).length - 4)}
+            icon={category}
             handleClose={togglePopup}
             id={props.id}
           />
         )}
         {isbmarkOpen && (
           <BookmarkPopup
-            postTitle={props.postTitle}
-            postPicture={props.postPicture}
-            star={props.rate}
-            transport={props.transport}
-            money={props.postMoney}
-            icon={props.nameIcon}
+            postTitle={postTitle}
+            postPicture={postImg}
+            star={rating}
+            // transport={props.transport}
+            money={String(price).substr(0, String(price).length - 4)}
+            icon={category}
             id={props.id}
             handleClose={toggleBmarkPopup}
           />

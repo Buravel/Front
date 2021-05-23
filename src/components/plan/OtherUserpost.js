@@ -17,7 +17,7 @@ function OtherUserpost() {
         setError(null);
         setPosts(null);
         setLoading(true);
-        const response = await axios.get("http://localhost:4000/posts");
+        const response = await axios.get("http://localhost:8080/post");
         setPosts(response.data);
       } catch (e) {
         setError(e);
@@ -31,20 +31,31 @@ function OtherUserpost() {
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!posts) return null;
-  const nameArray = posts.map((posts) => posts.title);
+  // const nameArray = posts.map((posts) => posts.title);
 
-  const newArray = posts.map((posts) => posts.day);
-  const dayMax = Math.max.apply(null, newArray);
+  // const newArray = posts.map((posts) => posts.day);
+  // const dayMax = Math.max.apply(null, newArray);
+  // const dayArray = [];
+
+  // function Lineposts(e) {
+  //   return posts.filter((k) => k.day === e);
+  // }
+  // console.log(Lineposts(1));
+
+  // console.log(Lineposts(1).map((posts) => posts.title));
+
+  // for (let i = 1; i <= dayMax; i++) {
+  //   dayArray.push(i);
+  // }
+  const postTerm = posts.postForPlanResponseDtos;
+
+  const dayMax = Math.max.apply(
+    null,
+    postTerm && postTerm.map((itme, i) => itme.day)
+  );
+
   const dayArray = [];
-
-  function Lineposts(e) {
-    return posts.filter((k) => k.day === e);
-  }
-  console.log(Lineposts(1));
-
-  console.log(Lineposts(1).map((posts) => posts.title));
-
-  for (let i = 1; i <= dayMax; i++) {
+  for (let i = 1; i <= dayMax + 1; i++) {
     dayArray.push(i);
   }
 

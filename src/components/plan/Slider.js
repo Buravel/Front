@@ -16,7 +16,7 @@ function Slider(props) {
         setError(null);
         setPosts(null);
         setLoading(true);
-        const response = await axios.get("http://localhost:4000/posts");
+        const response = await axios.get("http://localhost:8080/post");
         setPosts(response.data);
       } catch (e) {
         setError(e);
@@ -38,19 +38,27 @@ function Slider(props) {
   if (error) return <div>에러가 발생했습니다</div>;
   if (!posts) return null;
 
-  const newArray = posts.map((posts) => posts.day);
-  const dayMax = Math.max.apply(null, newArray);
+  // const newArray = posts.map((posts) => posts.day);
+  // const dayMax = Math.max.apply(null, newArray);
 
-  function daycountArray(a) {
-    return posts.filter((k) => k.day === a);
-  }
-  function Lineposts(e) {
-    return posts.filter((k) => k.day === e);
-  }
-  const dayArray = [];
-  for (let i = 1; i <= dayMax; i++) {
-    dayArray.push(i);
-  }
+  // function daycountArray(a) {
+  //   return posts.filter((k) => k.day === a);
+  // }
+  // function Lineposts(e) {
+  //   return posts.filter((k) => k.day === e);
+  // }
+  // const dayArray = [];
+  // for (let i = 1; i <= dayMax; i++) {
+  //   dayArray.push(i);
+  // }
+
+  const postTerm = posts.postForPlanResponseDtos;
+
+  const dayMax =
+    postTerm &&
+    postTerm.filter((k) => k.day === props.day - 1).map((item, i) => item.id)
+      .length;
+
   const nextSlide = () => {
     if (currentSlide >= dayMax) {
     } else {
@@ -63,54 +71,57 @@ function Slider(props) {
       setCurrentSlide(currentSlide - 1);
     }
   };
-  console.log(currentSlide);
-  function Lineposts(e) {
-    return posts.filter((k) => k.day === e);
-  }
+  // console.log(currentSlide);
+  // function Lineposts(e) {
+  //   return posts.filter((k) => k.day === e);
+  // }
 
   return (
     <>
       <div className="BContainer">
-        {daycountArray(props.day).length >= 6 && (
-          <>
-            {currentSlide === 0 ? (
-              ""
-            ) : (
-              <span className="prevButton">
-                <button onClick={prevSlide} className="prevbtn">
-                  <img
-                    src="/images/planImg/nextButton.svg"
-                    className="prebtn"
-                  />
-                </button>
-              </span>
-            )}
-            {currentSlide === daycountArray(props.day).length - 5 ? (
-              ""
-            ) : (
-              <span className="nextButton">
-                <button onClick={nextSlide} className="nextbtn">
-                  <img
-                    src="/images/planImg/nextButton.svg"
-                    className="nxtbtn"
-                  />
-                </button>
-              </span>
-            )}
-          </>
-        )}
+        {/* <div>
+          {console.log(
+            postTerm && postTerm.filter((k) => k.day === props.day - 1)
+          )}
+        </div> */}
+        {postTerm &&
+          postTerm.filter((k) => k.day === props.day - 1).length >= 6 && (
+            <>
+              {currentSlide === 0 ? (
+                ""
+              ) : (
+                <span className="prevButton">
+                  <button onClick={prevSlide} className="prevbtn">
+                    <img
+                      src="/images/planImg/nextButton.svg"
+                      className="prebtn"
+                    />
+                  </button>
+                </span>
+              )}
+              {currentSlide ===
+              (postTerm && postTerm.filter((k) => k.day === props.day - 1))
+                .length -
+                4 ? (
+                ""
+              ) : (
+                <span className="nextButton">
+                  <button onClick={nextSlide} className="nextbtn">
+                    <img
+                      src="/images/planImg/nextButton.svg"
+                      className="nxtbtn"
+                    />
+                  </button>
+                </span>
+              )}
+            </>
+          )}
         <div className="SliderContainer" ref={slideRef}>
-          {Lineposts(props.day).map((a) => (
-            <Post
-              postPicture={a.picture}
-              transport={a.body}
-              postTitle={a.title}
-              nameIcon={a.sorts}
-              rate={a.rate}
-              postMoney={a.money}
-              id={a.id}
-            />
-          ))}
+          {postTerm &&
+            postTerm
+              .filter((k) => k.day === props.day - 1)
+              .map((item, i) => <Post id={item.id} />)}
+          {/* 여기서 받는 day는 실제 날짜와 같음 */}
         </div>
       </div>
     </>
