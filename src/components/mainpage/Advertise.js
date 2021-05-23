@@ -9,7 +9,7 @@ return (
     <Carousel.Item>
         <img
         className="d-block w-100"
-        src="http://placehold.it/1280x294"
+        src=""
         alt="First slide"
         />
     </Carousel.Item>
