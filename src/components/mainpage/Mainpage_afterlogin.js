@@ -1,12 +1,9 @@
 import React, { useState, map } from 'react'
 import './Mainpage_afterlogin.css'
 import Product from './Product'
-import Pagination from './Pagination'
 import Advertise from './Advertise'
-import Topbar from './Topbar'
 import After_Topnav from './After_Topnav'
 import After_topBar from './After_topBar'
-import { Carousel, Navbar } from 'react-bootstrap'
 import Data from './Data'
 import axios from 'axios';
 

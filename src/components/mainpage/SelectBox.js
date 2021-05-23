@@ -1,14 +1,5 @@
 import React, { useState, map } from 'react'
-import './Mainpage.css'
 import './SelectBox.css'
-import Product from './Product'
-import Pagination from './Pagination'
-import Advertise from './Advertise'
-import Topbar from './Topbar'
-
-import { Carousel, Navbar } from 'react-bootstrap'
-import Data from './Data'
-import axios from 'axios';
 
 class SelectBox extends React.Component {
   constructor(props) {

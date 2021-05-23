@@ -1,8 +1,7 @@
 import React from 'react'
-import ContactInfo from './ContactInfo'
 import './Contact.css'
 import Data from './Data'
-import { Dropdown } from 'react-bootstrap'
+
 
 export default class Contact extends React.Component {
     
