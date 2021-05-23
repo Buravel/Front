@@ -25,7 +25,7 @@ const Mainpage = () => {
                 <Advertise/>
             </div>
         
-            <div>
+            <div className="topbar">
                 <Topbar/>
             </div>
 
@@ -44,18 +44,20 @@ const Mainpage = () => {
                 </div>
                 
                 <div className = "btn">
-                <button className="btn" onClick={()=>{
+                <button onClick={()=>{
             axios.get('https://codingapple1.github.io/shop/data2.json')
             .then((result)=>{   setProduct([...product, ...result.data ])   })
             .catch(()=>{ })
-            }}>더보기</button></div>
+            }}>더보기</button>
+            </div>
             {/* axios를 시험하기 위한 버튼입니다. */}
             </div>
         
-
+            {/* 디자인에 페이지 넘버링 없어서 뺌. 더보기? 버튼 CSS 수정
             <div className="footer">
             <Pagination/>
             </div>
+            */}
 
         </body>
         </>

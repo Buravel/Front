@@ -16,16 +16,28 @@ const After_Topnav = () => {
     return (
         <>
          <div className="after_topbar">
-            <ul>
-                <li><span>~님의 예정된 여행</span> </li>
-                <li><span>위치</span> </li>
-                <li><span>예산</span> </li>
-                <li><span>예산상세</span> </li>
-            </ul>
-            {/* <div className="after_topbar_container">
-                    <span className="after_topbar_name">지수님의 예정된 여행</span>
-                    <span className="after_topbar_plan">2021-02-12</span>
-            </div> */}
+
+            <span className="after_topbar1_1">지수님의 예정된 여행</span>
+            <span className="after_topbar1_2">2021년 5월 17일</span>
+            <span className="after_topbar1_3"></span>
+            
+            <span className="after_topbar2_1">위치</span>
+            <span className="after_topbar2_2">강릉</span>
+            <span className="after_topbar2_3"></span>
+
+            <span className="after_topbar3_1">예산</span>
+            <span className="after_topbar3_2">58만원</span>
+            <span className="after_topbar3_3"></span>
+
+            <span className="after_topbar4_1">예산상세</span>
+            <span className="after_topbar4_2">
+                <img src="/images/mainpage/bus.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"class="food"/>20 &nbsp;&nbsp;
+                <img src="/images/mainpage/plane.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"class="food"/>12 &nbsp;&nbsp;
+                <img src="/images/mainpage/food.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"class="food"/>30 &nbsp;&nbsp; 
+                <img src="/images/mainpage/dot.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"class="food"/>
+            </span>
+            <span className="after_topbar4_3"></span>
+
          </div>
         </>
     );

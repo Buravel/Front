@@ -1,5 +1,5 @@
 import React, { useState, map } from 'react'
-import './Mainpage.css'
+import './Mainpage_afterlogin.css'
 import Product from './Product'
 import Pagination from './Pagination'
 import Advertise from './Advertise'
@@ -20,15 +20,16 @@ const Mainpage_afterlogin = () => {
         {/* <Navbar bg="light">
             <Navbar.Brand href="#home">Header</Navbar.Brand>
         </Navbar> */}
+        <div className = "topbar">
+            <After_Topnav/>
+        </div>
 
         <body className="main_background">
-
-            <After_Topnav/>
             <div className ="advertise">
                 <Advertise/>
             </div>
         
-            <div>
+            <div className="After_topbar">
                 <After_topBar/>
             </div>
 
@@ -54,11 +55,12 @@ const Mainpage_afterlogin = () => {
             {/* axios를 시험하기 위한 버튼입니다. */}
             </div>
         
-
+            
+             {/* 디자인에 페이지 넘버링 없어서 뺌. 더보기? 버튼 CSS 수정
             <div className="footer">
             <Pagination/>
             </div>
-
+            */}
     </body>
         </>
     );

@@ -1,5 +1,6 @@
 import React, { useState, map } from 'react'
 import './Mainpage.css'
+import './SelectBox.css'
 import Product from './Product'
 import Pagination from './Pagination'
 import Advertise from './Advertise'
@@ -9,10 +10,10 @@ import { Carousel, Navbar } from 'react-bootstrap'
 import Data from './Data'
 import axios from 'axios';
 
-class selectBox extends React.Component {
+class SelectBox extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'by_latest'};
+    this.state = {value: '0'};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,7 +21,7 @@ class selectBox extends React.Component {
 
   handleChange(event) {
     this.setState({value: event.target.value});
-  }
+  } 
 
   handleSubmit(event) {
     alert('확인용' + this.state.value);
@@ -32,15 +33,15 @@ class selectBox extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           <select value={this.state.value} onChange={this.handleChange}>
-            <option value="by_latest">최신순</option>
-            <option value="by_price">가격순</option>
-            <option value="by_star">별점순</option>
-            <option value="mango">Mango</option>
+            <option value="0">최신순</option>
+            <option value="1">오래된순</option>
+            <option value="2">낮은가격순</option>
+            <option value="3">높은가격순</option>
           </select>
         </label>
-        <input type="submit" value="Submit" />
+        {/* <input type="submit" value="Submit" /> */}
       </form>
     );
   }
 }
-export default selectBox;
+export default SelectBox;

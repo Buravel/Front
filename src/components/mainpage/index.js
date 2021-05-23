@@ -6,14 +6,14 @@ import Mainpage from './Mainpage'
 import Product from './Product'
 import Search from './Search'
 import SelectBox from './SelectBox'
-import Demo from './demo';
+import Demo from './Selectbox_demo';
 import Contact from './Contact'
 
 import Mainpage_afterlogin from "./Mainpage_afterlogin";
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css'
 
-ReactDOM.render(<Search/>, document.getElementById('root'));
+ReactDOM.render(<Mainpage/>, document.getElementById('root'));
 
 
 // If you want to start measuring performance in your app, pass a function
