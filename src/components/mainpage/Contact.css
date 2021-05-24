@@ -1,4 +1,4 @@
-button{
+/* button{
     z-index: 3;
     position:absolute;
     top: -1px;
@@ -9,7 +9,7 @@ input::placeholder {
     color: #b5b5b5;
     font-size: 12px;
     font-family: 'Noto Sans KR', sans-serif;    
-  }
+  } */
 .for_search{  
     /*background-image : url('/images/mainpage/search_icon.png'); */
     background-position:top right; 
