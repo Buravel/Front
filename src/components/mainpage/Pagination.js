@@ -1,6 +1,5 @@
 import React from 'react'
-import './Pagination.css'
-import './Mainpage.css'
+import './Pagination.scss'
 import Product from './Product'
 import { AiFillStar } from "react-icons/ai";
 import { Carousel, Navbar } from 'react-bootstrap';

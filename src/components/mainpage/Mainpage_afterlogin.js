@@ -1,5 +1,5 @@
-import React, { useState, map } from 'react'
-import './Mainpage_afterlogin.css'
+import React, { useState, map, useEffect } from 'react'
+import './Mainpage_afterlogin.scss'
 import Product from './Product'
 import Pagination from './Pagination'
 import Advertise from './Advertise'
@@ -11,9 +11,15 @@ import Data from './Data'
 import axios from 'axios';
 
 // 로그인 전과 후는 라우팅으로 구성해주면 될 듯
-const Mainpage_afterlogin = () => {
+const Mainpage_afterlogin = (props) => {
 
-    let [product, product변경] = useState(Data);
+    let [product, setProduct] = useState(Data);
+
+    useEffect(()=>{
+        axios.get('https://codingapple1.github.io/shop/data2.json')
+        .then((result)=>{   setProduct([...product, ...result.data ])   })
+        .catch(()=>{ console.log('err')})
+    },[])
     
     return (
         <>
@@ -49,7 +55,7 @@ const Mainpage_afterlogin = () => {
                 <div className = "btn">
                 <button className="btn" onClick={()=>{
             axios.get('https://codingapple1.github.io/shop/data2.json')
-            .then((result)=>{   product변경([...product, ...result.data ])   })
+            .then((result)=>{  setProduct([...product, ...result.data ])   })
             .catch(()=>{ })
             }}>더보기</button></div>
             {/* axios를 시험하기 위한 버튼입니다. */}

@@ -1,5 +1,5 @@
 import React, { useState, map } from 'react'
-import './Advertise.css'
+import './Advertise.scss'
 import Product from './Product'
 import Pagination from './Pagination'
 import { Carousel, Navbar } from 'react-bootstrap'

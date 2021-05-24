@@ -1,5 +1,5 @@
-import React, { useState, map } from 'react'
-import './Mainpage.css'
+import React, { useState, map, useEffect } from 'react'
+import './Mainpage.scss'
 import Product from './Product'
 import Pagination from './Pagination'
 import Advertise from './Advertise'
@@ -14,6 +14,14 @@ const Mainpage = () => {
 
     let [product, setProduct] = useState(Data);
     //한글 지양
+
+    //페이지 열자마자 정보 가져오기.
+    useEffect(()=>{
+        axios.get('https://codingapple1.github.io/shop/data2.json')
+        .then((result)=>{   setProduct([...product, ...result.data ])   })
+        .catch(()=>{ console.log('err')})
+    },[])
+
     return (
         <>
         {/* <Navbar bg="light">
@@ -47,7 +55,7 @@ const Mainpage = () => {
                 <button onClick={()=>{
             axios.get('https://codingapple1.github.io/shop/data2.json')
             .then((result)=>{   setProduct([...product, ...result.data ])   })
-            .catch(()=>{ })
+            .catch(()=>{ console.log('err')})
             }}>더보기</button>
             </div>
             {/* axios를 시험하기 위한 버튼입니다. */}

@@ -1,6 +1,5 @@
 import React, { useState, map } from 'react'
-import './After_Topnav.css'
-import './Mainpage.css'
+import './After_Topnav.scss'
 import Product from './Product'
 import Pagination from './Pagination'
 import Advertise from './Advertise'
