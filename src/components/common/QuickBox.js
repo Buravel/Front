@@ -5,7 +5,7 @@ const QuickBox = () => {
     return (
         <div className="quick-menu">
             <div className="close-btn">
-                <span>x</span>
+                <span>×</span>
             </div>
             <div className="quick-btn">
                 <Link to="/mypage">
