@@ -21,6 +21,7 @@ const Mainpage = () => {
             .then((result) => {
                 const data = result.data._embedded.planResponseDtoList;
                 setProduct([...product, ...data]);
+                console.log(data);
             })
             .catch((err) => {
                 console.log(err);
@@ -54,48 +55,8 @@ const Mainpage = () => {
                 <Product product={product[3]}/>
                 <Product product={product[4]}/> */}
                     </div>
-
-                    <div className="btn">
-                        <button
-                            onClick={() => {
-                                axios
-                                    .get(
-                                        'https://codingapple1.github.io/shop/data2.json',
-                                    )
-                                    .then((result) => {
-                                        setProduct([
-                                            ...product,
-                                            ...result.data,
-                                        ]);
-                                    })
-                                    .catch(() => {});
-                            }}
-                        >
-                            더보기
-                        </button>
-                    </div>
-                    {/* axios를 시험하기 위한 버튼입니다. */}
                 </div>
-                <div className="btn">
-                    <button
-                        onClick={() => {
-                            axios
-                                .get(
-                                    'https://codingapple1.github.io/shop/data2.json',
-                                )
-                                .then((result) => {
-                                    setProduct([...product, ...result.data]);
-                                })
-                                .catch(() => {
-                                    console.log('err');
-                                });
-                        }}
-                    >
-                        더보기
-                    </button>
-                </div>
-                {/* axios를 시험하기 위한 버튼입니다. */}
-            </div>
+        </div>    
         </>
     );
 };
