@@ -36,6 +36,7 @@ export default class Contact extends React.Component {
         //     });
         // };
         //cm.없어도 된다고 하심
+        //수정
         return (
             <div className="search-container">
                 {/* <h1>Contacts</h1> */}
