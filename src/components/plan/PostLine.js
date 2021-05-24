@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Appstyle from "./Appstyle.scss";
+import Appstyle from "./Planstyle.scss";
 import Post from "./Post";
 import Icon from "./Icon";
 

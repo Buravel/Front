@@ -30,7 +30,7 @@ function Slider(props) {
   useEffect(() => {
     slideRef.current.style.transition = "all 0.4s ease-in-out";
     slideRef.current.style.transform = `translateX(-${
-      currentSlide * 200 + currentSlide * 24
+      currentSlide * 210 + currentSlide * 24
     }px)`;
   }, [currentSlide]);
 
