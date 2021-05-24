@@ -15,7 +15,10 @@ function BookmarkPopup(props) {
         setError(null);
         setBmark(null);
         setLoading(true);
-        const response = await axios.get("http://localhost:4000/bookmark");
+        const response = await axios.get(
+          // `http://34.64.93.115/plans/${props.id}`
+          "http://localhost:8000/bookmark"
+        );
         setBmark(response.data);
       } catch (e) {
         setError(e);
@@ -27,16 +30,19 @@ function BookmarkPopup(props) {
   }, []);
 
   if (!bmark) return null;
-  const bmarkArray = bmark.map((posts) => posts.title);
-  const bmarkIdArray = bmark.map((posts) => posts.id);
-  const bmarkIdMax = Math.max.apply(null, bmarkIdArray) + 1;
-  const inMyBookmark = "http://localhost:4000/bookmark/" + bmarkinputValue;
-  const styleValue = { background: "orange" };
 
-  console.log(inMyBookmark);
+  const bmarklist = bmark.bookmarkResponseDtoList.length;
+  console.log(bmarklist);
+  // const bmarkArray = bmark.map((posts) => posts.title);
+  // const bmarkIdArray = bmark.map((posts) => posts.id);
+  // const bmarkIdMax = Math.max.apply(null, bmarkIdArray) + 1;
+  // const inMyBookmark = "http://localhost:4000/bookmark/" + bmarkinputValue;
+  // const styleValue = { background: "orange" };
+
+  // console.log(inMyBookmark);
   return (
     <ModalPortal>
-      <div className="popupBackground">
+      {/* <div className="popupBackground">
         <div className="bmarkpopupBox">
           <div className="bmarkHeader">
             <div className="BmarkHead">{bmarkinputValue}(으)로 가져가기</div>
@@ -94,7 +100,7 @@ function BookmarkPopup(props) {
             <Icon picture="bmarkCancel" />
           </button>
         </div>
-      </div>
+      </div> */}
     </ModalPortal>
   );
 }
