@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26.548" height="26.548" viewBox="0 0 26.548 26.548">
+    <defs>
+        <style>
+            .cls-2{stroke:#b5b5b5;fill:none;stroke-linecap:round}
+        </style>
+    </defs>
+    <g id="그룹_189" transform="rotate(45 7.254 15.748)">
+        <g id="사각형_157" fill="#fff" stroke="#b5b5b5" transform="translate(.375 .356)">
+            <rect width="18.772" height="18.772" stroke="none" rx="9"/>
+            <rect width="17.772" height="17.772" x=".5" y=".5" fill="none" rx="8.5"/>
+        </g>
+        <g id="그룹_133" transform="rotate(45 2.154 12.912)">
+            <path id="선_19" d="M0 0L10.583 0" class="cls-2" transform="translate(0 5.291)"/>
+            <path id="선_20" d="M0 0L0 10.583" class="cls-2" transform="translate(5.291)"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,26 @@
+.plan-list-container {
+    margin: 40px 0 ;
+    .add-btn {
+        cursor: pointer;
+        width: 90px;
+        height: 26px;
+        background-color: white;
+        border: solid 2px #0070ef;
+        border-radius: 20px;
+        margin-left: 90px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 10px 0 6px;
+        span.text {
+            color:#535353;
+            font-weight: bold;
+            font-size:14px;
+        }
+        span.icon {
+            color: #0070ef;
+            font-size:25px;
+            line-height: 0;
+        }
+    }
+}
