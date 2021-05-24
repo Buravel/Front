@@ -1,27 +1,26 @@
-import React from 'react'
-import ContactInfo from './ContactInfo'
-import './Contact.css'
-import Data from './Data'
-import { Dropdown } from 'react-bootstrap'
+import React from 'react';
+import ContactInfo from './ContactInfo';
+import './Contact.scss';
+import Data from './Data';
+import { Dropdown } from 'react-bootstrap';
 
 export default class Contact extends React.Component {
-    
     constructor(props) {
         super(props);
         this.state = {
             keyword: '',
             min: 0,
             max: 0,
-            contactData: Data
+            contactData: Data,
         };
         this.handleChange = this.handleChange.bind(this);
     }
-    
+
     handleChange(e) {
         this.setState({
             keyword: e.target.value,
             min: e.target.value,
-            max: e.target.value
+            max: e.target.value,
         });
     }
     render() {
@@ -41,31 +40,37 @@ export default class Contact extends React.Component {
             <div className="search-container">
                 {/* <h1>Contacts</h1> */}
                 <button>
-                        <img
-                            src="/images/mainpage/search_icon.png"
-                            alt="search"
-                        />
+                    <img src="/images/mainpage/search_icon.png" alt="search" />
                 </button>
-                 <form action="search.jsp" method="get">
-                    <input className="for_search"
+                <form action="search.jsp" method="get">
+                    <input
+                        className="for_search"
                         name="keyword"
                         placeholder="Search"
                         value={this.state.keyword}
                         onChange={this.handleChange}
                     />
                     <label for="fname">First Name</label>
-                    <input type="text" id="fname"  name="keyword"
+                    <input
+                        type="text"
+                        id="fname"
+                        name="keyword"
                         placeholder="Search"
                         value={this.state.keyword}
-                        onChange={this.handleChange}/>
+                        onChange={this.handleChange}
+                    />
                     <label for="lname">Last Name</label>
-                    <input type="text" id="lname"  name="keyword"
+                    <input
+                        type="text"
+                        id="lname"
+                        name="keyword"
                         placeholder="Search"
                         value={this.state.keyword}
-                        onChange={this.handleChange}></input>
+                        onChange={this.handleChange}
+                    ></input>
                 </form>
                 {/* <div>{mapToComponents(this.state.contactData)}</div> */}
-                
+
                 {/* <div className="dropdown">
                     <label for="toggle_button" class="toggle_button">금액검색</label>
                     <input type="checkbox" id="toggle_button"/>
@@ -91,7 +96,7 @@ export default class Contact extends React.Component {
                         <label for="toggle_button" class="close_button"><img src="/images/mainpage/x.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"class="x"/></label>
                 </div> */}
 
-                    {/* <button className="dropbtn">금액검색</button>
+                {/* <button className="dropbtn">금액검색</button>
                     <div className="dropdown-content">
                         <span className="dropdown-content-text">금액검색</span>
                         <input className="for_pricesearch1"
@@ -115,7 +120,6 @@ export default class Contact extends React.Component {
                 
                     </div> */}
                 {/* </div> */}
-
             </div>
         );
     }
