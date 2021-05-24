@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="98" height="33" viewBox="0 0 98 33">
+    <path fill="#0070ef" d="M16.5 0h65a16.5 16.5 0 0 1 0 33h-65a16.5 16.5 0 0 1 0-33z"/>
+    <text fill="#fff" font-family="NotoSansKR-Regular, Noto Sans KR" font-size="14px" transform="translate(49 22)">
+        <tspan x="-25.76" y="0">가져가기</tspan>
+    </text>
+</svg>

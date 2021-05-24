@@ -4,7 +4,6 @@ import './Product.scss';
 import axios from 'axios';
 import { getNight, splitDate } from '../../util/date';
 
-
 const Product = (props) => {
     // let [product, product변경] = useState(Data);
     //props로 부모 component의 함수를 가져온다.
