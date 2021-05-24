@@ -1,10 +1,12 @@
-*,
-html {
-  margin: 0;
-  padding: 0;
-}
+// *,
+// html {
+//   margin: 0;
+//   padding: 0;
+// }
 
 @font-face {
+  margin: 0;
+  padding: 0;
   font-family: "NotoSansKR";
   src: url(./NotoSansKR.otf);
 }
@@ -239,10 +241,16 @@ html {
   color: #535353;
   width: 64px;
   height: 20px;
-
-  /* 폰트 사이즈가 14면 width가 34면 너무 적어서 글자가 뒤로 밀려나감. 확인부탁 */
 }
 
+.PostInfo * {
+  margin: 0;
+  padding: 0;
+}
+.dayInfo * {
+  margin: 0;
+  padding: 0;
+}
 .InfoBackground {
   position: relative;
   width: 1280px;

@@ -61,7 +61,7 @@ function OtherUserpost() {
 
   return (
     <>
-      <div>
+      <div className="dayInfo">
         {dayArray.map((num) => (
           <>
             <div className="dayBackground">

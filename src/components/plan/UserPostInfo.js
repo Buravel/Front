@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Appstyle from "./Appstyle.css";
+import Appstyle from "./Appstyle.scss";
 import Icon from "./Icon";
 
 function UserPostInfo(props) {

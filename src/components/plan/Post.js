@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Popup from "./Popup";
-import Appstyle from "./Appstyle.css";
+import Appstyle from "./Appstyle.scss";
 import Postconnect from "./Postconnect";
 import Icon from "./Icon";
 import BookmarkPopup from "./BookmarkPopup";

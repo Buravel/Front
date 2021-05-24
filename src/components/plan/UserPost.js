@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Appstyle from "./Appstyle.css";
+import Appstyle from "./Appstyle.scss";
 import Icon from "./Icon";
 
 function UserPost(props) {
@@ -87,84 +87,89 @@ function UserPost(props) {
     //         Math.max.apply(null, postTerm && postTerm.map((itme, i) => itme.day))
     //       )}
     //     </>
-
-    <div className="InfoBackground">
-      <span className="PostDay">
-        <span className="PostDate">
-          {Year}년 {Month}월
-        </span>
-        <span className="PostTerm">
-          (
-          {Math.max.apply(
-            null,
-            postTerm && postTerm.map((item, i) => item.day)
-          )}
-          박{" "}
-          {Math.max.apply(
-            null,
-            postTerm && postTerm.map((item, i) => item.day)
-          ) + 1}
-          일)
-        </span>
-      </span>
-      <span className="UserPostName">
-        <span className="UserPlace">{posts.planTitle}</span>
-      </span>
-      <span className="CostBackground">
-        <span className="TotalCost">
-          <span className="TotalMoney">
-            {String(posts.totalPrice).substr(
-              0,
-              String(posts.totalPrice).length - 4
-            )}
+    <div className="PostInfo">
+      <div className="InfoBackground">
+        <span className="PostDay">
+          <span className="PostDate">
+            {Year}년 {Month}월
           </span>
-          <span className="TotalMoneyname">만원</span>
-        </span>
-        <span className="TotalImg">
-          <Icon picture="FLIGHT" className="TotalAirplane" alt="budget icon" />
-          <Icon picture="DISH" className="Totalfood" alt="budget icon" />
-          <Icon
-            picture="shopping"
-            className="Totalshopping"
-            alt="budget icon"
-          />
-          <Icon picture="TRAFFIC" className="Totalbus" alt="budget icon" />
-          <Icon picture="HOTEL" className="Totalbed" alt="budget icon" />
-        </span>
-        <span className="TotalMoneylist">
-          <span className="TotalAirplaneCost">
-            {String(posts.flightTotalPrice).substr(
-              0,
-              String(posts.flightTotalPrice).length - 4
+          <span className="PostTerm">
+            (
+            {Math.max.apply(
+              null,
+              postTerm && postTerm.map((item, i) => item.day)
             )}
-          </span>
-          <span className="TotalfoodCost">
-            {String(posts.dishTotalPrice).substr(
-              0,
-              String(posts.dishTotalPrice).length - 4
-            )}
-          </span>
-          <span className="TotalshoppingCost">
-            {String(posts.shoppingTotalPrice).substr(
-              0,
-              String(posts.shoppingTotalPrice).length - 4
-            )}
-          </span>
-          <span className="TotalbusCost">
-            {String(posts.trafficTotalPrice).substr(
-              0,
-              String(posts.trafficTotalPrice).length - 4
-            )}
-          </span>
-          <span className="TotalbedCost">
-            {" "}
-            {String(posts.hotelTotalPrice).substr(
-              0,
-              String(posts.hotelTotalPrice).length - 4
-            )}
+            박{" "}
+            {Math.max.apply(
+              null,
+              postTerm && postTerm.map((item, i) => item.day)
+            ) + 1}
+            일)
           </span>
         </span>
-      </span>
+        <span className="UserPostName">
+          <span className="UserPlace">{posts.planTitle}</span>
+        </span>
+        <span className="CostBackground">
+          <span className="TotalCost">
+            <span className="TotalMoney">
+              {String(posts.totalPrice).substr(
+                0,
+                String(posts.totalPrice).length - 4
+              )}
+            </span>
+            <span className="TotalMoneyname">만원</span>
+          </span>
+          <span className="TotalImg">
+            <Icon
+              picture="FLIGHT"
+              className="TotalAirplane"
+              alt="budget icon"
+            />
+            <Icon picture="DISH" className="Totalfood" alt="budget icon" />
+            <Icon
+              picture="shopping"
+              className="Totalshopping"
+              alt="budget icon"
+            />
+            <Icon picture="TRAFFIC" className="Totalbus" alt="budget icon" />
+            <Icon picture="HOTEL" className="Totalbed" alt="budget icon" />
+          </span>
+          <span className="TotalMoneylist">
+            <span className="TotalAirplaneCost">
+              {String(posts.flightTotalPrice).substr(
+                0,
+                String(posts.flightTotalPrice).length - 4
+              )}
+            </span>
+            <span className="TotalfoodCost">
+              {String(posts.dishTotalPrice).substr(
+                0,
+                String(posts.dishTotalPrice).length - 4
+              )}
+            </span>
+            <span className="TotalshoppingCost">
+              {String(posts.shoppingTotalPrice).substr(
+                0,
+                String(posts.shoppingTotalPrice).length - 4
+              )}
+            </span>
+            <span className="TotalbusCost">
+              {String(posts.trafficTotalPrice).substr(
+                0,
+                String(posts.trafficTotalPrice).length - 4
+              )}
+            </span>
+            <span className="TotalbedCost">
+              {" "}
+              {String(posts.hotelTotalPrice).substr(
+                0,
+                String(posts.hotelTotalPrice).length - 4
+              )}
+            </span>
+          </span>
+        </span>
+      </div>
     </div>
   );
 }
