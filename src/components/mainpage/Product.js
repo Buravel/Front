@@ -1,11 +1,6 @@
-import React, { useState,useEffect } from 'react'
-import './Product.scss'
-import { AiFillStar } from "react-icons/ai";
-import { Carousel, Navbar } from 'react-bootstrap';
-import { IoAirplaneSharp } from "react-icons/io5";
-import { FaBed } from "react-icons/fa";
-import { GiForkKnifeSpoon } from "react-icons/gi";
-import Pagination from 'react-bootstrap/Pagination'
+import React, { useState, useEffect } from 'react';
+// import './Mainpage.scss';
+import './Product.scss';
 import axios from 'axios';
 
 const Product = (props) => {
@@ -16,15 +11,15 @@ const Product = (props) => {
     const[loading,setLoading] = useState(false);
     const[err,setError] = useState(null);
 
-    let [product, setProduct] = useState(Data);
+    let [product, setProduct] = useState([]);
 
     useEffect(() => {
         const fetchPosts = async () => {
             try{
                 setError(null);
-                setPost(null);
+                setPosts(null);
                 setLoading(true);
-                const response = await axios.get('http://34.64.93.115/plans/');
+                const result = await axios.get('http://34.64.93.115/search?keyword=""&min=0&max=0');
                 setProduct([...product, ...result.data ])
             } catch (e) {
                 setError(e);
@@ -37,12 +32,6 @@ const Product = (props) => {
 
       if (!posts) return null;
 
-      const togglePopup = () => {
-        setIsOpen(!isOpen);
-      };
-      const toggleBmarkPopup = () => {
-        setBmarkisOpen(!isbmarkOpen);
-      };
       const postTerm = posts.postForPlanResponseDtos;
       const postId = postTerm && postTerm.filter((k) => k.id === props.id);
       const category = postId && postId.map((k) => k.category)[0];
@@ -91,21 +80,16 @@ const Product = (props) => {
                     &nbsp;
                     <span className="icon"><img src="/images/mainpage/star.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"class="star"/></span>
                     <span className="plan plan_star">{rating}&nbsp; </span>
-
                 </div>
-            </div>
-           
-
-            {/*사용자 표시 박스 디자이너님 삭제........혹시 모르니까 일단 냅둬
+                {/*사용자 표시 박스 디자이너님 삭제........혹시 모르니까 일단 냅둬
             <div className="product_Writer_container">
                 <img className="product_Writer_img" src="http://placehold.it/40x40" alt="글쓴이 이미지 Images"/>
                 <span className="product_Writer">엄마는 외계인</span>
                 <span className="product_Writer_day">2021-02-12</span>
             </div> */}
-
-
+            </div>
         </div>
         </>
     );
-}
+};
 export default Product;
