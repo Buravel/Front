@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./common.scss";
 import "./register.scss";
 
+const style = { display: "inline-block" };
 const Register = ({ form, onChange, onSubmit }) => {
   return (
     <div className="registerBlock">
@@ -60,8 +61,16 @@ const Register = ({ form, onChange, onSubmit }) => {
             ></input>
           </div>
         </div>
+        <div className="privacy">
+          <input type="checkbox"></input>
+          <Link to="/privacyPolicy">
+            <h6 className="h601" style={style}>
+              약관 확인 및 동의하기(필수)
+            </h6>
+          </Link>
+        </div>
         <button className="button01 style02" type="submit">
-          <Link to="/privacyPolicy">다음</Link>
+          확인
         </button>
       </form>
     </div>

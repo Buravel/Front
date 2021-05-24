@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./common.scss";
 import "./findIDPW.scss";
 
 const FindID = ({ form, onChange, onSubmit }) => {
   return (
     <div className="findBlock">
-      <form action="" onSubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
         <div>
           <h2 className="h203">아이디 찾기</h2>
           <h5 className="h506">가입한 이메일 주소를 입력해주세요.</h5>

@@ -33,11 +33,16 @@ const LoginForm = ({ history }) => {
   };
 
   useEffect(() => {
+    //    localStorage.clear(); //localStorage 삭제할 때 사용
     dispatch(initializeForm("login"));
   }, [dispatch]);
 
   useEffect(() => {
     if (authError) {
+      if (authError.response.status === 401) {
+        setError("아이디 또는 비밀번호가 일치하지 않습니다.");
+        return;
+      }
       console.log("오류 발생");
       console.log(authError);
       setError("로그인 실패");
@@ -46,6 +51,7 @@ const LoginForm = ({ history }) => {
 
     if (auth) {
       console.log("로그인 성공");
+      //      localStorage.setItem("token",value);
       dispatch(check());
     }
   }, [auth, authError, dispatch]);
@@ -53,6 +59,11 @@ const LoginForm = ({ history }) => {
   useEffect(() => {
     if (user) {
       history.push("/");
+      /*      try { //사용 시에만 주석 해제.
+        localStorage.setItem("user", JSON.stringify(user));
+      } catch (e) {
+        console.log("localStorage is not working");
+      }*/
     }
   }, [history, user]);
 

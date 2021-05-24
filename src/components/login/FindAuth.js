@@ -7,7 +7,7 @@ import "./findauth.scss";
 const style = { display: "inline-block" };
 const FindAuth = ({ form, onChange, onSubmit }) => {
   return (
-    <>
+    <div className="findauth">
       <img className="logo3" src={logoImg2} alt="" />
       <h3 className="h302">이메일이 발송되었습니다.</h3>
       <h5>
@@ -28,7 +28,7 @@ const FindAuth = ({ form, onChange, onSubmit }) => {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

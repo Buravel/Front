@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+/*import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeField, initializeForm, register } from "../../modules/auth";
 import Register from "../../components/login/Register";
@@ -29,8 +29,8 @@ const RegisterForm = ({ history }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     const { username, id, email, password, passwordConfirm } = form;
-    if (!isAlphanumeric(id) || !isLength(id, { min: 6, max: 12 })) {
-      setError("아이디는 6~12 글자의 알파벳 혹은 숫자로 이뤄져야 합니다.");
+        if (!isAlphanumeric(id) || !isLength(id, { min: 4, max: 12 })) {
+      setError("아이디는 4~12 글자의 알파벳 혹은 숫자로 이뤄져야 합니다.");
       changeField({ form: "register", key: "id", value: " " });
       return;
     }
@@ -46,7 +46,7 @@ const RegisterForm = ({ history }) => {
       changeField({ form: "register", key: "password", value: " " });
       return;
     }
-
+    
     if (password !== passwordConfirm) {
       setError("비밀번호가 일치하지 않습니다.");
       changeField({ form: "register", key: "password", value: " " });
@@ -81,11 +81,6 @@ const RegisterForm = ({ history }) => {
   useEffect(() => {
     if (user) {
       history.push("/signUpComplete");
-      /*      try { //사용 시에만 주석 해제.
-        localStorage.setItem("user", JSON.stringify(user));
-      } catch (e) {
-        console.log("localStorage is not working");
-      }*/
     }
   }, [history, user]);
 
@@ -100,4 +95,5 @@ const RegisterForm = ({ history }) => {
   );
 };
 
-export default withRouter(RegisterForm);
+export default withRouter(SignUpCompleteForm);
+*/

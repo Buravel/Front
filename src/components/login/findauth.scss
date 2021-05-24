@@ -1,24 +1,26 @@
 $lightblue: #0070ef;
-.h302 {
-  margin-bottom: 5px;
-  line-height: 0;
-  text-align: center;
-}
+.findauth {
+  .h302 {
+    margin-bottom: 5px;
+    line-height: 0;
+    text-align: center;
+  }
 
-.h508 {
-  color: $lightblue;
-  margin: 0;
-  line-height: 0;
-}
+  .h508 {
+    color: $lightblue;
+    margin: 0;
+    line-height: 0;
+  }
 
-.h509 {
-  text-align: left;
-  width: 24vw;
-  margin: 0;
-}
+  .h509 {
+    text-align: left;
+    width: 24vw;
+    margin: 0;
+  }
 
-.authNumForm {
-  width: 26.8vw;
-  margin-left: auto;
-  margin-right: auto;
+  .authNumForm {
+    width: 26.8vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

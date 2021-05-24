@@ -12,8 +12,10 @@ const [REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE] =
   createRequestActionTypes("auth/REGISTER");
 const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] =
   createRequestActionTypes("auth/LOGIN");
-const FINDID = "auth/FINDID";
-const FINDPW = "auth/FINDPW";
+const [FINDID, FINDID_SUCCESS, FINDID_FAILURE] =
+  createRequestActionTypes("auth/FINDID");
+const [FINDPW, FINDPW_SUCCESS, FINDPW_FAILURE] =
+  createRequestActionTypes("auth/FINDPW");
 
 export const changeField = createAction(
   CHANGE_FIELD,
@@ -28,18 +30,24 @@ export const login = createAction(LOGIN, ({ id, password }) => ({
   id,
   password,
 }));
-export const findid = createAction(FINDID, ({ email }) => ({
+
+export const findID = createAction(FINDID, ({ email }) => ({
   email,
 }));
-export const findpw = createAction(FINDPW, ({ email }) => ({
+export const findPW = createAction(FINDPW, ({ email }) => ({
   email,
 }));
 
 const registerSaga = createRequestSaga(REGISTER, authAPI.register);
 const loginSaga = createRequestSaga(LOGIN, authAPI.login);
+const findIDSaga = createRequestSaga(FINDID, authAPI.findID);
+const findPWSaga = createRequestSaga(FINDPW, authAPI.findPW);
+
 export function* authSaga() {
   yield takeLatest(REGISTER, registerSaga);
   yield takeLatest(LOGIN, loginSaga);
+  yield takeLatest(FINDID, findIDSaga);
+  yield takeLatest(FINDPW, findPWSaga);
 }
 
 const initialState = {
@@ -54,10 +62,10 @@ const initialState = {
     id: "",
     password: "",
   },
-  findid: {
+  findID: {
     email: "",
   },
-  findpw: {
+  findPW: {
     email: "",
   },
   auth: null,
@@ -90,6 +98,24 @@ const auth = handleActions(
       auth,
     }),
     [LOGIN_FAILURE]: (state, { payload: error }) => ({
+      ...state,
+      authError: error,
+    }),
+    [FINDID_SUCCESS]: (state, { payload: auth }) => ({
+      ...state,
+      authError: null,
+      auth,
+    }),
+    [FINDID_FAILURE]: (state, { payload: error }) => ({
+      ...state,
+      authError: error,
+    }),
+    [FINDPW_SUCCESS]: (state, { payload: auth }) => ({
+      ...state,
+      authError: null,
+      auth,
+    }),
+    [FINDPW_FAILURE]: (state, { payload: error }) => ({
       ...state,
       authError: error,
     }),

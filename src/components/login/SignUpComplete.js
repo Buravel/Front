@@ -7,7 +7,7 @@ import "./signupcomplete.scss";
 const style = { display: "inline-block" };
 const Complete = () => {
   return (
-    <>
+    <div className="complete">
       <img className="logo2" src={completeImg} alt="" />
       <h3 className="h301">반갑습니다!</h3>
       <h3 className="h301">
@@ -22,14 +22,14 @@ const Complete = () => {
         </h5>
       </div>
       <div className="buttonsection">
-        <button className="button03 style01" type="submit">
-          <Link to="/login">로그인</Link>
-        </button>
-        <button className="button03 style02" type="submit">
-          <Link to="/registerAuth">간단하게 이메일 인증</Link>
-        </button>
+        <Link to="/login">
+          <button className="button03 style01">로그인</button>
+        </Link>
+        <Link to="/registerAuth">
+          <button className="button03 style02">간단하게 이메일 인증</button>
+        </Link>
       </div>
-    </>
+    </div>
   );
 };
 

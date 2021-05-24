@@ -6,9 +6,8 @@ import createRequestSaga, {
 } from "../lib/createRequestSaga";
 
 const TEMP_SET_USER = "user/TEMP_SET_USER";
-const [CHECK, CHECK_SUCCESS, CHECK_FAILURE] = createRequestActionTypes(
-  "user/CHECK"
-);
+const [CHECK, CHECK_SUCCESS, CHECK_FAILURE] =
+  createRequestActionTypes("user/CHECK");
 
 export const tempSetUser = createAction(TEMP_SET_USER, (user) => user);
 export const check = createAction(CHECK);
