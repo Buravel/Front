@@ -1,12 +1,12 @@
 import React from 'react';
 import './Pagination.scss';
 import './Mainpage.scss';
-import Product from './Product';
-import { AiFillStar } from 'react-icons/ai';
-import { Carousel, Navbar } from 'react-bootstrap';
-import { IoAirplaneSharp } from 'react-icons/io5';
-import { FaBed } from 'react-icons/fa';
-import { GiForkKnifeSpoon } from 'react-icons/gi';
+// import Product from './Product';
+// import { AiFillStar } from 'react-icons/ai';
+// import { Carousel, Navbar } from 'react-bootstrap';
+// import { IoAirplaneSharp } from 'react-icons/io5';
+// import { FaBed } from 'react-icons/fa';
+// import { GiForkKnifeSpoon } from 'react-icons/gi';
 
 const Pagination = () => {
     return (

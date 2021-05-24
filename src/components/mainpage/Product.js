@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React /*useState*/ from 'react';
 import './Mainpage.scss';
 import './Product.scss';
-import { AiFillStar } from 'react-icons/ai';
-import { Carousel, Navbar } from 'react-bootstrap';
-import { IoAirplaneSharp } from 'react-icons/io5';
-import { FaBed } from 'react-icons/fa';
-import { GiForkKnifeSpoon } from 'react-icons/gi';
-import Pagination from 'react-bootstrap/Pagination';
-import Data from './Data';
+// import { AiFillStar } from 'react-icons/ai';
+// import { Carousel, Navbar } from 'react-bootstrap';
+// import { IoAirplaneSharp } from 'react-icons/io5';
+// import { FaBed } from 'react-icons/fa';
+// import { GiForkKnifeSpoon } from 'react-icons/gi';
+// import Pagination from 'react-bootstrap/Pagination';
+// import Data from './Data';
 
 const Product = (props) => {
     // let [product, product변경] = useState(Data);
@@ -49,6 +49,7 @@ const Product = (props) => {
                                 src="/images/mainpage/plane_product.png"
                                 srcSet="img/food@2x.png 2x,img/food@3x.png 3x"
                                 className="plane"
+                                alt="plane"
                             />
                         </span>
                         <span className="plan">{props.product.icon}</span>
@@ -57,6 +58,7 @@ const Product = (props) => {
                                 src="/images/mainpage/hotel_product.png"
                                 srcSet="img/food@2x.png 2x,img/food@3x.png 3x"
                                 className="hotel"
+                                alt="plane"
                             />
                         </span>
                         <span className="plan">{props.product.icon}</span>
@@ -65,6 +67,7 @@ const Product = (props) => {
                                 src="/images/mainpage/food_product.png"
                                 srcSet="img/food@2x.png 2x,img/food@3x.png 3x"
                                 className="food"
+                                alt="plane"
                             />
                         </span>
                         <span className="plan">{props.product.icon}</span>
@@ -74,6 +77,7 @@ const Product = (props) => {
                                 src="/images/mainpage/star.png"
                                 srcSet="img/food@2x.png 2x,img/food@3x.png 3x"
                                 className="star"
+                                alt="plane"
                             />
                         </span>
                         <span className="plan plan_star">

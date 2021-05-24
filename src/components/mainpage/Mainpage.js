@@ -1,13 +1,13 @@
 import React, { useState, map } from 'react';
 import './Mainpage.scss';
 import Product from './Product';
-import Pagination from './Pagination';
 import Advertise from './Advertise';
 import Topbar from './Topbar';
-
-import { Carousel, Navbar } from 'react-bootstrap';
 import Data from './Data';
 import axios from 'axios';
+
+// import { Carousel, Navbar } from 'react-bootstrap';
+// import Pagination from './Pagination';
 
 // 로그인 전과 후는 라우팅으로 구성해주면 될 듯
 const Mainpage = () => {

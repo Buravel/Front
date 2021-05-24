@@ -1,8 +1,8 @@
 import React from 'react';
-import ContactInfo from './ContactInfo';
+// import ContactInfo from './ContactInfo';
 import './Contact.scss';
 import Data from './Data';
-import { Dropdown } from 'react-bootstrap';
+// import { Dropdown } from 'react-bootstrap';
 
 export default class Contact extends React.Component {
     constructor(props) {

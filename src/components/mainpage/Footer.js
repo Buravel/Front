@@ -1,13 +1,13 @@
-import React, { useState, map } from 'react';
+import React /* useState, map*/ from 'react';
 import './After_topBar.scss';
-import Product from './Product';
-import Pagination from './Pagination';
-import Advertise from './Advertise';
-import SelectBox from './SelectBox';
+// // import Product from './Product';
+// import Pagination from './Pagination';
+// import Advertise from './Advertise';
+// import SelectBox from './SelectBox';
 
-import { Carousel, Navbar } from 'react-bootstrap';
-import Data from './Data';
-import axios from 'axios';
+// import { Carousel, Navbar } from 'react-bootstrap';
+// import Data from './Data';
+// import axios from 'axios';
 
 const Footer = () => {
     return (
@@ -18,6 +18,7 @@ const Footer = () => {
                         src="/images/mainpage/footer_icon.png"
                         srcset="img/food@2x.png 2x,img/food@3x.png 3x"
                         class="footer_icon"
+                        alt="footer"
                     />
                 </span>
                 <span className="footer_text1">이용약관</span>

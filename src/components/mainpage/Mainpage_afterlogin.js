@@ -1,14 +1,15 @@
-import React, { useState, map } from 'react';
+import React, { useState /* map*/ } from 'react';
 import './Mainpage_afterlogin.scss';
 import Product from './Product';
-import Pagination from './Pagination';
 import Advertise from './Advertise';
-import Topbar from './Topbar';
+
 import After_Topnav from './After_Topnav';
 import After_topBar from './After_topBar';
-import { Carousel, Navbar } from 'react-bootstrap';
 import Data from './Data';
 import axios from 'axios';
+// import Pagination from './Pagination';
+// import Topbar from './Topbar';
+// import { Carousel, Navbar } from 'react-bootstrap';
 
 // 로그인 전과 후는 라우팅으로 구성해주면 될 듯
 const Mainpage_afterlogin = () => {
