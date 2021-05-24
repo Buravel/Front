@@ -9,10 +9,12 @@ import FindID from "./pages/FindIDPage";
 import FindPW from "./pages/FindPWPage";
 import FindAuth from "./pages/FindAuthPage";
 import RegisterAuth from "./pages/RegisterAuthPage";
+import MainPage from "./pages/MainPage";
 
 const App = () => {
   return (
     <>
+      <Route path="/" component={MainPage} exact />
       <Route path="/login" component={LoginPage} />
       <Route path="/signUp" component={RegisterPage} />
       <Route path="/privacyPolicy" component={PrivacyPolicy} />
