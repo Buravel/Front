@@ -1,0 +1,65 @@
+{
+  "bookmark": {
+    "bookmarkResponseDtoList": [
+      {
+        "id": 2,
+        "bookmarkTitle": "강릉",
+        "accountResponseDto": {
+          "id": 1,
+          "username": "guenwoo",
+          "profileImage": null,
+          "email": "slalek152@naver.com",
+          "emailVerified": false
+        },
+        "bookmarkPostResponseDtos": [],
+        "bookmarkImages": [],
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/bookmark/2"
+          }
+        }
+      },
+      {
+        "id": 3,
+        "bookmarkTitle": "전주",
+        "accountResponseDto": {
+          "id": 1,
+          "username": "guenwoo",
+          "profileImage": null,
+          "email": "slalek152@naver.com",
+          "emailVerified": false
+        },
+        "bookmarkPostResponseDtos": [],
+        "bookmarkImages": [],
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/bookmark/3"
+          }
+        }
+      },
+      {
+        "id": 4,
+        "bookmarkTitle": "서울",
+        "accountResponseDto": {
+          "id": 1,
+          "username": "guenwoo",
+          "profileImage": null,
+          "email": "slalek152@naver.com",
+          "emailVerified": false
+        },
+        "bookmarkPostResponseDtos": [],
+        "bookmarkImages": [],
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/bookmark/4"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/bookmark"
+    }
+  }
+}
