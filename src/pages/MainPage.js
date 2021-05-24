@@ -1,5 +1,6 @@
 import React from "react";
 import Responsive from "../components/common/Responsive";
+import HeaderContainer from "../containers/common/HeaderContainer";
 // import 'bootstrap/dist/css/bootstrap.css';
 // import Contact from '../components/mainpage/Contact';
 // import SelectBox from '../components/mainpage/SelectBox';
@@ -15,6 +16,7 @@ import Mainpage from "../components/mainpage/Mainpage";
 const MainPage = () => {
   return (
     <div>
+      <HeaderContainer />
       <Responsive>
         <Mainpage />
       </Responsive>
