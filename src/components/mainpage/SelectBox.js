@@ -1,6 +1,6 @@
 import React /*useState, map */ from "react";
 import "./Mainpage.scss";
-// import './SelectBox.scss';
+import "./SelectBox.scss";
 // import Product from './Product';
 // import Pagination from './Pagination';
 // import Advertise from './Advertise';

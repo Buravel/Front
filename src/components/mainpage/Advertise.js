@@ -1,5 +1,5 @@
 import React /*useState, map*/ from "react";
-// import './Advertise.scss';
+import "./Advertise.scss";
 import { Carousel /*Navbar*/ } from "react-bootstrap";
 // import Product from './Product';
 // import Pagination from './Pagination';
