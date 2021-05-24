@@ -1,0 +1,30 @@
+.map-arrow {
+    position: fixed;
+    width: 30px;
+    height: 273px;
+    background-color: #0070ef;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    right: 0;
+    top: 415px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.map-container {
+    width: 50%;
+    height: 74%;
+    background-color: white;
+    position: fixed;
+    top:237px;
+    right: 0;
+    .close-map {
+        position: fixed;
+        right: 0;
+        z-index: 30;
+    }
+    .gm-fullscreen-control {
+        display: none;
+    }
+}
