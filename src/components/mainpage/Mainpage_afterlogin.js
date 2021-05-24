@@ -1,5 +1,5 @@
 import React, { useState, map } from 'react'
-import './Mainpage.css'
+import './Mainpage_afterlogin.css'
 import Product from './Product'
 import Pagination from './Pagination'
 import Advertise from './Advertise'

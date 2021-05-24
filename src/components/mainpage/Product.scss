@@ -1,0 +1,192 @@
+//수정확인 O => 결과 확인필요
+.col-xs-2 {
+    position: relative;
+    /* relative */
+    top:50px;
+    left: 20px;
+    
+    width: 200px;
+    height: 264px;
+    margin: 0 9px 50px 15px;
+    padding: 0 0 8px;
+    border-radius: 3px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);  
+}
+
+.product_img{
+    position: relative;
+    top:0;
+    width: 200px;
+}
+
+.img-full {
+    max-width: 120%; 
+    width: auto;
+}
+
+.tag {
+    position: absolute;
+    top: 165px;
+    left: 0;
+    width: 50px;
+    height: 20px;
+    padding: 1px 1px 1px 3px;
+    background-color: #0070ef;
+    
+}
+
+.tag_text{
+    width: 100px;
+    height: 18px;
+    margin-left: 3px;
+    font-family: 'Noto Sans KR', sans-serif;    
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+}
+.product_topline {
+    position: relative;
+    top:-5px;
+}
+
+.product_name {
+    position: absolute;
+    top:40%;
+    left: 5px;
+    width: 100px;
+    height: 22px;
+    margin: 2px;
+    font-family: 'Noto Sans KR', sans-serif;    
+    font-size: 15px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    text-align: left;
+    color: #535353;
+}
+
+.price {
+    position: absolute;
+    top:40%;
+    left: 60%;
+    color: #0070ef;
+    font-size: 18px;
+    font-weight: bolder;
+
+    width: 100px;
+    height: 27px;
+    margin: 0 2px 0 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #0070ef;
+}
+
+.icon {
+    width: 5px;
+    height: 12.9px;
+    margin: 3.3px 1.5px 1.9px 0;
+    object-fit: contain;
+}
+.plan{
+    
+    width: 5px;
+    height: 18px;
+    margin: 0 9.6px 0 1.5px;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+    font-family: 'Noto Sans KR', sans-serif;  
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #535353;
+}
+.plan_text {
+    position: absolute;
+    top: 220px;
+    left: 8px;
+    width: 60px;
+    height: 18px;
+    font-family: 'Noto Sans KR', sans-serif;    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #b5b5b5;
+}
+
+.plan_star{
+    color: #ef9f00;
+}
+
+.product_box{
+    position:relative;
+    width:220px;
+    height: 18px;
+    left: 10px;
+    top: 20px;
+}
+
+
+/* 사용자 표시 박스 디자이너님 삭제........혹시 모르니까 일단 냅둬
+.product_Writer_container{
+    position: absolute;
+    top:85%;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    margin-bottom: 60px;
+}
+.product_Writer_day{
+    width: 120px;
+    height: 18px;
+    margin: 2px 10px 0 10px;
+    font-family: 'Noto Sans KR', sans-serif;    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #a4a4a4;
+}
+
+.product_Writer_img{
+    border-radius: 50%;
+    float: left;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0px 2px 0 0;
+}
+.product_Writer{
+    width: 120px;
+    height: 20px;
+    margin: 5px 50px 2px 10px;
+    font-family: 'Noto Sans KR', sans-serif;    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #707070;
+}
+*/

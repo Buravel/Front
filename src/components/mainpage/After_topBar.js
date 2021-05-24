@@ -13,8 +13,8 @@ const After_topBar = () => {
     return ( 
         <>
         <div className="tobar">
-            <span className = "topbar-title">최신작성글(??)</span>
-            <span className="product-topbar"><SelectBox/></span>
+            <span className = "atopbar-title">최신작성글(??)</span>
+            <span className="aproduct-topbar"><SelectBox/></span>
         </div>
         </>
     );
