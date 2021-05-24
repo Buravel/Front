@@ -1,0 +1,1015 @@
+// *,
+// html {
+//   margin: 0;
+//   padding: 0;
+// }
+
+@font-face {
+  margin: 0;
+  padding: 0;
+  font-family: "NotoSansKR";
+  src: url(./NotoSansKR.otf);
+}
+
+.MainBody {
+  width: 1280px;
+  height: 959px;
+  position: relative;
+  background-color: #f5f5f5;
+}
+
+.mainTop {
+  width: 1278px;
+  height: 79px;
+  border: solid 1px #dfdfdf;
+  background-color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.buravelIcon {
+  width: 128.1px;
+  height: 31.2px;
+  margin: 24.8px 577.4px 23px 574.4px;
+  object-fit: contain;
+}
+
+.totalBuget {
+  position: absolute;
+  width: 361px;
+  height: 68px;
+  margin: 78px 42px 799px 877px;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.airplane {
+  position: absolute;
+  width: 15.2px;
+  height: 13.5px;
+  margin: 4.1px 5.8px 8.3px 1.5px;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.postPicture {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  position: relative;
+  width: 200px;
+  height: 185px;
+
+  /* 위치 부분은 n일차 박스 전체를 만들고 나서 지정해 줄 것. */
+  background-color: #bfbfbf;
+}
+
+.postContent {
+  position: relative;
+  width: 200px;
+  height: 93px;
+}
+
+.hashTagLine {
+  display: flex;
+  overflow-x: hidden;
+  margin-left: 9px;
+  position: absolute;
+  top: 61px;
+  width: 191px;
+  height: 21px;
+}
+
+.postHashTag {
+  margin-right: 10px;
+  white-space: nowrap;
+  width: auto;
+  height: 21px;
+  top: 61px;
+  left: 9px;
+  font-size: 13px;
+  padding: 0 12px 2px 9px;
+  border-radius: 11px;
+  background-color: #eeeeee;
+}
+.postName {
+  position: absolute;
+  top: 7.8px;
+  left: 9px;
+  width: 121px;
+  height: 18px;
+  font-family: NotoSansKR;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.rateValue {
+  position: absolute;
+  width: 17px;
+  height: 18px;
+  top: 7.8px;
+  right: 10.4px;
+  font-family: NotoSansKR;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ef9f00;
+}
+
+.money {
+  position: relative;
+  width: flex;
+  height: 27px;
+  top: 0px;
+  left: 0px;
+  font-family: NotoSansKR;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0070ef;
+}
+.moneyBox {
+  position: absolute;
+  width: 200px;
+  height: 27px;
+  left: 9px;
+  bottom: 40.8px;
+}
+.moneyName {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  margin-left: 3px;
+
+  font-family: NotoSansKR;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0070ef;
+}
+.postBookmarkIcon {
+  z-index: 1;
+  width: 17px;
+  height: 22.7px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+}
+
+.postNameIcon {
+  position: absolute;
+  top: 12.2px;
+  left: 126px;
+  width: 13.2px;
+  height: 11.5px;
+}
+
+.postRateIcon {
+  position: absolute;
+  top: 13.2px;
+  right: 30.9px;
+  width: 9px;
+  height: 9px;
+  object-fit: fill;
+}
+
+.dayBackground {
+  position: relative;
+  width: 1280px;
+  height: 370.5px;
+  background-color: #f5f5f5;
+}
+.container {
+  display: flex;
+  position: absolute;
+  width: 1159px;
+  height: 291px;
+  top: 54px;
+  left: 121px;
+  overflow-x: hidden;
+}
+
+.dayCircle {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  z-index: 1;
+  margin: 0 0 0 95px;
+}
+.dayLine {
+  position: absolute;
+  width: 1px;
+  height: 370.5px;
+  top: 0px;
+  left: 105px;
+  margin: 0 39.5px 0 0;
+  background-color: #707070;
+}
+
+.dayName {
+  position: absolute;
+  margin: 0 0 0 145px;
+  font-family: NotoSansKR;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+  width: 64px;
+  height: 20px;
+}
+
+// .PostInfo * {
+//   margin: 0;
+//   padding: 0;
+// }
+// .dayInfo * {
+//   margin: 0;
+//   padding: 0;
+// }
+.InfoBackground {
+  position: relative;
+  width: 1280px;
+  height: 196px;
+  background-color: #f5f5f5;
+}
+.UserName {
+  font-family: NotoSansKR;
+  font-size: 43px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0070ef;
+}
+.PostDay {
+  position: absolute;
+  top: 61px;
+  left: 147px;
+  width: 200px;
+  height: 20px;
+}
+
+.PostDate {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR-Medium;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #535353;
+}
+.PostTerm {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR-Light;
+  font-size: 14px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #535353;
+}
+.UserPostName {
+  position: absolute;
+  top: 81px;
+  left: 145px;
+  width: 500px;
+  height: 64px;
+}
+.UserPlace {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 43px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.CostBackground {
+  position: absolute;
+  top: 78px;
+  right: 42px;
+  width: 361px;
+  height: 68px;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.TotalCost {
+  position: absolute;
+  top: 12px;
+  left: 25px;
+  width: 110px;
+  height: 45px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.TotalImg > img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.TotalMoney {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0070ef;
+}
+
+.TotalMoneyname {
+  width: 18px;
+  height: 20px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.TotalMoneylist {
+  width: 24px;
+  height: 20px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0070ef;
+}
+
+.TotalAirplane {
+  position: absolute;
+  top: 15.1px;
+  left: 150px;
+}
+
+.Totalfood {
+  position: absolute;
+  top: 15.1px;
+  left: 206px;
+}
+.Totalshopping {
+  position: absolute;
+  top: 14.1px;
+  left: 257px;
+}
+.Totalbus {
+  position: absolute;
+  top: 14.1px;
+  right: 38px;
+}
+.Totalbed {
+  position: absolute;
+  top: 43.5px;
+  left: 148.5px;
+}
+.TotalAirplaneCost {
+  position: absolute;
+  top: 11px;
+  left: 171px;
+}
+.TotalfoodCost {
+  position: absolute;
+  top: 11px;
+  left: 221px;
+}
+.TotalshoppingCost {
+  position: absolute;
+  top: 11px;
+  left: 273px;
+}
+.TotalbusCost {
+  position: absolute;
+  top: 11px;
+  left: 327px;
+}
+.TotalbedCost {
+  position: absolute;
+  top: 37px;
+  left: 171px;
+}
+
+.popupBackground {
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
+  /* 이 방법이 옳지 못한거 같은데 다른 방법이 없을지? */
+  z-index: 10;
+  background: #00000050;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.popupBox {
+  position: relative;
+  width: 367px;
+  margin: 0 auto;
+  height: 664px;
+  max-height: 90vh;
+  margin-top: calc(100vh - 60vh - 332px);
+  /* 이부분 다시 정리해서 수정할것 */
+  background: #fff;
+  box-shadow: 2px 2px 30px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  overflow: auto;
+}
+
+.exit {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  margin-top: calc(16px);
+  margin-right: auto;
+  margin-left: auto;
+  width: 122px;
+  height: 41px;
+  object-fit: contain;
+}
+
+.popupPicture {
+  position: relative;
+  width: 367px;
+  height: 335px;
+  background-color: #bfbfbf;
+}
+
+.popupList {
+  height: 20px;
+  font-family: NotoSansKR;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.popupTitle {
+  position: absolute;
+  left: 21.8px;
+  top: 361.4px;
+}
+.popupCost {
+  position: absolute;
+  left: 21.8px;
+  top: 407.5px;
+}
+.popupLocation {
+  position: absolute;
+  left: 21.8px;
+  top: 452.3px;
+}
+.popupvalue {
+  position: absolute;
+  left: 21.8px;
+  top: 497px;
+}
+.popupTag {
+  position: absolute;
+  left: 21.8px;
+  top: 541.8px;
+}
+.popupMemo {
+  position: absolute;
+  left: 21.8px;
+  top: 586.5px;
+}
+.halfIcon {
+  position: relative;
+  width: 16.5px;
+  height: 16px;
+}
+.popupStar {
+  width: 16.5px;
+  height: 16px;
+  margin-right: 8.7px;
+  object-fit: contain;
+}
+.halfStar {
+  position: absolute;
+  top: -1px;
+  left: -2.4px;
+  z-index: 2;
+  width: 11.2px;
+  height: 18.9px;
+  object-fit: contain;
+}
+
+.starempty {
+  width: 16.5px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.popConTitle {
+  position: absolute;
+  left: 74.5px;
+  top: 356.7px;
+  width: 166px;
+  height: 27px;
+  font-family: NotoSansKR;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.popConIcon {
+  position: absolute;
+  left: 249px;
+  top: 362.5px;
+  width: 20.2px;
+  height: 17.5px;
+  object-fit: contain;
+}
+.popConCost {
+  position: absolute;
+  top: 403.8px;
+  left: 78.4px;
+  width: 31px;
+  height: 27px;
+  font-family: NotoSansKR;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+.popConCostname {
+  position: absolute;
+  top: 405.1px;
+  left: 115.9px;
+  height: 24px;
+  font-family: NotoSansKR;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+.popConLocation {
+  position: absolute;
+  top: 451.5px;
+  left: 77px;
+  width: 249px;
+  height: 24px;
+  font-family: NotoSansKR;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.popConLocationLine {
+  position: absolute;
+  top: 475.5px;
+  left: 76.5px;
+  width: 262px;
+  height: 0;
+  background-color: #0070ef;
+  border: solid 1px #0070ef;
+}
+
+.popConStar {
+  position: absolute;
+  top: 499.5px;
+  left: 73.8px;
+  width: 288.7px;
+  height: 16px;
+
+  /* 이미지이므로 나중에 다시 변경할 것 */
+}
+.popConTag {
+  position: absolute;
+  bottom: 101.8px;
+  left: 93.9px;
+  width: 273.1px;
+  height: 21px;
+}
+.popConTagText {
+  white-space: nowrap;
+  width: auto;
+  padding: 0 10px 2px 9px;
+  margin: 0 10px 0 0;
+  font-family: NotoSansKR;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.46;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+  border-radius: 11px;
+  background-color: #eeeeee;
+}
+.popConMemo {
+  position: absolute;
+  top: 584.9px;
+  left: 78.4px;
+  width: 240px;
+  height: 48px;
+  font-family: NotoSansKR;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.postBox:hover {
+  position: relative;
+  top: -8px;
+}
+
+.postButton {
+  z-index: +1;
+  position: absolute;
+  width: 200px;
+  height: 278px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.postBox {
+  position: relative;
+  margin-top: 8px;
+  width: 200px;
+  height: 278px;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.connectDotFirst {
+  position: relative;
+  top: 137px;
+  padding-left: 1px;
+  padding-right: 1px;
+  height: 2px;
+  background-color: #b5b5b5;
+  margin: 0 0 0 7px;
+}
+.connectDotSecond {
+  position: relative;
+  top: 137px;
+  padding-left: 1px;
+  padding-right: 1px;
+  height: 2px;
+  background-color: #b5b5b5;
+  margin: 0 2px;
+}
+.connectDotLast {
+  position: relative;
+  top: 137px;
+  padding-left: 1px;
+  padding-right: 1px;
+  height: 2px;
+  background-color: #b5b5b5;
+  margin: 0 7px 0 0;
+}
+
+.hideDot {
+  z-index: +1;
+  position: absolute;
+  height: 278px;
+  width: 17px;
+  background-color: #f5f5f5;
+}
+
+.postPictureArray {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  position: relative;
+  width: 200px;
+  height: 185px;
+  overflow: hidden;
+}
+
+.bmark {
+  z-index: 2;
+  position: absolute;
+  top: 14.2px;
+  right: 16.6px;
+  width: 17px;
+  height: 22.7px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+}
+.bmarkButton {
+  z-index: 3;
+  position: inherit;
+  width: 17px;
+  height: 22.7px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.bmarkpopupBox {
+  position: relative;
+  width: 264px;
+  margin: 0 auto;
+  height: 440px;
+  max-height: 90vh;
+  margin-top: calc(100vh - 50vh - 318px);
+  /* 이부분 다시 정리해서 수정할것 */
+  background: #fff;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: auto;
+}
+.bmarkexit {
+  position: absolute;
+  top: 28px;
+  right: 25px;
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+}
+
+.bmarkHeader {
+  position: relative;
+  width: 264px;
+  height: 49px;
+}
+
+.BmarkHead {
+  position: absolute;
+  top: 20px;
+  left: 22px;
+  width: 200px;
+  height: 29px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #535353;
+}
+
+.blank {
+  position: relative;
+  width: 152px;
+  height: 12.5px;
+}
+
+.bmarkChoice {
+  position: relative;
+  width: 264px;
+  height: 231px;
+  overflow: hidden;
+}
+.bmarklineone {
+  width: 264px;
+  height: 0;
+  object-fit: contain;
+  border: solid 1px #eeeeee;
+}
+
+.addBmark {
+  position: relative;
+  top: 13.5px;
+  left: 13px;
+  width: 189px;
+  height: 31px;
+  padding: 3px 101px 4px 11px;
+  border-radius: 3px;
+  background-color: #f3f3f3;
+  border-color: transparent;
+}
+.addBmarkButton {
+  position: absolute;
+  top: 308.2px;
+  right: 24.7px;
+}
+.bmarklinetwo {
+  position: absolute;
+  bottom: 89.5px;
+  width: 264px;
+  height: 0;
+  border: solid 1px #eeeeee;
+}
+.bamrkGet {
+  position: absolute;
+  bottom: 30px;
+  left: 38px;
+}
+.bmarkCancel {
+  position: absolute;
+  bottom: 30px;
+  right: 38px;
+}
+.bmarkName {
+  position: relative;
+  border-top: solid 1px #eeeeee;
+  border-bottom: solid 1px #eeeeee;
+  width: 264px;
+  height: 58px;
+}
+.bmarkName:hover {
+  background-color: #e1efff;
+}
+.bmarkNameText {
+  position: absolute;
+  top: 16px;
+  left: 24.3px;
+  width: 200px;
+  height: 24px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.88;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+
+.popupBookmark {
+  width: 27.8px;
+  height: 37.1px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+}
+.pupbmark {
+  z-index: 1;
+  position: absolute;
+  top: 26.9px;
+  right: 23.8px;
+  width: 27.8px;
+  height: 37.1px;
+}
+.popupBookmarkbutton {
+  z-index: 2;
+  position: absolute;
+  background-color: transparent;
+  border-color: transparent;
+  top: 0;
+  left: 0;
+  width: 27.8px;
+  height: 37.1px;
+}
+
+.popupbmarkpopup {
+  position: relative;
+  z-index: 200;
+}
+
+.addBmarkButtonClick {
+  z-index: 200;
+  position: absolute;
+  width: 26.53px;
+  height: 26.53px;
+  top: 308.2px;
+  right: 24.7px;
+}
+
+.prebtn {
+  transform: scaleX(-1);
+}
+.nextButton {
+  z-index: 2;
+  position: absolute;
+  right: 0px;
+  width: 72px;
+  height: 291px;
+  background: linear-gradient(to left, #f5f5f5, transparent);
+}
+.nxtbtn {
+  position: relative;
+  width: 29px;
+  height: 29px;
+  object-fit: contain;
+}
+.nextbtn {
+  z-index: 2;
+  position: absolute;
+  right: 43px;
+  bottom: 128px;
+  width: 29px;
+  height: 29px;
+}
+.SliderContainer {
+  position: relative;
+  width: 1159px;
+  height: 291px;
+  display: flex;
+}
+
+.BContainer {
+  display: flex;
+
+  top: 54px;
+  left: 121px;
+  overflow-x: hidden;
+}
+.prevButton {
+  z-index: 2;
+  position: absolute;
+  left: 0px;
+  width: 72px;
+  height: 291px;
+  background: linear-gradient(to right, #f5f5f5, transparent);
+}
+.prevbtn {
+  z-index: 2;
+  position: absolute;
+  left: 43px;
+  bottom: 128px;
+  width: 29px;
+  height: 29px;
+}
+
+.prebtn {
+  position: relative;
+  width: 29px;
+  height: 29px;
+  object-fit: contain;
+}
