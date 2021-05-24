@@ -13,22 +13,23 @@ const Product = (props) => {
 
     let [product, setProduct] = useState([]);
 
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try{
-                setError(null);
-                setPosts(null);
-                setLoading(true);
-                const result = await axios.get('http://34.64.93.115/search?keyword=""&min=0&max=0');
-                setProduct([...product, ...result.data ])
-            } catch (e) {
-                setError(e);
-            }
-        setLoading(false);
-        };
-        fetchPosts();
+    // useEffect(() => {
+    //     const fetchPosts = async () => {
+    //         try{
+    //             setError(null);
+    //             setPosts(null);
+    //             setLoading(true);
+    //             const result = await axios.get('http://34.64.93.115/index/search?keyword=&min=0&max=0');
+    //             // setProduct([...product, ...result.data ])
+    //             console.log(result);
+    //         } catch (e) {
+    //             setError(e);
+    //         }
+    //     setLoading(false);
+    //     };
+    //     fetchPosts();
 
-      }, []);
+    //   }, []);
 
       if (!posts) return null;
 

@@ -11,13 +11,13 @@ import axios from 'axios';
 
 // 로그인 전과 후는 라우팅으로 구성해주면 될 듯
 const Mainpage = () => {
-    let [product, setProduct] = useState(Data);
+    let [product, setProduct] = useState([]);
     //한글 지양
 
     //페이지 열자마자 정보 가져오기.
     useEffect(()=>{
-        axios.get('https://codingapple1.github.io/shop/data2.json')
-        .then((result)=>{   setProduct([...product, ...result.data ])   })
+        axios.get('http://34.64.93.115/index/search?keyword=&min=0&max=0')
+        .then((result)=>{   setProduct([...product, ...result.data ]); console.log(result)})
         .catch(()=>{ console.log('err')})
     },[])
 
