@@ -16,7 +16,6 @@ const After_Topnav = (props) => {
     // const dishTotalPrice = props.topnav.dishTotalPrice;
     // const trafficprice = props.topnav.trafficprice;
     // const outputPlanTotalPrice = props.topnav.outputPlanTotalPrice;
-    const planTitle = props.product.planTitle;
 
     return (
         <>
