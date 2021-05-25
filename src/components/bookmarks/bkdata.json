@@ -1,0 +1,84 @@
+{
+  "bookmark": [
+    {
+      "id": 9,
+      "title": "서울",
+      "bookmarkplan": [
+        {
+          "id": 1,
+          "postTitle": "first",
+          "price": 10000,
+          "outputPrice": "1만원",
+          "postImage": "https://pds.joins.com/news/component/htmlphoto_mmdata/201903/01/faf54c9e-e268-440d-995c-eea6834d559a.jpg",
+          "category": "FLIGHT",
+          "rating": 4.5,
+          "closed": false,
+          "lat": 12.12,
+          "log": 21.21,
+          "day": 0,
+          "ordering": 0,
+          "memo": "abc",
+          "postTagResponseDtoList": [
+            {
+              "postTagTitle": "spring"
+            },
+            {
+              "postTagTitle": "hi"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "postTitle": "secocnd",
+          "price": 20000,
+          "outputPrice": "2만원",
+          "postImage": "http://www.travelnbike.com/news/photo/201903/77604_141293_4837.png",
+          "category": "DISH",
+          "rating": 4.5,
+          "closed": false,
+          "lat": 12.12,
+          "log": 21.21,
+          "day": 0,
+          "ordering": 1,
+          "memo": null,
+          "postTagResponseDtoList": [
+            {
+              "postTagTitle": "spring"
+            },
+            {
+              "postTagTitle": "hello"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "해운대"
+    },
+    {
+      "id": 11,
+      "title": "부산"
+    },
+    {
+      "id": 13,
+      "title": "강남"
+    },
+    {
+      "id": 14,
+      "title": "왕십리"
+    },
+    {
+      "id": 15,
+      "title": "영통"
+    },
+    {
+      "id": 16,
+      "title": "속초"
+    },
+    {
+      "id": 17,
+      "title": "용산"
+    }
+  ]
+}

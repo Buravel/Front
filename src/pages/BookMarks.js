@@ -1,12 +1,12 @@
-import React from 'react';
-import Responsive from '../components/common/Responsive';
-
+import React from "react";
+import Responsive from "../components/common/Responsive";
+import BookmarkMain from "../components/bookmarks/BookmarkMain";
 const BookMarks = () => {
-    return (
-        <Responsive>
-            <div>bookmarks</div>
-        </Responsive>
-    );
+  return (
+    <Responsive>
+      <BookmarkMain />
+    </Responsive>
+  );
 };
 
 export default BookMarks;

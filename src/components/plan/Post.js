@@ -54,7 +54,6 @@ function Post(props) {
     K.push(tagsArray && tagsArray.map((k) => k[i]));
   }
   const tagTitle = K[0];
-  console.log(tagTitle);
 
   // function HashTagArray(a) {
   //   if (postTerm && postTerm.filter((k) => k.id === a)) {
