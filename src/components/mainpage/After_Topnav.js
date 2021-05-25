@@ -16,7 +16,7 @@ const After_Topnav = (props) => {
     // const dishTotalPrice = props.topnav.dishTotalPrice;
     // const trafficprice = props.topnav.trafficprice;
     // const outputPlanTotalPrice = props.topnav.outputPlanTotalPrice;
-
+    const planTitle = props.product.planTitle;
 
     return (
         <>
@@ -26,7 +26,7 @@ const After_Topnav = (props) => {
                 <span className="after_topbar1_3"></span>
 
                 <span className="after_topbar2_1">위치</span>
-                <span className="after_topbar2_2">강릉</span>
+                <span className="after_topbar2_2">{planTitle}</span>
                 <span className="after_topbar2_3"></span>
 
                 <span className="after_topbar3_1">예산</span>

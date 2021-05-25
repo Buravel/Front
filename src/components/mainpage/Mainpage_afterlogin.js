@@ -34,7 +34,7 @@ const Mainpage_afterlogin = () => {
 
         useEffect(() => {
             axios
-                .get('http://34.64.93.115/index/search?keyword=&min=0&max=0')
+                .get('http://34.64.93.115/plans')
                 .then((result) => {
                     const data2 = result.data._embedded.planResponseDtoList;
                     setTopnav([...topnav, ...data2]);
