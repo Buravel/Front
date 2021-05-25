@@ -1,5 +1,5 @@
 import React, { useState, map } from 'react'
-import './After_topBar.css'
+import './After_topBar.scss'
 import SelectBox from './SelectBox';
 
 const After_topBar = () => {

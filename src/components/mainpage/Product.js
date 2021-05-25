@@ -14,24 +14,6 @@ const Product = (props) => {
 
     let [product, setProduct] = useState([]);
 
-    // useEffect(() => {
-    //     const fetchPosts = async () => {
-    //         try{
-    //             setError(null);
-    //             setPosts(null);
-    //             setLoading(true);
-    //             const result = await axios.get('http://34.64.93.115/index/search?keyword=&min=0&max=0');
-    //             // setProduct([...product, ...result.data ])
-    //             console.log(result);
-    //         } catch (e) {
-    //             setError(e);
-    //         }
-    //     setLoading(false);
-    //     };
-    //     fetchPosts();
-
-    //   }, []);
-
     if (!posts) return null;
     
     console.log(props);
@@ -62,8 +44,8 @@ const Product = (props) => {
     const day = night + 1;
     console.log(night);
 
-    const totalPrice = props.product.totalPrice;
-    const total = parseInt(totalPrice / 10000) ; //만원 단위로 쓰기로 함.
+    // const totalPrice = props.product.totalPrice;
+    // const total = parseInt(totalPrice / 10000) ; //만원 단위로 쓰기로 함. => 그냥 이걸로 뿌려주심. outputPlanTotalPrice
     
     // const tagsArray = [];
     // for (let i = 0; i <= tags; i++) {
@@ -82,7 +64,7 @@ const Product = (props) => {
                 <div className="col-xs-2">
                 <div className="product_img"><img className="img-full" src={`data:image/png;base64,${planImage}`} alt="Product Images"/><div className="tag"><span className="tag_text">#{planTagTitle}</span></div></div>
                         
-                        <div className="product_topline"><span className="product_name">&nbsp;{postTitle}</span><span className="price">&nbsp;{total}만원</span></div>
+                        <div className="product_topline"><span className="product_name">&nbsp;{postTitle}</span><span className="price">&nbsp;{outputPlanTotalPrice}</span></div>
                         <div className="plan"><span className="plan_text">&nbsp;{night}박{day}일</span></div>
                         <div className="product_box">
                             <span className="icon"><img src="/images/mainpage/plane_product.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"class="plane"/></span>
