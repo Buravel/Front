@@ -14,6 +14,13 @@
         box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);  
     }
     
+    .img-full {
+        width: 200px;
+        height: 185px;
+        margin: 0 0 7.8px;
+        // padding: 165px 150px 0 0;
+        // background-color: #bfbfbf;
+    }
     .product_img{
         position: relative;
         top:0;
@@ -37,6 +44,8 @@
     }
     
     .tag_text{
+        position: absolute;
+        top: 1px;
         width: 100px;
         height: 18px;
         margin-left: 3px;
@@ -119,11 +128,12 @@
     }
     .plan_text {
         position: absolute;
-        top: 220px;
+        top: 212px;
         left: 8px;
         width: 60px;
         height: 18px;
-        font-family: 'Noto Sans KR', sans-serif;    font-size: 12px;
+        font-family: 'Noto Sans KR', sans-serif;    
+        font-size: 12px;
         font-weight: normal;
         font-stretch: normal;
         font-style: normal;

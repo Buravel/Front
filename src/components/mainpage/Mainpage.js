@@ -44,7 +44,7 @@ const Mainpage = () => {
                     <Topbar />
                 </div>
 
-                <div className="container">
+                <div >
                     <div className="row">
                         {product.map((a, i) => {
                             return <Product product={product[i]} key={i} />;
