@@ -13,6 +13,8 @@ const INITIALIZE = 'write/INITIALIZE';
 const ADD_DATE = 'write/ADD_DATE';
 const CHANGE_PLAN_INFO = 'write/CHANGE_PLAN_INFO';
 const ADD_POST = 'write/ADD_POST';
+const UPDATE_POST = 'write/UPDATE_POST';
+const REMOVE_POST = 'write/REMOVE_POST';
 //action 생성
 export const changePlanInfo = createAction(
     CHANGE_PLAN_INFO,
@@ -24,7 +26,13 @@ export const changePlanInfo = createAction(
     }),
 );
 export const addDate = createAction(ADD_DATE);
-export const addPost = createAction(ADD_POST, (day) => day);
+export const addPost = createAction(ADD_POST, (card) => card);
+export const updatePost = createAction(UPDATE_POST, (card) => card);
+export const removePost = createAction(REMOVE_POST, (day, idx) => ({
+    day,
+    idx,
+}));
+
 const initialState = {
     planTitle: '',
     startDate: getToday().join(''),
@@ -183,6 +191,48 @@ const write = handleActions(
                 ),
             };
         },
+        [UPDATE_POST]: (
+            state,
+            {
+                payload: {
+                    day,
+                    idx,
+                    title1,
+                    title2,
+                    price,
+                    location,
+                    rating,
+                    hashTags,
+                    memo,
+                    category,
+                },
+            },
+        ) => {
+            const post = {
+                title1,
+                title2,
+                price,
+                location,
+                rating,
+                hashTags,
+                memo,
+                category,
+            };
+            return {
+                ...state,
+                plans: state.plans.map((plan, i) =>
+                    i === day
+                        ? plan.map((p, j) => (j === idx ? { ...post } : p))
+                        : plan,
+                ),
+            };
+        },
+        [REMOVE_POST]: (state, { payload: { day, idx } }) => ({
+            ...state,
+            plans: state.plans.map((plan, i) =>
+                i === day ? plan.filter((post, j) => j !== idx) : plan,
+            ),
+        }),
     },
     initialState,
 );

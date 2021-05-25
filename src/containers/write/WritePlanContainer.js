@@ -8,6 +8,8 @@ import {
     addDate,
     changePlanInfo,
     addPost,
+    updatePost,
+    removePost,
     category_type,
 } from '../../modules/write';
 const getAccount = (arr) => {
@@ -27,6 +29,15 @@ const getAccount = (arr) => {
     }
     return { ...account };
 };
+const getLocation = (plans) => {
+    let loc = [];
+    for (const plan of plans) {
+        for (const post of plan) {
+            loc.push({ lng: post.location.lng, lat: post.location.lat });
+        }
+    }
+    return [...loc];
+};
 const WritePlanContainer = () => {
     const dispatch = useDispatch();
 
@@ -40,17 +51,18 @@ const WritePlanContainer = () => {
     // plan 정보 저장
     const onChangePlanInfo = ({ planTitle, startDate, disclosure, hashTag }) =>
         dispatch(changePlanInfo({ planTitle, startDate, disclosure, hashTag }));
-
     // plans 관련
     const plans = useSelector((state) => state.write.plans);
     const onClickAddBtn = () => dispatch(addDate());
     const onClickAddPost = (param) => dispatch(addPost(param));
-
+    const onClickUpdatePost = (param) => dispatch(updatePost(param));
+    const onClickRemovePost = (key, idx) => dispatch(removePost(key, idx));
     // bookmarks 관련
     const bookmarks = useSelector((state) => state.write.bookmarks);
     // title 금액관련
     const account = useMemo(() => getAccount(plans), [plans]);
-
+    //map 관련
+    const location = getLocation(plans);
     return (
         <>
             <WritePlanTitle
@@ -68,9 +80,11 @@ const WritePlanContainer = () => {
                 startDate={startDate}
                 onClickAddBtn={onClickAddBtn}
                 onClickAddPost={onClickAddPost}
+                onClickUpdatePost={onClickUpdatePost}
+                onClickRemovePost={onClickRemovePost}
             />
             <BookMarks cards={bookmarks} />
-            <Map />
+            <Map location={location} />
         </>
     );
 };

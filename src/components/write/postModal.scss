@@ -187,13 +187,13 @@
         .modal-save{
             background-color: #0070ef;;
             color:white;
-            margin: 16px 0 0 75px;
+            margin: 16px auto;
         }
-        .modal-cancel{
+        .modal-cancel,.modal-remove{
             background-color: white;
             border: 1px solid #d9d9d9;
             color:#535353;
-            margin: 16px 75px 0 39px;
+            margin: 16px auto;
         }
     }
 }

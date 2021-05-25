@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import './planList.scss';
 import PostList from './PostList';
-const PlanList = ({ plans, onClickAddBtn, onClickAddPost }) => {
+const PlanList = ({
+    plans,
+    onClickAddBtn,
+    onClickAddPost,
+    onClickUpdatePost,
+    onClickRemovePost,
+}) => {
     return (
         <div className="plan-list-container">
             {plans.map((plan, idx) => (
@@ -10,6 +16,8 @@ const PlanList = ({ plans, onClickAddBtn, onClickAddPost }) => {
                     plan={plan}
                     day={idx + 1}
                     onClickAddPost={onClickAddPost}
+                    onClickUpdatePost={onClickUpdatePost}
+                    onClickRemovePost={onClickRemovePost}
                 />
             ))}
             <div className="add-btn" onClick={onClickAddBtn}>

@@ -3,10 +3,20 @@ import PostCard from './PostCard';
 import PostModal from './PostModal';
 import './postList.scss';
 
-const PostList = ({ plan, day, onClickAddPost }) => {
+const PostList = ({
+    plan,
+    day,
+    onClickAddPost,
+    onClickUpdatePost,
+    onClickRemovePost,
+}) => {
+    const [card, setCard] = useState(null);
     const [postVisible, setPostVisible] = useState(false);
     const openPostModal = () => setPostVisible(true);
-    const closePostModal = () => setPostVisible(false);
+    const closePostModal = () => {
+        setPostVisible(false);
+        setCard(null);
+    };
     const onClickAdd = ({
         title1,
         title2,
@@ -30,6 +40,36 @@ const PostList = ({ plan, day, onClickAddPost }) => {
         };
         onClickAddPost(param);
     };
+    const onClickUpdate = ({
+        idx,
+        title1,
+        title2,
+        price,
+        location,
+        rating,
+        hashTags,
+        memo,
+        category,
+    }) => {
+        const param = {
+            day: parseInt(day) - 1,
+            idx,
+            title1,
+            title2,
+            price,
+            location,
+            rating,
+            hashTags,
+            memo,
+            category,
+        };
+        onClickUpdatePost(param);
+    };
+    const openEditPostModal = (card) => {
+        setCard(card);
+        openPostModal();
+    };
+    const onClickRemove = (idx) => onClickRemovePost(day - 1, idx);
     return (
         <>
             <div className="post-list-container">
@@ -44,10 +84,8 @@ const PostList = ({ plan, day, onClickAddPost }) => {
                             plan.map((post, idx) => (
                                 <PostCard
                                     key={`post${idx}`}
-                                    card={post}
-                                    onClick={() => {
-                                        console.log('a');
-                                    }}
+                                    card={{ ...post, idx }}
+                                    onClick={openEditPostModal}
                                 />
                             ))}
                         <div
@@ -60,7 +98,12 @@ const PostList = ({ plan, day, onClickAddPost }) => {
                 </div>
             </div>
             {postVisible && (
-                <PostModal closeModal={closePostModal} onSave={onClickAdd} />
+                <PostModal
+                    closeModal={closePostModal}
+                    onSave={card ? onClickUpdate : onClickAdd}
+                    card={card}
+                    onClickRemove={onClickRemove}
+                />
             )}
         </>
     );
