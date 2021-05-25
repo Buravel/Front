@@ -2,7 +2,6 @@ import React, { useState /* map*/ } from 'react';
 import './Mainpage_afterlogin.scss';
 import Product from './Product';
 import Advertise from './Advertise';
-
 import After_Topnav from './After_Topnav';
 import After_topBar from './After_topBar';
 import Data from './Data';
@@ -12,9 +11,16 @@ import axios from 'axios';
 // import { Carousel, Navbar } from 'react-bootstrap';
 
 // 로그인 전과 후는 라우팅으로 구성해주면 될 듯
-const Mainpage_afterlogin = () => {
-    let [product, product변경] = useState(Data);
+const Mainpage_afterlogin = (props) => {
 
+    let [product, setProduct] = useState(Data);
+
+    useEffect(()=>{
+        axios.get('https://codingapple1.github.io/shop/data2.json')
+        .then((result)=>{   setProduct([...product, ...result.data ])   })
+        .catch(()=>{ console.log('err')})
+    },[])
+    
     return (
         <>
             {/* <Navbar bg="light">
@@ -66,12 +72,13 @@ const Mainpage_afterlogin = () => {
                     </div>
                     {/* axios를 시험하기 위한 버튼입니다. */}
                 </div>
-
-                {/* 디자인에 페이지 넘버링 없어서 뺌. 더보기? 버튼 CSS 수정
-            <div className="footer">
-            <Pagination/>
-            </div>
-            */}
+                <div className = "btn">
+                <button className="btn" onClick={()=>{
+            axios.get('https://codingapple1.github.io/shop/data2.json')
+            .then((result)=>{  setProduct([...product, ...result.data ])   })
+            .catch(()=>{ })
+            }}>더보기</button></div>
+            {/* axios를 시험하기 위한 버튼입니다. */}
             </div>
         </>
     );
