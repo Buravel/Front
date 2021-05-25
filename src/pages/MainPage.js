@@ -6,7 +6,7 @@ import HeaderContainer from "../containers/common/HeaderContainer";
 // import SelectBox from '../components/mainpage/SelectBox';
 // import Advertise from '../components/mainpage/Advertise';
 // import Product from '../components/mainpage/Product';
-// import Mainpage_afterlogin from '../components/mainpage/Mainpage_afterlogin';
+import Mainpage_afterlogin from '../components/mainpage/Mainpage_afterlogin';
 // import After_topBar from '../components/mainpage/After_topBar';
 // import After_Topnav from '../components/mainpage/After_Topnav';
 // import Topbar from '../components/mainpage/Topbar';
@@ -18,7 +18,7 @@ const MainPage = () => {
     <div>
       <HeaderContainer />
       <Responsive>
-        <Mainpage />
+        <Mainpage_afterlogin/>
       </Responsive>
 
       {/* <Mainpage_afterlogin /> */}

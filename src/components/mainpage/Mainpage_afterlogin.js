@@ -1,4 +1,4 @@
-import React, { useState /* map*/ } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Mainpage_afterlogin.scss';
 import Product from './Product';
 import Advertise from './Advertise';
@@ -6,21 +6,58 @@ import After_Topnav from './After_Topnav';
 import After_topBar from './After_topBar';
 import Data from './Data';
 import axios from 'axios';
+
 // import Pagination from './Pagination';
 // import Topbar from './Topbar';
 // import { Carousel, Navbar } from 'react-bootstrap';
 
 // 로그인 전과 후는 라우팅으로 구성해주면 될 듯
-const Mainpage_afterlogin = (props) => {
+const Mainpage_afterlogin = () => {
 
-    let [product, setProduct] = useState(Data);
+    let [product, setProduct] = useState([]);
 
-    useEffect(()=>{
-        axios.get('https://codingapple1.github.io/shop/data2.json')
-        .then((result)=>{   setProduct([...product, ...result.data ])   })
-        .catch(()=>{ console.log('err')})
-    },[])
-    
+    useEffect(() => {
+        axios
+            .get('http://34.64.93.115/index/search?keyword=&min=0&max=0')
+            .then((result) => {
+                const data = result.data._embedded.planResponseDtoList;
+                setProduct([...product, ...data]);
+                console.log(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+//---------------------------------------------------------------------------------
+
+    let [topnav, setTopnav] = useState([]);
+
+        useEffect(() => {
+            axios
+                .get('http://34.64.93.115/index/search?keyword=&min=0&max=0')
+                .then((result) => {
+                    const data2 = result.data._embedded.planResponseDtoList;
+                    setTopnav([...topnav, ...data2]);
+                    console.log(data2);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }, []);
+
+        if (!topnav || !product) return null;
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <>
             {/* <Navbar bg="light">
@@ -50,35 +87,7 @@ const Mainpage_afterlogin = (props) => {
                 <Product product={product[3]}/>
                 <Product product={product[4]}/> */}
                     </div>
-                    <div className="btn">
-                        <button
-                            className="btn"
-                            onClick={() => {
-                                axios
-                                    .get(
-                                        'https://codingapple1.github.io/shop/data2.json',
-                                    )
-                                    .then((result) => {
-                                        product변경([
-                                            ...product,
-                                            ...result.data,
-                                        ]);
-                                    })
-                                    .catch(() => {});
-                            }}
-                        >
-                            더보기
-                        </button>
-                    </div>
-                    {/* axios를 시험하기 위한 버튼입니다. */}
-                </div>
-                <div className = "btn">
-                <button className="btn" onClick={()=>{
-            axios.get('https://codingapple1.github.io/shop/data2.json')
-            .then((result)=>{  setProduct([...product, ...result.data ])   })
-            .catch(()=>{ })
-            }}>더보기</button></div>
-            {/* axios를 시험하기 위한 버튼입니다. */}
+                  </div>
             </div>
         </>
     );
