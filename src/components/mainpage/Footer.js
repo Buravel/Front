@@ -1,13 +1,5 @@
 import React /* useState, map*/ from 'react';
 import './After_topBar.scss';
-// // import Product from './Product';
-// import Pagination from './Pagination';
-// import Advertise from './Advertise';
-// import SelectBox from './SelectBox';
-
-// import { Carousel, Navbar } from 'react-bootstrap';
-// import Data from './Data';
-// import axios from 'axios';
 
 const Footer = () => {
     return (
@@ -16,7 +8,7 @@ const Footer = () => {
                 <span className="footer_icon">
                     <img
                         src="/images/mainpage/footer_icon.png"
-                        srcSet="img/food@2x.png 2x,img/food@3x.png 3x"
+                        srcset="img/food@2x.png 2x,img/food@3x.png 3x"
                         class="footer_icon"
                         alt="footer"
                     />

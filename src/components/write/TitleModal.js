@@ -3,25 +3,29 @@ import { splitDate } from '../../util/date';
 import './titleModal.scss';
 const TitleModal = ({
     closeModal,
-    disclosure,
+    published,
     startDate,
     planTitle,
     hashTag,
+    planImage,
     onChangePlanInfo,
 }) => {
     const [title, setTitle] = useState(planTitle);
     const [date, setDate] = useState(startDate);
-    const [closure, setClosure] = useState(disclosure);
+    const [closure, setClosure] = useState(published);
     const [hash, setHash] = useState(hashTag);
+    const [imgBase64, setImgBase64] = useState(planImage); // 파일 base64
+    // const [imgFile, setImgFile] = useState(null); //파일
 
     const [inputHash, setInputHash] = useState(false);
     const [textHash, setTextHash] = useState(hashTag);
     // 저장
     const onChange = () => {
         onChangePlanInfo({
+            planImage: imgBase64,
             planTitle: title,
             startDate: date,
-            disclosure: closure,
+            published: closure,
             hashTag: hash,
         });
         closeModal();
@@ -39,12 +43,39 @@ const TitleModal = ({
         setInputHash(false);
     };
 
+    const onChangeFile = (event) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            // 2. 읽기가 완료되면 아래코드가 실행됩니다.
+            const base64 = reader.result;
+            if (base64) {
+                setImgBase64(base64.toString().split(',')[1]); // 파일 base64 상태 업데이트
+            }
+        };
+        if (event.target.files[0]) {
+            reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
+            // setImgFile(event.target.files[0]); // 파일 상태 업데이트
+        }
+    };
+
     return (
         <div className="title-modal-container">
             <div className="modal-white-box">
-                <div className="modal-thumbnail">
-                    <p>+</p>
-                </div>
+                <label>
+                    <div className="modal-thumbnail">
+                        {imgBase64 ? (
+                            <img src={`data:image/png;base64,${imgBase64}`} />
+                        ) : (
+                            <p>+</p>
+                        )}
+                    </div>
+                    <input
+                        type="file"
+                        hidden
+                        onChange={onChangeFile}
+                        accept=".png"
+                    />
+                </label>
                 <div className="modal-input-form">
                     <label>
                         <span>제목</span>
