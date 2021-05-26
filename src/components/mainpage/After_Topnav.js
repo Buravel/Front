@@ -18,7 +18,6 @@ const After_Topnav = (props) => {
     
     console.log(props);
 
-
     const postTerm = posts.postForPlanResponseDtos;
     const postId = postTerm && postTerm.filter((k) => k.id === props.id);
     const category = postId && postId.map((k) => k.category)[0];
@@ -50,7 +49,6 @@ const After_Topnav = (props) => {
 
     // const day = night + 1;
     // console.log(night);
-
     return (
         <>
             <div className="after_topbar">

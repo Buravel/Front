@@ -26,8 +26,9 @@ const Mainpage_afterlogin = () => {
                 console.log(err);
             });
     }, []);
-    if (!product) return null;
 
+    if (!product) return null;
+    
     return (
         <>
             {/* <Navbar bg="light">
