@@ -1,11 +1,7 @@
 import React /*useState, map*/ from 'react';
 import './Advertise.scss';
 import { Carousel /*Navbar*/ } from 'react-bootstrap';
-// import Product from './Product';
-// import Pagination from './Pagination';
-// import Data from './Data';
-// import axios from 'axios';
-// import "bootstrap/dist/css/bootstrap.css";
+import 'bootstrap/dist/css/bootstrap.css';
 
 const Advertise = () => {
     return (
