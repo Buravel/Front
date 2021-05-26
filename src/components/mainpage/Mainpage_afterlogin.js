@@ -38,6 +38,10 @@ const Mainpage_afterlogin = () => {
             {product.map((a, i) => {
                             return <After_Topnav product={product[0]} key={0} />;
                         })}
+
+            {/* 이렇게 하니까 계속 오류나서 구글링중,,,,,,,,,{[1].map((a, i) => {
+                            return <After_Topnav product={product[0]} key={0} />;
+                        })} */}
                 {/* <After_Topnav /> */}
             </div>
 
