@@ -3,27 +3,37 @@ import './postModal.scss';
 import SearchPlace from './SearchPlace';
 import { category_type } from '../../modules/write';
 
-const PostModal = ({ closeModal, onSave }) => {
+const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
     const { AIRPLANE, EAT, SHOPPING, TRANSPORTAION, ROOMS, ETC } =
         category_type;
-    const [title1, setTitle1] = useState('');
-    const [title2, setTitle2] = useState('');
-    const [price, setPrice] = useState('');
-    const [location, setLocation] = useState({
-        name: '',
-        lng: '',
-        lat: '',
-    });
-    const [rating, setRating] = useState('');
-    const [hashTags, setHashTags] = useState([]);
-    const [memo, setMemo] = useState('');
-    const [category, setCategory] = useState(AIRPLANE);
-    const [inputHash, setInputHash] = useState(false);
+    const [title1, setTitle1] = useState(!card ? '' : card.title1);
+    const [title2, setTitle2] = useState(!card ? '' : card.title2);
+    const [price, setPrice] = useState(!card ? 0 : card.price);
+    const [location, setLocation] = useState(
+        !card
+            ? {
+                  name: '',
+                  lng: '',
+                  lat: '',
+              }
+            : {
+                  name: card.location.name,
+                  lng: card.location.lng,
+                  lat: card.location.lat,
+              },
+    );
+    const [rating, setRating] = useState(!card ? '' : card.rating);
+    const [hashTags, setHashTags] = useState(!card ? [] : [...card.hashTags]);
+    const [memo, setMemo] = useState(!card ? '' : card.memo);
+    const [category, setCategory] = useState(!card ? AIRPLANE : card.category);
+    const [imgBase64, setImgBase64] = useState(!card ? '' : card.postImage); // 파일 base64
 
+    const [inputHash, setInputHash] = useState(false);
     const [textHash, setTextHash] = useState('');
 
     const onClickSave = () => {
         onSave({
+            idx: card?.idx,
             title1,
             title2,
             price,
@@ -32,6 +42,7 @@ const PostModal = ({ closeModal, onSave }) => {
             hashTags,
             memo,
             category,
+            postImage: imgBase64,
         });
         closeModal();
     };
@@ -48,12 +59,40 @@ const PostModal = ({ closeModal, onSave }) => {
     const onChangeCategory = (e) => {
         setCategory(e.target.value);
     };
+
+    const onChangeFile = (event) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            // 2. 읽기가 완료되면 아래코드가 실행됩니다.
+            const base64 = reader.result;
+            if (base64) {
+                setImgBase64(base64.toString().split(',')[1]); // 파일 base64 상태 업데이트
+            }
+        };
+        if (event.target.files[0]) {
+            reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
+            // setImgFile(event.target.files[0]); // 파일 상태 업데이트
+        }
+    };
+
     return (
         <div className="post-modal-container">
             <div className="modal-white-box">
-                <div className="modal-thumbnail">
-                    <p>+</p>
-                </div>
+                <label>
+                    <div className="modal-thumbnail">
+                        {imgBase64 ? (
+                            <img src={`data:image/png;base64,${imgBase64}`} />
+                        ) : (
+                            <p>+</p>
+                        )}
+                    </div>
+                    <input
+                        type="file"
+                        hidden
+                        onChange={onChangeFile}
+                        accept=".png"
+                    />
+                </label>
                 <div className="modal-input-form">
                     <label>
                         <span>
@@ -109,7 +148,7 @@ const PostModal = ({ closeModal, onSave }) => {
                         <span>
                             <span className="modal-star">*</span>위치
                         </span>
-                        <SearchPlace addPlace={addPlace} />
+                        <SearchPlace addPlace={addPlace} location={location} />
                     </label>
                     <label>
                         <span>
@@ -190,10 +229,25 @@ const PostModal = ({ closeModal, onSave }) => {
                     </label>
                 </div>
             </div>
-            <div className="modal-btn-container">
+            <div
+                className={`modal-btn-container ${
+                    card ? 'update-modal' : 'add-modal'
+                }`}
+            >
                 <button className="modal-save" onClick={onClickSave}>
-                    저장
+                    {card ? '수정' : '저장'}
                 </button>
+                {card && (
+                    <button
+                        className="modal-remove"
+                        onClick={() => {
+                            onClickRemove(card?.idx);
+                            closeModal();
+                        }}
+                    >
+                        삭제
+                    </button>
+                )}
                 <button className="modal-cancel" onClick={closeModal}>
                     취소
                 </button>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './bookMarks.scss';
 import PostCard from './PostCard';
 const BookMarks = ({ cards }) => {
-    const [on, setOn] = useState(true);
+    const [on, setOn] = useState(false);
     return (
         <>
             <div className={`${on ? 'bookmark-on' : 'bookmark-off'}`}></div>

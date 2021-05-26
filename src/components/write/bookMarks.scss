@@ -3,6 +3,9 @@
     width : 1280px;
     transition-duration: 0.5s;
     z-index: 30;
+    p {
+        margin:0;
+    }
     .bookmark-arrow{
         cursor: pointer;
         width: 225px;

@@ -5,11 +5,16 @@ import WritePlanTitle from '../../components/write/WritePlanTitle';
 import Map from '../../components/common/Map';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+    category_type,
     addDate,
     changePlanInfo,
     addPost,
-    category_type,
+    updatePost,
+    removePost,
+    writePlan,
+    removeDate,
 } from '../../modules/write';
+
 const getAccount = (arr) => {
     let account = {
         [category_type.AIRPLANE]: 0,
@@ -27,6 +32,15 @@ const getAccount = (arr) => {
     }
     return { ...account };
 };
+const getLocation = (plans) => {
+    let loc = [];
+    for (const plan of plans) {
+        for (const post of plan) {
+            loc.push({ lng: post.location.lng, lat: post.location.lat });
+        }
+    }
+    return [...loc];
+};
 const WritePlanContainer = () => {
     const dispatch = useDispatch();
 
@@ -34,43 +48,68 @@ const WritePlanContainer = () => {
     const planTitle = useSelector((state) => state.write.planTitle);
     const startDate = useSelector((state) => state.write.startDate);
     const endDate = useSelector((state) => state.write.endDate);
-    const disclosure = useSelector((state) => state.write.disclosure);
+    const published = useSelector((state) => state.write.published);
     const hashTag = useSelector((state) => state.write.hashTag);
+    const planImage = useSelector((state) => state.write.planImage);
 
     // plan 정보 저장
-    const onChangePlanInfo = ({ planTitle, startDate, disclosure, hashTag }) =>
-        dispatch(changePlanInfo({ planTitle, startDate, disclosure, hashTag }));
-
+    const onChangePlanInfo = ({
+        planTitle,
+        startDate,
+        published,
+        hashTag,
+        planImage,
+    }) =>
+        dispatch(
+            changePlanInfo({
+                planTitle,
+                startDate,
+                published,
+                hashTag,
+                planImage,
+            }),
+        );
     // plans 관련
     const plans = useSelector((state) => state.write.plans);
     const onClickAddBtn = () => dispatch(addDate());
+    const onClickRemoveBtn = (day) => dispatch(removeDate(day));
     const onClickAddPost = (param) => dispatch(addPost(param));
-
+    const onClickUpdatePost = (param) => dispatch(updatePost(param));
+    const onClickRemovePost = (key, idx) => dispatch(removePost(key, idx));
     // bookmarks 관련
     const bookmarks = useSelector((state) => state.write.bookmarks);
     // title 금액관련
     const account = useMemo(() => getAccount(plans), [plans]);
+    //map 관련
+    const location = getLocation(plans);
+
+    const onSave = () => dispatch(writePlan());
 
     return (
         <>
             <WritePlanTitle
-                disclosure={disclosure}
+                published={published}
                 startDate={startDate}
                 endDate={endDate}
                 planTitle={planTitle}
                 hashTag={hashTag}
+                planImage={planImage}
                 account={account}
                 onChangePlanInfo={onChangePlanInfo}
+                onSave={onSave}
             />
             <PlanList
                 plans={plans}
                 endDate={endDate}
                 startDate={startDate}
                 onClickAddBtn={onClickAddBtn}
+                onClickRemoveBtn={onClickRemoveBtn}
                 onClickAddPost={onClickAddPost}
+                onClickUpdatePost={onClickUpdatePost}
+                onClickRemovePost={onClickRemovePost}
             />
             <BookMarks cards={bookmarks} />
-            <Map />
+            <Map location={location} />
         </>
     );
 };

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './postCard.scss';
+import PostModal from './PostModal';
 const Tag = ({ hashTag }) => {
     return (
         <div className="postcard-tagbox">
@@ -7,14 +8,20 @@ const Tag = ({ hashTag }) => {
         </div>
     );
 };
-const PostCard = ({ card }) => {
+const PostCard = ({ card, onClick }) => {
     const { title1, title2, price, postImage, category, rating, hashTags } =
         card;
-
     return (
-        <div className="postcard-container">
+        <div className="postcard-container" onClick={() => onClick(card)}>
             <div className="postcard-thumbnail">
-                <img src="" alt="" />
+                <img
+                    src={
+                        postImage === ''
+                            ? `./images/write/thumb_${category}.png`
+                            : `data:image/png;base64,${postImage}`
+                    }
+                    alt=""
+                />
             </div>
             <div className="postcard-info">
                 <div className="postcard-header-conatiner">

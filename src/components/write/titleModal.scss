@@ -6,6 +6,9 @@
     height :100%;
     background: rgba(0, 0, 0, 0.4);
     z-index:99;
+    p {
+        margin:0;
+    }
     .modal-white-box{
         margin : 208px auto 0 auto;
         width: 367px;
@@ -14,7 +17,7 @@
         border-radius: 3px;
         box-shadow: 2px 2px 30px 0 rgba(0, 0, 0, 0.1);
         .modal-thumbnail {
-
+            cursor:pointer;
             width: 367px;
             height: 335px;
             background-color: #8b8b8b;
@@ -25,9 +28,15 @@
             p {
                 font-size: 80px;
             }
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                height: auto;
+                width: 100%;
+            }
         }
         .modal-input-form {
-            margin-top:27px;
+            margin-top:10px;
             label {
                 display: flex;
                 margin-bottom: 13px;

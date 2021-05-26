@@ -14,7 +14,7 @@ const SearchPlace = compose(
             const refs = {};
 
             this.setState({
-                places: [],
+                places: this.props.location,
                 onSearchBoxMounted: (ref) => {
                     refs.searchBox = ref;
                 },
@@ -34,20 +34,23 @@ const SearchPlace = compose(
         },
     }),
     withScriptjs,
-)((props) => (
-    <div data-standalone-searchbox="">
-        <StandaloneSearchBox
-            ref={props.onSearchBoxMounted}
-            bounds={props.bounds}
-            onPlacesChanged={props.onPlacesChanged}
-        >
-            <input
-                type="text"
-                placeholder="주소입력"
-                className="input-blue input-location"
-            />
-        </StandaloneSearchBox>
-    </div>
-));
+)((props) => {
+    return (
+        <div data-standalone-searchbox="">
+            <StandaloneSearchBox
+                ref={props.onSearchBoxMounted}
+                bounds={props.bounds}
+                onPlacesChanged={props.onPlacesChanged}
+            >
+                <input
+                    type="text"
+                    placeholder={props.location.name}
+                    className="input-blue input-location"
+                    // value={props.location.name}
+                />
+            </StandaloneSearchBox>
+        </div>
+    );
+});
 
 export default SearchPlace;
