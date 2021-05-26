@@ -44,20 +44,6 @@ const Product = (props) => {
     const day = night + 1;
     console.log(night);
 
-    // const totalPrice = props.product.totalPrice;
-    // const total = parseInt(totalPrice / 10000) ; //만원 단위로 쓰기로 함. => 그냥 이걸로 뿌려주심. outputPlanTotalPrice
-    
-    // const tagsArray = [];
-    // for (let i = 0; i <= tags; i++) {
-    //     tagsArray.push(hashTag && hashTag.map((k) => k[i].postTagTitle));
-    // }
-    // const K = [];
-    // for (let i = 0; i < tagsArray.length - 1; i++) {
-    //     K.push(tagsArray && tagsArray.map((k) => k[i]));
-    // }
-    // const tagTitle = K[0];
-    // // console.log(tagTitle);
-
     return (
         <>
             <div className="product-shadowbox">
@@ -67,20 +53,20 @@ const Product = (props) => {
                         <div className="product_topline"><span className="product_name">&nbsp;{postTitle}</span><span className="price">&nbsp;{outputPlanTotalPrice}</span></div>
                         <div className="plan"><span className="plan_text">&nbsp;{night}박{day}일</span></div>
                         <div className="product_box">
-                            <span className="icon"><img src="/images/mainpage/plane_product.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"class="plane"/></span>
+                            <span className="icon"><img src="/images/mainpage/plane_product.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"/></span>
                             <span className="plan">{trafficprice}</span>
                         
-                            <span className="icon"><img src="/images/mainpage/hotel_product.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"class="hotel"/></span>
+                            <span className="icon"><img src="/images/mainpage/hotel_product.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"/></span>
                             <span className="plan">{hotelprice}</span>
                         
-                            <span className="icon"><img src="/images/mainpage/food_product.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"class="food"/></span>
+                            <span className="icon"><img src="/images/mainpage/food_product.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"/></span>
                             <span className="plan">{shoppingprice}</span>
                             &nbsp;
                             &nbsp;
                             &nbsp;
                             &nbsp;
                             &nbsp;
-                            <span className="icon"><img src="/images/mainpage/star.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"class="star"/></span>
+                            <span className="icon"><img src="/images/mainpage/star.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"/></span>
                             <span className="plan plan_star">{planRating}&nbsp; </span>
                 </div>
             </div>

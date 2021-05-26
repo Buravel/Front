@@ -10,15 +10,13 @@ import axios from 'axios';
 // import Pagination from './Pagination';
 // import Topbar from './Topbar';
 // import { Carousel, Navbar } from 'react-bootstrap';
-
-// 로그인 전과 후는 라우팅으로 구성해주면 될 듯
 const Mainpage_afterlogin = () => {
 
     let [product, setProduct] = useState([]);
 
     useEffect(() => {
         axios
-            .get('http://34.64.93.115/index/search?keyword=&min=0&max=0')
+            .get('http://34.64.93.115/plans')
             .then((result) => {
                 const data = result.data._embedded.planResponseDtoList;
                 setProduct([...product, ...data]);
@@ -28,35 +26,7 @@ const Mainpage_afterlogin = () => {
                 console.log(err);
             });
     }, []);
-//---------------------------------------------------------------------------------
-
-    let [topnav, setTopnav] = useState([]);
-
-        useEffect(() => {
-            axios
-                .get('http://34.64.93.115/plans')
-                .then((result) => {
-                    const data2 = result.data._embedded.planResponseDtoList;
-                    setTopnav([...topnav, ...data2]);
-                    console.log(data2);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        }, []);
-
-        if (!topnav || !product) return null;
-
-
-
-
-
-
-
-
-
-
-
+    if (!product) return null;
 
     return (
         <>
@@ -64,7 +34,10 @@ const Mainpage_afterlogin = () => {
             <Navbar.Brand href="#home">Header</Navbar.Brand>
         </Navbar> */}
             <div className="topbar">
-                <After_Topnav />
+            {product.map((a, i) => {
+                            return <After_Topnav product={product[0]} key={0} />;
+                        })}
+                {/* <After_Topnav /> */}
             </div>
 
             <div className="afterlogin-main-background">
