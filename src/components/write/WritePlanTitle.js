@@ -21,7 +21,7 @@ const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
         </div>
     );
 };
-const PlanRemote = ({ account }) => {
+const PlanRemote = ({ account, onSave }) => {
     let total = 0;
     for (const value of Object.values(account)) {
         total += value;
@@ -60,7 +60,9 @@ const PlanRemote = ({ account }) => {
                 </div>
             </div>
             <div className="button-container">
-                <button className="plan-save">저장</button>
+                <button className="plan-save" onClick={onSave}>
+                    저장
+                </button>
                 <button className="plan-delete">삭제</button>
             </div>
         </div>
@@ -74,6 +76,7 @@ const WritePlanTitle = ({
     hashTag,
     account,
     onChangePlanInfo,
+    onSave,
 }) => {
     // modal 관련
     const [titleVisible, setTitleVisible] = useState(false);
@@ -89,7 +92,7 @@ const WritePlanTitle = ({
                     planTitle={planTitle}
                     openModal={openTitleModal}
                 />
-                <PlanRemote account={account} />
+                <PlanRemote account={account} onSave={onSave} />
             </div>
             <div className="title-block"></div>
             {titleVisible && (

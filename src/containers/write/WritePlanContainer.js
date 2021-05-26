@@ -5,13 +5,15 @@ import WritePlanTitle from '../../components/write/WritePlanTitle';
 import Map from '../../components/common/Map';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+    category_type,
     addDate,
     changePlanInfo,
     addPost,
     updatePost,
     removePost,
-    category_type,
+    writePlan,
 } from '../../modules/write';
+
 const getAccount = (arr) => {
     let account = {
         [category_type.AIRPLANE]: 0,
@@ -63,6 +65,9 @@ const WritePlanContainer = () => {
     const account = useMemo(() => getAccount(plans), [plans]);
     //map 관련
     const location = getLocation(plans);
+
+    const onSave = () => dispatch(writePlan());
+
     return (
         <>
             <WritePlanTitle
@@ -73,6 +78,7 @@ const WritePlanContainer = () => {
                 hashTag={hashTag}
                 account={account}
                 onChangePlanInfo={onChangePlanInfo}
+                onSave={onSave}
             />
             <PlanList
                 plans={plans}
