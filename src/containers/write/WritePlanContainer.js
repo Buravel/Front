@@ -12,6 +12,7 @@ import {
     updatePost,
     removePost,
     writePlan,
+    removeDate,
 } from '../../modules/write';
 
 const getAccount = (arr) => {
@@ -47,15 +48,31 @@ const WritePlanContainer = () => {
     const planTitle = useSelector((state) => state.write.planTitle);
     const startDate = useSelector((state) => state.write.startDate);
     const endDate = useSelector((state) => state.write.endDate);
-    const disclosure = useSelector((state) => state.write.disclosure);
+    const published = useSelector((state) => state.write.published);
     const hashTag = useSelector((state) => state.write.hashTag);
+    const planImage = useSelector((state) => state.write.planImage);
 
     // plan 정보 저장
-    const onChangePlanInfo = ({ planTitle, startDate, disclosure, hashTag }) =>
-        dispatch(changePlanInfo({ planTitle, startDate, disclosure, hashTag }));
+    const onChangePlanInfo = ({
+        planTitle,
+        startDate,
+        published,
+        hashTag,
+        planImage,
+    }) =>
+        dispatch(
+            changePlanInfo({
+                planTitle,
+                startDate,
+                published,
+                hashTag,
+                planImage,
+            }),
+        );
     // plans 관련
     const plans = useSelector((state) => state.write.plans);
     const onClickAddBtn = () => dispatch(addDate());
+    const onClickRemoveBtn = (day) => dispatch(removeDate(day));
     const onClickAddPost = (param) => dispatch(addPost(param));
     const onClickUpdatePost = (param) => dispatch(updatePost(param));
     const onClickRemovePost = (key, idx) => dispatch(removePost(key, idx));
@@ -71,11 +88,12 @@ const WritePlanContainer = () => {
     return (
         <>
             <WritePlanTitle
-                disclosure={disclosure}
+                published={published}
                 startDate={startDate}
                 endDate={endDate}
                 planTitle={planTitle}
                 hashTag={hashTag}
+                planImage={planImage}
                 account={account}
                 onChangePlanInfo={onChangePlanInfo}
                 onSave={onSave}
@@ -85,6 +103,7 @@ const WritePlanContainer = () => {
                 endDate={endDate}
                 startDate={startDate}
                 onClickAddBtn={onClickAddBtn}
+                onClickRemoveBtn={onClickRemoveBtn}
                 onClickAddPost={onClickAddPost}
                 onClickUpdatePost={onClickUpdatePost}
                 onClickRemovePost={onClickRemovePost}

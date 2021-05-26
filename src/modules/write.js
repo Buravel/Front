@@ -17,6 +17,7 @@ export const category_type = {
 //type 생성
 const INITIALIZE = 'write/INITIALIZE';
 const ADD_DATE = 'write/ADD_DATE';
+const REMOVE_DATE = 'write/REMOVE_DATE';
 const CHANGE_PLAN_INFO = 'write/CHANGE_PLAN_INFO';
 const ADD_POST = 'write/ADD_POST';
 const UPDATE_POST = 'write/UPDATE_POST';
@@ -27,14 +28,16 @@ const [WRITE_PLAN, WRITE_PLAN_SUCCESS, WRITE_PLAN_FAILURE] =
 //action 생성
 export const changePlanInfo = createAction(
     CHANGE_PLAN_INFO,
-    ({ planTitle, startDate, disclosure, hashTag }) => ({
+    ({ planTitle, startDate, published, hashTag, planImage }) => ({
         planTitle,
         startDate,
-        disclosure,
+        published,
         hashTag,
+        planImage,
     }),
 );
 export const addDate = createAction(ADD_DATE);
+export const removeDate = createAction(REMOVE_DATE);
 export const addPost = createAction(ADD_POST, (card) => card);
 export const updatePost = createAction(UPDATE_POST, (card) => card);
 export const removePost = createAction(REMOVE_POST, (day, idx) => ({
@@ -51,10 +54,12 @@ export function* writeSaga() {
 
 const initialState = {
     planTitle: '',
+    planImage: '',
+
     startDate: getToday().join(''),
     endDate: getToday().join(''),
-    disclosure: false,
-    hashTag: '',
+    published: false,
+    hashTag: '', //planTag
     plans: [[]],
     bookmarks: [],
 };
@@ -67,14 +72,27 @@ const write = handleActions(
             plans: [...state.plans, []],
             endDate: getNextDate(state.endDate).join(''),
         }),
+        [REMOVE_DATE]: (state, { payload: day }) => ({
+            ...state,
+            plans: state.plans.filter((plan, idx) => idx !== day),
+        }),
         [CHANGE_PLAN_INFO]: (
             state,
-            { payload: { planTitle, startDate, disclosure, hashTag } },
+            {
+                payload: {
+                    planTitle,
+                    startDate,
+                    published,
+                    hashTag,
+                    planImage,
+                },
+            },
         ) => ({
             ...state,
+            planImage,
             planTitle,
             startDate,
-            disclosure,
+            published,
             hashTag,
         }),
         [ADD_POST]: (
@@ -90,6 +108,7 @@ const write = handleActions(
                     hashTags,
                     memo,
                     category,
+                    postImage,
                 },
             },
         ) => {
@@ -102,6 +121,7 @@ const write = handleActions(
                 hashTags,
                 memo,
                 category,
+                postImage,
             };
             return {
                 ...state,
@@ -124,6 +144,7 @@ const write = handleActions(
                     hashTags,
                     memo,
                     category,
+                    postImage,
                 },
             },
         ) => {
@@ -136,6 +157,7 @@ const write = handleActions(
                 hashTags,
                 memo,
                 category,
+                postImage,
             };
             return {
                 ...state,

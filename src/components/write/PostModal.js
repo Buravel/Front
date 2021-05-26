@@ -26,8 +26,9 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
     const [hashTags, setHashTags] = useState(!card ? [] : [...card.hashTags]);
     const [memo, setMemo] = useState(!card ? '' : card.memo);
     const [category, setCategory] = useState(!card ? AIRPLANE : card.category);
-    const [inputHash, setInputHash] = useState(false);
+    const [imgBase64, setImgBase64] = useState(!card ? '' : card.postImage); // 파일 base64
 
+    const [inputHash, setInputHash] = useState(false);
     const [textHash, setTextHash] = useState('');
 
     const onClickSave = () => {
@@ -41,6 +42,7 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
             hashTags,
             memo,
             category,
+            postImage: imgBase64,
         });
         closeModal();
     };
@@ -57,12 +59,40 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
     const onChangeCategory = (e) => {
         setCategory(e.target.value);
     };
+
+    const onChangeFile = (event) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            // 2. 읽기가 완료되면 아래코드가 실행됩니다.
+            const base64 = reader.result;
+            if (base64) {
+                setImgBase64(base64.toString().split(',')[1]); // 파일 base64 상태 업데이트
+            }
+        };
+        if (event.target.files[0]) {
+            reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
+            // setImgFile(event.target.files[0]); // 파일 상태 업데이트
+        }
+    };
+
     return (
         <div className="post-modal-container">
             <div className="modal-white-box">
-                <div className="modal-thumbnail">
-                    <p>+</p>
-                </div>
+                <label>
+                    <div className="modal-thumbnail">
+                        {imgBase64 ? (
+                            <img src={`data:image/png;base64,${imgBase64}`} />
+                        ) : (
+                            <p>+</p>
+                        )}
+                    </div>
+                    <input
+                        type="file"
+                        hidden
+                        onChange={onChangeFile}
+                        accept=".png"
+                    />
+                </label>
                 <div className="modal-input-form">
                     <label>
                         <span>

@@ -11,11 +11,17 @@ const Tag = ({ hashTag }) => {
 const PostCard = ({ card, onClick }) => {
     const { title1, title2, price, postImage, category, rating, hashTags } =
         card;
-
     return (
         <div className="postcard-container" onClick={() => onClick(card)}>
             <div className="postcard-thumbnail">
-                <img src="" alt="" />
+                <img
+                    src={
+                        postImage === ''
+                            ? `./images/write/thumb_${category}.png`
+                            : `data:image/png;base64,${postImage}`
+                    }
+                    alt=""
+                />
             </div>
             <div className="postcard-info">
                 <div className="postcard-header-conatiner">

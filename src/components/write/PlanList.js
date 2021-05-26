@@ -4,6 +4,7 @@ import PostList from './PostList';
 const PlanList = ({
     plans,
     onClickAddBtn,
+    onClickRemoveBtn,
     onClickAddPost,
     onClickUpdatePost,
     onClickRemovePost,
@@ -15,6 +16,7 @@ const PlanList = ({
                     key={`plan${idx}`}
                     plan={plan}
                     day={idx + 1}
+                    onClickRemoveBtn={onClickRemoveBtn}
                     onClickAddPost={onClickAddPost}
                     onClickUpdatePost={onClickUpdatePost}
                     onClickRemovePost={onClickRemovePost}

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './writePlanTitle.scss';
 import { getNight, splitDate } from '../../util/date';
 import TitleModal from './TitleModal';
-import { category_type } from '../../modules/write';
 const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
     const [sY, sM, sD] = splitDate(startDate);
     const [eY, eM, eD] = splitDate(endDate);
@@ -69,12 +68,13 @@ const PlanRemote = ({ account, onSave }) => {
     );
 };
 const WritePlanTitle = ({
-    disclosure,
+    published,
     startDate,
     endDate,
     planTitle,
     hashTag,
     account,
+    planImage,
     onChangePlanInfo,
     onSave,
 }) => {
@@ -98,9 +98,10 @@ const WritePlanTitle = ({
             {titleVisible && (
                 <TitleModal
                     closeModal={closeTitleModal}
-                    disclosure={disclosure}
+                    published={published}
                     startDate={startDate}
                     planTitle={planTitle}
+                    planImage={planImage}
                     hashTag={hashTag}
                     onChangePlanInfo={onChangePlanInfo}
                 />

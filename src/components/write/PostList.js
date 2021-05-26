@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PostCard from './PostCard';
 import PostModal from './PostModal';
 import './postList.scss';
@@ -6,12 +6,17 @@ import './postList.scss';
 const PostList = ({
     plan,
     day,
+    onClickRemoveBtn,
     onClickAddPost,
     onClickUpdatePost,
     onClickRemovePost,
 }) => {
     const [card, setCard] = useState(null);
     const [postVisible, setPostVisible] = useState(false);
+
+    const listEl = useRef(null);
+    const [curIdx, setCurIdx] = useState(0);
+
     const openPostModal = () => setPostVisible(true);
     const closePostModal = () => {
         setPostVisible(false);
@@ -26,6 +31,7 @@ const PostList = ({
         hashTags,
         memo,
         category,
+        postImage,
     }) => {
         const param = {
             day: parseInt(day) - 1,
@@ -37,6 +43,7 @@ const PostList = ({
             hashTags,
             memo,
             category,
+            postImage,
         };
         onClickAddPost(param);
     };
@@ -50,6 +57,7 @@ const PostList = ({
         hashTags,
         memo,
         category,
+        postImage,
     }) => {
         const param = {
             day: parseInt(day) - 1,
@@ -62,6 +70,7 @@ const PostList = ({
             hashTags,
             memo,
             category,
+            postImage,
         };
         onClickUpdatePost(param);
     };
@@ -70,6 +79,29 @@ const PostList = ({
         openPostModal();
     };
     const onClickRemove = (idx) => onClickRemovePost(day - 1, idx);
+
+    const onClickRightArrow = () =>
+        setCurIdx((state) => {
+            const t = state + 5;
+            return t > plan ? plan.length - 1 : t;
+        });
+    const onClickLeftArrow = () =>
+        setCurIdx((state) => {
+            const t = state - 5;
+            return t < 0 ? 0 : t;
+        });
+
+    useEffect(() => {
+        setCurIdx(Math.floor(plan.length / 5) * 5);
+        // setCurIdx()
+    }, [plan]);
+    useEffect(() => {
+        listEl.current.scrollTo({
+            top: 0,
+            left: 1124 * (curIdx / 5),
+            behavior: 'smooth',
+        });
+    }, [curIdx, listEl]);
     return (
         <>
             <div className="post-list-container">
@@ -78,22 +110,46 @@ const PostList = ({
                     <div className="line"></div>
                 </div>
                 <div className="post-list">
-                    <p>{day}일차</p>
-                    <div className="post-wrap">
-                        {plan.length !== 0 &&
-                            plan.map((post, idx) => (
-                                <PostCard
-                                    key={`post${idx}`}
-                                    card={{ ...post, idx }}
-                                    onClick={openEditPostModal}
-                                />
-                            ))}
-                        <div
-                            className="add-post"
-                            onClick={() => openPostModal()}
+                    <p>
+                        {day}일차
+                        <button
+                            onClick={() => onClickRemoveBtn(parseInt(day) - 1)}
                         >
-                            <span>+</span>
+                            ×
+                        </button>
+                    </p>
+                    <div className="post-wrap">
+                        <div className="list" ref={listEl}>
+                            {plan.length !== 0 &&
+                                plan.map((post, idx) => (
+                                    <PostCard
+                                        key={`post${idx}`}
+                                        card={{ ...post, idx }}
+                                        onClick={openEditPostModal}
+                                    />
+                                ))}
+                            <div
+                                className="add-post"
+                                onClick={() => openPostModal()}
+                            >
+                                <span>+</span>
+                            </div>
                         </div>
+                        {curIdx !== 0 ? (
+                            <div className="list-arrow left">
+                                <button onClick={onClickLeftArrow}>
+                                    <img src="./images/write/left-arrow.png" />
+                                </button>
+                            </div>
+                        ) : null}
+
+                        {plan.length >= curIdx + 5 ? (
+                            <div className="list-arrow right">
+                                <button onClick={onClickRightArrow}>
+                                    <img src="./images/write/right-arrow.png" />
+                                </button>
+                            </div>
+                        ) : null}
                     </div>
                 </div>
             </div>
