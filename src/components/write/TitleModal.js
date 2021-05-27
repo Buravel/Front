@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { splitDate } from '../../util/date';
+import React, { useState } from 'react';
 import './titleModal.scss';
 const TitleModal = ({
     closeModal,
@@ -64,7 +63,10 @@ const TitleModal = ({
                 <label>
                     <div className="modal-thumbnail">
                         {imgBase64 ? (
-                            <img src={`data:image/png;base64,${imgBase64}`} />
+                            <img
+                                src={`data:image/png;base64,${imgBase64}`}
+                                alt=""
+                            />
                         ) : (
                             <p>+</p>
                         )}
@@ -90,7 +92,7 @@ const TitleModal = ({
                         <span>출발일</span>
                         <input
                             type="date"
-                            value={splitDate(date).join('-')}
+                            value={date}
                             onChange={onChangeDate}
                         />
                     </label>
@@ -112,12 +114,16 @@ const TitleModal = ({
                                     <>
                                         <img
                                             src={`./images/write/unlock.png`}
+                                            alt=""
                                         />
                                         <span className="blue">공개</span>
                                     </>
                                 ) : (
                                     <>
-                                        <img src={`./images/write/lock.png`} />
+                                        <img
+                                            src={`./images/write/lock.png`}
+                                            alt=""
+                                        />
                                         <span className="gray">비공개</span>
                                     </>
                                 )}

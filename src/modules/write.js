@@ -7,11 +7,11 @@ import * as writeAPI from '../lib/api/write';
 import { takeLatest } from 'redux-saga/effects';
 
 export const category_type = {
-    AIRPLANE: 'AIRPLANE',
-    EAT: 'EAT',
+    FLIGHT: 'FLIGHT',
+    DISH: 'DISH',
     SHOPPING: 'SHOPPING',
-    TRANSPORTAION: 'TRANSPORTAION',
-    ROOMS: 'ROOMS',
+    TRAFFIC: 'TRAFFIC',
+    HOTEL: 'HOTEL',
     ETC: 'ETC',
 };
 //type 생성
@@ -56,8 +56,8 @@ const initialState = {
     planTitle: '',
     planImage: '',
 
-    startDate: getToday().join(''),
-    endDate: getToday().join(''),
+    startDate: getToday().join('-'),
+    endDate: getToday().join('-'),
     published: false,
     hashTag: '', //planTag
     plans: [[]],
@@ -68,7 +68,7 @@ const initialState = {
             title2: '이코노미',
             price: 1200000,
             postImage: '',
-            category: category_type.AIRPLANE,
+            category: category_type.FLIGHT,
             location: {
                 name: '',
                 lat: 0,
@@ -84,7 +84,7 @@ const initialState = {
             title2: '이코노미',
             price: 1200000,
             postImage: '',
-            category: category_type.EAT,
+            category: category_type.DISH,
             location: {
                 name: '',
                 lat: 0,
@@ -116,7 +116,7 @@ const initialState = {
             title2: '이코노미',
             price: 1200000,
             postImage: '',
-            category: category_type.ROOMS,
+            category: category_type.HOTEL,
             location: {
                 name: '',
                 lat: 0,
@@ -132,7 +132,7 @@ const initialState = {
             title2: '이코노미',
             price: 1200000,
             postImage: '',
-            category: category_type.TRANSPORTAION,
+            category: category_type.TRAFFIC,
             location: {
                 name: '',
                 lat: 0,

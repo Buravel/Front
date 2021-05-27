@@ -5,7 +5,7 @@ import { getNight, splitDate } from '../../util/date';
 
 const After_Topnav = (props) => {
     // let [product, product변경] = useState(Data);
-     // let [product, product변경] = useState(Data);
+    // let [product, product변경] = useState(Data);
     //props로 부모 component의 함수를 가져온다.
     const [posts, setPosts] = useState([]);
     const [info, setInfo] = useState([]);
@@ -15,7 +15,7 @@ const After_Topnav = (props) => {
     let [product, setProduct] = useState([]);
 
     if (!posts) return null;
-    
+
     console.log(props);
 
     const postTerm = posts.postForPlanResponseDtos;
@@ -53,7 +53,9 @@ const After_Topnav = (props) => {
         <>
             <div className="after_topbar">
                 <span className="after_topbar1_1">지수님의 예정된 여행</span>
-                <span className="after_topbar1_2">{/*{Year}년 {Month}월 {Day}일*/}</span>
+                <span className="after_topbar1_2">
+                    {/*{Year}년 {Month}월 {Day}일*/}
+                </span>
                 <span className="after_topbar1_3"></span>
 
                 <span className="after_topbar2_1">위치</span>
@@ -68,28 +70,28 @@ const After_Topnav = (props) => {
                 <span className="after_topbar4_2">
                     <img
                         src="/images/mainpage/bus.png"
-                        srcset="img/food@2x.png 2x,img/food@3x.png 3x"
+                        /*srcset="img/food@2x.png 2x,img/food@3x.png 3x"*/
                         class="food"
                         alt="bus"
                     />
                     {trafficTotalPrice} &nbsp;&nbsp;
                     <img
                         src="/images/mainpage/plane.png"
-                        srcset="img/food@2x.png 2x,img/food@3x.png 3x"
+                        /*srcset="img/food@2x.png 2x,img/food@3x.png 3x"*/
                         class="food"
                         alt="plane"
                     />
                     {flightTotalPrice} &nbsp;&nbsp;
                     <img
                         src="/images/mainpage/food.png"
-                        srcset="img/food@2x.png 2x,img/food@3x.png 3x"
+                        /*srcset="img/food@2x.png 2x,img/food@3x.png 3x"*/
                         class="food"
                         alt="food"
                     />
                     {dishTotalPrice} &nbsp;&nbsp;
                     <img
                         src="/images/mainpage/dot.png"
-                        srcset="img/food@2x.png 2x,img/food@3x.png 3x"
+                        /*srcset="img/food@2x.png 2x,img/food@3x.png 3x"*/
                         class="food"
                         alt="dot"
                     />

@@ -17,12 +17,12 @@ import {
 
 const getAccount = (arr) => {
     let account = {
-        [category_type.AIRPLANE]: 0,
-        [category_type.EAT]: 0,
+        [category_type.FLIGHT]: 0,
+        [category_type.DISH]: 0,
         [category_type.ETC]: 0,
-        [category_type.ROOMS]: 0,
+        [category_type.HOTEL]: 0,
         [category_type.SHOPPING]: 0,
-        [category_type.TRANSPORTAION]: 0,
+        [category_type.TRAFFIC]: 0,
     };
     for (const arr1 of arr) {
         for (const arr2 of arr1) {
@@ -83,7 +83,18 @@ const WritePlanContainer = () => {
     //map 관련
     const location = getLocation(plans);
 
-    const onSave = () => dispatch(writePlan());
+    const onSave = () =>
+        dispatch(
+            writePlan({
+                planTitle,
+                published,
+                startDate,
+                endDate,
+                planImage,
+                planTag: hashTag,
+                postDtos: [...plans],
+            }),
+        );
 
     return (
         <>
@@ -100,8 +111,6 @@ const WritePlanContainer = () => {
             />
             <PlanList
                 plans={plans}
-                endDate={endDate}
-                startDate={startDate}
                 onClickAddBtn={onClickAddBtn}
                 onClickRemoveBtn={onClickRemoveBtn}
                 onClickAddPost={onClickAddPost}
