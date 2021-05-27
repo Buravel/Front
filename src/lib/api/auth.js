@@ -1,16 +1,37 @@
 import axios from "axios";
 import client from "./client";
-axios.defaults.baseURL = "http://localhost:4000";
-export const login = ({ id, password }) =>
-  client.get("/user", { id, password });
+axios.defaults.baseURL = "http://34.64.93.115";
+let token;
+export const login = async ({ username, password }) =>
+  await axios({
+    method: "POST",
+    url: "/login",
+    data: {
+      username: username,
+      password: password,
+    },
+  })
+    .then((response) => {
+      token = JSON.stringify(response.headers.authorization);
+      try {
+        localStorage.setItem("token", token);
+      } catch (e) {
+        console.log("localStorage is not working");
+      }
+      return response;
+    })
+    .catch((error) => {
+      return Promise.reject(error);
+    });
 
-export const register = ({ username, id, email, password }) =>
-  client.post("/user", { username, id, email, password });
+export const register = ({ nickname, username, email, password }) =>
+  client.post("/signUp", { nickname, username, email, password });
 
-export const check = () => client.get("/user");
-
-export const findID = (email) => client.get("/find", { email });
+export const findID = (email) => client.post("/findUsername", { email });
 export const findPW = (email) => client.post("/find", { email });
+export const value = {
+  token,
+};
 //test
 //export const registerAuth = ({ email }) =>
 //  client.post("/api/auth/registerAuth", { email });

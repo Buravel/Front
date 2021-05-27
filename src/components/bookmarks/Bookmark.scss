@@ -1,0 +1,416 @@
+@font-face {
+  font-family: "NotoSansKR";
+  src: url(./NotoSansKR.otf);
+}
+
+.bookmarkbackground {
+  height: 132px;
+  width: 1280px;
+  background-color: #f5f5f5;
+}
+.bookmarkTitle {
+  position: relative;
+  left: 150.7px;
+  top: 68px;
+}
+
+.bookmarkMaintitle {
+  font-family: NotoSansKR;
+  font-size: 43px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.05;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+.bookmarkSubtitle {
+  position: relative;
+  font-family: NotoSansKR;
+  font-size: 30px;
+  font-weight: bold;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.05;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+.bookmarkAddbtn {
+  position: relative;
+  left: 813.3px;
+  top: 82px;
+}
+.bookmarkDelbtn {
+  position: relative;
+  left: 828.3px;
+  top: 82px;
+  width: 72px;
+  height: 33px;
+  object-fit: contain;
+}
+
+.BookmarkAddbutton {
+  width: 84px;
+  height: 33px;
+  object-fit: contain;
+}
+.BookmarkDeletebutton {
+  width: 72px;
+  height: 33px;
+  object-fit: contain;
+}
+.bmarkTitlebuttom {
+  position: relative;
+  width: 1280px;
+  height: 64px;
+  background-color: #f5f5f5;
+}
+.bmarkPostBackground {
+  width: 1280px;
+  display: block;
+  height: auto;
+  padding-left: 100px;
+  padding-right: 145px;
+  padding-bottom: 56px;
+  background-color: #f5f5f5;
+}
+
+.bmarkPhotobk {
+  width: 300px;
+  height: 300px;
+  border-radius: 13px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+.bptl {
+  position: absolute;
+  border-top-left-radius: 13px;
+  top: 0px;
+  left: 0px;
+  width: 149px;
+  height: 149px;
+
+  background-color: #e3e3e3;
+}
+
+.bptr {
+  position: absolute;
+  border-top-right-radius: 13px;
+  top: 0px;
+  right: 0px;
+  width: 149px;
+  height: 149px;
+
+  background-color: #e3e3e3;
+}
+
+.bpbl {
+  position: absolute;
+  border-bottom-left-radius: 13px;
+  top: 151px;
+  left: 0px;
+  width: 149px;
+  height: 149px;
+  background-color: #e3e3e3;
+}
+
+.bpbr {
+  position: absolute;
+  border-bottom-right-radius: 13px;
+  top: 151px;
+  right: 0px;
+  width: 149px;
+  height: 149px;
+  background-color: #e3e3e3;
+}
+.bmarkptbk {
+  display: inline-flex;
+  position: relative;
+  margin-left: 45px;
+  margin-top: 46px;
+
+  width: 300px;
+  height: 336px;
+
+  background-color: transparent;
+}
+
+.bmarkptbk:hover {
+  top: -8px;
+}
+.bkname {
+  position: absolute;
+  top: 309px;
+  left: 6px;
+  font-family: NotoSansKR;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #535353;
+}
+.bkimg1 {
+  border-top-left-radius: 13px;
+  width: 149px;
+  height: 149px;
+  object-fit: cover;
+}
+.bkimg2 {
+  border-top-right-radius: 13px;
+  width: 149px;
+  height: 149px;
+  object-fit: cover;
+}
+.bkimg3 {
+  border-bottom-left-radius: 13px;
+  width: 149px;
+  height: 149px;
+  object-fit: cover;
+}
+.bkimg4 {
+  border-bottom-right-radius: 13px;
+  width: 149px;
+  height: 149px;
+  object-fit: cover;
+}
+.popupbkBox {
+  position: relative;
+  width: 600px;
+  margin: 0 auto;
+  height: 40px;
+  max-height: 90vh;
+  left: 81px;
+  top: 82px;
+
+  background: transparent;
+
+  border-radius: 3px;
+  overflow: auto;
+}
+.addBmarkText {
+  width: 230px;
+  height: 40px;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+.addBmarkBtn {
+  width: 130px;
+  height: 40px;
+  font-size: 20px;
+  color: #ffffff;
+  border-radius: 20px;
+  background-color: #0070ef;
+}
+.bkDtBackground {
+  width: 1280px;
+  height: auto;
+  top: 0px;
+  left: 0px;
+  background-color: #ffffff;
+}
+.popupbkBackground {
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
+  /* 이 방법이 옳지 못한거 같은데 다른 방법이 없을지? */
+  z-index: 10;
+  background: #00000050;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.bkDtName {
+  position: relative;
+  width: auto;
+  height: 64px;
+  top: 68px;
+  left: 81.7px;
+}
+.bkDtNamefirst {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 43px;
+  font-weight: bold;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+.bkpathId {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1280px;
+  height: 900px;
+  background-color: antiquewhite;
+}
+.btDTpage {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 1280px;
+  height: 132px;
+  background-color: #f5f5f5;
+}
+.bkDtNamesecond {
+  width: 133px;
+  height: 64px;
+  margin: 0 7.1px 0 0;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 30px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #535353;
+}
+.bkDtNameEdit {
+  position: relative;
+  top: 8.4px;
+  left: 6.1px;
+  width: 27.1px;
+  height: 27.1px;
+  object-fit: contain;
+}
+.bkDtPlanEdit {
+  position: absolute;
+  top: 82px;
+  right: 173px;
+  width: 146px;
+  height: 33px;
+  object-fit: contain;
+}
+.bkDtDelete {
+  position: absolute;
+  top: 82px;
+  right: 83px;
+  width: 72px;
+  height: 33px;
+  margin: 0 0 0 18px;
+  object-fit: contain;
+}
+.bkDtpostBackground {
+  width: 1280px;
+  display: block;
+  height: auto;
+  padding-left: 50px;
+  padding-right: 83px;
+  padding-top: 73px;
+  background-color: #f5f5f5;
+}
+
+.bkDtpostBox {
+  display: inline-flex;
+  position: relative;
+  margin-left: 29px;
+  margin-top: 73px;
+  margin-bottom: 25px;
+  width: 200px;
+  height: 275px;
+}
+
+.bkDtpostBackgroundbuttom {
+  position: relative;
+  width: 1280px;
+  height: 61px;
+  background-color: #f5f5f5;
+}
+.bookamarkchiocebtn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.bkDtmark {
+  z-index: 2;
+  position: absolute;
+  top: 11.5px;
+  right: 14px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.bmarkBkButton {
+  z-index: 3;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: transparent;
+  border-color: transparent;
+}
+.bookmarkClicked {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  z-index: 4;
+  width: 220px;
+  height: 302px;
+}
+.bookmarkChecked {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  z-index: 6;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.bookmarkCheckedButton {
+  position: absolute;
+  top: 10px;
+  right: 11px;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  border-radius: 40px;
+  border-color: transparent;
+}
+
+.privatePostTitle {
+  z-index: 14;
+  position: absolute;
+  top: 112.1px;
+  left: 57px;
+}
+
+.privatePostBk {
+  margin: 4px 4px 4px 4px;
+  z-index: 12;
+  border-radius: 3px;
+  position: absolute;
+  top: 4px;
+  left: -4px;
+  width: 200px;
+  height: 278px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparentize($color: #fff, $amount: 0.25);
+}
+
+.bkpostBox {
+  position: relative;
+  margin-top: 8px;
+  width: 200px;
+  height: 278px;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
