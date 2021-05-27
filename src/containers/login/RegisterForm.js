@@ -2,18 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeField, initializeForm, register } from "../../modules/auth";
 import Register from "../../components/login/Register";
-import { check } from "../../modules/user";
 import { withRouter } from "react-router-dom";
 import { isEmail, isLength, isAlphanumeric } from "validator";
 
 const RegisterForm = ({ history }) => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
+  const { form, auth, authError } = useSelector(({ auth }) => ({
     form: auth.register,
     auth: auth.auth,
     authError: auth.authError,
-    user: user.user,
   }));
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -28,10 +26,10 @@ const RegisterForm = ({ history }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const { username, id, email, password, passwordConfirm } = form;
-    if (!isAlphanumeric(id) || !isLength(id, { min: 6, max: 12 })) {
+    const { nickname, username, email, password, passwordConfirm } = form;
+    /*    if (!isAlphanumeric(username) || !isLength(username, { min: 6, max: 12 })) {
       setError("아이디는 6~12 글자의 알파벳 혹은 숫자로 이뤄져야 합니다.");
-      changeField({ form: "register", key: "id", value: " " });
+      changeField({ form: "register", key: "username", value: " " });
       return;
     }
 
@@ -54,11 +52,11 @@ const RegisterForm = ({ history }) => {
       return;
     }
 
-    if ([username, id, email, password, passwordConfirm].includes(" ")) {
+    if ([nickname, username, email, password, passwordConfirm].includes(" ")) {
       setError("빈 칸을 모두 채워주세요.");
       return;
-    }
-    dispatch(register({ username, id, email, password }));
+    }*/
+    dispatch(register({ nickname, username, email, password }));
   };
 
   useEffect(() => {
@@ -74,20 +72,9 @@ const RegisterForm = ({ history }) => {
     if (auth) {
       console.log("회원가입 성공");
       console.log(auth);
-      dispatch(check());
-    }
-  }, [auth, authError, dispatch]);
-
-  useEffect(() => {
-    if (user) {
       history.push("/signUpComplete");
-      /*      try { //사용 시에만 주석 해제.
-        localStorage.setItem("user", JSON.stringify(user));
-      } catch (e) {
-        console.log("localStorage is not working");
-      }*/
     }
-  }, [history, user]);
+  }, [auth, authError, dispatch, history]);
 
   return (
     <Register

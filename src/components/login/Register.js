@@ -16,18 +16,18 @@ const Register = ({ form, onChange, onSubmit }) => {
             <h5 className="h502">닉네임</h5>
             <input
               className="inputCell"
-              name="username"
+              name="nickname"
               onChange={onChange}
-              value={form.username}
+              value={form.nickname}
             ></input>
           </div>
           <div className="inputBox">
             <h5 className="h502">아이디</h5>
             <input
               className="inputCell"
-              name="id"
+              name="username"
               onChange={onChange}
-              value={form.id}
+              value={form.username}
             ></input>
           </div>
           <div className="inputBox">

@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import { Link } from "react-router-dom";
 import logoImg2 from "./logo2.png";
 import "./common.scss";
@@ -44,3 +44,4 @@ const RegisterAuth = ({ form, onChange, onSubmit }) => {
 };
 
 export default RegisterAuth;
+*/
