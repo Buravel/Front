@@ -1,6 +1,6 @@
 import axios from "axios";
 const client = axios.create();
-client.defaults.baseURL = "http://localhost:4000";
+client.defaults.baseURL = "http://34.64.93.115";
 client.defaults.headers.common["Authorization"] = "Bearer";
 
 axios.interceptors.response.use(

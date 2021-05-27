@@ -11,6 +11,18 @@
       "id": "asdfgh",
       "email": "s@na.com",
       "password": "asdfghjkl"
+    },
+    {
+      "username": "sdfjkl",
+      "id": "sdfksl",
+      "email": "fdjkslfjl@n.com",
+      "password": "asdfghjk"
+    },
+    {
+      "username": "sdjfkl",
+      "id": "fdjklsfjl",
+      "email": "fdjkslfjl@n.com",
+      "password": "asdfghjk"
     }
   ],
   "find": [

@@ -10,6 +10,9 @@ import FindPW from "./pages/FindPWPage";
 import FindAuth from "./pages/FindAuthPage";
 import RegisterAuth from "./pages/RegisterAuthPage";
 import MainPage from "./pages/MainPage";
+import MyPage from "./pages/MyPage";
+import SetUpPage from "./pages/SetupPage";
+import EditPage from "./pages/EditPage";
 
 const App = () => {
   return (
@@ -23,6 +26,9 @@ const App = () => {
       <Route path="/findPW" component={FindPW} />
       <Route path="/findAuth" component={FindAuth} />
       <Route path="/registerAuth" component={RegisterAuth} />
+      <Route path="/mypage" component={MyPage} />
+      <Route path="/setupPage" component={SetUpPage} />
+      <Route path="/editPage" component={EditPage} />
     </>
   );
 };
