@@ -17,7 +17,6 @@ import SearchPage from "./pages/SearchPage";
 import WritePlan from "./pages/WritePlan";
 import SetUpPage from "./pages/SetupPage";
 import EditPage from "./pages/EditPage";
-
 const App = () => {
   return (
     <>
