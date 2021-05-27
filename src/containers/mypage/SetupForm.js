@@ -1,9 +1,22 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-import MyPage from "../../components/mypage/MyPage";
+import SetupPage from "../../components/mypage/SetupPage";
 axios.defaults.baseURL = "http://34.64.93.115";
-const MyPageForm = () => {
+/*
+export const logout = async () =>
+  await axios({
+    method: "POST",
+    url: "/logout",
+  })
+    .then((response) => {
+      localStorage.removeItem("token");
+    })
+    .catch((error) => {
+      return Promise.reject(error);
+    });
+*/
+const SetupPageForm = () => {
   const [username, setUsername] = useState(null);
   const [nickname, setNickname] = useState(null);
   const [email, setEmail] = useState(null);
@@ -24,30 +37,18 @@ const MyPageForm = () => {
   console.log(email);
   console.log(emailVerified);
   console.log(profile);
-
-  const onLogout = async () =>
-    await axios({
-      method: "POST",
-      url: "/logout",
-    })
-      .then((response) => {
-        localStorage.removeItem("token");
-      })
-      .catch((error) => {
-        return Promise.reject(error);
-      });
+  //onClick={onLogout}
   return (
-    <MyPage
-      type="mypage"
+    <SetupPage
+      type="setuppage"
       nickname={nickname}
       username={username}
       email={email}
       emailVerified={emailVerified}
       profileImage={profile}
-      onLogout={onLogout}
-    ></MyPage>
+    ></SetupPage>
   );
   //  localStorage.removeItem("token");
 };
 
-export default withRouter(MyPageForm);
+export default withRouter(SetupPageForm);

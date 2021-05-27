@@ -1,17 +1,18 @@
 import React from "react";
+//import SetupForm from "../containers/mypage/SetupForm";
+import EditPage1 from "../components/mypage/EditPage";
 import Responsive from "../components/common/Responsive";
-import MyPageForm from "../containers/mypage/MyPageForm";
 import HeaderContainer from "../containers/common/HeaderContainer";
 
-const MyPage = () => {
+const EditPage = () => {
   return (
     <>
       <HeaderContainer />
       <Responsive>
-        <MyPageForm />
+        <EditPage1 />
       </Responsive>
     </>
   );
 };
 
-export default MyPage;
+export default EditPage;
