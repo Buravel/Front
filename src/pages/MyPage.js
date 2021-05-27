@@ -1,12 +1,16 @@
 import React from "react";
 import Responsive from "../components/common/Responsive";
-import MyPage1 from "../components/mypage/MyPage";
+import MyPageForm from "../containers/mypage/MyPageForm";
+import HeaderContainer from "../containers/common/HeaderContainer";
 
 const MyPage = () => {
   return (
-    <Responsive>
-      <MyPage1 />
-    </Responsive>
+    <>
+      <HeaderContainer />
+      <Responsive>
+        <MyPageForm />
+      </Responsive>
+    </>
   );
 };
 

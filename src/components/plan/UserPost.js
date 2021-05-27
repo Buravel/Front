@@ -99,7 +99,7 @@ function UserPost(props) {
               null,
               postTerm && postTerm.map((item, i) => item.day)
             )}
-            박{" "}
+            박
             {Math.max.apply(
               null,
               postTerm && postTerm.map((item, i) => item.day)
