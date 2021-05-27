@@ -1,0 +1,98 @@
+$darkgray: #bfbfbf;
+$blue: #0070ef;
+.box-container {
+  display: inline-block;
+  width: 200px;
+  height: 264px;
+  margin: 0px 30px 18.7px 0px;
+  padding: 0 0 8px;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+  .imageSection {
+    height: 185px;
+    margin: 0 0 7.8px;
+    padding: 165px 150px 0 0;
+    background-color: $darkgray;
+    .tagSection {
+      width: 60px;
+      height: 20px;
+      padding: 1px 10px 1px 11px;
+      background-color: $blue;
+      color: white;
+      font-size: small;
+    }
+  }
+  .infoSection {
+    height: 79px;
+    .title {
+      margin: 0 0 0 5px;
+      font-family: NotoSansKR;
+      font-size: 15px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.47;
+      letter-spacing: normal;
+      text-align: left;
+      color: #535353;
+    }
+    .cost {
+      margin: 0 0 0 60px;
+      font-family: NotoSansKR;
+      font-size: 18px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      text-align: right;
+      color: #0070ef;
+    }
+    .date {
+      margin: 0px 0px 2px 5px;
+      font-family: NotoSansKR;
+      font-size: 12px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      text-align: left;
+      color: #b5b5b5;
+    }
+
+    .rate {
+      .rate-text {
+        margin: 0 0 0 3.5px;
+        font-family: NotoSansKR;
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        //      text-align: left;
+        color: #ef9f00;
+      }
+    }
+    .rate-image {
+      margin-left: 43px;
+    }
+  }
+}
+.cost-sort {
+  .cost-image {
+    width: 10.5px;
+    height: 12.9px;
+    margin: 3.3px 2.4px 1.9px 9.2px;
+    object-fit: contain;
+  }
+  .cost-text {
+    font-size: 12px;
+    color: #535353;
+    margin: 0 2.4px 0 2.4px;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+    line-height: 1.5;
+  }
+}

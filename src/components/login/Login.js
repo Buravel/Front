@@ -14,9 +14,9 @@ const Login = ({ form, onChange, onSubmit }) => {
             <h5 className="h501">아이디</h5>
             <input
               className="inputCell"
-              name="id"
+              name="username"
               onChange={onChange}
-              value={form.id}
+              value={form.username}
             ></input>
           </div>
           <div className="inputBox">
