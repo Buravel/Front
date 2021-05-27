@@ -10,7 +10,7 @@ const PostLine = (props) => {
         <div className="dayName">{props.day}일차</div>
         <Icon picture="day" className="dayCircle" alt="날짜표시" />
         <div className="dayLine" />
-        <div className="container">
+        <div className="postlineContainer">
           <span className="hideDot" />
           <Post transport="ktx" posttitle="이코노미" />
           <Post transport="ktx" posttitle="이코노미" />

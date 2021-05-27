@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import styled from "styled-components";
+// import styled from "styled-components";
 import PostLine from "./PostLine";
 import Post from "./Post";
 import Icon from "./Icon";
@@ -68,7 +68,7 @@ function OtherUserpost() {
               <div className="dayName">{num}일차</div>
               <Icon picture="day" className="dayCircle" alt="날짜표시" />
               <div className="dayLine" />
-              <div className="container">
+              <div className="postlineContainer">
                 <span className="hideDot" />
                 <Slider day={num} />
               </div>

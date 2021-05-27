@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import styled from "styled-components";
+// import styled from "styled-components";
 import Post from "./Post";
 
 function Slider(props) {
@@ -102,7 +102,7 @@ function Slider(props) {
               {currentSlide ===
               (postTerm && postTerm.filter((k) => k.day === props.day - 1))
                 .length -
-                4 ? (
+                5 ? (
                 ""
               ) : (
                 <span className="nextButton">

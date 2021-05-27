@@ -1,4 +1,4 @@
-import React, { useState, map } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Mainpage.scss';
 import Product from './Product';
 import Advertise from './Advertise';
@@ -11,8 +11,24 @@ import axios from 'axios';
 
 // 로그인 전과 후는 라우팅으로 구성해주면 될 듯
 const Mainpage = () => {
-    let [product, setProduct] = useState(Data);
+    let [product, setProduct] = useState([]);
     //한글 지양
+
+    //페이지 열자마자 정보 가져오기.
+    useEffect(() => {
+        axios
+            .get('http://34.64.93.115/index/search?keyword=&min=0&max=0')
+            .then((result) => {
+                const data = result.data._embedded.planResponseDtoList;
+                setProduct([...product, ...data]);
+                console.log(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+
+    if (!product) return null;
     return (
         <>
             {/* <Navbar bg="light">
@@ -28,7 +44,7 @@ const Mainpage = () => {
                     <Topbar />
                 </div>
 
-                <div className="container">
+                <div >
                     <div className="row">
                         {product.map((a, i) => {
                             return <Product product={product[i]} key={i} />;
@@ -39,35 +55,8 @@ const Mainpage = () => {
                 <Product product={product[3]}/>
                 <Product product={product[4]}/> */}
                     </div>
-
-                    <div className="btn">
-                        <button
-                            onClick={() => {
-                                axios
-                                    .get(
-                                        'https://codingapple1.github.io/shop/data2.json',
-                                    )
-                                    .then((result) => {
-                                        setProduct([
-                                            ...product,
-                                            ...result.data,
-                                        ]);
-                                    })
-                                    .catch(() => {});
-                            }}
-                        >
-                            더보기
-                        </button>
-                    </div>
-                    {/* axios를 시험하기 위한 버튼입니다. */}
                 </div>
-
-                {/* 디자인에 페이지 넘버링 없어서 뺌. 더보기? 버튼 CSS 수정
-            <div className="footer">
-            <Pagination/>
-            </div>
-            */}
-            </div>
+        </div>    
         </>
     );
 };

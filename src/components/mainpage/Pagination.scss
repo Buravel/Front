@@ -1,0 +1,20 @@
+.pagination {
+    position:absolute;
+    /* width:100%; */
+    top:1000px;
+    bottom: 0;
+    left: 40%;
+
+    height:30px;
+    /* display:inline-block; span태그로 바꿈 */
+    /* border: 2px solid black; */
+    text-align:center;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 12px;
+  }
