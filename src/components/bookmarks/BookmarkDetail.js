@@ -7,6 +7,7 @@ function BookmarkDetail() {
   const [state, setState] = useState([]);
   const [bookmarks, setBookmarks] = useState([]);
   const [postClick, setpostClick] = useState(false);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchBookmarks = async () => {
@@ -15,7 +16,16 @@ function BookmarkDetail() {
     };
     fetchBookmarks();
   }, []);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await axios.get("http://localhost:8080/post");
+      setPosts(response.data);
+    };
 
+    fetchPosts();
+  }, []);
+  if (!posts) return null;
+  //나중에 필터로 한 북마크에 있는 id를 추출하게 해야함
   const handleChange = (selectedItem) => {
     if (state.includes(selectedItem)) {
       setState(state.filter((item) => item !== selectedItem));
@@ -24,8 +34,12 @@ function BookmarkDetail() {
     }
     setState([...state, selectedItem]);
   };
+
+  const clickChange = () => setpostClick(!postClick);
   const bmarkID = bookmarks.map((k) => k.id);
+
   console.log(state);
+
   return (
     <div className="bkDtBackground">
       <div className="btDTpage">
@@ -38,19 +52,21 @@ function BookmarkDetail() {
         <Bicon picture="bringtoPlan" className="bkDtPlanEdit" />
         <Bicon picture="BookmarkDeleteButton" className="bkDtDelete" />
         <div className="bkDtpostBackground">
-          <BookmarkPost id="45" />
+          {/* <BookmarkPost id="45" />
           <BookmarkPost id="45" />
           <BookmarkPost id="45" private="true" />
           <BookmarkPost id="45" />
           <BookmarkPost id="45" />
           <BookmarkPost id="45" />
-          <BookmarkPost id="45" />
+          <BookmarkPost id="45" /> */}
           {bmarkID.map((item) => (
-            <>
-              <li onClick={() => handleChange(item)}>
-                <BookmarkPost ifClick={postClick} thisid={item} />
-              </li>
-            </>
+            <span className="bringbmarkClickbox">
+              <button
+                onClick={() => handleChange(item)}
+                className="bringbmarkClick"
+              />
+              <BookmarkPost thisId={item} clicked={state} />
+            </span>
           ))}
         </div>
         <div className="bkDtpostBackgroundbuttom" />
