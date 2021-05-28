@@ -7,11 +7,11 @@ import * as writeAPI from '../lib/api/write';
 import { takeLatest } from 'redux-saga/effects';
 
 export const category_type = {
-    AIRPLANE: 'AIRPLANE',
-    EAT: 'EAT',
+    FLIGHT: 'FLIGHT',
+    DISH: 'DISH',
     SHOPPING: 'SHOPPING',
-    TRANSPORTAION: 'TRANSPORTAION',
-    ROOMS: 'ROOMS',
+    TRAFFIC: 'TRAFFIC',
+    HOTEL: 'HOTEL',
     ETC: 'ETC',
 };
 //type 생성
@@ -26,6 +26,7 @@ const [WRITE_PLAN, WRITE_PLAN_SUCCESS, WRITE_PLAN_FAILURE] =
     createRequestActionTypes('write/WRITE_PLAN');
 
 //action 생성
+export const initialize = createAction(INITIALIZE);
 export const changePlanInfo = createAction(
     CHANGE_PLAN_INFO,
     ({ planTitle, startDate, published, hashTag, planImage }) => ({
@@ -56,12 +57,93 @@ const initialState = {
     planTitle: '',
     planImage: '',
 
-    startDate: getToday().join(''),
-    endDate: getToday().join(''),
+    startDate: getToday().join('-'),
+    endDate: getToday().join('-'),
     published: false,
     hashTag: '', //planTag
     plans: [[]],
-    bookmarks: [],
+    bookmarks: [
+        {
+            id: 0,
+            title1: '루프트한자',
+            title2: '이코노미',
+            price: 1200000,
+            postImage: '',
+            category: category_type.FLIGHT,
+            location: {
+                name: '',
+                lat: 0,
+                lng: 0,
+            },
+            rating: 4.5,
+            hashTags: ['ktx', 'ktx', 'ktx'],
+            memo: '111',
+        },
+        {
+            id: 1,
+            title1: '루프트한자',
+            title2: '이코노미',
+            price: 1200000,
+            postImage: '',
+            category: category_type.DISH,
+            location: {
+                name: '',
+                lat: 0,
+                lng: 0,
+            },
+            rating: 4.5,
+            hashTags: ['ktx', 'ktx', 'ktx'],
+            memo: '111',
+        },
+        {
+            id: 2,
+            title1: '루프트한자',
+            title2: '이코노미',
+            price: 1200000,
+            postImage: '',
+            category: category_type.ETC,
+            location: {
+                name: '',
+                lat: 0,
+                lng: 0,
+            },
+            rating: 4.5,
+            hashTags: ['ktx', 'ktx', 'ktx'],
+            memo: '111',
+        },
+        {
+            id: 3,
+            title1: '루프트한자',
+            title2: '이코노미',
+            price: 1200000,
+            postImage: '',
+            category: category_type.HOTEL,
+            location: {
+                name: '',
+                lat: 0,
+                lng: 0,
+            },
+            rating: 4.5,
+            hashTags: ['ktx', 'ktx', 'ktx'],
+            memo: '111',
+        },
+        {
+            id: 4,
+            title1: '루프트한자',
+            title2: '이코노미',
+            price: 1200000,
+            postImage: '',
+            category: category_type.TRAFFIC,
+            location: {
+                name: '',
+                lat: 0,
+                lng: 0,
+            },
+            rating: 4.5,
+            hashTags: ['ktx', 'ktx', 'ktx'],
+            memo: '111',
+        },
+    ],
 };
 
 const write = handleActions(
