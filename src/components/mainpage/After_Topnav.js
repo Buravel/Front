@@ -31,7 +31,7 @@ const After_Topnav = (props) => {
     const trafficTotalPrice = props.product.trafficTotalPrice;
     const planTagTitle = props.product.planTagResponseDtos[0].planTagTitle;
 
-    // const Date = String(props.product[0].startDate).split("-");
+    // const Date = String(props.product.startDate).split("-");
     // const Year = Date[0];
     // const Month = Date[1];
     // const Day = Date[2];
