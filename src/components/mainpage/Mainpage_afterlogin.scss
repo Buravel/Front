@@ -1,25 +1,27 @@
  //수정확인O => 정상 작동 확인필요
- .btn {
-    position:absolute;
-      /* width:100%; */
-    top:110%;
-    left:50%;
-  }
-  
-  .topnav {
-    position: relative;
-    left: 20%;
-    top: 40px;
-  }
-  
-  .After_topbar {
-    position:absolute;
-    top:50%;
-    left: 8%;
-  }
-  .container {
-    position:absolute;
-    top:65%;
-    left:10%;
-  }
-  
+ .afterlogin-main-background {
+    .btn {
+      position:absolute;
+        /* width:100%; */
+      top:110%;
+      left:50%;
+    }
+
+    .topnav {
+      position: relative;
+      left: 20%;
+      top: 40px;
+    }
+
+    .After_topbar {
+      position:absolute;
+      top:50%;
+      left: 8%;
+    }
+    .container {
+      position:absolute;
+      top:65%;
+      left:10%;
+    }
+
+ }

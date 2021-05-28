@@ -1,0 +1,21 @@
+{
+  "user": [
+    {
+      "username": "user1",
+      "id": "idididid1",
+      "password": "pwpwpwpw1",
+      "email": "buravel1@gmail.com"
+    },
+    {
+      "username": "asdfdgh",
+      "id": "asdfgh",
+      "email": "s@na.com",
+      "password": "asdfghjkl"
+    }
+  ],
+  "find": [
+    {
+      "email": {}
+    }
+  ]
+}

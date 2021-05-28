@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="33" viewBox="0 0 72 33">
+    <defs>
+        <style>
+            .cls-1{isolation:isolate}
+        </style>
+    </defs>
+    <g id="그룹_127" transform="translate(-1065 -238)">
+        <g id="그룹_156" class="cls-1" transform="translate(999 237.587)">
+            <rect id="사각형_149" width="72" height="33" fill="#eee" rx="16.5" transform="translate(66 .413)"/>
+        </g>
+        <g id="그룹_125" class="cls-1" transform="translate(1088 245)">
+            <text id="취소" fill="#535353" font-family="NotoSansKR-Regular, Noto Sans KR" font-size="14px" transform="translate(0 15)">
+                <tspan x="0" y="0">취소</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

@@ -1,15 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import 'bootstrap/dist/css/bootstrap.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import createSagaMiddleWare from 'redux-saga';
+import rootReducer, { rootSaga } from './modules';
+import { tempSetUser, check } from './modules/user';
 
-import Mainpage from '../src/pages/MainPage'
+const sagaMiddleware = createSagaMiddleWare();
+const store = createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(sagaMiddleware)),
+);
 
+function loadUser() {
+    try {
+        const user = localStorage.getItem('user');
+        if (!user) return;
+        store.dispatch(tempSetUser(user));
+    } catch (e) {
+        console.log('localStorage is not working');
+    }
+}
+sagaMiddleware.run(rootSaga);
+
+loadUser();
 ReactDOM.render(
-    <BrowserRouter>
-        < Mainpage />
-    </BrowserRouter>,
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>,
     document.getElementById('root'),
 );
