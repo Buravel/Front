@@ -34,10 +34,9 @@ const Mainpage_afterlogin = () => {
             <Navbar.Brand href="#home">Header</Navbar.Brand>
         </Navbar> */}
             <div className="topbar">
-                {/* <After_Topnav product={product[0]} /> */}
-                {/* {product.map((a, i) => {
-                            return <After_Topnav product={product[0]} key={0} />;
-                        })} */}
+            {[1].map((a, i) => {
+                            return <After_Topnav product={product[i]} key={i} />;
+                        })}
 
                 {/* 이렇게 하니까 계속 오류나서 구글링중,,,,,,,,,{[1].map((a, i) => {
                             return <After_Topnav product={product[0]} key={0} />;
