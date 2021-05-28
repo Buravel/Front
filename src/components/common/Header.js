@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './header.scss';
 import QuickBox from './QuickBox';
 
@@ -27,9 +28,9 @@ const Header = ({
                     ))}
                 </div>
                 <div className="logo-container">
-                    <button>
+                    <Link to="/">
                         <img src="/images/header/logo.png" alt="logo" />
-                    </button>
+                    </Link>
                 </div>
                 <div className="quick-container">
                     {loginCheck ? (
@@ -52,9 +53,9 @@ const Header = ({
                             </button>
                         </>
                     ) : (
-                        <button className="login-button" onClick={onLogout}>
+                        <Link className="login-button" to="/login">
                             로그인
-                        </button>
+                        </Link>
                     )}
                 </div>
                 {quickCheck && <QuickBox />}

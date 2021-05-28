@@ -12,13 +12,12 @@ const Product = (props) => {
     const [info, setInfo] = useState([]);
     const [loading, setLoading] = useState(false);
     const [err, setError] = useState(null);
-    
+
     let [product, setProduct] = useState([]);
 
     if (!posts) return null;
-    
-    console.log(props);
 
+    // console.log(props);
 
     const postTerm = posts.postForPlanResponseDtos;
     const postId = postTerm && postTerm.filter((k) => k.id === props.id);
@@ -38,48 +37,86 @@ const Product = (props) => {
     const hashTag = postId && postId.map((k) => k.postTagResponseDtoList);
     const tags = hashTag && hashTag.map((k) => k).length;
 
-    const [sY, sM, sD] = splitDate(props.product.startDate.split("-").join(""));
-    const [eY, eM, eD] = splitDate(props.product.endDate.split("-").join(""));
+    const [sY, sM, sD] = splitDate(props.product.startDate.split('-').join(''));
+    const [eY, eM, eD] = splitDate(props.product.endDate.split('-').join(''));
     const night = getNight(`${sY}-${sM}-${sD}`, `${eY}-${eM}-${eD}`);
 
     const day = night + 1;
-    console.log(night);
+    // console.log(night);
 
     const planId = props.product.id;
 
     // function toplan(e) {
     //     window.location.href => 원래 온클릭이벤트 줄려고 했는데 그냥 Link아예 걺
     // } //product박스 클릭시 해당 포스트plan페이지로
-    
+
     return (
         <>
             <div className="product-shadowbox">
-            <Link to={`/plans/${planId}`}>
-                <div className="col-xs-2"> 
-                <div className="product_img"><img className="img-full" src={`data:image/png;base64,${planImage}`} alt="Product Images"/><div className="tag"><span className="tag_text">#{planTagTitle}</span></div></div>
-                        
-                        <div className="product_topline"><span className="product_name">&nbsp;{postTitle}</span><span className="price">&nbsp;{outputPlanTotalPrice}</span></div>
-                        <div className="plan"><span className="plan_text">&nbsp;{night}박{day}일</span></div>
+                <Link to={`/plans/${planId}`}>
+                    <div className="col-xs-2">
+                        <div className="product_img">
+                            <img
+                                className="img-full"
+                                src={`data:image/png;base64,${planImage}`}
+                                alt="Product Images"
+                            />
+                            <div className="tag">
+                                <span className="tag_text">
+                                    #{planTagTitle}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="product_topline">
+                            <span className="product_name">
+                                &nbsp;{postTitle}
+                            </span>
+                            <span className="price">
+                                &nbsp;{outputPlanTotalPrice}
+                            </span>
+                        </div>
+                        <div className="plan">
+                            <span className="plan_text">
+                                &nbsp;{night}박{day}일
+                            </span>
+                        </div>
                         <div className="product_box">
-                            <span className="icon"><img src="/images/mainpage/plane_product.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"/></span>
+                            <span className="icon">
+                                <img
+                                    src="/images/mainpage/plane_product.png"
+                                    srcset="img/food@2x.png 2x,img/food@3x.png 3x"
+                                />
+                            </span>
                             <span className="plan">{trafficprice}</span>
-                        
-                            <span className="icon"><img src="/images/mainpage/hotel_product.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"/></span>
+                            <span className="icon">
+                                <img
+                                    src="/images/mainpage/hotel_product.png"
+                                    srcset="img/food@2x.png 2x,img/food@3x.png 3x"
+                                />
+                            </span>
                             <span className="plan">{hotelprice}</span>
-                        
-                            <span className="icon"><img src="/images/mainpage/food_product.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"/></span>
+                            <span className="icon">
+                                <img
+                                    src="/images/mainpage/food_product.png"
+                                    srcset="img/food@2x.png 2x,img/food@3x.png 3x"
+                                />
+                            </span>
                             <span className="plan">{shoppingprice}</span>
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            <span className="icon"><img src="/images/mainpage/star.png" srcset="img/food@2x.png 2x,img/food@3x.png 3x"/></span>
-                            <span className="plan plan_star">{planRating}&nbsp; </span>
-                </div>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <span className="icon">
+                                <img
+                                    src="/images/mainpage/star.png"
+                                    srcset="img/food@2x.png 2x,img/food@3x.png 3x"
+                                />
+                            </span>
+                            <span className="plan plan_star">
+                                {planRating}&nbsp;{' '}
+                            </span>
+                        </div>
+                    </div>
+                </Link>
             </div>
-            </Link>
-        </div>
         </>
     );
 };
