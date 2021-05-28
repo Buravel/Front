@@ -85,30 +85,27 @@ const Product = (props) => {
                             <span className="icon">
                                 <img
                                     src="/images/mainpage/plane_product.png"
-                                    srcset="img/food@2x.png 2x,img/food@3x.png 3x"
+                                    alt=""
                                 />
                             </span>
                             <span className="plan">{trafficprice}</span>
                             <span className="icon">
                                 <img
                                     src="/images/mainpage/hotel_product.png"
-                                    srcset="img/food@2x.png 2x,img/food@3x.png 3x"
+                                    alt=""
                                 />
                             </span>
                             <span className="plan">{hotelprice}</span>
                             <span className="icon">
                                 <img
                                     src="/images/mainpage/food_product.png"
-                                    srcset="img/food@2x.png 2x,img/food@3x.png 3x"
+                                    alt=""
                                 />
                             </span>
                             <span className="plan">{shoppingprice}</span>
                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                             <span className="icon">
-                                <img
-                                    src="/images/mainpage/star.png"
-                                    srcset="img/food@2x.png 2x,img/food@3x.png 3x"
-                                />
+                                <img src="/images/mainpage/star.png" alt="" />
                             </span>
                             <span className="plan plan_star">
                                 {planRating}&nbsp;{' '}

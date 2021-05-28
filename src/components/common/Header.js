@@ -35,7 +35,7 @@ const Header = ({
                 <div className="quick-container">
                     {loginCheck ? (
                         <>
-                            <div className="profile-ficture" onClick={onLogout}>
+                            <div className="profile-ficture">
                                 <img
                                     src={
                                         picture
@@ -58,7 +58,9 @@ const Header = ({
                         </Link>
                     )}
                 </div>
-                {quickCheck && <QuickBox />}
+                {quickCheck && (
+                    <QuickBox onLogout={onLogout} onClick={onClick} />
+                )}
             </div>
             <div className="spacer" />
         </>
