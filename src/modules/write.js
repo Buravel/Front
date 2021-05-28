@@ -144,20 +144,35 @@ const initialState = {
             memo: '111',
         },
     ],
+    write: null,
+    writeError: null,
 };
 
 const write = handleActions(
     {
         [INITIALIZE]: (state) => initialState,
-        [ADD_DATE]: (state) => ({
-            ...state,
-            plans: [...state.plans, []],
-            endDate: getNextDate(state.endDate).join(''),
-        }),
-        [REMOVE_DATE]: (state, { payload: day }) => ({
-            ...state,
-            plans: state.plans.filter((plan, idx) => idx !== day),
-        }),
+        [ADD_DATE]: (state) => {
+            const p = [...state.plans, []];
+            return {
+                ...state,
+                plans: p,
+                endDate: getNextDate(
+                    state.startDate.split('-').join(''),
+                    p.length - 1,
+                ).join('-'),
+            };
+        },
+        [REMOVE_DATE]: (state, { payload: day }) => {
+            const p = state.plans.filter((plan, idx) => idx !== day);
+            return {
+                ...state,
+                plans: p,
+                endDate: getNextDate(
+                    state.startDate.split('-').join(''),
+                    p.length - 1,
+                ).join('-'),
+            };
+        },
         [CHANGE_PLAN_INFO]: (
             state,
             {
@@ -169,14 +184,20 @@ const write = handleActions(
                     planImage,
                 },
             },
-        ) => ({
-            ...state,
-            planImage,
-            planTitle,
-            startDate,
-            published,
-            hashTag,
-        }),
+        ) => {
+            const len = state.plans.length - 1;
+            return {
+                ...state,
+                planImage,
+                planTitle,
+                startDate,
+                endDate: getNextDate(startDate.split('-').join(''), len).join(
+                    '-',
+                ),
+                published,
+                hashTag,
+            };
+        },
         [ADD_POST]: (
             state,
             {
@@ -261,12 +282,20 @@ const write = handleActions(
                 ...state,
             };
         },
-        [WRITE_PLAN_SUCCESS]: (state, { payload: card }) => ({
-            ...state,
-        }),
-        [WRITE_PLAN_FAILURE]: (state, { payload: postError }) => ({
-            ...state,
-        }),
+        [WRITE_PLAN_SUCCESS]: (state, { payload }) => {
+            return {
+                ...state,
+                write: payload,
+                writeError: null,
+            };
+        },
+        [WRITE_PLAN_FAILURE]: (state, { payload, error }) => {
+            return {
+                ...state,
+                write: null,
+                writeError: error,
+            };
+        },
     },
     initialState,
 );

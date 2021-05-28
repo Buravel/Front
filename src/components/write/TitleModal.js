@@ -35,7 +35,7 @@ const TitleModal = ({
     };
 
     const onChangeTitle = (e) => setTitle(e.target.value);
-    const onChangeDate = (e) => setDate(e.target.value.split('-').join(''));
+    const onChangeDate = (e) => setDate(e.target.value);
     const onChangeClosure = () => setClosure(!closure);
 
     const onClickAddHashBtn = () => setInputHash(true);
