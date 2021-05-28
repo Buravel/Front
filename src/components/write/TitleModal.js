@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { splitDate } from '../../util/date';
+import React, { useState } from 'react';
 import './titleModal.scss';
 const TitleModal = ({
     closeModal,
@@ -21,6 +20,10 @@ const TitleModal = ({
     const [textHash, setTextHash] = useState(hashTag);
     // 저장
     const onChange = () => {
+        if (!title || !date) {
+            alert('플랜제목, 출발일은 필수입력값 입니다.');
+            return;
+        }
         onChangePlanInfo({
             planImage: imgBase64,
             planTitle: title,
@@ -32,7 +35,7 @@ const TitleModal = ({
     };
 
     const onChangeTitle = (e) => setTitle(e.target.value);
-    const onChangeDate = (e) => setDate(e.target.value.split('-').join(''));
+    const onChangeDate = (e) => setDate(e.target.value);
     const onChangeClosure = () => setClosure(!closure);
 
     const onClickAddHashBtn = () => setInputHash(true);
@@ -64,7 +67,10 @@ const TitleModal = ({
                 <label>
                     <div className="modal-thumbnail">
                         {imgBase64 ? (
-                            <img src={`data:image/png;base64,${imgBase64}`} />
+                            <img
+                                src={`data:image/png;base64,${imgBase64}`}
+                                alt=""
+                            />
                         ) : (
                             <p>+</p>
                         )}
@@ -90,7 +96,7 @@ const TitleModal = ({
                         <span>출발일</span>
                         <input
                             type="date"
-                            value={splitDate(date).join('-')}
+                            value={date}
                             onChange={onChangeDate}
                         />
                     </label>
@@ -112,12 +118,16 @@ const TitleModal = ({
                                     <>
                                         <img
                                             src={`./images/write/unlock.png`}
+                                            alt=""
                                         />
                                         <span className="blue">공개</span>
                                     </>
                                 ) : (
                                     <>
-                                        <img src={`./images/write/lock.png`} />
+                                        <img
+                                            src={`./images/write/lock.png`}
+                                            alt=""
+                                        />
                                         <span className="gray">비공개</span>
                                     </>
                                 )}

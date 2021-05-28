@@ -20,9 +20,9 @@ export const getToday = () => {
     const date = today.getDate(); // 날짜
     return [year, month, date];
 };
-export const getNextDate = (_date) => {
+export const getNextDate = (_date, day = 1) => {
     const date = new Date(splitDate(_date).join('-'));
-    date.setDate(date.getDate() + 1);
+    date.setDate(date.getDate() + day);
 
     const y = date.getFullYear(); // 년도
     let m = date.getMonth() + 1; // 월

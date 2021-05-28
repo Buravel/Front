@@ -1,36 +1,36 @@
-import axios from "axios";
-import client from "./client";
-axios.defaults.baseURL = "http://34.64.93.115";
+import axios from 'axios';
+import client from './client';
+axios.defaults.baseURL = 'http://34.64.93.115';
 let token;
 export const login = async ({ username, password }) =>
-  await axios({
-    method: "POST",
-    url: "/login",
-    data: {
-      username: username,
-      password: password,
-    },
-  })
-    .then((response) => {
-      token = JSON.stringify(response.headers.authorization);
-      try {
-        localStorage.setItem("token", token);
-      } catch (e) {
-        console.log("localStorage is not working");
-      }
-      return response;
+    await client({
+        method: 'POST',
+        url: '/login',
+        data: {
+            username: username,
+            password: password,
+        },
     })
-    .catch((error) => {
-      return Promise.reject(error);
-    });
+        .then((response) => {
+            token = JSON.stringify(response.headers.authorization);
+            try {
+                localStorage.setItem('token', token);
+            } catch (e) {
+                console.log('localStorage is not working');
+            }
+            return response;
+        })
+        .catch((error) => {
+            return Promise.reject(error);
+        });
 
 export const register = ({ nickname, username, email, password }) =>
-  client.post("/signUp", { nickname, username, email, password });
+    client.post('/signUp', { nickname, username, email, password });
 
-export const findID = (email) => client.post("/findUsername", { email });
-export const findPW = (email) => client.post("/find", { email });
+export const findID = (email) => client.post('/findUsername', { email });
+export const findPW = (email) => client.post('/find', { email });
 export const value = {
-  token,
+    token,
 };
 //test
 //export const registerAuth = ({ email }) =>
