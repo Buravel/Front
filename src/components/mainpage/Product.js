@@ -73,6 +73,7 @@ const Product = (props) => {
                         <span className="icon">
                             <img
                                 src="/images/mainpage/plane_product.png"
+                                alt=""
                                 /*srcSet="img/food@2x.png 2x,img/food@3x.png 3x"*/
                             />
                         </span>
@@ -80,6 +81,7 @@ const Product = (props) => {
                         <span className="icon">
                             <img
                                 src="/images/mainpage/hotel_product.png"
+                                alt=""
                                 /*srcSet="img/food@2x.png 2x,img/food@3x.png 3x"*/
                             />
                         </span>
@@ -87,6 +89,7 @@ const Product = (props) => {
                         <span className="icon">
                             <img
                                 src="/images/mainpage/food_product.png"
+                                alt=""
                                 /*srcSet="img/food@2x.png 2x,img/food@3x.png 3x"*/
                             />
                         </span>
@@ -95,6 +98,7 @@ const Product = (props) => {
                         <span className="icon">
                             <img
                                 src="/images/mainpage/star.png"
+                                alt=""
                                 /*srcSet="img/food@2x.png 2x,img/food@3x.png 3x"*/
                             />
                         </span>

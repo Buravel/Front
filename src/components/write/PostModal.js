@@ -31,6 +31,17 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
     const [textHash, setTextHash] = useState('');
 
     const onClickSave = () => {
+        if (
+            !title1 ||
+            !price ||
+            !rating ||
+            !location.name ||
+            !location.lat ||
+            !location.lng
+        ) {
+            alert('필수값을 입력해주세요.');
+            return null;
+        }
         onSave({
             idx: card?.idx,
             title1,
@@ -109,7 +120,7 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                                 setTitle1(e.target.value);
                             }}
                         />
-                        <input
+                        {/* <input
                             type="text"
                             placeholder="ex) 일반실"
                             className="input-gray"
@@ -117,7 +128,7 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                             onChange={(e) => {
                                 setTitle2(e.target.value);
                             }}
-                        />
+                        /> */}
                         <select
                             value={category}
                             style={{ width: '50px' }}

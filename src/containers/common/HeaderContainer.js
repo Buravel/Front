@@ -4,9 +4,12 @@ import Header from '../../components/common/Header';
 
 const HeaderContainer = () => {
     const user = useSelector(({ user }) => user);
-    console.log(user);
+    console.log(localStorage.getItem('token'));
+
     // 로그인 유무
-    const [loginCheck, setLoginCheck] = useState(false);
+    const [loginCheck, setLoginCheck] = useState(
+        !!localStorage.getItem('token'),
+    );
     // 프로필사진 유무
     const [profilePicture, setProfilePicture] = useState(null);
     // 추천검색어

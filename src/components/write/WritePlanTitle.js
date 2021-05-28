@@ -77,12 +77,20 @@ const WritePlanTitle = ({
     planImage,
     onChangePlanInfo,
     onSave,
+    plans,
 }) => {
     // modal 관련
-    const [titleVisible, setTitleVisible] = useState(false);
+    const [titleVisible, setTitleVisible] = useState(true);
     const openTitleModal = () => setTitleVisible(true);
     const closeTitleModal = () => setTitleVisible(false);
 
+    const onClickSave = () => {
+        if (!planTitle || !startDate) {
+            alert('필수값을 입력해주세요.');
+            return;
+        }
+        onSave();
+    };
     return (
         <>
             <div className="title-container">
@@ -92,7 +100,7 @@ const WritePlanTitle = ({
                     planTitle={planTitle}
                     openModal={openTitleModal}
                 />
-                <PlanRemote account={account} onSave={onSave} />
+                <PlanRemote account={account} onSave={onClickSave} />
             </div>
             <div className="title-block"></div>
             {titleVisible && (

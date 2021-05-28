@@ -20,6 +20,10 @@ const TitleModal = ({
     const [textHash, setTextHash] = useState(hashTag);
     // 저장
     const onChange = () => {
+        if (!title || !date) {
+            alert('플랜제목, 출발일은 필수입력값 입니다.');
+            return;
+        }
         onChangePlanInfo({
             planImage: imgBase64,
             planTitle: title,
