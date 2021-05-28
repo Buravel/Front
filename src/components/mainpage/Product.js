@@ -15,7 +15,7 @@ const Product = (props) => {
 
     let [product, setProduct] = useState([]);
 
-    if (!posts) return null;
+    if (!props.product) return null;
 
     // console.log(props);
 

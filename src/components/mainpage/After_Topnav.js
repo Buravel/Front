@@ -7,20 +7,20 @@ const After_Topnav = (props) => {
     // let [product, product변경] = useState(Data);
     // let [product, product변경] = useState(Data);
     //props로 부모 component의 함수를 가져온다.
-    const [posts, setPosts] = useState([]);
-    const [info, setInfo] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [err, setError] = useState(null);
+    // const [posts, setPosts] = useState([]);
+    // const [info, setInfo] = useState([]);
+    // const [loading, setLoading] = useState(false);
+    // const [err, setError] = useState(null);
 
-    let [product, setProduct] = useState([]);
+    // let [product, setProduct] = useState([]);
 
-    if (!posts) return null;
+    if (!props.product) return null;
 
     console.log(props);
 
-    const postTerm = posts.postForPlanResponseDtos;
-    const postId = postTerm && postTerm.filter((k) => k.id === props.id);
-    const category = postId && postId.map((k) => k.category)[0];
+    // const postTerm = posts.postForPlanResponseDtos;
+    // const postId = postTerm && postTerm.filter((k) => k.id === props.id);
+    // const category = postId && postId.map((k) => k.category)[0];
 
     // const planImage = props.product.planImage;
     const outputPlanTotalPrice = props.product.outputPlanTotalPrice;
