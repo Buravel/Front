@@ -1,7 +1,12 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import WritePlanTitle from '../../components/write/WritePlanTitle';
-import { category_type, changePlanInfo, writePlan } from '../../modules/write';
+import {
+    category_type,
+    changePlanInfo,
+    initialize,
+    writePlan,
+} from '../../modules/write';
 const getAccount = (arr) => {
     let account = {
         [category_type.FLIGHT]: 0,
@@ -66,7 +71,11 @@ const WritePlanTitleContainer = () => {
                 postDtos: [...plans],
             }),
         );
-
+    useEffect(() => {
+        return () => {
+            dispatch(initialize());
+        };
+    }, []);
     return (
         <WritePlanTitle
             published={published}

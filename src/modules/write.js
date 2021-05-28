@@ -26,6 +26,7 @@ const [WRITE_PLAN, WRITE_PLAN_SUCCESS, WRITE_PLAN_FAILURE] =
     createRequestActionTypes('write/WRITE_PLAN');
 
 //action 생성
+export const initialize = createAction(INITIALIZE);
 export const changePlanInfo = createAction(
     CHANGE_PLAN_INFO,
     ({ planTitle, startDate, published, hashTag, planImage }) => ({

@@ -6,6 +6,7 @@ import WritePlanListContainer from '../containers/write/WritePlanListContainer';
 import WritePlanTitleContainer from '../containers/write/WritePlanTitleContainer';
 
 const WritePlan = () => {
+    console.log('WritePlan page');
     return (
         <>
             <HeaderContainer />

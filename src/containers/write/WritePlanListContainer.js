@@ -1,5 +1,4 @@
 import React from 'react';
-import BookMarks from '../../components/write/BookMarks';
 import PlanList from '../../components/write/PlanList';
 import Map from '../../components/common/Map';
 import { useDispatch, useSelector } from 'react-redux';
