@@ -15,7 +15,7 @@ const QuickBox = ({ onLogout, onClick }) => {
     return (
         <div className="quick-menu">
             <div className="close-btn">
-                <span>×</span>
+                <span onClick={onClick}>×</span>
             </div>
             <div className="quick-btn">
                 <Link to="/mypage">
