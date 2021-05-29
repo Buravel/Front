@@ -18,7 +18,7 @@ const MainPage = () => {
     <div>
       <HeaderContainer />
       <Responsive>
-        <Mainpage/>
+      <Mainpage_afterlogin />
       </Responsive>
 
       {/* <Mainpage_afterlogin /> */}
