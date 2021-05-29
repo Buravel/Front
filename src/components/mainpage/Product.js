@@ -26,9 +26,9 @@ const Product = (props) => {
     const planImage = props.product.planImage;
     const outputPlanTotalPrice = props.product.outputPlanTotalPrice;
 
-    const hotelprice = props.product.hotelTotalPrice;
-    const trafficprice = props.product.flightTotalPrice;
-    const shoppingprice = props.product.etcTotalPrice;
+    const hotelprice =  parseInt((props.product.hotelTotalPrice) / 1000 );
+    const trafficprice = parseInt((props.product.flightTotalPrice) / 1000 );
+    const shoppingprice =  parseInt((props.product.etcTotalPrice) / 1000 );
 
     const postTitle = props.product.planTitle;
     const planTagTitle = props.product.planTagResponseDtos[0].planTagTitle;
@@ -49,7 +49,9 @@ const Product = (props) => {
     // function toplan(e) {
     //     window.location.href => 원래 온클릭이벤트 줄려고 했는데 그냥 Link아예 걺
     // } //product박스 클릭시 해당 포스트plan페이지로
+    //http://placehold.it/230x160
 
+    // src={`data:image/png;base64,${planImage}`} 나중에 잇기(지금 이미지가 없어,,)
     return (
         <>
             <div className="product-shadowbox">
@@ -58,7 +60,7 @@ const Product = (props) => {
                         <div className="product_img">
                             <img
                                 className="img-full"
-                                src={`data:image/png;base64,${planImage}`}
+                                src='http://placehold.it/200x185'
                                 alt="Product Images"
                             />
                             <div className="tag">
@@ -103,12 +105,13 @@ const Product = (props) => {
                                 />
                             </span>
                             <span className="plan">{shoppingprice}</span>
-                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                            <span className="icon">
-                                <img src="/images/mainpage/star.png" alt="" />
-                            </span>
-                            <span className="plan plan_star">
-                                {planRating}&nbsp;{' '}
+                           <span className="star">
+                                <span className="icon">
+                                    <img src="/images/mainpage/star.png" alt="" />
+                                </span>
+                                <span className="plan plan_star">
+                                    {planRating}&nbsp;{' '}
+                                </span>
                             </span>
                         </div>
                     </div>
