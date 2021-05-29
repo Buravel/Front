@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import WritePlanTitle from '../../components/write/WritePlanTitle';
 import {
     category_type,
@@ -27,7 +28,7 @@ const getAccount = (arr) => {
 
 const WritePlanTitleContainer = () => {
     const dispatch = useDispatch();
-
+    const history = useHistory();
     // title 플랜 입력 관련
     const planTitle = useSelector((state) => state.write.planTitle);
     const startDate = useSelector((state) => state.write.startDate);
@@ -37,6 +38,8 @@ const WritePlanTitleContainer = () => {
     const planImage = useSelector((state) => state.write.planImage);
     const plans = useSelector((state) => state.write.plans);
 
+    const write = useSelector((state) => state.write.write);
+    const writeError = useSelector((state) => state.write.writeError);
     // title 금액관련
     const account = useMemo(() => getAccount(plans), [plans]);
 
@@ -76,6 +79,15 @@ const WritePlanTitleContainer = () => {
             dispatch(initialize());
         };
     }, []);
+    useEffect(() => {
+        if (write) {
+            console.log('작성 성공');
+            history.push('/');
+        }
+        if (writeError) {
+            alert('작성 실패');
+        }
+    }, [history, writeError, write]);
     return (
         <WritePlanTitle
             published={published}
