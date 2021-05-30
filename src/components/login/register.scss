@@ -1,3 +1,5 @@
+$blue: #66a7ff;
+$darkblue: #2b71f3;
 .registerBlock {
   margin-left: 8.7vw;
   width: 26.8vw;
@@ -9,15 +11,28 @@
 
   .inputBox {
     .h502 {
+      font-weight: 500;
       text-align: left;
       margin: 0%;
     }
   }
 
-  .privacy{
-    .h601{
+  .privacy {
+    .h601 {
       font-size: 12px;
       text-decoration: underline;
+      font-weight: 500;
     }
+  }
+
+  .checkbtn {
+    margin-bottom: 1.1vw;
+    width: 26.8vw;
+    height: 7vh;
+    border: solid $blue;
+    border-radius: 2.1vw;
+    font-size: 1.3vw;
+    background-color: $darkblue;
+    color: white;
   }
 }

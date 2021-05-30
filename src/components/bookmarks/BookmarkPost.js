@@ -9,6 +9,7 @@ import Bicon from "./Bicon";
 
 function BookmarkPost(props) {
   const [posts, setPosts] = useState([]);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -32,9 +33,9 @@ function BookmarkPost(props) {
   }, []);
   if (!posts) return null;
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
+  // const togglePopup = () => {
+  //   setIsOpen(!isOpen);
+  // };
   const toggleBmarkPopup = () => {
     setBmarkisOpen(!isbmarkOpen);
   };
@@ -57,6 +58,8 @@ function BookmarkPost(props) {
   }
   const tagTitle = K[0];
 
+  const clicklist = props.clicked && props.clicked.map((k) => k);
+
   // function HashTagArray(a) {
   //   if (postTerm && postTerm.filter((k) => k.id === a)) {
   //     return postTerm.filter((k) => k.id === a);
@@ -69,7 +72,12 @@ function BookmarkPost(props) {
 
   // const hashTags = hash.pop();
   // if (!hashTags) return null;
-  console.log(props.id);
+
+  // for (let i = 0; i < tId.length - 1; i++) {
+  //   B.push(tId && tId.map((k) => k));
+  // }
+  // console.log(clicklist && clicklist.includes(props.thisId));
+  // for()
   return (
     <>
       <div className="bkDtpostBox">
@@ -120,7 +128,7 @@ function BookmarkPost(props) {
                 ))}
             </span>
           </div>
-          {props.ifClick && (
+          {clicklist && clicklist.includes(props.thisId) && (
             <>
               <Bicon
                 picture="bookmarkClicked"

@@ -19,16 +19,20 @@ function BookmarkMain() {
   const [isdelOpen, setdelIsOpen] = useState(false);
   const [isdetailOpen, setdetailOpen] = useState(true);
   const [bookmarks, setBookmarks] = useState([]);
-  const [title, setTitle] = useState("");
+  const [bookmarksdata, setBookmarksdata] = useState([]);
 
-  const url = "http://localhost:1000";
-  useEffect(() => {
-    const fetchBookmarks = async () => {
-      const response = await axios("http://localhost:1000/bookmark");
-      setBookmarks(response.data);
-    };
-    fetchBookmarks();
-  }, []);
+  const [title, setTitle] = useState("");
+  const thisLink = window.location.href;
+  const Linkid = thisLink.split("plan/")[1];
+  let token = localStorage.getItem("token");
+  token = token.replace(/"/g, "");
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+  const returning = axios
+    .get("http://34.64.93.115/bookmark")
+    .then((response) => {
+      setBookmarks(response.data._embedded.bookmarkResponseDtoList);
+    });
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -39,15 +43,46 @@ function BookmarkMain() {
   const toggledetailPopup = () => {
     setdetailOpen(!isdetailOpen);
   };
-  const bmarkList = bookmarks.bookmarkplan;
-  const bmarkListN = bookmarks.map((k) => k);
+
+  const bmarkListN = bookmarks && bookmarks.map((k) => k);
   const bmarknumber = [];
   for (let i = 0; i <= bmarkListN.length; i++) {
-    bmarknumber.push(bmarkList && bmarkList.map((k) => k));
+    bmarknumber.push(bmarkListN && bmarkListN.map((k) => k));
   }
-  const bmarkListNum = bmarkList && bmarkList.map((k) => k);
+  const bmarkListNum = bmarkListN && bmarkListN.map((k) => k);
 
-  console.log(bmarkList);
+  const bmarkArray = [];
+  for (let i = 0; i < bmarkListN.length; i++) {
+    bmarkArray.push(bmarkListN[i].bookmarkTitle);
+  }
+  const bmarkIdArray = [];
+  for (let i = 0; i < bmarkListN.length; i++) {
+    bmarkIdArray.push(bmarkListN[i].id);
+  }
+  const ImgArray = bmarknumber[0].map((k) => k.bookmarkImages)[1];
+
+  // for (let i = 0; i < bmarkListN.length; i++) {
+  //   axios
+  //     .get(`http://34.64.93.115/bookmark/${bmarkIdArray[i]}`)
+  //     .then((response) => {
+  //       setBookmarksdata([...bookmarksdata, response.data._embedded]);
+  //     });
+  // }
+  // const AK = bmarkIdArray.map((k) =>
+  //   axios.get(`http://34.64.93.115/bookmark/${k}`).then((response) => {
+  //     setBookmarksdata([...bookmarksdata, response.data._embedded]);
+  //   })
+  // );
+  // console.log(bookmarksdata);
+
+  // function bmarkAmount(id) {
+  //   try{
+  //     const res = axios.get()
+  //     return res.data;
+  // function axiosTest(id) {
+  //   return axios.get().then((response) => response.data);
+  // }
+
   function Child() {
     // We can use the `useParams` hook here to access
     // the dynamic pieces of the URL.
@@ -89,7 +124,7 @@ function BookmarkMain() {
               </div>
               <div className="bmarkTitlebuttom" />
               <div className="bmarkPostBackground">
-                {bmarkListN.map((item) => (
+                {bmarknumber[0].map((item) => (
                   <Link to={"/" + item.id}>
                     <span className="bmarkptbk">
                       <span
@@ -97,31 +132,43 @@ function BookmarkMain() {
                         onClick={toggledetailPopup}
                       >
                         <span className="bptl">
-                          <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMVRuHiPl5TVXtmxi1RvHyczQglb9OosvC5Q&usqp=CAU"
-                            className="bkimg1"
-                          />
+                          {item.bookmarkImages[0] !== "" &&
+                            item.bookmarkImages[0] !== undefined && (
+                              <img
+                                src={`data:image/png;base64,${item.bookmarkImages[0]}`}
+                                className="bkimg1"
+                              />
+                            )}
                         </span>
                         <span className="bptr">
-                          <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMVRuHiPl5TVXtmxi1RvHyczQglb9OosvC5Q&usqp=CAU"
-                            className="bkimg2"
-                          />
+                          {item.bookmarkImages[1] !== "" &&
+                            item.bookmarkImages[1] !== undefined && (
+                              <img
+                                src={`data:image/png;base64,${item.bookmarkImages[1]}`}
+                                className="bkimg2"
+                              />
+                            )}
                         </span>
                         <span className="bpbl">
-                          <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMVRuHiPl5TVXtmxi1RvHyczQglb9OosvC5Q&usqp=CAU"
-                            className="bkimg3"
-                          />
+                          {item.bookmarkImages[2] !== "" &&
+                            item.bookmarkImages[2] !== undefined && (
+                              <img
+                                src={`data:image/png;base64,${item.bookmarkImages[2]}`}
+                                className="bkimg3"
+                              />
+                            )}
                         </span>
                         <span className="bpbr">
-                          <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMVRuHiPl5TVXtmxi1RvHyczQglb9OosvC5Q&usqp=CAU"
-                            className="bkimg4"
-                          />
+                          {item.bookmarkImages[3] !== "" &&
+                            item.bookmarkImages[3] !== undefined && (
+                              <img
+                                src={`data:image/png;base64,${item.bookmarkImages[3]}`}
+                                className="bkimg4"
+                              />
+                            )}
                         </span>
                         <span className="bkname">
-                          {item.title}({})
+                          {item.bookmarkTitle}({})
                         </span>
                       </span>
                     </span>

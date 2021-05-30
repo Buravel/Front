@@ -1,11 +1,15 @@
 import React from "react";
 import Responsive from "../components/common/Responsive";
 import BookmarkMain from "../components/bookmarks/BookmarkMain";
+import HeaderContainer from "../containers/common/HeaderContainer";
 const BookMarks = () => {
   return (
-    <Responsive>
-      <BookmarkMain />
-    </Responsive>
+    <>
+      <HeaderContainer />
+      <Responsive>
+        <BookmarkMain />
+      </Responsive>
+    </>
   );
 };
 

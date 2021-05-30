@@ -20,8 +20,8 @@ const [R_AUTH, R_AUTH_SUCCESS, R_AUTH_FAILURE] =
   createRequestActionTypes("auth/R_AUTH");
 const [RE_AUTH, RE_AUTH_SUCCESS, RE_AUTH_FAILURE] =
   createRequestActionTypes("auth/RE_AUTH");
-export const initialize = createAction(INITIALIZE);
 
+export const initialize = createAction(INITIALIZE);
 export const changeField = createAction(
   CHANGE_FIELD,
   ({ form, key, value }) => ({ form, key, value })
