@@ -141,7 +141,11 @@
 .bmarkptbk:hover {
   top: -8px;
 }
+.bkname:hover {
+  background-color: #c0c0c0;
+}
 .bkname {
+  z-index: 20;
   position: absolute;
   top: 309px;
   left: 6px;
@@ -179,41 +183,54 @@
   height: 149px;
   object-fit: cover;
 }
-.popupbkBox {
-  position: relative;
-  width: 600px;
-  margin: 0 auto;
-  height: 40px;
-  max-height: 90vh;
-  left: 81px;
-  top: 82px;
 
-  background: transparent;
-
-  border-radius: 3px;
-  overflow: auto;
-}
 .addBmarkText {
   width: 230px;
   height: 40px;
   box-sizing: border-box;
   font-size: 20px;
 }
-.addBmarkBtn {
-  width: 130px;
-  height: 40px;
-  font-size: 20px;
+.delBmarkBtn {
+  position: absolute;
+
+  top: 0px;
+  width: 90px;
+  height: 32px;
+  font-size: 16px;
   color: #ffffff;
   border-radius: 20px;
   background-color: #0070ef;
 }
+.popupbkBox {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+  height: 32px;
+  left: 452px;
+  top: 54px;
+  background: transparent;
+  border-radius: 3px;
+  overflow: auto;
+}
 .bkDtBackground {
   width: 1280px;
-  height: auto;
+  height: 50px;
   top: 0px;
   left: 0px;
   background-color: #ffffff;
 }
+// .popupbkdelBackground {
+//   position: absolute;
+
+//   /* 이 방법이 옳지 못한거 같은데 다른 방법이 없을지? */
+//   z-index: 10;
+
+//   width: 100px;
+//   height: 100px;
+//   top: 50px;
+//   left: 692px;
+// }
+
 .popupbkBackground {
   position: fixed;
   box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
@@ -314,9 +331,9 @@
 .bkDtpostBox {
   display: inline-flex;
   position: relative;
-  margin-left: 29px;
-  margin-top: 73px;
-  margin-bottom: 25px;
+  // margin-left: 29px;
+  // margin-top: 73px;
+  // margin-bottom: 25px;
   width: 200px;
   height: 275px;
 }
@@ -413,4 +430,101 @@
   border-radius: 3px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
+}
+.bringbmarkClick {
+  z-index: 20;
+  position: absolute;
+  top: 19px;
+  right: 13px;
+  width: 31px;
+  height: 31px;
+  border-radius: 20px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.bringbmarkClickbox {
+  display: inline-flex;
+  position: relative;
+  margin-left: 29px;
+  margin-top: 73px;
+  margin-bottom: 25px;
+  width: 200px;
+  height: 275px;
+}
+.bkmainbookamarkchiocebtn {
+  z-index: 10;
+  position: absolute;
+
+  top: 5px;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.bmarkptbkdel {
+  display: inline-flex;
+  position: relative;
+  margin-left: 45px;
+  margin-top: 46px;
+  width: 300px;
+  height: 336px;
+
+  background-color: transparent;
+}
+
+.bringbmarkdelClickbox {
+  z-index: 15;
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 40px;
+  background-color: transparent;
+}
+.bookmarkdelClicked {
+  z-index: 8;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+
+  object-fit: contain;
+  border-radius: 13px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  border: solid 3px #0070ef;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bookmarkdelChecked {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 6;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.BookmarkDeletecancelbutton {
+  position: absolute;
+  top: -18px;
+  left: 30px;
+  width: 72px;
+  height: 32px;
+}
+.BookmarkDeletecancelbuttonbg {
+  position: relative;
+  background-color: transparent;
+  top: 0px;
+  left: 110px;
+}
+.BookmarkDeletebuttonName {
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  font-size: 15px;
+  top: -14px;
+  left: 52px;
+  background-color: #e2e1e1;
 }

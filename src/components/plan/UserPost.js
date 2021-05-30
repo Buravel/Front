@@ -8,6 +8,8 @@ function UserPost(props) {
   const [info, setInfo] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const thisLink = window.location.href;
+  const Linkid = thisLink.split("plan/")[1];
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -15,7 +17,7 @@ function UserPost(props) {
         setError(null);
         setPosts(null);
         setLoading(true);
-        const response = await axios.get("http://localhost:8080/post");
+        const response = await axios.get(`http://34.64.93.115/plans/${Linkid}`);
         setPosts(response.data);
       } catch (e) {
         setError(e);
@@ -113,10 +115,7 @@ function UserPost(props) {
         <span className="CostBackground">
           <span className="TotalCost">
             <span className="TotalMoney">
-              {String(posts.totalPrice).substr(
-                0,
-                String(posts.totalPrice).length - 4
-              )}
+              {String(posts.totalPrice) / 10000}
             </span>
             <span className="TotalMoneyname">만원</span>
           </span>
@@ -134,38 +133,26 @@ function UserPost(props) {
             />
             <Icon picture="TRAFFIC" className="Totalbus" alt="budget icon" />
             <Icon picture="HOTEL" className="Totalbed" alt="budget icon" />
+            <Icon picture="ETC" className="Totaletc" alt="budget icon" />
           </span>
           <span className="TotalMoneylist">
             <span className="TotalAirplaneCost">
-              {String(posts.flightTotalPrice).substr(
-                0,
-                String(posts.flightTotalPrice).length - 4
-              )}
+              {String(posts.flightTotalPrice) / 10000}
             </span>
             <span className="TotalfoodCost">
-              {String(posts.dishTotalPrice).substr(
-                0,
-                String(posts.dishTotalPrice).length - 4
-              )}
+              {String(posts.dishTotalPrice) / 10000}
             </span>
             <span className="TotalshoppingCost">
-              {String(posts.shoppingTotalPrice).substr(
-                0,
-                String(posts.shoppingTotalPrice).length - 4
-              )}
+              {String(posts.shoppingTotalPrice) / 10000}
             </span>
             <span className="TotalbusCost">
-              {String(posts.trafficTotalPrice).substr(
-                0,
-                String(posts.trafficTotalPrice).length - 4
-              )}
+              {String(posts.trafficTotalPrice) / 10000}
             </span>
             <span className="TotalbedCost">
-              {" "}
-              {String(posts.hotelTotalPrice).substr(
-                0,
-                String(posts.hotelTotalPrice).length - 4
-              )}
+              {String(posts.hotelTotalPrice) / 10000}
+            </span>
+            <span className="TotaletcCost">
+              {String(posts.etcTotalPrice) / 10000}
             </span>
           </span>
         </span>
