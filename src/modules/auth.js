@@ -16,7 +16,10 @@ const [FINDID, FINDID_SUCCESS, FINDID_FAILURE] =
   createRequestActionTypes("auth/FINDID");
 const [FINDPW, FINDPW_SUCCESS, FINDPW_FAILURE] =
   createRequestActionTypes("auth/FINDPW");
-
+const [R_AUTH, R_AUTH_SUCCESS, R_AUTH_FAILURE] =
+  createRequestActionTypes("auth/R_AUTH");
+const [RE_AUTH, RE_AUTH_SUCCESS, RE_AUTH_FAILURE] =
+  createRequestActionTypes("auth/RE_AUTH");
 export const changeField = createAction(
   CHANGE_FIELD,
   ({ form, key, value }) => ({ form, key, value })
@@ -35,24 +38,33 @@ export const login = createAction(LOGIN, ({ username, password }) => ({
   username,
   password,
 }));
-
 export const findID = createAction(FINDID, ({ email }) => ({
   email,
 }));
 export const findPW = createAction(FINDPW, ({ email }) => ({
   email,
 }));
+export const registerAuth = createAction(R_AUTH, ({ number }) => ({
+  number,
+}));
+export const registerReAuth = createAction(RE_AUTH, ({ number }) => ({
+  number,
+}));
 
 const registerSaga = createRequestSaga(REGISTER, authAPI.register);
 const loginSaga = createRequestSaga(LOGIN, authAPI.login);
 const findIDSaga = createRequestSaga(FINDID, authAPI.findID);
 const findPWSaga = createRequestSaga(FINDPW, authAPI.findPW);
+const registerAuthSaga = createRequestSaga(R_AUTH, authAPI.registerAuth);
+const registerReAuthSaga = createRequestSaga(RE_AUTH, authAPI.registerReAuth);
 
 export function* authSaga() {
   yield takeLatest(REGISTER, registerSaga);
   yield takeLatest(LOGIN, loginSaga);
   yield takeLatest(FINDID, findIDSaga);
   yield takeLatest(FINDPW, findPWSaga);
+  yield takeLatest(R_AUTH, registerAuthSaga);
+  yield takeLatest(RE_AUTH, registerReAuthSaga);
 }
 
 const initialState = {
@@ -73,8 +85,15 @@ const initialState = {
   findPW: {
     email: "",
   },
+  registerAuth: {
+    number: "",
+  },
+  registerReAuth: {
+    number: "",
+  },
   auth: null,
   authError: null,
+  success: null,
 };
 
 const auth = handleActions(
@@ -86,46 +105,58 @@ const auth = handleActions(
     [INITIALIZE_FORM]: (state, { payload: form }) => ({
       ...state,
       [form]: initialState[form],
+      auth: null,
       authError: null,
     }),
-    [REGISTER_SUCCESS]: (state, { payload: auth }) => ({
+    [REGISTER_SUCCESS]: (state) => ({
       ...state,
-      authError: null,
-      auth,
+      success: true,
     }),
-    [REGISTER_FAILURE]: (state, { payload: error }) => ({
+    [REGISTER_FAILURE]: (state) => ({
       ...state,
-      authError: error,
+      success: false,
     }),
-    [LOGIN_SUCCESS]: (state, { payload: auth }) => ({
+    [LOGIN_SUCCESS]: (state) => ({
       ...state,
-      authError: null,
-      auth,
+      success: true,
     }),
-    [LOGIN_FAILURE]: (state, { payload: error }) => ({
+    [LOGIN_FAILURE]: (state) => ({
       ...state,
-      authError: error,
+      success: false,
     }),
-    [FINDID_SUCCESS]: (state, { payload: auth }) => ({
+    [FINDID_SUCCESS]: (state) => ({
       ...state,
-      authError: null,
-      auth,
+      success: true,
     }),
-    [FINDID_FAILURE]: (state, { payload: error }) => ({
+    [FINDID_FAILURE]: (state) => ({
       ...state,
-      authError: error,
+      success: false,
     }),
-    [FINDPW_SUCCESS]: (state, { payload: auth }) => ({
+    [FINDPW_SUCCESS]: (state) => ({
       ...state,
-      authError: null,
-      auth,
+      success: true,
     }),
-    [FINDPW_FAILURE]: (state, { payload: error }) => ({
+    [FINDPW_FAILURE]: (state) => ({
       ...state,
-      authError: error,
+      success: false,
+    }),
+    [R_AUTH_SUCCESS]: (state) => ({
+      ...state,
+      success: true,
+    }),
+    [R_AUTH_FAILURE]: (state) => ({
+      ...state,
+      success: false,
+    }),
+    [RE_AUTH_SUCCESS]: (state) => ({
+      ...state,
+      success: null,
+    }),
+    [RE_AUTH_FAILURE]: (state) => ({
+      ...state,
+      success: null,
     }),
   },
   initialState
 );
-
 export default auth;

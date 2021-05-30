@@ -8,7 +8,7 @@ import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import createSagaMiddleWare from "redux-saga";
 import rootReducer, { rootSaga } from "./modules";
-import { tempSetUser, check } from "./modules/user";
+//import { tempSetUser, check } from "./modules/user";
 
 const sagaMiddleware = createSagaMiddleWare();
 const store = createStore(
@@ -17,6 +17,7 @@ const store = createStore(
 );
 sagaMiddleware.run(rootSaga);
 
+/* >> 2번씩 처리됨!
 function loadUser() {
   try {
     const user = localStorage.getItem("user");
@@ -28,6 +29,8 @@ function loadUser() {
 }
 sagaMiddleware.run(rootSaga);
 loadUser();
+*/
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
