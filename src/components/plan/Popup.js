@@ -5,12 +5,15 @@ import Icon from "./Icon";
 import BookmarkPopup from "./BookmarkPopup";
 import ReactDOM, { createPortal } from "react-dom";
 import ModalPortal from "./ModalPortal";
+import { Link } from "react-router-dom";
 
 function Popup(props) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isbmarkOpen, setBmarkisOpen] = useState(false);
+  const thisLink = window.location.href;
+  const Linkid = thisLink.split("plan/")[1];
   const toggleBmarkPopup = () => {
     setBmarkisOpen(!isbmarkOpen);
   };
@@ -20,7 +23,7 @@ function Popup(props) {
         setError(null);
         setPosts(null);
         setLoading(true);
-        const response = await axios.get("http://localhost:8080/post");
+        const response = await axios.get(`http://34.64.93.115/plans/${Linkid}`);
         setPosts(response.data);
       } catch (e) {
         setError(e);
@@ -43,19 +46,24 @@ function Popup(props) {
 
   const postTerm = posts.postForPlanResponseDtos;
   const postId = postTerm && postTerm.filter((k) => k.id === props.id);
-  const hashTag = postId && postId.map((k) => k.postTagResponseDtoList);
+  const hashTag = postId && postId.map((k) => k.postTagResponseDtoList)[0];
+  const postImg = postId && postId.map((k) => k.postImage)[0];
+
+  // const tags = hashTag && hashTag.map((k) => k).length;
+  // const tagsLINE = hashTag && hashTag.map((k) => k.postTagTitle);
+  const tags = props.tags;
   const postMemo = postId && postId.map((k) => k.memo)[0];
-  const tags = hashTag && hashTag.map((k) => k).length;
-  const tagsArray = [];
-  for (let i = 0; i <= tags; i++) {
-    tagsArray.push(hashTag && hashTag.map((k) => k[i].postTagTitle));
-  }
-  const K = [];
-  for (let i = 0; i < tagsArray.length - 1; i++) {
-    K.push(tagsArray && tagsArray.map((k) => k[i]));
-  }
-  const tagTitle = K[0];
-  console.log(tagTitle);
+  // const tags = hashTag && hashTag.map((k) => k).length;
+  // const tagsArray = [];
+  // for (let i = 0; i <= tags; i++) {
+  //   tagsArray.push(hashTag && hashTag.map((k) => k[i].postTagTitle));
+  // }
+  // const K = [];
+  // for (let i = 0; i < tagsArray.length - 1; i++) {
+  //   K.push(tagsArray && tagsArray.map((k) => k[i]));
+  // }
+  // const tagTitle = K[0];
+  // console.log(tagTitle);
 
   if (props.star % 1 === 0) {
     for (let i = 0; i < props.star; i++) {
@@ -67,18 +75,22 @@ function Popup(props) {
     }
   }
   const modalRoot = document.getElementById("root");
-  console.log(modalRoot);
 
   return (
     <>
       <ModalPortal>
         <div className="popupbmarkpopup">
           {isbmarkOpen && (
-            <BookmarkPopup
-              postTitle={props.postTitle}
-              star={props.rate}
-              handleClose={toggleBmarkPopup}
-            />
+            <>
+              <Link to="/bookmark">
+                <BookmarkPopup
+                  postTitle={props.postTitle}
+                  star={props.rate}
+                  handleClose={toggleBmarkPopup}
+                  id={props.id}
+                />
+              </Link>
+            </>
           )}
         </div>
         <div className="popupBackground">
@@ -94,7 +106,10 @@ function Popup(props) {
                 className="popupBookmark"
               />
             </div>
-            <img src={props.postPicture} className="popupPicture" />
+            <img
+              src={`data:image/png;base64,${postImg}`}
+              className="popupPicture"
+            />
 
             <span className="popupList">
               <span className="popupTitle">제목</span>
@@ -121,12 +136,12 @@ function Popup(props) {
                 {props.star % 1 !== 0 && <HalfStar />}
               </span>
               <span className="popConTag">
-                {tagTitle &&
-                  tagTitle.map((num) => (
+                {tags &&
+                  tags.map((num) => (
                     <span className="popConTagText">#{num}</span>
                   ))}
               </span>
-              <span className="popConMemo">{postMemo} </span>
+              <span className="popConMemo">{props.memo} </span>
             </span>
             {props.content}
           </div>

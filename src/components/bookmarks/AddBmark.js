@@ -10,8 +10,10 @@ function AddBmark(props) {
   const [bookmarks, setBookmarks] = useState([]);
   const [title, setTitle] = useState("");
   const [deltitle, setDeltitle] = useState("");
+  let token = localStorage.getItem("token");
+  token = token.replace(/"/g, "");
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-  const url = "http://localhost:1000";
   useEffect(() => {
     const fetchBookmarks = async () => {
       const response = await axios("http://localhost:1000/bookmark");

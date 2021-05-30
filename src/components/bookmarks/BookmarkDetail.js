@@ -38,8 +38,6 @@ function BookmarkDetail() {
   const clickChange = () => setpostClick(!postClick);
   const bmarkID = bookmarks.map((k) => k.id);
 
-  console.log(state);
-
   return (
     <div className="bkDtBackground">
       <div className="btDTpage">
