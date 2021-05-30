@@ -10,6 +10,8 @@ function OtherUserpost() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const thisLink = window.location.href;
+  const Linkid = thisLink.split("plan/")[1];
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -17,7 +19,7 @@ function OtherUserpost() {
         setError(null);
         setPosts(null);
         setLoading(true);
-        const response = await axios.get("http://localhost:8080/post");
+        const response = await axios.get(`http://34.64.93.115/plans/${Linkid}`);
         setPosts(response.data);
       } catch (e) {
         setError(e);
