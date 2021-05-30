@@ -68,7 +68,7 @@ const Register = ({ form, onChange, onSubmit }) => {
             </h6>
           </Link>
         </div>
-        <button className="button01 style02" type="submit">
+        <button className="checkbtn" type="submit">
           확인
         </button>
       </form>

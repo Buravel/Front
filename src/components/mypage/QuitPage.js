@@ -4,7 +4,6 @@ import "./setuppage.scss";
 import quitImage from "./quit.png";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-import { CodeSharp } from "@material-ui/icons";
 axios.defaults.baseURL = "http://34.64.93.115";
 
 let token = localStorage.getItem("token");

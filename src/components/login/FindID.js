@@ -10,7 +10,7 @@ const FindID = ({ form, onChange, onSubmit, error }) => {
           <h2 className="h203">아이디 찾기</h2>
           <h5 className="h506">가입한 이메일 주소를 입력해주세요.</h5>
           <div className="inputBox">
-            <h5 className="h507">이메일주소</h5>
+            <h5 className="h507">이메일 주소</h5>
             <input
               className="inputCell"
               name="email"
@@ -22,7 +22,7 @@ const FindID = ({ form, onChange, onSubmit, error }) => {
         <div className="error-msg">
           {error ? <div>{error}</div> : <div></div>}
         </div>
-        <button className="button01 style05" type="submit">
+        <button className="check-btn" type="submit">
           확인
         </button>
       </form>

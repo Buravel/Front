@@ -16,6 +16,8 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
 
+sagaMiddleware.run(rootSaga);
+
 /* >> 2번씩 처리됨!
 function loadUser() {
     try {

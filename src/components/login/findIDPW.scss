@@ -21,11 +21,20 @@ $darkblue: #2b71f3;
     margin: 0;
     margin-top: 73px;
     text-align: left;
-    font-weight: 300;
+    font-weight: 500;
   }
   .error-msg {
     color: red;
     font-size: 10px;
     text-align: center;
+  }
+  .check-btn {
+    margin-top: 2.4vw;
+    width: 26.8vw;
+    height: 7.5vh;
+    border-radius: 2.1vw;
+    font-size: 1.3vw;
+    background-color: $darkblue;
+    color: white;
   }
 }
