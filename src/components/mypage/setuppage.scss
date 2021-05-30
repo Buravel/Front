@@ -1,28 +1,41 @@
-$gray: #f5f5f5;
-$darkgray: #535353;
+$lightgray: #f5f5f5;
 $gray: #767676;
+$darkgray: #535353;
 $blue: #0070ef;
 
 .setup {
   .profileImage {
     display: block;
-    margin: 40px auto 60px auto;
+    margin: 6vh auto 6vh auto;
     width: 174px;
     height: 174px;
   }
   .info {
+    .profileBox {
+      .profile-btn {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid $blue;
+        border-radius: 10px;
+        background-color: $blue;
+        width: 10vw;
+        color: white;
+      }
+      margin-bottom: 8vh;
+    }
     .infoBox {
       display: block;
       margin: auto;
-      width: 300px;
+      width: 24vw;
       .name {
-        font-size: 12px;
         color: $darkgray;
+        font-weight: 500;
+        font-size: 1vw;
       }
       .box {
-        width: 300px;
-        text-align: left;
-        font-size: 16px;
+        width: 24vw;
+        font-size: 1.2vw;
         margin-bottom: 30px;
         border: none;
         border-bottom: 2px solid $blue;
@@ -30,15 +43,19 @@ $blue: #0070ef;
         outline: none;
       }
       .edit {
-        font-size: 14px;
+        font-size: 1vw;
         text-align: center;
+        a {
+          color: $darkgray;
+          text-decoration: underline;
+        }
       }
       .change-btn {
         display: inline-block;
         position: absolute;
-        font-size: 12px;
+        font-size: 0.9vw;
         border: 2px solid $blue;
-        border-radius: 5px;
+        border-radius: 10px;
         background-color: $blue;
         color: white;
       }

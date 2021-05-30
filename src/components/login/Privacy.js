@@ -112,11 +112,7 @@ const Privacy = ({ movetoForm, movetoMain }) => {
           </div>
         </div>
         <div className="selection">
-          <button
-            className="button01 style03"
-            style={style}
-            onClick={movetoForm}
-          >
+          <button className="agree-btn" style={style} onClick={movetoForm}>
             ✓ 동의하기
           </button>
           <button

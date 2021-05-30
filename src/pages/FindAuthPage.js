@@ -1,14 +1,14 @@
 import React from "react";
-import Template2 from "../components/login/Template2";
+import Template3 from "../components/login/Template3";
 import FindAuth from "../components/login/FindAuth";
 import Responsive from "../components/common/Responsive";
 
 const FindAuthPage = () => {
   return (
     <Responsive>
-      <Template2>
+      <Template3>
         <FindAuth />
-      </Template2>
+      </Template3>
     </Responsive>
   );
 };

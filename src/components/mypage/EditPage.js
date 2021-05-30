@@ -75,6 +75,11 @@ const EditPage = () => {
     <div className="setup">
       <img className="profileImage" src={profile} alt="" />
       <div className="info">
+        <div className="profileBox">
+          <button className="profile-btn" type="submit" onClick={ImageSubmit}>
+            프로필 사진 변경
+          </button>
+        </div>
         <div className="infoBox">
           <div className="name">닉네임</div>
           <input

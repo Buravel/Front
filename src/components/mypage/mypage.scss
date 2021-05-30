@@ -11,21 +11,24 @@ $blue: #0070ef;
   right: 0;
   top: 0;
   bottom: 0;
-  overflow: auto;
-  //  justify-content: center;
   margin-top: 79px;
   height: 295px;
   align-items: center;
   .profileImage {
     width: 174px;
     height: 174px;
-    margin: 62px 50px 59px 92px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 6.4vw;
+    margin-right: 3.5vw;
   }
   .userBox {
-    //    width: 20vw;
-    width: 30vw;
+    width: 40vw;
     justify-content: left;
-    margin: 62px 50px 59px 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 6.4vw;
+    margin-right: 3.5vw;
     h1 {
       font-size: 2vw;
       line-height: 0;
@@ -35,7 +38,7 @@ $blue: #0070ef;
     }
     .email {
       color: $lightgray;
-      font-size: 14px;
+      font-size: 1vw;
     }
     .email:hover {
       color: $blue;
@@ -49,6 +52,7 @@ $blue: #0070ef;
         border-radius: 2.1vw;
         font-size: 0.97vw;
         color: $darkgray;
+        margin-right: 0.9vw;
       }
       .logout {
         width: 5.5vw;
