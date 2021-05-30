@@ -82,14 +82,14 @@ function Popup(props) {
         <div className="popupbmarkpopup">
           {isbmarkOpen && (
             <>
-              <Link to="/bookmark">
-                <BookmarkPopup
-                  postTitle={props.postTitle}
-                  star={props.rate}
-                  handleClose={toggleBmarkPopup}
-                  id={props.id}
-                />
-              </Link>
+              {/* <Link to="/bookmark"> */}
+              <BookmarkPopup
+                postTitle={props.postTitle}
+                star={props.rate}
+                handleClose={toggleBmarkPopup}
+                id={props.id}
+              />
+              {/* </Link> */}
             </>
           )}
         </div>
