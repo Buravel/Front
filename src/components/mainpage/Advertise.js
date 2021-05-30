@@ -1,7 +1,7 @@
 import React /*useState, map*/ from "react";
 import "./Advertise.scss";
 import { Carousel /*Navbar*/ } from "react-bootstrap";
-// import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 const Advertise = () => {
   return (
