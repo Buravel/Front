@@ -23,4 +23,36 @@ $lightblue: #0070ef;
     margin-left: auto;
     margin-right: auto;
   }
+
+  .error-msg {
+    color: red;
+    font-size: 10px;
+    text-align: center;
+  }
+  .buttonsection {
+    .button03 {
+      color: white;
+      font-size: 1.3vw;
+      border: none;
+      margin-left: 0.7vw;
+      margin-right: 0.7vw;
+    }
+
+    .button03.style01 {
+      width: 10vw;
+      height: 3.1vw;
+      background-color: $lightblue;
+      border-radius: 0.5vw;
+      color: white;
+    }
+
+    .button03.style02 {
+      width: 17.4vw;
+      height: 3.1vw;
+
+      border-radius: 0.5vw;
+      border: 0.2vw solid $lightblue;
+      color: $lightblue;
+    }
+  }
 }

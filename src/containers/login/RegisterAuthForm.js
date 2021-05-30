@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { changeField, initializeForm, findPW } from "../../modules/auth";
-import FindPW from "../../components/login/FindPW";
+import {
+  changeField,
+  initializeForm,
+  registerAuth,
+  registerReAuth,
+} from "../../modules/auth";
+import RegisterAuth from "../../components/login/RegisterAuth";
 
-const FindPWForm = ({ history }) => {
+const RegisterAuthForm = ({ history }) => {
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
   const { form, success } = useSelector(({ auth }) => ({
-    form: auth.findPW,
+    form: auth.registerAuth,
     success: auth.success,
   }));
 
@@ -16,7 +21,7 @@ const FindPWForm = ({ history }) => {
     const { value, name } = e.target;
     dispatch(
       changeField({
-        form: "findPW",
+        form: "registerAuth",
         key: name,
         value,
       })
@@ -25,34 +30,41 @@ const FindPWForm = ({ history }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const email = form;
-    dispatch(findPW({ email }));
+    const { number } = form;
+    dispatch(registerAuth({ number }));
+  };
+
+  const reSubmit = (e) => {
+    e.preventDefault();
+    const { number } = form;
+    dispatch(registerReAuth({ number }));
   };
 
   useEffect(() => {
-    dispatch(initializeForm("findPW"));
+    dispatch(initializeForm("registerAuth"));
   }, [dispatch]);
 
   useEffect(() => {
     if (success === false) {
-      setError("가입하지 않은 회원이거나, 이메일 인증을 받지 않은 회원입니다.");
+      setError("인증번호가 일치하지 않습니다.");
       return;
     }
+
     if (success === true) {
-      console.log("비밀번호 찾기 성공");
-      history.push("/findAuth");
+      history.push("/authComplete");
     }
   }, [success, history]);
 
   return (
-    <FindPW
-      type="findPW"
+    <RegisterAuth
+      type="registerAuth"
       form={form}
       onChange={onChange}
       onSubmit={onSubmit}
+      reSubmit={reSubmit}
       error={error}
     />
   );
 };
 
-export default withRouter(FindPWForm);
+export default withRouter(RegisterAuthForm);

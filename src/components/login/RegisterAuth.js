@@ -1,11 +1,11 @@
-/*import React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import logoImg2 from "./logo2.png";
 import "./common.scss";
 import "./findauth.scss";
 
 const style = { display: "inline-block" };
-const RegisterAuth = ({ form, onChange, onSubmit }) => {
+const RegisterAuth = ({ form, onChange, onSubmit, reSubmit, error }) => {
   return (
     <div className="findauth">
       <img className="logo3" src={logoImg2} alt="" />
@@ -13,35 +13,37 @@ const RegisterAuth = ({ form, onChange, onSubmit }) => {
       <h5>
         이메일이 도착하지 않았나요?{" "}
         <h5 className="h508" style={style}>
-          <Link to="/registerAuth" onClick={window.location.reload}>
+          <Link to="/registerAuth" onClick={reSubmit}>
             재전송
           </Link>
         </h5>
       </h5>
-      <div className="authNumForm">
-        <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
+        <div className="authNumForm">
           <div className="inputBox">
             <h5 className="h509">인증번호</h5>
             <input
               className="inputCell"
-              name="authNum"
+              name="number"
               onChange={onChange}
-              //            value={form.authNum}
+              value={form.number}
             ></input>
           </div>
-        </form>
-      </div>
-      <div className="buttonsection02">
-        <button className="button02 style01" type="submit">
-          <Link to="/login">확인</Link>
-        </button>
-        <button className="button02 style02">
-          <Link to="/">취소</Link>
-        </button>
-      </div>
+        </div>
+        <div className="error-msg">
+          {error ? <div>{error}</div> : <div></div>}
+        </div>
+        <div className="buttonsection02">
+          <button className="button02 style01" type="submit">
+            확인
+          </button>
+          <Link to="/mypage">
+            <button className="button02 style02">취소 </button>
+          </Link>{" "}
+        </div>
+      </form>
     </div>
   );
 };
 
 export default RegisterAuth;
-*/

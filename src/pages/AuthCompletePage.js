@@ -1,16 +1,16 @@
 import React from "react";
 import Template2 from "../components/login/Template2";
-import RegisterAuthForm from "../containers/login/RegisterAuthForm";
+import AuthComplete from "../components/login/AuthComplete";
 import Responsive from "../components/common/Responsive";
 
-const RegisterAuthPage = () => {
+const SignCompletePage = () => {
   return (
     <Responsive>
       <Template2>
-        <RegisterAuthForm />
-      </Template2>
+        <AuthComplete />
+      </Template2>{" "}
     </Responsive>
   );
 };
 
-export default RegisterAuthPage;
+export default SignCompletePage;

@@ -62,7 +62,6 @@ const Register = ({ form, onChange, onSubmit }) => {
           </div>
         </div>
         <div className="privacy">
-          <input type="checkbox"></input>
           <Link to="/privacyPolicy">
             <h6 className="h601" style={style}>
               약관 확인 및 동의하기(필수)

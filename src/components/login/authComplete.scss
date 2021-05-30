@@ -1,0 +1,26 @@
+$blue: #66a7ff;
+$gray: #c1c1c1;
+$darkblue: #2b71f3;
+
+.complete {
+  .msg {
+    font-size: 10px;
+    color: $darkblue;
+    text-align: center;
+    line-height: 20px;
+  }
+  .buttonsection {
+    justify-content: center;
+    .check {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 11vw;
+      border: 3px solid $darkblue;
+      border-radius: 10px;
+      color: $darkblue;
+      font-size: 20px;
+      font-weight: 300;
+    }
+  }
+}
