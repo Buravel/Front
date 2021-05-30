@@ -4,8 +4,7 @@ import SearchPlace from './SearchPlace';
 import { category_type } from '../../modules/write';
 
 const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
-    const { AIRPLANE, EAT, SHOPPING, TRANSPORTAION, ROOMS, ETC } =
-        category_type;
+    const { FLIGHT, DISH, SHOPPING, TRAFFIC, HOTEL, ETC } = category_type;
     const [title1, setTitle1] = useState(!card ? '' : card.title1);
     const [title2, setTitle2] = useState(!card ? '' : card.title2);
     const [price, setPrice] = useState(!card ? 0 : card.price);
@@ -25,13 +24,24 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
     const [rating, setRating] = useState(!card ? '' : card.rating);
     const [hashTags, setHashTags] = useState(!card ? [] : [...card.hashTags]);
     const [memo, setMemo] = useState(!card ? '' : card.memo);
-    const [category, setCategory] = useState(!card ? AIRPLANE : card.category);
+    const [category, setCategory] = useState(!card ? FLIGHT : card.category);
     const [imgBase64, setImgBase64] = useState(!card ? '' : card.postImage); // 파일 base64
 
     const [inputHash, setInputHash] = useState(false);
     const [textHash, setTextHash] = useState('');
 
     const onClickSave = () => {
+        if (
+            !title1 ||
+            !price ||
+            !rating ||
+            !location.name ||
+            !location.lat ||
+            !location.lng
+        ) {
+            alert('필수값을 입력해주세요.');
+            return null;
+        }
         onSave({
             idx: card?.idx,
             title1,
@@ -81,7 +91,10 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                 <label>
                     <div className="modal-thumbnail">
                         {imgBase64 ? (
-                            <img src={`data:image/png;base64,${imgBase64}`} />
+                            <img
+                                src={`data:image/png;base64,${imgBase64}`}
+                                alt=""
+                            />
                         ) : (
                             <p>+</p>
                         )}
@@ -107,7 +120,7 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                                 setTitle1(e.target.value);
                             }}
                         />
-                        <input
+                        {/* <input
                             type="text"
                             placeholder="ex) 일반실"
                             className="input-gray"
@@ -115,17 +128,17 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                             onChange={(e) => {
                                 setTitle2(e.target.value);
                             }}
-                        />
+                        /> */}
                         <select
                             value={category}
                             style={{ width: '50px' }}
                             onChange={onChangeCategory}
                         >
-                            <option value={AIRPLANE}>비행기</option>
-                            <option value={EAT}>식사</option>
+                            <option value={FLIGHT}>비행기</option>
+                            <option value={DISH}>식사</option>
                             <option value={SHOPPING}>쇼핑</option>
-                            <option value={TRANSPORTAION}>교통</option>
-                            <option value={ROOMS}>숙소</option>
+                            <option value={TRAFFIC}>교통</option>
+                            <option value={HOTEL}>숙소</option>
                             <option value={ETC}>기타</option>
                         </select>
                     </label>

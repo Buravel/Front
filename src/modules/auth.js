@@ -5,7 +5,7 @@ import createRequestSaga, {
   createRequestActionTypes,
 } from "../lib/createRequestSaga";
 import * as authAPI from "../lib/api/auth";
-
+const INITIALIZE = "auth/INITIALIZE";
 const CHANGE_FIELD = "auth/CHANGE_FIELD";
 const INITIALIZE_FORM = "auth/INITIALIZE_FORM";
 const [REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE] =
@@ -20,6 +20,7 @@ const [R_AUTH, R_AUTH_SUCCESS, R_AUTH_FAILURE] =
   createRequestActionTypes("auth/R_AUTH");
 const [RE_AUTH, RE_AUTH_SUCCESS, RE_AUTH_FAILURE] =
   createRequestActionTypes("auth/RE_AUTH");
+
 export const changeField = createAction(
   CHANGE_FIELD,
   ({ form, key, value }) => ({ form, key, value })
@@ -98,6 +99,7 @@ const initialState = {
 
 const auth = handleActions(
   {
+    [INITIALIZE]: (state) => ({ ...state, ...initialState }),
     [CHANGE_FIELD]: (state, { payload: { form, key, value } }) =>
       produce(state, (draft) => {
         draft[form][key] = value;

@@ -11,7 +11,6 @@ import axios from 'axios';
 // import Topbar from './Topbar';
 // import { Carousel, Navbar } from 'react-bootstrap';
 const Mainpage_afterlogin = () => {
-
     let [product, setProduct] = useState([]);
 
     useEffect(() => {
@@ -20,7 +19,7 @@ const Mainpage_afterlogin = () => {
             .then((result) => {
                 const data = result.data._embedded.planResponseDtoList;
                 setProduct([...product, ...data]);
-                console.log(data);
+                // console.log(data);
             })
             .catch((err) => {
                 console.log(err);
@@ -28,21 +27,14 @@ const Mainpage_afterlogin = () => {
     }, []);
 
     if (!product) return null;
-    
+
     return (
         <>
             {/* <Navbar bg="light">
             <Navbar.Brand href="#home">Header</Navbar.Brand>
         </Navbar> */}
             <div className="topbar">
-            {product.map((a, i) => {
-                            return <After_Topnav product={product[0]} key={0} />;
-                        })}
-
-            {/* 이렇게 하니까 계속 오류나서 구글링중,,,,,,,,,{[1].map((a, i) => {
-                            return <After_Topnav product={product[0]} key={0} />;
-                        })} */}
-                {/* <After_Topnav /> */}
+                <After_Topnav product={product[0]}/>;
             </div>
 
             <div className="afterlogin-main-background">
@@ -65,7 +57,7 @@ const Mainpage_afterlogin = () => {
                 <Product product={product[3]}/>
                 <Product product={product[4]}/> */}
                     </div>
-                  </div>
+                </div>
             </div>
         </>
     );

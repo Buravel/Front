@@ -15,19 +15,19 @@ const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
-sagaMiddleware.run(rootSaga);
 
 /* >> 2번씩 처리됨!
 function loadUser() {
-  try {
-    const user = localStorage.getItem("user");
-    if (!user) return;
-    store.dispatch(tempSetUser(user));
-  } catch (e) {
-    console.log("localStorage is not working");
-  }
+    try {
+        const user = localStorage.getItem('user');
+        if (!user) return;
+        store.dispatch(tempSetUser(user));
+    } catch (e) {
+        console.log('localStorage is not working');
+    }
 }
 sagaMiddleware.run(rootSaga);
+
 loadUser();
 */
 

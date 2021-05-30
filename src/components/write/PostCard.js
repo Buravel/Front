@@ -28,7 +28,7 @@ const PostCard = ({ card, onClick }) => {
                     <div className="postcard-header left">
                         <span className="postcard-title">{`[${title1}] ${title2}`}</span>
                         <img
-                            src={`./images/write/${category}.png`}
+                            src={`./images/write/mini_${category}.png`}
                             alt="1"
                             style={{ maxWidth: '14px' }}
                         />
