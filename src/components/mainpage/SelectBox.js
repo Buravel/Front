@@ -30,7 +30,7 @@ class SelectBox extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label>
+                <label className="select_label">
                     <select
                         value={this.state.value}
                         onChange={this.handleChange}

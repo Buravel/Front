@@ -3,7 +3,7 @@ import './Search.scss';
 import Product from './Product';
 import Pagination from './Pagination';
 // import Advertise from './Advertise';
-import Topbar from './Topbar';
+import Search_topbar from './Search_topbar';
 
 import { /*Carousel,*/ Navbar } from 'react-bootstrap';
 import Data from './Data';
@@ -32,7 +32,7 @@ const Search = () => {
             
             <div className="search-main_background">
                 <div>
-                    <Topbar />
+                    <Search_topbar product={product.length}/>
                 </div>
 
                 <div className="container">
