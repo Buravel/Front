@@ -55,7 +55,7 @@ const Product = (props) => {
   return (
     <>
       <div className="product-shadowbox">
-        <Link to={`/plans/${planId}`}>
+        <Link to={`/plan/${planId}`}>
           <div className="col-xs-2">
             <div className="product_img">
               <img

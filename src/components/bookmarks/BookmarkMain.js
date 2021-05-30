@@ -13,6 +13,7 @@ import {
   HashRouter,
 } from "react-router-dom";
 import BookmarkDetail from "./BookmarkDetail";
+import BmarkNum from "./BmarkNum";
 
 function BookmarkMain() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,14 +61,40 @@ function BookmarkMain() {
     bmarkIdArray.push(bmarkListN[i].id);
   }
   const ImgArray = bmarknumber[0].map((k) => k.bookmarkImages)[1];
+  const delbmark = "654";
 
+  // for (let i = 0; i < bmarkListN.length; i++) {
+  //   axios
+  //     .get(`http://34.64.93.115/bookmark/${bmarkIdArray[i]}`)
+  //     .then((response) => {
+  //       PPPPP.push(response);
+  //     });
+  // }
+  // console.log(PPPPP);
   // for (let i = 0; i < bmarkListN.length; i++) {
   //   axios
   //     .get(`http://34.64.93.115/bookmark/${bmarkIdArray[i]}`)
   //     .then((response) => {
   //       setBookmarksdata([...bookmarksdata, response.data._embedded]);
   //     });
+
+  //   if ((i = bmarkListN.length)) {
+  //     break;
+  //   }
+
+  // using .then, create a new promise which extracts the data
+
+  // axiosTest().then((data) => {
+  //   return setBookmarksdata(data);
+  // });
+  // now we can use that data from the outside!
+
+  // const OPPP = bookmarksdata.map((k) => k);
+  // const K = [];
+  // for (let i = 0; i < OPPP.length; i++) {
+  //   K.push(OPPP[i].length);
   // }
+
   // const AK = bmarkIdArray.map((k) =>
   //   axios.get(`http://34.64.93.115/bookmark/${k}`).then((response) => {
   //     setBookmarksdata([...bookmarksdata, response.data._embedded]);
@@ -109,13 +136,40 @@ function BookmarkMain() {
                   <span className="bookmarkMaintitle">북마크</span>
                   <span className="bookmarkSubtitle">({bookmarks.length})</span>
                 </span>
-                <button className="bookmarkAddbtn" onClick={togglePopup}>
+                <button
+                  className="bookmarkAddbtn"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    axios
+                      .post(`http://34.64.93.115/bookmark`, {
+                        bookmarkTitle: "새 폴더",
+                      })
+                      .then((res) => {
+                        setBookmarks([...bookmarks, res.data]);
+                        alert(`파일이 생성되었습니다`);
+                      })
+                      .catch(function (error) {
+                        alert("기존 '새 폴더'의 이름을 변경해 주세요");
+                      });
+                  }}
+                >
                   <Bicon
                     picture="BookmarkAddbutton"
                     className="BookmarkAddbutton"
                   />
                 </button>
-                <button className="bookmarkDelbtn" onClick={toggledelPopup}>
+                <button
+                  className="bookmarkDelbtn"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    axios
+                      .delete(`http://34.64.93.115/bookmark/471`)
+                      .then((res) => {
+                        setBookmarks([bookmarks]);
+                        alert(`폴더가 삭제되었습니다`);
+                      });
+                  }}
+                >
                   <Bicon
                     picture="BookmarkDeletebutton"
                     className="BookmarkDeletebutton"
@@ -124,7 +178,7 @@ function BookmarkMain() {
               </div>
               <div className="bmarkTitlebuttom" />
               <div className="bmarkPostBackground">
-                {bmarknumber[0].map((item) => (
+                {bmarknumber[0].reverse().map((item) => (
                   <Link to={"/" + item.id}>
                     <span className="bmarkptbk">
                       <span
@@ -168,7 +222,8 @@ function BookmarkMain() {
                             )}
                         </span>
                         <span className="bkname">
-                          {item.bookmarkTitle}({})
+                          {item.bookmarkTitle}
+                          <BmarkNum id={item.id} />
                         </span>
                       </span>
                     </span>

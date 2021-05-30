@@ -3,22 +3,28 @@ import Bicon from "./Bicon";
 import axios from "axios";
 import BookmarkPost from "./BookmarkPost";
 
-function BookmarkDetail() {
+function BookmarkDetail(props) {
   const [state, setState] = useState([]);
   const [bookmarks, setBookmarks] = useState([]);
   const [postClick, setpostClick] = useState(false);
   const [posts, setPosts] = useState([]);
+  const thisLink = window.location.href;
+  console.log(thisLink.lastIndexOf("/"));
+  console.log(props.id);
+  let token = localStorage.getItem("token");
+  token = token.replace(/"/g, "");
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
   useEffect(() => {
     const fetchBookmarks = async () => {
-      const response = await axios("http://localhost:1000/bookmark");
+      const response = await axios("http://34.64.93.115/bookmark");
       setBookmarks(response.data);
     };
     fetchBookmarks();
   }, []);
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await axios.get("http://localhost:8080/post");
+      const response = await axios.get("http://34.64.93.115/plans");
       setPosts(response.data);
     };
 
@@ -34,7 +40,6 @@ function BookmarkDetail() {
     }
     setState([...state, selectedItem]);
   };
-
   const clickChange = () => setpostClick(!postClick);
   const bmarkID = bookmarks.map((k) => k.id);
 
