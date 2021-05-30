@@ -1,21 +1,19 @@
 {
-  "user": [
+  "posts": [
     {
-      "username": "user1",
-      "id": "idididid1",
-      "password": "pwpwpwpw1",
-      "email": "buravel1@gmail.com"
-    },
-    {
-      "username": "asdfdgh",
-      "id": "asdfgh",
-      "email": "s@na.com",
-      "password": "asdfghjkl"
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
     }
   ],
-  "find": [
+  "comments": [
     {
-      "email": {}
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
     }
-  ]
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

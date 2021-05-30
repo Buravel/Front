@@ -37,6 +37,9 @@ $blue: #0070ef;
       color: $lightgray;
       font-size: 14px;
     }
+    .email:hover {
+      color: $blue;
+    }
     .buttons {
       margin-top: 2.7vw;
       .setup {

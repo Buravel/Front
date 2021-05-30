@@ -2,7 +2,7 @@ import React from "react";
 import "./common.scss";
 import "./findIDPW.scss";
 
-const FindPW = ({ form, onChange, onSubmit }) => {
+const FindPW = ({ form, onChange, onSubmit, error }) => {
   return (
     <div className="findBlock">
       <form action="" onSubmit={onSubmit}>
@@ -19,6 +19,9 @@ const FindPW = ({ form, onChange, onSubmit }) => {
               value={form.email}
             ></input>
           </div>
+        </div>
+        <div className="error-msg">
+          {error ? <div>{error}</div> : <div></div>}
         </div>
         <button className="button01 style05" type="submit">
           확인

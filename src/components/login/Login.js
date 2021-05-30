@@ -4,7 +4,7 @@ import "./common.scss";
 import "./login.scss";
 
 const style = { display: "inline-block" };
-const Login = ({ form, onChange, onSubmit }) => {
+const Login = ({ form, onChange, onSubmit,error }) => {
   return (
     <div className="loginBlock">
       <form onSubmit={onSubmit}>
@@ -31,6 +31,13 @@ const Login = ({ form, onChange, onSubmit }) => {
           </div>
         </div>
 
+        <div className="error-msg">
+            {error ? (
+              <div>{error}</div>
+            ) : (
+              <div></div>
+            )}
+          </div>
         <button className="button01 style01" type="submit" name="btn">
           로그인
         </button>
