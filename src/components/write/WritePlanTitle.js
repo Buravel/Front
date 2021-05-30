@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './writePlanTitle.scss';
-import { getNight, splitDate } from '../../util/date';
+import { getNight } from '../../util/date';
 import TitleModal from './TitleModal';
 const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
-    const [sY, sM, sD] = splitDate(startDate);
-    const [eY, eM, eD] = splitDate(endDate);
+    const [sY, sM, sD] = startDate.split('-'); //splitDate(startDate);
+    const [eY, eM, eD] = endDate.split('-'); //splitDate(endDate);
     const night = getNight(`${sY}-${sM}-${sD}`, `${eY}-${eM}-${eD}`);
     return (
         <div className="plan-info">
@@ -33,27 +33,27 @@ const PlanRemote = ({ account, onSave }) => {
                 </div>
                 <div className="individual">
                     <div>
-                        <img src="./images/write/AIRPLANE.png" alt="1" />
-                        {account.AIRPLANE}
+                        <img src="./images/write/mini_FLIGHT.png" alt="1" />
+                        {account.FLIGHT}
                     </div>
                     <div>
-                        <img src="./images/write/EAT.png" alt="1" />
-                        {account.EAT}
+                        <img src="./images/write/mini_DISH.png" alt="1" />
+                        {account.DISH}
                     </div>
                     <div>
-                        <img src="./images/write/SHOPPING.png" alt="1" />
+                        <img src="./images/write/mini_SHOPPING.png" alt="1" />
                         {account.SHOPPING}
                     </div>
                     <div>
-                        <img src="./images/write/TRANSPORTAION.png" alt="1" />
-                        {account.TRANSPORTAION}
+                        <img src="./images/write/mini_TRAFFIC.png" alt="1" />
+                        {account.TRAFFIC}
                     </div>
                     <div>
-                        <img src="./images/write/ROOMS.png" alt="1" />
-                        {account.ROOMS}
+                        <img src="./images/write/mini_HOTEL.png" alt="1" />
+                        {account.HOTEL}
                     </div>
                     <div>
-                        <img src="./images/write/ETC.png" alt="1" />
+                        <img src="./images/write/mini_ETC.png" alt="1" />
                         {account.ETC}
                     </div>
                 </div>
@@ -77,12 +77,20 @@ const WritePlanTitle = ({
     planImage,
     onChangePlanInfo,
     onSave,
+    plans,
 }) => {
     // modal 관련
-    const [titleVisible, setTitleVisible] = useState(false);
+    const [titleVisible, setTitleVisible] = useState(true);
     const openTitleModal = () => setTitleVisible(true);
     const closeTitleModal = () => setTitleVisible(false);
 
+    const onClickSave = () => {
+        if (!planTitle || !startDate) {
+            alert('필수값을 입력해주세요.');
+            return;
+        }
+        onSave();
+    };
     return (
         <>
             <div className="title-container">
@@ -92,7 +100,7 @@ const WritePlanTitle = ({
                     planTitle={planTitle}
                     openModal={openTitleModal}
                 />
-                <PlanRemote account={account} onSave={onSave} />
+                <PlanRemote account={account} onSave={onClickSave} />
             </div>
             <div className="title-block"></div>
             {titleVisible && (

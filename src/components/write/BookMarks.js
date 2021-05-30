@@ -22,6 +22,7 @@ const BookMarks = ({ cards }) => {
                     {on ? '' : '사용하지 않은 북마크  '}
                     <img
                         src={`./images/write/${on ? 'down' : 'up'}-arrow.png`}
+                        alt=""
                     />
                 </div>
                 <div className="bookmark-info">

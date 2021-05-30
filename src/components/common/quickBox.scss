@@ -1,7 +1,7 @@
 .quick-menu {
     position: absolute;
     width: 310px;
-    height : 227px;
+    height : 250px;
     top:75px;
     right :45px;
     border-radius: 10px;
@@ -14,6 +14,7 @@
         width: 100%;
         text-align: right;
         span {
+            cursor: pointer;
             float:right; 
             display:inline-block; 
             padding:2px 5px; 
@@ -37,5 +38,17 @@
         span {
             font-size:12px;
         }
+    }
+    .logout-btn {
+        width: 100%;
+        text-align: center;
+        background-color: #dedede;
+        color:#535353;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    a {
+        
+        color : #535353;
     }
 }
