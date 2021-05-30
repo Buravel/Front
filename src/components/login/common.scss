@@ -119,13 +119,11 @@ $lightergray: #f5f5f5;
   }
 }
 
-.findBlock,
 .loginBlock,
-.privacyBlock,
-.registerBlock {
+.privacyBlock {
   .button01 {
     width: 26.8vw;
-    height: 7vh;
+    height: 7.5vh;
     border: solid $blue;
     border-radius: 2.1vw;
     font-size: 1.3vw;
@@ -238,6 +236,7 @@ $lightergray: #f5f5f5;
     margin: 2.8vw 26.3vw 9vw 26.4vw;
   }
 }
+
 .buttonsection02 {
   margin: 0vw;
   margin: 3.6vw 30.8vw 7.8vw 30.8vw;
