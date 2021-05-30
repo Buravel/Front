@@ -32,7 +32,9 @@ const MyPage = ({
             {emailVerified ? (
               <div className="email">{email}</div>
             ) : (
-              <div className="email">이메일 인증이 필요합니다.</div>
+              <Link to="/registerAuth">
+                <div className="email">이메일 인증이 필요합니다.</div>
+              </Link>
             )}
           </div>
           <div className="buttons">
@@ -41,9 +43,11 @@ const MyPage = ({
                 설정
               </button>
             </Link>
-            <button className="logout" style={style} onClick={onLogout}>
-              로그아웃
-            </button>
+            <Link to="/">
+              <button className="logout" style={style} onClick={onLogout}>
+                로그아웃
+              </button>
+            </Link>{" "}
           </div>{" "}
         </div>{" "}
       </div>

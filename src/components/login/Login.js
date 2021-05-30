@@ -4,7 +4,7 @@ import "./common.scss";
 import "./login.scss";
 
 const style = { display: "inline-block" };
-const Login = ({ form, onChange, onSubmit }) => {
+const Login = ({ form, onChange, onSubmit, error }) => {
   return (
     <div className="loginBlock">
       <form onSubmit={onSubmit}>
@@ -31,17 +31,26 @@ const Login = ({ form, onChange, onSubmit }) => {
           </div>
         </div>
 
-        <button className="button01 style01" type="submit" name="btn">
+        <div className="error-msg">
+          {error ? <div>{error}</div> : <div></div>}
+        </div>
+        <button className="login-btn" type="submit" name="btn">
           로그인
         </button>
       </form>
 
       <footer className="loginFooter">
-        <Link to="/signUp">회원가입</Link>
+        <Link to="/signUp" className="text">
+          회원가입
+        </Link>
         <h4 style={style}> &nbsp;|&nbsp; </h4>
-        <Link to="/findID">아이디 찾기</Link>
+        <Link to="/findID" className="text">
+          아이디 찾기
+        </Link>
         <h4 style={style}> &nbsp;|&nbsp; </h4>
-        <Link to="/findPW">비밀번호 찾기</Link>
+        <Link to="/findPW" className="text">
+          비밀번호 찾기
+        </Link>
       </footer>
     </div>
   );

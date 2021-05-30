@@ -1,65 +1,80 @@
-import axios from "axios";
-import EditPage from "../../components/mypage/EditPage";
-import React, { useState } from "react";
+/*import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
-axios.defaults.baseURL = "http://34.64.93.115";
+import EditPage from "../../components/mypage/EditPage";
+import {
+  changeField,
+  initializeForm,
+  nicknameChange,
+  profileImageChange,
+  passwordChange,
+} from "../../modules/mypage";
 
-const EditPageForm = () => {
-  const [nickname, setNickname] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [profile, setProfile] = useState(null);
-  let token = localStorage.getItem("token");
-  token = token.replace(/"/g, "");
-  const nickname_Change = async ({ nickname }) =>
-    await axios({
-      method: "PATCH",
-      url: "/mypage/nickname",
-      data: {
-        nickname: nickname,
-      },
-    })
-      .then((response) => {
-        setNickname(response.data.nickname);
-      })
-      .catch((error) => {
-        return Promise.reject(error);
-      });
+const EditPageForm = ({ history }) => {
+  const dispatch = useDispatch();
+  const { form, success } = useSelector(({ mypage }) => ({
+    form: mypage.nicknameChange,
+    success: mypage.success,
+  }));
 
-  const image_Change = async ({ profileImage }) =>
-    await axios({
-      method: "PATCH",
-      url: "/mypage/picture",
-      data: {
-        profileImage: profileImage,
-      },
-    })
-      .then((response) => {
-        setProfile(response.data.profile);
+  const nChange = (e) => {
+    const { value, name } = e.target;
+    dispatch(
+      changeField({
+        form: "nicknameChange",
+        key: name,
+        value,
       })
-      .catch((error) => {
-        return Promise.reject(error);
-      });
+    );
+  };
 
-  const password_Change = async ({ password }) =>
-    await axios({
-      method: "PATCH",
-      url: "/mypage/password",
-      data: {
-        nickname: password,
-      },
-    })
-      .then((response) => {
-        setPassword(response.data.password);
+  const pChange = (e) => {
+    const { value, name } = e.target;
+    dispatch(
+      changeField({
+        form: "passwordChange",
+        key: name,
+        value,
       })
-      .catch((error) => {
-        return Promise.reject(error);
-      });
+    );
+  };
+
+  const nSubmit = (e) => {
+    e.preventDefault();
+    const { nickname } = form;
+    dispatch(nicknameChange({ nickname }));
+  };
+
+  const pSubmit = (e) => {
+    e.preventDefault();
+    const { password } = form;
+    dispatch(passwordChange({ password }));
+  };
+
+  useEffect(() => {
+    dispatch(initializeForm("nickname"));
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(initializeForm("password"));
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (success === true) {
+      history.push("/setupPage");
+    }
+  }, [success, history]);
+
   return (
     <EditPage
-      type="edit"
-      nickname_Change={nickname_Change}
-      password_Change={password_Change}
+      form={form}
+      nChange={nChange}
+      pChange={pChange}
+      nickname_Change={nSubmit}
+      password_Change={pSubmit}
+      image_Change={profileImageChange}
     ></EditPage>
   );
 };
 export default withRouter(EditPageForm);
+*/

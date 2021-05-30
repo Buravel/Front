@@ -1,5 +1,6 @@
 $blue: #66a7ff;
 $gray: #c1c1c1;
+$darkgray: #535353;
 $darkblue: #2b71f3;
 
 .loginBlock {
@@ -18,11 +19,31 @@ $darkblue: #2b71f3;
       margin: 0%;
     }
   }
+  .error-msg {
+    color: red;
+    font-size: 10px;
+    text-align: center;
+  }
+  .login-btn {
+    margin-top: 2.1vw;
+    width: 26.8vw;
+    height: 7.5vh;
+    border-radius: 2.1vw;
+    font-size: 1.3vw;
+    background-color: $darkblue;
+    color: white;
+  }
 }
 
 .loginFooter {
   text-align: center;
-  font-size: 1vw;
-  font-weight: 200;
-  width: 26.8vw;
+  margin-top: 0.5vh;
+  .text {
+    display: inline;
+    text-align: center;
+    font-size: 1vw;
+    font-weight: 400;
+    width: 26.8vw;
+    color: $darkgray;
+  }
 }

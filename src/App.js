@@ -17,6 +17,9 @@ import SearchPage from "./pages/SearchPage";
 import WritePlan from "./pages/WritePlan";
 import SetUpPage from "./pages/SetupPage";
 import EditPage from "./pages/EditPage";
+import AuthCompletePage from "./pages/AuthCompletePage";
+import QuitPage from "./pages/QuitPage";
+import QuitCompletePage from "./pages/QuitCompletePage";
 
 const App = () => {
   return (
@@ -38,6 +41,9 @@ const App = () => {
       <Route path="/registerAuth" component={RegisterAuth} />
       <Route path="/setupPage" component={SetUpPage} />
       <Route path="/editPage" component={EditPage} />
+      <Route path="/authComplete" component={AuthCompletePage} />
+      <Route path="/quit" component={QuitPage} />
+      <Route path="/quitComplete" component={QuitCompletePage} />
     </>
   );
 };

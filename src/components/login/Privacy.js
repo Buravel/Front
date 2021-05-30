@@ -4,7 +4,7 @@ import "./common.scss";
 import "./privacy.scss";
 
 const style = { display: "inline-block" };
-const Privacy = ({ onClick }) => {
+const Privacy = ({ movetoForm, movetoMain }) => {
   return (
     <>
       <div className="privacyBlock">
@@ -13,7 +13,7 @@ const Privacy = ({ onClick }) => {
         </h2>
         <div className="privacyBox">
           <h5 className="h503" style={style}>
-            서비스 이용 약관(필수)
+            서비스 이용 약관
           </h5>
           <div className="privacytext">
             <h6 className="h602">
@@ -112,14 +112,20 @@ const Privacy = ({ onClick }) => {
           </div>
         </div>
         <div className="selection">
-          <button className="button01 style03" style={style} onClick={onClick}>
+          <button
+            className="button01 style03"
+            style={style}
+            onClick={movetoForm}
+          >
             ✓ 동의하기
           </button>
-          <Link to="/">
-            <button className="button01 style04" style={style}>
-              취소하기
-            </button>
-          </Link>
+          <button
+            className="button01 style04"
+            style={style}
+            onClick={movetoMain}
+          >
+            취소하기
+          </button>
         </div>
       </div>
     </>

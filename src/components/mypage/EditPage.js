@@ -1,9 +1,76 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./setuppage.scss";
 import profile from "./profile.png";
-//수정 필요!!
+import axios from "axios";
+import { withRouter } from "react-router-dom";
+axios.defaults.baseURL = "http://34.64.93.115";
+let token;
 const style = { display: "inline-block" };
-const EditPage = ({ onChange, nickname_Change, password_Change }) => {
+const EditPage = () => {
+  const [nick, setNick] = useState(null);
+  const [pass, setPassword] = useState(null);
+
+  const nickChange = (e) => {
+    setNick(e.target.value);
+    console.log(nick);
+  };
+
+  const passChange = (e) => {
+    setPassword(e.target.value);
+    console.log(pass);
+  };
+
+  const NicknameSubmit = async (e, history) => {
+    e.preventDefault();
+    token = localStorage.getItem("token");
+    if (token) token = token.replace(/\"/gi, "");
+    axios.defaults.headers.common["Authorization"] = `${token}`;
+    await axios
+      .patch("/mypage/nickname", { nickname: nick })
+      .then((response) => {
+        //        if (history !== null && history !== undefined)
+        //        history.push("/setupPage");
+        //        if (response.status === 200) history.push("/setupPage");
+        return response.data.nickname;
+      })
+      .catch((error) => {
+        return Promise.reject(error);
+      });
+  };
+
+  const ImageSubmit = async ({ profileImage }) => {
+    token = localStorage.getItem("token");
+    if (token) token = token.replace(/\"/gi, "");
+    axios.defaults.headers.common["Authorization"] = `${token}`;
+    await axios
+      .patch("/mypage/picture", { profileImage: profileImage })
+      .then((response) => {
+        return response.data.profileImage;
+      })
+      .catch((error) => {
+        return Promise.reject(error);
+      });
+  };
+
+  const PasswordSubmit = async (e, history) => {
+    e.preventDefault();
+    token = localStorage.getItem("token");
+    if (token) token = token.replace(/\"/gi, "");
+    axios.defaults.headers.common["Authorization"] = `${token}`;
+    await axios
+      .patch("/mypage/password", { password: pass })
+      .then((response) => {
+        //        if (history !== null && history !== undefined)
+        //        history.push("/setupPage");
+        //        if (response.status === 200) history.push("/setupPage");
+        return response.data.password;
+      })
+      .catch((error) => {
+        console.log(error);
+        return Promise.reject(error);
+      });
+  };
+
   return (
     <div className="setup">
       <img className="profileImage" src={profile} alt="" />
@@ -13,11 +80,10 @@ const EditPage = ({ onChange, nickname_Change, password_Change }) => {
           <input
             className="box"
             name="nickname"
-            onChange={onChange}
             style={style}
-            //            value={form.nickname}
+            onChange={nickChange}
           ></input>
-          <button className="change-btn" onClick={nickname_Change}>
+          <button className="change-btn" type="submit" onClick={NicknameSubmit}>
             변경
           </button>
         </div>
@@ -26,11 +92,10 @@ const EditPage = ({ onChange, nickname_Change, password_Change }) => {
           <input
             className="box"
             name="password"
-            onChange={onChange}
             style={style}
-            //            value={form.password}
+            onChange={passChange}
           ></input>
-          <button className="change-btn" onClick={password_Change}>
+          <button className="change-btn" onClick={PasswordSubmit}>
             변경
           </button>
         </div>
@@ -39,4 +104,4 @@ const EditPage = ({ onChange, nickname_Change, password_Change }) => {
   );
 };
 
-export default EditPage;
+export default withRouter(EditPage);

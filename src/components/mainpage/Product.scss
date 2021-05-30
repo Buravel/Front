@@ -4,7 +4,7 @@
         position: relative;
         /* relative */
         top:50px;
-        left: 20px;
+        left: 80px;
         
         width: 200px;
         height: 264px;
@@ -155,6 +155,10 @@
         top: 20px;
     }
     
+    .star {
+        position: absolute;
+        left: 70%;
+    }
     
     /* 사용자 표시 박스 디자이너님 삭제........혹시 모르니까 일단 냅둬
     .product_Writer_container{
