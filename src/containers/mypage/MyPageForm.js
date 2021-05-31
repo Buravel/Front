@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 //import { withRouter } from "react-router-dom";
 import MyPage from "../../components/mypage/MyPage";
@@ -21,6 +21,10 @@ const MyPageForm = () => {
     setEmailVerified(response.data.emailVerified);
   });
   console.log(profile);
+
+  useEffect(() => {
+    return;
+  }, []);
 
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState("");
