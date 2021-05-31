@@ -1,23 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./common.scss";
 import "./register.scss";
 
 const style = { display: "inline-block" };
-const Register = ({ form, onChange, onSubmit, error, errormsg }) => {
+const Register = ({ form, onChange, onSubmit, error, errormsg, success }) => {
   return (
     <div className="registerBlock">
       <form onSubmit={onSubmit}>
         <h2 className="h201">
           <b>버라벨</b>과 함께 하세요!
         </h2>
-        <div className="error-msg">
-          {errormsg !== null ? (
-            <div>오류있음{errormsg}</div>
-          ) : (
-            <div>오류없음</div>
-          )}
-        </div>
         <div>
           <div className="inputBox">
             <h5 className="h502">닉네임</h5>
@@ -69,7 +61,13 @@ const Register = ({ form, onChange, onSubmit, error, errormsg }) => {
           </div>
         </div>
         <div className="error-msg">
-          {error ? <div>{error}</div> : <div></div>}
+          {error ? (
+            <div>{error}</div>
+          ) : (
+            <div className="error-msg">
+              {success ? <div> </div> : <div>{errormsg}</div>}
+            </div>
+          )}
         </div>
         <button className="checkbtn" type="submit">
           확인

@@ -41,7 +41,7 @@ export const register = async ({ nickname, username, email, password }) => {
     })
     .catch((error) => {
       errormsg = error.response.data.errors[0].defaultMessage;
-      return Promise.reject(error);
+      return Promise.reject(errormsg);
     });
 };
 

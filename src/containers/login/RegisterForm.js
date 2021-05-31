@@ -7,9 +7,10 @@ import { withRouter } from "react-router-dom";
 const RegisterForm = ({ history }) => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const { form, success } = useSelector(({ auth }) => ({
+  const { form, success, errormsg } = useSelector(({ auth }) => ({
     form: auth.register,
     success: auth.success,
+    errormsg: auth.errormsg,
   }));
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -33,6 +34,7 @@ const RegisterForm = ({ history }) => {
       changeField({ form: "register", key: "password", value: "" });
       changeField({ form: "register", key: "passwordConfirm", value: "" });
     } else {
+      setError(null);
       dispatch(register({ nickname, username, email, password }));
     }
   };
@@ -58,6 +60,8 @@ const RegisterForm = ({ history }) => {
       onChange={onChange}
       onSubmit={onSubmit}
       error={error}
+      errormsg={errormsg}
+      success={success}
     />
   );
 };
