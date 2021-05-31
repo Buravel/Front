@@ -335,7 +335,7 @@
   position: absolute;
   top: 12px;
   left: 25px;
-  width: 110px;
+  width: 120px;
   height: 45px;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: NotoSansKR;
@@ -468,7 +468,7 @@
   margin: 0 auto;
   height: 664px;
   max-height: 90vh;
-  margin-top: calc(100vh - 60vh - 332px);
+  margin-top: calc(100vh - 50vh - 332px);
   /* 이부분 다시 정리해서 수정할것 */
   background: #fff;
   box-shadow: 2px 2px 30px 0 rgba(0, 0, 0, 0.1);
@@ -793,7 +793,7 @@
   margin: 0 auto;
   height: 440px;
   max-height: 90vh;
-  margin-top: calc(100vh - 50vh - 318px);
+  margin-top: calc(100vh - 40vh - 318px);
   /* 이부분 다시 정리해서 수정할것 */
   background: #fff;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
@@ -1013,4 +1013,14 @@
   width: 29px;
   height: 29px;
   object-fit: contain;
+}
+.Totaletc {
+  position: absolute;
+  top: 43.5px;
+  left: 204.5px;
+}
+.TotaletcCost {
+  position: absolute;
+  top: 37px;
+  left: 221px;
 }
