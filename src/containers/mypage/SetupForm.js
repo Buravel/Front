@@ -29,7 +29,6 @@ const SetupPageForm = () => {
       profileImage={profile}
     ></SetupPage>
   );
-  //  localStorage.removeItem("token");
 };
 
 export default withRouter(SetupPageForm);

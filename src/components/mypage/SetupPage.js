@@ -23,10 +23,9 @@ const SetupPage = ({ nickname, username, email, emailVerified, profile }) => {
           <div className="box">{email}</div>
           <div className="edit">
             <a href="/editPage" style={style}>
-              회원정보 수정
+              회원정보 수정 |
             </a>
-            <div style={style}> | </div>
-            <a href="/quit">회원 탈퇴</a>
+            <a href="/quit"> 회원 탈퇴</a>
           </div>
         </div>
       </div>

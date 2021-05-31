@@ -4,13 +4,20 @@ import "./common.scss";
 import "./register.scss";
 
 const style = { display: "inline-block" };
-const Register = ({ form, onChange, onSubmit }) => {
+const Register = ({ form, onChange, onSubmit, error, errormsg }) => {
   return (
     <div className="registerBlock">
       <form onSubmit={onSubmit}>
         <h2 className="h201">
           <b>버라벨</b>과 함께 하세요!
         </h2>
+        <div className="error-msg">
+          {errormsg !== null ? (
+            <div>오류있음{errormsg}</div>
+          ) : (
+            <div>오류없음</div>
+          )}
+        </div>
         <div>
           <div className="inputBox">
             <h5 className="h502">닉네임</h5>
@@ -61,12 +68,8 @@ const Register = ({ form, onChange, onSubmit }) => {
             ></input>
           </div>
         </div>
-        <div className="privacy">
-          <Link to="/privacyPolicy">
-            <h6 className="h601" style={style}>
-              약관 확인 및 동의하기(필수)
-            </h6>
-          </Link>
+        <div className="error-msg">
+          {error ? <div>{error}</div> : <div></div>}
         </div>
         <button className="checkbtn" type="submit">
           확인

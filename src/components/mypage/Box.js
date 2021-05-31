@@ -7,7 +7,7 @@ import hotel from "./hotel.png";
 import food from "./food.png";
 
 const style = { display: "inline-block" };
-const Box = () => {
+const Box = ({ totalprice }) => {
   return (
     <>
       <div className="box-container">
@@ -19,7 +19,7 @@ const Box = () => {
             부산여행
           </div>
           <div className="cost" style={style}>
-            125만원
+            {totalprice}만원
           </div>
           <div className="date">4박 5일</div>
           <div className="cost-sort" style={style}>

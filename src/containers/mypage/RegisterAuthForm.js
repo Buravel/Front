@@ -7,7 +7,7 @@ import {
   registerAuth,
   registerReAuth,
 } from "../../modules/auth";
-import RegisterAuth from "../../components/login/RegisterAuth";
+import RegisterAuth from "../../components/mypage/RegisterAuth";
 
 const RegisterAuthForm = ({ history }) => {
   const dispatch = useDispatch();
