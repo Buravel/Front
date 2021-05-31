@@ -12,11 +12,11 @@ const SetupPageForm = () => {
   let token = localStorage.getItem("token");
   if (token) token = token.replace(/\"/gi, "");
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-  const returning = axios.get("/mypage").then((response) => {
+  const myInfo = axios.get("/mypage").then((response) => {
     setNickname(response.data.nickname);
     setUsername(response.data.username);
     setEmail(response.data.email);
-    setProfile(response.data.profile);
+    setProfile(response.data.profileImage);
     setEmailVerified(response.data.emailVerified);
   });
   return (
@@ -26,7 +26,7 @@ const SetupPageForm = () => {
       username={username}
       email={email}
       emailVerified={emailVerified}
-      profileImage={profile}
+      profile={profile}
     ></SetupPage>
   );
 };
