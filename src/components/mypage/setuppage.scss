@@ -11,6 +11,20 @@ $blue: #0070ef;
     height: 174px;
   }
   .info {
+    .msg {
+      text-align: center;
+      color: $blue;
+      font-weight: 400;
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+    .error-msg {
+      text-align: center;
+      color: red;
+      font-weight: 400;
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
     .profileBox {
       .profile-btn {
         display: block;

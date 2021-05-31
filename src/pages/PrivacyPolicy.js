@@ -1,13 +1,13 @@
 import React from "react";
 import Template from "../components/login/Template";
-import PrivacyForm from "../containers/login/PrivacyForm";
+import Privacy from "../components/login/Privacy";
 import Responsive from "../components/common/Responsive";
 
 const PrivacyPolicy = () => {
   return (
     <Responsive>
       <Template>
-        <PrivacyForm />
+        <Privacy />
       </Template>
     </Responsive>
   );

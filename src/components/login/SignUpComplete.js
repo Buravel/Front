@@ -28,8 +28,8 @@ const Complete = () => {
         </h5>
       </div>
       <div className="buttonsection">
-        <Link to="/login">
-          <button className="login-btn">로그인</button>
+        <Link to="/">
+          <button className="login-btn">메인으로</button>
         </Link>
       </div>
     </div>
