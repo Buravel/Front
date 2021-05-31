@@ -1,4 +1,5 @@
-/*import { createAction, handleActions } from "redux-actions";
+/*
+import { createAction, handleActions } from "redux-actions";
 import { takeLatest } from "redux-saga/effects";
 import * as authAPI from "../lib/api/auth";
 import createRequestSaga, {
@@ -9,7 +10,7 @@ const TEMP_SET_USER = "user/TEMP_SET_USER";
 const [CHECK, CHECK_SUCCESS, CHECK_FAILURE] =
   createRequestActionTypes("user/CHECK");
 
-export const tempSetUser = createAction(TEMP_SET_USER, (token) => token);
+export const tempSetUser = createAction(TEMP_SET_USER, (user) => user);
 export const check = createAction(CHECK);
 
 const checkSaga = createRequestSaga(CHECK, authAPI.check);
@@ -18,24 +19,24 @@ export function* userSaga() {
 }
 
 const initialState = {
-  token: null,
+  user: null,
   checkError: null,
 };
 
 export default handleActions(
   {
-    [TEMP_SET_USER]: (state, { payload: token }) => ({
+    [TEMP_SET_USER]: (state, { payload: user }) => ({
       ...state,
-      token,
+      user,
     }),
-    [CHECK_SUCCESS]: (state, { payload: token }) => ({
+    [CHECK_SUCCESS]: (state, { payload: user }) => ({
       ...state,
-      token,
+      user,
       checkError: null,
     }),
     [CHECK_FAILURE]: (state, { payload: error }) => ({
       ...state,
-      token: null,
+      user: null,
       checkError: error,
     }),
   },

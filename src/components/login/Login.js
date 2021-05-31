@@ -40,7 +40,7 @@ const Login = ({ form, onChange, onSubmit, error }) => {
       </form>
 
       <footer className="loginFooter">
-        <Link to="/signUp" className="text">
+        <Link to="/privacyPolicy" className="text">
           회원가입
         </Link>
         <h4 style={style}> &nbsp;|&nbsp; </h4>

@@ -24,6 +24,7 @@ const Product = (props) => {
   const category = postId && postId.map((k) => k.category)[0];
 
   const planImage = props.product.planImage;
+
   const outputPlanTotalPrice = props.product.outputPlanTotalPrice;
 
   const hotelprice = parseInt(props.product.hotelTotalPrice / 1000);
@@ -58,6 +59,7 @@ const Product = (props) => {
         <Link to={`/plans/${planId}`}>
           <div className="col-xs-2">
             <div className="product_img">
+              {/* {planImage !== "" && planImage !== undefined && (<img src={`data:image/png;base64,${planImage}`}/>)} */}
               <img
                 className="img-full"
                 src="http://placehold.it/200x185"
