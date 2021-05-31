@@ -46,7 +46,7 @@ const RegisterForm = ({ history }) => {
       return;
     }
 
-    if (success === true) {
+    if (success === true && error === null) {
       history.push("/signUpComplete");
     }
   }, [success, dispatch, history, error]);
