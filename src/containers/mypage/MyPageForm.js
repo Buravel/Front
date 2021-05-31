@@ -42,6 +42,7 @@ const MyPageForm = () => {
     setBox([response]);
     //    console.log(box);
     /*box.filter((element) => {
+
       setTitle(element.planTitle);
       setTag(element.planTagResponseDtos.planTagTitle);
       setTop3(element.top3List);
