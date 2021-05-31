@@ -82,7 +82,7 @@ const WritePlanTitleContainer = () => {
     useEffect(() => {
         if (write) {
             console.log('작성 성공');
-            history.push('/');
+            history.push(`/plan/${write.data.id}`);
         }
         if (writeError) {
             alert('작성 실패');
