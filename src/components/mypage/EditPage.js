@@ -3,12 +3,13 @@ import "./setuppage.scss";
 import profile from "./profile.png";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import imageCompression from "browser-image-compression";
 axios.defaults.baseURL = "http://34.64.93.115";
 let token;
 const style = { display: "inline-block" };
 const EditPage = () => {
   const [nick, setNick] = useState(null);
-  const [img, setImg] = useState({ selectedFile: null });
+  const [img, setImg] = useState({ selectedFile: [] });
   const [pass, setPassword] = useState(null);
   const [pw, setPw] = useState(false);
   const [change, setChange] = useState(false);
