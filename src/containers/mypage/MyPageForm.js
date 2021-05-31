@@ -20,25 +20,31 @@ const MyPageForm = () => {
     setProfile(response.data.profile);
     setEmailVerified(response.data.emailVerified);
   });
+  console.log(profile);
 
-  const [box, setBox] = useState([]);
   const [image, setImage] = useState(null);
-  const [title, setTitle] = useState(null);
-  const [tag, setTag] = useState(null);
-  const [period, setPeriod] = useState(null);
-  const [top3, setTop3] = useState(null);
-  const [totalprice, setTotalprice] = useState(null);
-  const [rating, setRating] = useState(null);
+  const [title, setTitle] = useState("");
+  const [tag, setTag] = useState("");
+  const [period, setPeriod] = useState("");
+  const [top3, setTop3] = useState("");
+  const [totalprice, setTotalprice] = useState(0);
+  const [rating, setRating] = useState("");
+  const [box, setBox] = useState([]);
 
   const posting = axios.get("/plans/mine/closed").then((response) => {
-    setBox([...response.data._embedded.planResponseDtoList]);
-    box.filter((element) => {
+    //    console.log(response);
+    //    setBox([...response]);
+    //    setBox([response.data._embedded.planResponseDtoList]);
+    setBox([response]);
+    console.log(box);
+    /*box.filter((element) => {
+
       setTitle(element.planTitle);
       setTag(element.planTagResponseDtos.planTagTitle);
       setTop3(element.top3List);
       setTotalprice(element.outputPlanTotalPrice);
       setRating(element.planRating);
-    });
+    });*/
   });
 
   const onLogout = () => {
