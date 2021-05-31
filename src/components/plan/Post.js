@@ -137,10 +137,12 @@ function Post(props) {
             <span className="moneyName">만원</span>
           </div>
           <span className="hashTagLine">
-            {tagsLINE &&
-              tagsLINE.map((num) => (
-                <span className="postHashTag">#{num}</span>
-              ))}
+            {tagsLINE && tagsLINE[0] === ""
+              ? ""
+              : tagsLINE &&
+                tagsLINE.map((num) => (
+                  <span className="postHashTag">#{num}</span>
+                ))}
             {/* 여기 주석은 풀지말것 */}
             {/* {hashTags.map((num) => (
               <span className="postHashTag">#{num}</span>

@@ -377,7 +377,7 @@
   position: absolute;
   top: -10px;
   left: -10px;
-  z-index: 4;
+  z-index: 1;
   width: 220px;
   height: 302px;
 }
@@ -394,7 +394,7 @@
   position: absolute;
   top: 10px;
   right: 11px;
-  z-index: 10;
+  z-index: 1;
   width: 35px;
   height: 35px;
   background-color: transparent;
@@ -527,4 +527,109 @@
   top: -14px;
   left: 52px;
   background-color: #e2e1e1;
+}
+.bmarkCheckcontainer {
+  z-index: 10;
+  position: relative;
+  top: 21.5px;
+  left: 193px;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.bmarkCheckcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 26px;
+  width: 26px;
+  background-color: transparent;
+  border-radius: 27px;
+}
+
+/* On mouse-over, add a grey background color */
+.bmarkCheckcontainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.bmarkCheckcontainer input:checked ~ .checkmark {
+  background-color: transparent;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.bmarkCheckcontainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.bmarkCheckcontainer .checkmark:after {
+  left: 8px;
+  top: 3.5px;
+  width: 7px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3.5px 3.5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.bringtoplanbtn {
+  z-index: 10;
+  position: absolute;
+  top: 82px;
+  right: 173px;
+  width: 146px;
+  height: 33px;
+  object-fit: contain;
+  border-color: transparent;
+  background-color: transparent;
+}
+.bringtoplanbtnbackground {
+  top: 82px;
+  right: 173px;
+  width: 146px;
+  height: 33px;
+  object-fit: contain;
+}
+.BmarktoplanHead {
+  position: absolute;
+  top: 20px;
+  left: 22px;
+  width: 200px;
+  height: 29px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: NotoSansKR;
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #535353;
 }
