@@ -25,6 +25,7 @@
         position: relative;
         top:0;
         width: 200px;
+        height: 185px;
     }
     
     .img-full {
@@ -61,7 +62,7 @@
     }
     .product_topline {
         position: relative;
-        top:-5px;
+        top:3px;
     }
     
     .product_name {
@@ -84,7 +85,7 @@
     
     .price {
         position: absolute;
-        top:40%;
+        top:50%;
         right: -13%;
         color: #0070ef;
         font-size: 18px;
@@ -128,7 +129,7 @@
     }
     .plan_text {
         position: absolute;
-        top: 212px;
+        top: 215px;
         left: 8px;
         width: 100px;
         height: 18px;
@@ -152,7 +153,7 @@
         width:220px;
         height: 18px;
         left: 10px;
-        top: 20px;
+        top: 30px;
     }
     
     .star {
