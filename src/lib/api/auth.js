@@ -38,6 +38,7 @@ export const register = async ({ nickname, username, email, password }) =>
       return response;
     })
     .catch((error) => {
+      console.log(error.response.data.errors[0].defaultMessage);
       return Promise.reject(error);
     });
 

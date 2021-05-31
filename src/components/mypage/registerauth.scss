@@ -2,12 +2,13 @@ $lightblue: #0070ef;
 $darkgray: #535353;
 $gray: #c1c1c1;
 $lightgray: #d9d9d9;
-.findauth {
+.registerauth {
   text-align: center;
+  justify-content: center;
   .logo-complete {
     display: inline-block;
     width: 6.8vw;
-    margin: 6vh 38.1vw 14vh 38.1vw;
+    margin: 7vh 38.1vw 50vh 38.1vw;
     width: 6.8vw;
     margin-top: 10.1vw;
     margin-bottom: 6.4vw;
@@ -21,16 +22,19 @@ $lightgray: #d9d9d9;
     font-weight: 400;
   }
 
-  .h508 {
-    text-align: center;
-    width: 24vw;
+  .h509 {
+    color: $lightblue;
     margin: 0;
-    font-weight: 300;
-    margin-bottom: 8vh;
-    .h509 {
-      color: $lightblue;
-      margin: 0;
-      line-height: 0;
+    line-height: 0;
+  }
+
+  .authNumForm {
+    .inputBox {
+      .h511 {
+        color: red;
+        //        text-align: left;
+        font-weight: 500;
+      }
     }
   }
 
@@ -41,7 +45,7 @@ $lightgray: #d9d9d9;
   }
 
   .btnsection {
-    .login-btn {
+    .ok-btn {
       font-size: 1.3vw;
       border: none;
       margin-left: 0.7vw;
@@ -50,20 +54,18 @@ $lightgray: #d9d9d9;
       height: 3.1vw;
       background-color: $lightblue;
       border-radius: 0.5vw;
-      a {
-        color: white;
-      }
+      color: white;
     }
-
-    .mainpage-btn {
+    .cancel-btn {
       font-size: 1.3vw;
+      border: none;
       margin-left: 0.7vw;
       margin-right: 0.7vw;
-      width: 17.4vw;
+      width: 10vw;
       height: 3.1vw;
+      background-color: $lightgray;
       border-radius: 0.5vw;
-      border: 0.2vw solid $lightblue;
-      color: $lightblue;
+      color: $darkgray;
     }
   }
 }

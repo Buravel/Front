@@ -1,0 +1,58 @@
+$darkgray: #535353;
+$gray: #c1c1c1;
+$darkblue: #2b71f3;
+.quitpage {
+  text-align: center;
+  justify-content: center;
+  color: $darkgray;
+  font-size: 1.1vw;
+  .quitImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15vh;
+  }
+  .bold {
+    font-weight: 600;
+  }
+  .quit-input {
+    margin-top: 6vh;
+    border: none;
+    border-bottom: 1.5px solid $darkgray;
+    outline: none;
+  }
+  .quit-input:hover {
+    border-bottom: 1.5px solid $darkblue;
+  }
+
+  .error-msg {
+    color: red;
+    font-size: 0.9vw;
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+  }
+  .quit-btn {
+    border-radius: 5px;
+    font-size: 1.4vw;
+    background-color: $darkblue;
+    color: white;
+    width: 7vw;
+  }
+  .quit-cancel {
+    border-radius: 5px;
+    font-size: 1.4vw;
+    background-color: $gray;
+    color: $darkgray;
+    width: 7vw;
+  }
+  .main-btn {
+    margin-top: 7vh;
+    border-radius: 20px;
+    background-color: $darkblue;
+    color: white;
+    font-size: 1vw;
+    width: 10vw;
+    height: 7vh;
+  }
+}
