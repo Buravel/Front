@@ -39,10 +39,20 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
     const [hashTags, setHashTags] = useState(!card ? [] : [...card.hashTags]);
     const [memo, setMemo] = useState(!card ? '' : card.memo);
     const [category, setCategory] = useState(!card ? FLIGHT : card.category);
+
     const [imgBase64, setImgBase64] = useState(!card ? '' : card.postImage); // 파일 base64
 
     const [inputHash, setInputHash] = useState(false);
     const [textHash, setTextHash] = useState('');
+    const [categorySelect, setCategorySelect] = useState(false);
+    const [hover, setHover] = useState([
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+    ]);
 
     const ratingArr = useMemo(() => numToArr(rating), [rating]);
     const onClickSave = () => {
@@ -78,10 +88,6 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
         setTextHash('');
         setInputHash(false);
     };
-    const onChangeCategory = (e) => {
-        setCategory(e.target.value);
-    };
-
     const onChangeFile = (event) => {
         const reader = new FileReader();
         reader.onloadend = () => {
@@ -95,6 +101,9 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
             reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
             // setImgFile(event.target.files[0]); // 파일 상태 업데이트
         }
+    };
+    const onHover = (i) => {
+        setHover((state) => state.map((h, idx) => (idx !== i ? h : !h)));
     };
     return (
         <div className="post-modal-container">
@@ -140,18 +149,40 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                                 setTitle2(e.target.value);
                             }}
                         /> */}
-                        <select
-                            value={category}
-                            style={{ width: '50px' }}
-                            onChange={onChangeCategory}
+                        <button
+                            onClick={() => setCategorySelect(!categorySelect)}
                         >
-                            <option value={FLIGHT}>비행기</option>
-                            <option value={DISH}>식사</option>
-                            <option value={SHOPPING}>쇼핑</option>
-                            <option value={TRAFFIC}>교통</option>
-                            <option value={HOTEL}>숙소</option>
-                            <option value={ETC}>기타</option>
-                        </select>
+                            <img
+                                src={`./images/write/mini_${category}_blue.png`}
+                                alt=""
+                                style={{ width: '25px' }}
+                            />
+                        </button>
+                        <div
+                            className="select-category"
+                            hidden={!categorySelect}
+                        >
+                            {[FLIGHT, DISH, SHOPPING, TRAFFIC, HOTEL, ETC].map(
+                                (c, i) => (
+                                    <button
+                                        onClick={() => {
+                                            setCategory(c);
+                                            setCategorySelect(!categorySelect);
+                                        }}
+                                        onMouseOver={() => onHover(i)}
+                                        onMouseOut={() => onHover(i)}
+                                        key={c}
+                                    >
+                                        <img
+                                            src={`./images/write/mini_${c}_${
+                                                hover[i] ? 'blue' : 'black'
+                                            }.png`}
+                                            alt=""
+                                        />
+                                    </button>
+                                ),
+                            )}
+                        </div>
                     </label>
                     <label>
                         <span>
@@ -231,6 +262,9 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                                     onChange={(e) =>
                                         setTextHash(e.target.value)
                                     }
+                                    onKeyPress={(e) => {
+                                        if (e.key === 'Enter') onClickAddHash();
+                                    }}
                                 />
                                 <div
                                     className="add-hash"

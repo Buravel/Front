@@ -51,9 +51,9 @@ const PostCard = ({ card, onClick, bookmarks }) => {
                     <div className="postcard-header left">
                         <span className="postcard-title">{title1}</span>
                         <img
-                            src={`./images/write/mini_${category}.png`}
+                            src={`./images/write/mini_${category}_black.png`}
                             alt="1"
-                            style={{ maxWidth: '14px' }}
+                            style={{ maxWidth: '19px' }}
                         />
                     </div>
                     <div className="postcard-header right">
