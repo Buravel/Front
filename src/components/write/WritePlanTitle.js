@@ -33,27 +33,39 @@ const PlanRemote = ({ account, onSave }) => {
                 </div>
                 <div className="individual">
                     <div>
-                        <img src="./images/write/mini_FLIGHT.png" alt="1" />
+                        <img
+                            src="./images/write/mini_FLIGHT_black.png"
+                            alt="1"
+                        />
                         {account.FLIGHT}
                     </div>
                     <div>
-                        <img src="./images/write/mini_DISH.png" alt="1" />
+                        <img src="./images/write/mini_DISH_black.png" alt="1" />
                         {account.DISH}
                     </div>
                     <div>
-                        <img src="./images/write/mini_SHOPPING.png" alt="1" />
+                        <img
+                            src="./images/write/mini_SHOPPING_black.png"
+                            alt="1"
+                        />
                         {account.SHOPPING}
                     </div>
                     <div>
-                        <img src="./images/write/mini_TRAFFIC.png" alt="1" />
+                        <img
+                            src="./images/write/mini_TRAFFIC_black.png"
+                            alt="1"
+                        />
                         {account.TRAFFIC}
                     </div>
                     <div>
-                        <img src="./images/write/mini_HOTEL.png" alt="1" />
+                        <img
+                            src="./images/write/mini_HOTEL_black.png"
+                            alt="1"
+                        />
                         {account.HOTEL}
                     </div>
                     <div>
-                        <img src="./images/write/mini_ETC.png" alt="1" />
+                        <img src="./images/write/mini_ETC_black.png" alt="1" />
                         {account.ETC}
                     </div>
                 </div>

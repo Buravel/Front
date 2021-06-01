@@ -143,6 +143,9 @@ const TitleModal = ({
                                     onChange={(e) =>
                                         setTextHash(e.target.value)
                                     }
+                                    onKeyPress={(e) => {
+                                        if (e.key === 'Enter') onClickAddHash();
+                                    }}
                                 />
                                 <div
                                     className="add-hash"

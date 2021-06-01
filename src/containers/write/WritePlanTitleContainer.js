@@ -43,7 +43,6 @@ const WritePlanTitleContainer = () => {
     const writeError = useSelector((state) => state.write.writeError);
 
     const loading = useSelector((state) => state.loading['write/WRITE_PLAN']);
-    console.log(loading);
     // title 금액관련
     const account = useMemo(() => getAccount(plans), [plans]);
 

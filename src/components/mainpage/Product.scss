@@ -38,6 +38,12 @@
         top:0;
         width: 200px;
         height: 185px;
+        img {
+            min-width: 100%;
+            min-height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+        }
     }
     
     .img-full {
