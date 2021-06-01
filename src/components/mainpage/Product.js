@@ -70,7 +70,6 @@ const Product = (props) => {
                   &nbsp;#{planTagTitle}&nbsp;
                 </span>
               </div>
-
               <div className="product_topline">
                 <span className="product_name">&nbsp;{postTitle}</span>
                 <span className="price">&nbsp;{outputPlanTotalPrice}</span>
