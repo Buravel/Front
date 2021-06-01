@@ -16,6 +16,8 @@ function BookmarkDetail({ match }) {
   const [postClick, setpostClick] = useState(false);
   const [posts, setPosts] = useState([]);
   const [checkedInputs, setCheckedInputs] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [isbmarkOpen, setBmarkisOpen] = useState(false);
   const [isEditOpen, setEditisOpen] = useState(false);
   const [title, setTitle] = useState("");
@@ -32,14 +34,6 @@ function BookmarkDetail({ match }) {
     setTitle(event.target.value);
   };
 
-  // const handleChange = (selectedItem) => {
-  //   if (state.includes(selectedItem)) {
-  //     setState(state.filter((item) => item !== selectedItem));
-  //     return;
-  //   }
-  //   setState([...state, selectedItem]);
-  //   return;
-  // };
   const deletepost = (k) => {
     for (let i = 0; i < checkedInputs.length; i++) {
       axios
@@ -49,23 +43,50 @@ function BookmarkDetail({ match }) {
         }, []);
     }
   };
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setError(null);
+        setBookmarkstitle(null);
+        setLoading(true);
+        const response = await axios.get(`http://34.64.93.115/bookmark`);
+        setBookmarkstitle(response.data._embedded.bookmarkResponseDtoList);
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
+    };
 
-  //이부분 플랜 가져오는 팝업 생성후 다시 작성할 것
+    fetchPosts();
+  }, []);
+  // const returning = axios
+  //   .get(`http://34.64.93.115/bookmark/${match.params.id}`)
+  //   .then((response) => {
+  //     setBookmarks(response.data._embedded);
+  //   }, []);
 
-  const returning = axios
-    .get(`http://34.64.93.115/bookmark/${match.params.id}`)
-    .then((response) => {
-      response = []
-        ? setBookmarks([])
-        : setBookmarks(response.data._embedded.bookmarkPostResponseDtoList);
-    }, []);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setError(null);
+        setBookmarks(null);
+        setLoading(true);
+        const response = await axios.get(
+          `http://34.64.93.115/bookmark/${match.params.id}`
+        );
+        setBookmarks(response.data._embedded);
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
+    };
 
-  const returningtitle = axios
-    .get(`http://34.64.93.115/bookmark`)
-    .then((response) => {
-      setBookmarkstitle(response.data._embedded.bookmarkResponseDtoList);
-    }, []);
-  const bmarktitleA = bookmarkstitle.filter((k) => k.id == match.params.id);
+    fetchPosts();
+  }, []);
+
+  const bmarktitleA =
+    bookmarkstitle !== null &&
+    bookmarkstitle.filter((k) => k.id == match.params.id);
   const thisbmarktitle = bmarktitleA && bmarktitleA[0];
   const thisbmarktitleA = thisbmarktitle && thisbmarktitle.bookmarkTitle;
 
@@ -77,132 +98,117 @@ function BookmarkDetail({ match }) {
 
     fetchPosts();
   }, []);
-  if (!posts) return null;
 
-  //나중에 필터로 한 북마크에 있는 id를 추출하게 해야함
-
-  const clickChange = () => setpostClick(!postClick);
-
-  const bmarkListN = bookmarks && bookmarks.map((k) => k);
+  const bmarkListN =
+    bookmarks == null ? [] : bookmarks.bookmarkPostResponseDtoList;
 
   const bmarknumber = [];
-  for (let i = 0; i <= bmarkListN.length; i++) {
-    bmarknumber.push(bmarkListN && bmarkListN.map((k) => k));
-  }
-  const bmarkListNum = bmarkListN && bmarkListN.map((k) => k);
+  // if (bmarkListN.length === undefined) {
+  //   return "게시물이 없습니다";
+  // } else {
+  //   for (let i = 0; i <= bmarkListN.length; i++) {
+  //     bmarknumber.push(bmarkListN && bmarkListN.map((k) => k));
+  //   }
+  // }
 
-  const bmarkArray = [];
-  for (let i = 0; i < bmarkListN.length; i++) {
-    bmarkArray.push(bmarkListN[i]);
-  }
-  const bmarkIdArray = [];
-  for (let i = 0; i < bmarkListN.length; i++) {
-    bmarkIdArray.push(bmarkListN[i].id);
-  }
-  const toggleBmarkPopup = () => {
-    setBmarkisOpen(!isbmarkOpen);
-  };
-  const toggleEditPopup = () => {
-    setEditisOpen(!isEditOpen);
-  };
-  const thisbookmarkID = match.params.id;
+  console.log(bmarkListN);
+  // const bmarkListNum = bmarkListN && bmarkListN.map((k) => k);
 
-  const handleSubmit = (event) => {
-    axios
-      .patch(`http://34.64.93.115/bookmark/${thisbookmarkID}`, {
-        bookmarkTitle: title,
-      })
-      .then((res) => {
-        setTitle("");
-      }, []);
-  };
+  // const bmarkArray = [];
+  // for (let i = 0; i < bmarkListN.length; i++) {
+  //   bmarkArray.push(bmarkListN[i]);
+  // }
+  // const bmarkIdArray = [];
+  // for (let i = 0; i < bmarkListN.length; i++) {
+  //   bmarkIdArray.push(bmarkListN[i].id);
+  // }
+  // const toggleBmarkPopup = () => {
+  //   setBmarkisOpen(!isbmarkOpen);
+  // };
+  // const toggleEditPopup = () => {
+  //   setEditisOpen(!isEditOpen);
+  // };
+  // const thisbookmarkID = match.params.id;
 
-  // const handleSubmit = async (a) => {
-  //   token = localStorage.getItem("token");
-  //   if (token) token = token.replace(/\"/gi, "");
-
-  //   axios.defaults.headers.common["Authorization"] = `${token}`;
-
-  //   await axios
-  //     .PATCH(`http://34.64.93.115/bookmark/` + thisbookmarkID, {
+  // const handleSubmit = (event) => {
+  //   axios
+  //     .patch(`http://34.64.93.115/bookmark/${thisbookmarkID}`, {
   //       bookmarkTitle: title,
   //     })
-  //     .then((response) => {
-  //       return console.log(response.data);
-  //     });
+  //     .then((res) => {
+  //       setTitle("");
+  //     }, []);
   // };
+  return <div>hello world!</div>;
+  // return (
+  //   <div className="bkDtBackground">
+  //     {isbmarkOpen && (
+  //       <BookmarktoplanPopup
+  //         checkedplan={checkedInputs}
+  //         handleClose={toggleBmarkPopup}
+  //       />
+  //     )}
+  //     <div className="btDTpage">
+  //       <div className="bkDtName">
+  //         <span className="bkDtNamefirst">{thisbmarktitleA}</span>
+  //         <span className="bkDtNamesecond">({bmarkListN.length})</span>
+  //         <span>
+  //           <input type="button" onClick={toggleEditPopup} />
+  //           <Bicon picture="nameEdit" className="bkDtNameEdit" />
+  //         </span>
+  //         {isEditOpen && (
+  //           <>
+  //             <input
+  //               type="text"
+  //               name="title"
+  //               placeholder="북마크 이름"
+  //               onChange={handleTitleChange}
+  //             />
+  //             <button onClick={handleSubmit}>확인</button>
+  //           </>
+  //         )}
+  //       </div>
 
-  return (
-    <div className="bkDtBackground">
-      {isbmarkOpen && (
-        <BookmarktoplanPopup
-          checkedplan={checkedInputs}
-          handleClose={toggleBmarkPopup}
-        />
-      )}
-      <div className="btDTpage">
-        <div className="bkDtName">
-          <span className="bkDtNamefirst">{thisbmarktitleA}</span>
-          <span className="bkDtNamesecond">({bmarkListN.length})</span>
-          <span>
-            <input type="button" onClick={toggleEditPopup} />
-            <Bicon picture="nameEdit" className="bkDtNameEdit" />
-          </span>
-          {isEditOpen && (
-            <>
-              {/* <form onSubmit={handleSubmit}> */}
-              <input
-                type="text"
-                name="title"
-                placeholder="북마크 이름"
-                onChange={handleTitleChange}
-              />
-              <button onClick={handleSubmit}>확인</button>
-              {/* </form> */}
-            </>
-          )}
-        </div>
+  //       <span className="bringtoplanbtnbackground">
+  //         <input
+  //           type="button"
+  //           onClick={toggleBmarkPopup}
+  //           className="bringtoplanbtn"
+  //         />
+  //         <Bicon picture="bringtoPlan" className="bkDtPlanEdit" />
+  //       </span>
+  //       <button onClick={deletepost}>
+  //         <Bicon picture="BookmarkDeleteButton" className="bkDtDelete" />
+  //       </button>
+  //       <div className="bkDtpostBackground">
+  //         {bmarkArray.map((item) => (
+  //           <span className="bringbmarkClickbox">
+  //             <label class="bmarkCheckcontainer">
+  //               <input
+  //                 className="checkInput"
+  //                 type="checkbox"
+  //                 id={item.id}
+  //                 onChange={(e) => {
+  //                   changeHandler(e.currentTarget.checked, item.id);
+  //                 }}
+  //                 checked={checkedInputs.includes(item.id) ? true : false}
+  //               />
+  //               <span class="checkmark"></span>
+  //             </label>
 
-        <span className="bringtoplanbtnbackground">
-          <input
-            type="button"
-            onClick={toggleBmarkPopup}
-            className="bringtoplanbtn"
-          />
-          <Bicon picture="bringtoPlan" className="bkDtPlanEdit" />
-        </span>
-        <button onClick={deletepost}>
-          <Bicon picture="BookmarkDeleteButton" className="bkDtDelete" />
-        </button>
-        <div className="bkDtpostBackground">
-          {bmarkArray.map((item) => (
-            <span className="bringbmarkClickbox">
-              <label class="bmarkCheckcontainer">
-                <input
-                  className="checkInput"
-                  type="checkbox"
-                  id={item.id}
-                  onChange={(e) => {
-                    changeHandler(e.currentTarget.checked, item.id);
-                  }}
-                  checked={checkedInputs.includes(item.id) ? true : false}
-                />
-                <span class="checkmark"></span>
-              </label>
-
-              <button className="bringbmarkClick" />
-              <BookmarkPost
-                thisId={item.id}
-                bmarkId={match.params.id}
-                clicked={checkedInputs}
-                bookmarkInfo={bookmarks}
-              />
-            </span>
-          ))}
-        </div>
-        <div className="bkDtpostBackgroundbuttom" />
-      </div>
-    </div>
-  );
+  //             <button className="bringbmarkClick" />
+  //             <BookmarkPost
+  //               thisId={item.id}
+  //               bmarkId={match.params.id}
+  //               clicked={checkedInputs}
+  //               bookmarkInfo={bookmarks}
+  //             />
+  //           </span>
+  //         ))}
+  //       </div>
+  //       <div className="bkDtpostBackgroundbuttom" />
+  //     </div>
+  //   </div>
+  // );
 }
 export default withRouter(BookmarkDetail);

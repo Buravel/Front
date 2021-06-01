@@ -20,6 +20,8 @@ function BmarkNum(props) {
   const [isdetailOpen, setdetailOpen] = useState(true);
   const [bookmarks, setBookmarks] = useState([]);
   const [bookmarksdata, setBookmarksdata] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const [title, setTitle] = useState("");
   const thisLink = window.location.href;
@@ -28,19 +30,38 @@ function BmarkNum(props) {
   token = token.replace(/"/g, "");
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-  const returning = axios
-    .get(`http://34.64.93.115/bookmark/${props.id}`)
-    .then((response) => {
-      setBookmarks(response.data._embedded);
-    });
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setError(null);
+        setBookmarks(null);
+        setLoading(true);
+        const response = await axios.get(
+          `http://34.64.93.115/bookmark/${props.id}`
+        );
+        setBookmarks(response.data._embedded.bookmarkPostResponseDtoList);
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
+    };
 
-  const Bmarklt = bookmarks && bookmarks.bookmarkPostResponseDtoList;
+    fetchPosts();
+  }, []);
+  // const returning = axios
+  //   .get(`http://34.64.93.115/bookmark/${props.id}`)
+  //   .then((response) => {
+  //     setBookmarks(response.data._embedded.bookmarkPostResponseDtoList);
+  //   }, []);
+
+  const Bmarklt =
+    bookmarks !== null &&
+    bookmarks !== [] &&
+    bookmarks.length !== undefined &&
+    bookmarks;
+
   const BmarkltN = Bmarklt && Bmarklt.map((k) => k).length;
 
-  return (
-    <span>
-      ({BmarkltN === undefined ? "0" : BmarkltN === [] ? "0" : BmarkltN})
-    </span>
-  );
+  return <span>({BmarkltN == [] ? "0" : BmarkltN})</span>;
 }
 export default BmarkNum;

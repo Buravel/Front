@@ -19,11 +19,46 @@ function BookmarkPost(props) {
   const [isbmarkOpen, setBmarkisOpen] = useState(false);
   const [isPrivate, setisPrivate] = useState(false);
 
-  const returning = axios
-    .get(`http://34.64.93.115/bookmark/${props.bmarkId}`)
-    .then((response) => {
-      setPosts(response.data._embedded.bookmarkPostResponseDtoList);
-    }, []);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setError(null);
+        setPosts(null);
+        setLoading(true);
+        const response = await axios.get(
+          `http://34.64.93.115/bookmark/${props.bmarkId}`
+        );
+        setPosts(response.data._embedded.bookmarkPostResponseDtoList);
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
+    };
+
+    fetchPosts();
+  }, []);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setError(null);
+        setHashtag(null);
+        setLoading(true);
+        const response = await axios.get(`${postit[0]._links.originPlan.href}`);
+        setHashtag(response.data.postForPlanResponseDtos);
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
+    };
+
+    fetchPosts();
+  }, []);
+
+  // const returning = axios
+  //   .get(`http://34.64.93.115/bookmark/${props.bmarkId}`)
+  //   .then((response) => {
+  //     setPosts(response.data._embedded.bookmarkPostResponseDtoList);
+  //   }, []);
 
   // const togglePopup = () => {
   //   setIsOpen(!isOpen);
@@ -36,14 +71,15 @@ function BookmarkPost(props) {
   for (let i = 0; i < postTerm.length; i++) {
     postArray.push(postTerm[i]);
   }
-  const postit = postArray && postArray.filter((k) => k.id == props.thisId);
+  const postit =
+    postArray !== undefined && postArray.filter((k) => k.id == props.thisId);
   const postId = postit && postit[0];
 
-  const returning2 = axios
-    .get(`${postit[0]._links.originPlan.href}`)
-    .then((response) => {
-      setHashtag(response.data.postForPlanResponseDtos);
-    }, []);
+  // const returning2 = axios
+  //   .get(`${postit[0]._links.originPlan.href}`)
+  //   .then((response) => {
+  //     setHashtag(response.data.postForPlanResponseDtos);
+  //   }, []);
 
   const category = postId && postId.postBookmarkPostResponseDto.category;
 
@@ -98,7 +134,6 @@ function BookmarkPost(props) {
           ""
         )}
         <div className="bkpostBox">
-          {/* <input type="button" onClick={togglePopup} className="postButton" /> */}
           <div className="bkDtmark">
             <input
               type="button"

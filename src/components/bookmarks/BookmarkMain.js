@@ -23,6 +23,7 @@ function BookmarkMain() {
   const [error, setError] = useState(null);
   const [bookmarks, setBookmarks] = useState([]);
   const [bookmarksdata, setBookmarksdata] = useState([]);
+  const [checkedInputs, setCheckedInputs] = useState([]);
 
   const [title, setTitle] = useState("");
   const thisLink = window.location.href;
@@ -63,14 +64,19 @@ function BookmarkMain() {
     setdetailOpen(!isdetailOpen);
   };
 
-  const bmarkListN = bookmarks && bookmarks.map((k) => k);
-  console.log(bmarkListN);
-  // if (!bmarkListN) return [];
+  //처음에 undefind를 생각해야함
+  const bmarkListN =
+    bookmarks !== null &&
+    bookmarks !== [] &&
+    bookmarks.length !== undefined &&
+    bookmarks.map((k) => k);
+
+  // // if (!bmarkListN) return [];
   const bmarknumber = [];
-  for (let i = 0; i <= bmarkListN && bmarkListN.length; i++) {
+  for (let i = 0; i <= bmarkListN.length; i++) {
     bmarknumber.push(bmarkListN && bmarkListN.map((k) => k));
   }
-  const bmarkListNum = bmarkListN && bmarkListN.map((k) => k);
+  const bmarkListNum = bmarkListN !== false && bmarkListN.map((k) => k);
 
   const bmarkArray = [];
   for (let i = 0; i < bmarkListN.length; i++) {
@@ -80,134 +86,150 @@ function BookmarkMain() {
   for (let i = 0; i < bmarkListN.length; i++) {
     bmarkIdArray.push(bmarkListN[i].id);
   }
-  // const ImgArray = bmarknumber[0].map((k) => k.bookmarkImages)[1];
+  const changeHandler = (checked, id) => {
+    if (checked) {
+      setCheckedInputs([...checkedInputs, id]);
+    } else {
+      // 체크 해제
+      setCheckedInputs(checkedInputs.filter((el) => el !== id));
+    }
+  };
 
-  // for (let i = 0; i < bmarkListN.length; i++) {
-  //   axios
-  //     .get(`http://34.64.93.115/bookmark/${bmarkIdArray[i]}`)
-  //     .then((response) => {
-  //       PPPPP.push(response);
-  //     });
-  // }
-  // console.log(PPPPP);
-  // for (let i = 0; i < bmarkListN.length; i++) {
-  //   axios
-  //     .get(`http://34.64.93.115/bookmark/${bmarkIdArray[i]}`)
-  //     .then((response) => {
-  //       setBookmarksdata([...bookmarksdata, response.data._embedded]);
-  //     });
-
-  //   if ((i = bmarkListN.length)) {
-  //     break;
-  //   }
-
-  // using .then, create a new promise which extracts the data
-
-  // axiosTest().then((data) => {
-  //   return setBookmarksdata(data);
-  // });
-  // now we can use that data from the outside!
-
-  // const OPPP = bookmarksdata.map((k) => k);
-  // const K = [];
-  // for (let i = 0; i < OPPP.length; i++) {
-  //   K.push(OPPP[i].length);
-  // }
-
-  // const AK = bmarkIdArray.map((k) =>
-  //   axios.get(`http://34.64.93.115/bookmark/${k}`).then((response) => {
-  //     setBookmarksdata([...bookmarksdata, response.data._embedded]);
-  //   })
-  // );
-  // console.log(bookmarksdata);
-
-  // function bmarkAmount(id) {
-  //   try{
-  //     const res = axios.get()
-  //     return res.data;
-  // function axiosTest(id) {
-  //   return axios.get().then((response) => response.data);
-  // }
-
-  // function Child() {
-  // We can use the `useParams` hook here to access
-  // the dynamic pieces of the URL.
-  //   let { id } = useParams();
-
-  //   return (
-  //     <>
-  //       <BookmarkDetail />
-  //     </>
-  //   );
-  // }
-
+  const NewFold = bmarkArray.filter((el) => el.includes("새 폴더"));
+  const NewFolde = NewFold.map((k) => Number(k.replace("새 폴더", "")));
+  const folderMax = NewFolde !== [] && Math.max.apply(null, NewFolde) + 1;
+  console.log(checkedInputs);
   return (
     <>
       <>
         <div>
           <Router>
-            <Switch>
-              <Route path="/bookmarks/:id" component={BookmarkDetail} />
-              {/* <BookmarkDetail id=":id" /> */}
-              {/* </Route> */}
-              <Route exact path="/bookmarks">
-                {/* path에 앞에 /넣기 */}
-                {isdetailOpen && (
-                  <div>
-                    <div className="bookmarkbackground">
-                      <span className="bookmarkTitle">
-                        <span className="bookmarkMaintitle">북마크</span>
-                        <span className="bookmarkSubtitle">
-                          ({bookmarks.length})
-                        </span>
+            <Route path="/bookmarks/:id" component={BookmarkDetail} />
+
+            <Route exact path="/bookmarks">
+              {isdetailOpen && (
+                <div>
+                  <div className="bookmarkbackground">
+                    <span className="bookmarkTitle">
+                      <span className="bookmarkMaintitle">북마크</span>
+                      <span className="bookmarkSubtitle">
+                        ({bmarkListN.length})
                       </span>
-                      <button
-                        className="bookmarkAddbtn"
-                        onClick={(event) => {
-                          event.preventDefault();
-                          axios
-                            .post(`http://34.64.93.115/bookmark`, {
-                              bookmarkTitle: "새 폴더",
-                            })
-                            .then((res) => {
-                              setBookmarks([...bookmarks, res.data]);
-                              alert(`파일이 생성되었습니다`);
-                            }, [])
-                            .catch(function (error) {
-                              alert("기존 '새 폴더'의 이름을 변경해 주세요");
-                            }, []);
-                        }}
-                      >
-                        <Bicon
-                          picture="BookmarkAddbutton"
-                          className="BookmarkAddbutton"
-                        />
-                      </button>
-                      <button
-                        className="bookmarkDelbtn"
-                        onClick={(event) => {
-                          event.preventDefault();
-                          axios
-                            .delete(`http://34.64.93.115/bookmark/803`)
-                            .then((res) => {
-                              setBookmarks([bookmarks]);
-                              alert(`폴더가 삭제되었습니다`);
-                            }, [])
-                            .catch(function (error) {
-                              alert("삭제되었거나 없는 폴더입니다");
-                            }, []);
-                        }}
-                      >
-                        <Bicon
-                          picture="BookmarkDeletebutton"
-                          className="BookmarkDeletebutton"
-                        />
-                      </button>
-                    </div>
-                    <div className="bmarkTitlebuttom" />
-                    <div className="bmarkPostBackground">
-                      {bmarknumber[0] &&
-                        bmarknumber[0].reverse().map((item) => (
+                    </span>
+
+                    {isdelOpen && (
+                      <>
+                        <meta charset="UTF-8" />
+                        <div className="popupbkdelBackground">
+                          <div className="popupbkBox">
+                            <div>
+                              <button type="submit" className="delBmarkBtn">
+                                삭제
+                              </button>
+                              <button
+                                onClick={toggledelPopup}
+                                className="BookmarkDeletecancelbuttonbg"
+                              >
+                                <Bicon
+                                  picture="BookmarkDeletebutton"
+                                  className="BookmarkDeletecancelbutton"
+                                />
+                                <span className="BookmarkDeletebuttonName">
+                                  취소
+                                </span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                    {/* {isdelOpen && <DelBmark />} */}
+                    <button
+                      className="bookmarkAddbtn"
+                      onClick={(event) => {
+                        event.preventDefault();
+                        axios
+                          .post(`http://34.64.93.115/bookmark`, {
+                            bookmarkTitle: `새 폴더${
+                              folderMax !== -Infinity && folderMax
+                            }`,
+                          })
+                          .then((res) => {
+                            setBookmarks([...bookmarks, res.data]);
+                            alert(`파일이 생성되었습니다`);
+                          }, [])
+                          .catch(function (error) {
+                            alert("오류가 생겼습니다. 다시 시도해 주세요");
+                          }, []);
+                      }}
+                    >
+                      <Bicon
+                        picture="BookmarkAddbutton"
+                        className="BookmarkAddbutton"
+                      />
+                    </button>
+                    <button
+                      className="bookmarkDelbtn"
+                      onClick={toggledelPopup}
+                      // onClick={(event) => {
+                      //   event.preventDefault();
+                      //   axios
+                      //     .delete(`http://34.64.93.115/bookmark/803`)
+                      //     .then((res) => {
+                      //       setBookmarks([bookmarks]);
+                      //       alert(`폴더가 삭제되었습니다`);
+                      //     }, [])
+                      //     .catch(function (error) {
+                      //       alert("삭제되었거나 없는 폴더입니다");
+                      //     }, []);
+                      // }}
+                    >
+                      <Bicon
+                        picture="BookmarkDeletebutton"
+                        className="BookmarkDeletebutton"
+                      />
+                    </button>
+                  </div>
+                  <div className="bmarkTitlebuttom" />
+                  <div className="bmarkPostBackground">
+                    {bmarknumber[0] &&
+                      bmarknumber[0].reverse().map((item) => (
+                        <>
+                          {isdelOpen && (
+                            <>
+                              <label class="bmarktitleCheckcontainer">
+                                <input
+                                  className="checkInput"
+                                  type="checkbox"
+                                  id={item.id}
+                                  onChange={(e) => {
+                                    changeHandler(
+                                      e.currentTarget.checked,
+                                      item.id
+                                    );
+                                  }}
+                                  checked={
+                                    checkedInputs.includes(item.id)
+                                      ? true
+                                      : false
+                                  }
+                                />
+                                <span class="checktitlemark"></span>
+                              </label>
+                              {checkedInputs &&
+                                checkedInputs.includes(item.id) && (
+                                  <span
+                                    className="bookmarkdelClicked"
+                                    //이부분 도형으로 덮어씌울수 있도록 수정
+                                  >
+                                    <Bicon
+                                      picture="bookmarkChecked"
+                                      className="bookmarkdelChecked"
+                                    />
+                                  </span>
+                                )}
+                            </>
+                          )}
                           <Link to={"bookmarks/" + item.id}>
                             <span className="bmarkptbk">
                               <span
@@ -257,15 +279,14 @@ function BookmarkMain() {
                               </span>
                             </span>
                           </Link>
-                        ))}
+                        </>
+                      ))}
 
-                      {isOpen && <AddBmark handleClose={togglePopup} />}
-                      {isdelOpen && <DelBmark handleClose={toggledelPopup} />}
-                    </div>
+                    {/* {isOpen && <AddBmark handleClose={togglePopup} />} */}
                   </div>
-                )}
-              </Route>
-            </Switch>
+                </div>
+              )}
+            </Route>
           </Router>
         </div>
       </>

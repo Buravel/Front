@@ -633,3 +633,69 @@
   text-align: center;
   color: #535353;
 }
+.bmarktitleCheckcontainer {
+  z-index: 10;
+  position: absolute;
+
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checktitlemark {
+  position: absolute;
+  z-index: 30;
+  top: 15px;
+  right: 14px;
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  border-radius: 27px;
+}
+.bmarktitleCheckcontainer input {
+  position: absolute;
+  z-index: 20;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* On mouse-over, add a grey background color */
+.bmarktitleCheckcontainer:hover input ~ .checktitlemark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.bmarktitleCheckcontainer input:checked ~ .checktitlemark {
+  background-color: #808080;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checktitlemark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.bmarktitleCheckcontainer input:checked ~ .checktitlemark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.bmarktitleCheckcontainer .checktitlemark:after {
+  left: 8px;
+  top: 3.5px;
+  width: 7px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3.5px 3.5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

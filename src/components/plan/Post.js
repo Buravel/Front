@@ -69,7 +69,11 @@ function Post(props) {
   };
   const postTerm = posts.postForPlanResponseDtos;
 
-  const postId = postTerm && postTerm.filter((k) => k.id === props.id);
+  const postId =
+    postTerm !== null &&
+    postTerm !== [] &&
+    postTerm !== undefined &&
+    postTerm.filter((k) => k.id === props.id);
   const category = postId && postId.map((k) => k.category)[0];
   const postImg = postId && postId.map((k) => k.postImage)[0];
   const price = postId && postId.map((k) => k.price)[0];

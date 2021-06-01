@@ -74,7 +74,10 @@ function BookmarktoplanPopup(props) {
   // console.log(inMyBookmark);
 
   const postTerm = posts.postForPlanResponseDtos;
-  const postId = postTerm && postTerm.filter((k) => k.id === props.id);
+  const postId =
+    postTerm !== null &&
+    postTerm !== undefined &&
+    postTerm.filter((k) => k.id === props.id);
   const thisPost = postId && postId[0];
   const checkdeplans = props.checkedplan;
   console.log(bmarkinputValue.id);
