@@ -8,7 +8,11 @@ const style = { display: "inline-block" };
 const SetupPage = ({ nickname, username, email, emailVerified, profile }) => {
   return (
     <div className="setup">
-      <img className="profileImage" src={profile} alt="" />
+      <img
+        className="profileImage"
+        src={`data:image/png;base64,${profile}`}
+        alt=""
+      />
       <div className="info">
         <div className="infoBox">
           <div className="name">닉네임</div>

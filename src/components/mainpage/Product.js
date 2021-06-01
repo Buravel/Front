@@ -69,7 +69,6 @@ const Product = (props) => {
                 <div className="tag">
                   <span className="tag_text">#{planTagTitle}</span>
                 </div>
-              </div>
 
               <div className="product_topline">
                 <span className="product_name">&nbsp;{postTitle}</span>
