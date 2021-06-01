@@ -17,7 +17,8 @@ export const getToday = () => {
     const year = today.getFullYear(); // 년도
     let month = today.getMonth() + 1; // 월
     month = month < 10 ? `0${month}` : '' + month; // 월
-    const date = today.getDate(); // 날짜
+    let date = today.getDate(); // 날짜
+    date = date < 10 ? `0${date}` : '' + date; // 월
     return [year, month, date];
 };
 export const getNextDate = (_date, day = 1) => {
@@ -27,7 +28,7 @@ export const getNextDate = (_date, day = 1) => {
     const y = date.getFullYear(); // 년도
     let m = date.getMonth() + 1; // 월
     m = m < 10 ? `0${m}` : '' + m; // 월
-    const d = date.getDate(); // 날짜
-
+    let d = date.getDate(); // 날짜
+    d = d < 10 ? `0${d}` : '' + d; // 월
     return [y, m, d];
 };

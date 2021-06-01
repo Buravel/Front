@@ -2,7 +2,21 @@ import React, { useState } from 'react';
 import './postModal.scss';
 import SearchPlace from './SearchPlace';
 import { category_type } from '../../modules/write';
+import { useMemo } from 'react';
 
+const numToArr = (_num) => {
+    const quotient = Math.floor(_num / 1);
+    const remainder = _num % 1;
+    let arr = new Array(5).fill(0);
+    for (let i = 0; i < quotient; i++) {
+        if (remainder === 0.5 && i === quotient - 1) {
+            arr[i + 1] = 1;
+        }
+        arr[i] = 2;
+    }
+    if (quotient === 0 && remainder === 0.5) arr[0] = 1;
+    return [...arr];
+};
 const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
     const { FLIGHT, DISH, SHOPPING, TRAFFIC, HOTEL, ETC } = category_type;
     const [title1, setTitle1] = useState(!card ? '' : card.title1);
@@ -21,7 +35,7 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                   lat: card.location.lat,
               },
     );
-    const [rating, setRating] = useState(!card ? '' : card.rating);
+    const [rating, setRating] = useState(!card ? 0 : card.rating);
     const [hashTags, setHashTags] = useState(!card ? [] : [...card.hashTags]);
     const [memo, setMemo] = useState(!card ? '' : card.memo);
     const [category, setCategory] = useState(!card ? FLIGHT : card.category);
@@ -30,10 +44,11 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
     const [inputHash, setInputHash] = useState(false);
     const [textHash, setTextHash] = useState('');
 
+    const ratingArr = useMemo(() => numToArr(rating), [rating]);
     const onClickSave = () => {
         if (
             !title1 ||
-            !price ||
+            !price.toString().length ||
             !rating ||
             !location.name ||
             !location.lat ||
@@ -55,9 +70,6 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
             postImage: imgBase64,
         });
         closeModal();
-    };
-    const addPlace = ({ name, lng, lat }) => {
-        setLocation({ name, lng, lat });
     };
     const onClickAddHashBtn = () => setInputHash(true);
 
@@ -84,7 +96,6 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
             // setImgFile(event.target.files[0]); // 파일 상태 업데이트
         }
     };
-
     return (
         <div className="post-modal-container">
             <div className="modal-white-box">
@@ -161,21 +172,53 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                         <span>
                             <span className="modal-star">*</span>위치
                         </span>
-                        <SearchPlace addPlace={addPlace} location={location} />
+                        <SearchPlace
+                            setLocation={setLocation}
+                            location={location}
+                        />
                     </label>
                     <label>
                         <span>
                             <span className="modal-star">*</span>평점
                         </span>
-                        <input
-                            type="text"
-                            placeholder=""
-                            className="input-blue input-location"
-                            value={rating}
-                            onChange={(e) => {
-                                setRating(e.target.value);
-                            }}
-                        />
+                        <div className="rating-container">
+                            <div className="img-container">
+                                {ratingArr.map((num, idx) => {
+                                    const src =
+                                        num === 0
+                                            ? 'star_none'
+                                            : num === 1
+                                            ? 'star_harf'
+                                            : 'star_full';
+                                    return (
+                                        <img
+                                            src={`./images/write/${src}.png`}
+                                            alt=""
+                                            className="harf-star"
+                                            key={'star' + idx}
+                                        />
+                                    );
+                                })}
+                            </div>
+                            <div className="btn-container">
+                                {[1, 2, 3, 4, 5].map((num) => (
+                                    <div
+                                        className="btn-star-container"
+                                        key={num}
+                                    >
+                                        <div
+                                            className="select-star"
+                                            data-num={num - 0.5}
+                                            onClick={() => setRating(num - 0.5)}
+                                        ></div>
+                                        <div
+                                            className="select-star"
+                                            onClick={() => setRating(num)}
+                                        ></div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </label>
                     <label>
                         <span className="modal-hash-label">해시태그</span>
