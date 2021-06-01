@@ -95,6 +95,7 @@ const initialState = {
   },
   auth: null,
   authError: null,
+  errormsg: null,
   success: null,
 };
 
@@ -115,9 +116,10 @@ const auth = handleActions(
       ...state,
       success: true,
     }),
-    [REGISTER_FAILURE]: (state) => ({
+    [REGISTER_FAILURE]: (state, { payload }) => ({
       ...state,
       success: false,
+      errormsg: payload,
     }),
     [LOGIN_SUCCESS]: (state) => ({
       ...state,

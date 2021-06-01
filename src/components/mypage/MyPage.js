@@ -18,7 +18,12 @@ const MyPage = ({
   return (
     <>
       <div className="userSection">
-        <img className="profileImage" src={profile} alt="" style={style} />
+        <img
+          className="profileImage"
+          src={`data:image/png;base64,${profile}`}
+          alt=""
+          style={style}
+        />
         <div className="userBox" style={style}>
           <div>
             <h1>

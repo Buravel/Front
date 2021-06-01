@@ -26,6 +26,52 @@ const EditPage = () => {
     setImg({ selectedFile: e.target.files[0] });
   };
 
+  const onChangeFile = (event) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      // 2. 읽기가 완료되면 아래코드가 실행됩니다.
+      const base64 = reader.result;
+      if (base64) {
+        setImg(base64.toString().split(",")[1]); // 파일 base64 상태 업데이트
+      }
+    };
+    if (event.target.files[0]) {
+      reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
+      // setImgFile(event.target.files[0]); // 파일 상태 업데이트
+    }
+  };
+
+  const ImageSubmit = async (e) => {
+    e.preventDefault();
+    token = localStorage.getItem("token");
+    if (token) token = token.replace(/\"/gi, "");
+    axios.defaults.headers.common["Authorization"] = `${token}`;
+    /*    const config = {
+      headers: {
+        "Content-type": "multipart/formed-data",
+      },
+    };*/
+
+    //    const formData = new FormData();
+    //    formData.append("profileImage", img.selectedFile, img.selectedFile.name);
+    //    console.log(typeof formData);
+    await axios
+      .patch("/mypage/picture", { profileImage: img })
+      .then((response) => {
+        //        console.log(response);
+        //        console.log(img);
+        setChange(true);
+        setErrmsg(null);
+        //        setImg(response.data.profileImage);
+        return response.data.profileImage;
+      })
+      .catch((error) => {
+        console.log(img);
+        setChange(false);
+        return Promise.reject(error);
+      });
+  };
+
   const NicknameSubmit = async (e) => {
     e.preventDefault();
     token = localStorage.getItem("token");
@@ -41,41 +87,6 @@ const EditPage = () => {
       .catch((error) => {
         setChange(false);
         setErrmsg(error.response.data.errors[0].defaultMessage);
-        return Promise.reject(error);
-      });
-  };
-
-  const ImageSubmit = async (e) => {
-    e.preventDefault();
-    token = localStorage.getItem("token");
-    if (token) token = token.replace(/\"/gi, "");
-    axios.defaults.headers.common["Authorization"] = `${token}`;
-    const config = {
-      headers: {
-        "Content-type": "multipart/formed-data",
-      },
-    };
-
-    const formData = new FormData();
-    formData.append("profileImage", img.selectedFile, img.selectedFile.name);
-    console.log(typeof formData);
-    await axios
-      .patch("/mypage/picture", formData, config)
-      .then((response) => {
-        console.log(response);
-        console.log(img);
-        setChange(true);
-        setErrmsg(null);
-        //        setImg(response.data.profileImage);
-        return response.data.profileImage;
-      })
-      .catch((error) => {
-        console.log(img);
-        //        console.log(img[0]);
-        //        console.log(error.response);
-        setChange(false);
-        //        console.log(error.response.data.errors[0].defaultMessage);
-        //        setErrmsg(error.response.data.errors[0].defaultMessage);
         return Promise.reject(error);
       });
   };
@@ -113,10 +124,11 @@ const EditPage = () => {
 
   return (
     <div className="setup">
-      <img className="profileImage" src={profile} alt="" />
+      <img src={profile} alt="" className="profileImage" />
+      <img src={`data:image/png;base64,${img}`} alt="" />
       <div className="info">
         <div className="profileBox">
-          <input type="file" onChange={imageChange} />
+          <input type="file" onChange={onChangeFile} />
           <button className="profile-btn" type="submit" onClick={ImageSubmit}>
             프로필 사진 변경
           </button>
