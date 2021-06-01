@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-//import { withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import MyPage from "../../components/mypage/MyPage";
 import Box from "../../components/mypage/Box";
 axios.defaults.baseURL = "http://34.64.93.115";
@@ -17,10 +17,14 @@ const MyPageForm = () => {
     setNickname(response.data.nickname);
     setUsername(response.data.username);
     setEmail(response.data.email);
-    setProfile(response.data.profile);
+    setProfile(response.data.profileImage);
     setEmailVerified(response.data.emailVerified);
   });
-  console.log(profile);
+  //  console.log(profile);
+
+  useEffect(() => {
+    return;
+  }, []);
 
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState("");
@@ -36,7 +40,7 @@ const MyPageForm = () => {
     //    setBox([...response]);
     //    setBox([response.data._embedded.planResponseDtoList]);
     setBox([response]);
-    console.log(box);
+    //    console.log(box);
     /*box.filter((element) => {
 
       setTitle(element.planTitle);
@@ -59,7 +63,7 @@ const MyPageForm = () => {
         username={username}
         email={email}
         emailVerified={emailVerified}
-        profileImage={profile}
+        profile={profile}
         onLogout={onLogout}
       ></MyPage>
       <Box type="box" totalprice={totalprice}></Box>
@@ -67,4 +71,4 @@ const MyPageForm = () => {
   );
 };
 
-export default MyPageForm;
+export default withRouter(MyPageForm);

@@ -59,19 +59,24 @@ const Product = (props) => {
                 <Link to={`/plan/${planId}`}>
                     <div className="col-xs-2">
                         <div className="product_img">
-                            {/* {planImage !== "" && planImage !== undefined && (<img src={`data:image/png;base64,${planImage}`}/>)} */}
-                            <img
-                                className="img-full"
-                                src="http://placehold.it/200x185"
-                                alt="Product Images"
-                            />
-                            <div className="tag">
-                                <span className="tag_text">
-                                    #{planTagTitle}
-                                </span>
-                            </div>
-                        </div>
+                            {planImage ? (
+                                <img
+                                    src={`data:image/png;base64,${planImage}`}
+                                    alt=""
+                                />
+                            ) : (
+                                <img
+                                    className="img-full"
+                                    src="http://placehold.it/200x185"
+                                    alt="Product Images"
+                                />
+                            )}
 
+                            {/* {planImage !== "" && planImage !== undefined && (<img src={`data:image/png;base64,${planImage}`}/>)} */}
+                            <span className="tag">
+                                &nbsp;#{planTagTitle}&nbsp;
+                            </span>
+                        </div>
                         <div className="product_topline">
                             <span className="product_name">
                                 &nbsp;{postTitle}
@@ -118,6 +123,9 @@ const Product = (props) => {
                                     {planRating}&nbsp;{' '}
                                 </span>
                             </span>
+                        </div>
+                        <div className="stackimg">
+                            <img src="/images/mainpage/stack.png" alt="" />
                         </div>
                     </div>
                 </Link>
