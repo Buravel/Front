@@ -4,8 +4,6 @@
     .col-xs-2 {
         position: relative;
         /* relative */
-        top:50px;
-        left: 80px;
         
         width: 200px;
         height: 264px;
@@ -52,11 +50,23 @@
         z-index: 3;
         position: absolute;
         top: 165px;
-        left: 0;
-        width: 50px;
+        left: -1px;
+       
         height: 20px;
-        padding: 1px 1px 1px 3px;
+        padding: 1px 10px 1px 10px;
         background-color: #0070ef;
+
+        
+        margin-left: 3px;
+        font-family: 'Noto Sans KR', sans-serif;    
+        font-size: 12px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ffffff;
         
     }
     

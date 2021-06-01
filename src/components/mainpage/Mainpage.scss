@@ -1,6 +1,18 @@
 //수정확인O => 결과 확인 필요
 .mainpage-main_background {
-  
+  .col-xs-2 {
+    position: relative;
+    /* relative */
+    top:80px;
+    left: 80px;
+    
+    width: 200px;
+    height: 264px;
+    margin: 0 9px 50px 15px;
+    padding: 0 0 8px;
+    border-radius: 3px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);  
+}
   .btn {
     position:absolute;
       /* width:100%; */
@@ -11,7 +23,7 @@
   .topbar {
     position: relative;
     left: 0%;
-    top: 50px;
+    top: 70px;
     height: 70px;
     /* width: 1280px; */
 

@@ -66,9 +66,9 @@ const Product = (props) => {
                 />)}
 
                 {/* {planImage !== "" && planImage !== undefined && (<img src={`data:image/png;base64,${planImage}`}/>)} */}
-                <div className="tag">
-                  <span className="tag_text">#{planTagTitle}</span>
-                </div>
+                <span className="tag">
+                  &nbsp;#{planTagTitle}&nbsp;
+                </span>
               </div>
 
               <div className="product_topline">
