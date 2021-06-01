@@ -1,5 +1,6 @@
 //수정확인 O => 결과 확인필요
 .product-shadowbox {
+
     .col-xs-2 {
         position: relative;
         /* relative */
@@ -14,7 +15,19 @@
         box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);  
     }
     
+    .stackimg {
+        z-index: 1;
+        position: absolute;
+        /* relative */
+        top:-8px;
+        left:-16px;
+        width: 10px;
+        height:10px;
+
+    }
+
     .img-full {
+        z-index: 3;
         width: 200px;
         height: 185px;
         margin: 0 0 7.8px;
@@ -22,6 +35,7 @@
         // background-color: #bfbfbf;
     }
     .product_img{
+        z-index: 3;
         position: relative;
         top:0;
         width: 200px;
@@ -29,11 +43,13 @@
     }
     
     .img-full {
+        z-index: 3;
         max-width: 120%; 
         width: auto;
     }
     
     .tag {
+        z-index: 3;
         position: absolute;
         top: 165px;
         left: 0;
@@ -45,6 +61,7 @@
     }
     
     .tag_text{
+        z-index: 3;
         position: absolute;
         top: 1px;
         width: 100px;
@@ -61,11 +78,13 @@
         color: #ffffff;
     }
     .product_topline {
+        z-index: 3;
         position: relative;
         top:3px;
     }
     
     .product_name {
+        z-index: 3;
         position: absolute;
         top:40%;
         left: 5px;
@@ -84,6 +103,7 @@
     }
     
     .price {
+        z-index: 3;
         position: absolute;
         top:50%;
         right: -13%;
@@ -106,13 +126,14 @@
     }
     
     .icon {
+        z-index: 3;
         width: 5px;
         height: 12.9px;
         margin: 3.3px 1.5px 1.9px 0;
         object-fit: contain;
     }
     .plan{
-        
+        z-index: 3;
         width: 5px;
         height: 18px;
         margin: 0 9.6px 0 1.5px;
@@ -128,6 +149,7 @@
         color: #535353;
     }
     .plan_text {
+        z-index: 3;
         position: absolute;
         top: 215px;
         left: 8px;
@@ -145,18 +167,21 @@
     }
     
     .plan_star{
+        z-index: 3;
         color: #ef9f00;
     }
     
     .product_box{
+        z-index: 3;
         position:relative;
         width:220px;
         height: 18px;
         left: 10px;
-        top: 30px;
+        top: 28px;
     }
     
     .star {
+        z-index: 3;
         position: absolute;
         left: 70%;
     }

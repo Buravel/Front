@@ -3,7 +3,7 @@ import "./setuppage.scss";
 import profile from "./profile.png";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-import imageCompression from "browser-image-compression";
+//import imageCompression from "browser-image-compression";
 axios.defaults.baseURL = "http://34.64.93.115";
 let token;
 const style = { display: "inline-block" };
