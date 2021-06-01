@@ -6,6 +6,7 @@
     height :100%;
     background: rgba(0, 0, 0, 0.4);
     z-index:99;
+    overflow-y: auto;
     p {
         margin:0;
     }
@@ -85,6 +86,33 @@
                     padding: 0px;
                     width: 7px;
                     color: #ff4848;
+                }
+                .rating-container {
+                    .img-container {
+                        position: absolute;
+                        width: 120px;
+                        height: 24px;
+                        .harf-star {
+                            margin : 0 5px 0 0;
+                        }
+                    }
+                    .btn-container {
+                        position: relative;
+                        display: flex;
+                        width: 120px;
+                        height: 24px;
+                        .btn-star-container {
+                            width: 19px;
+                            height: 24px;
+                            margin : 0 5px 0 0;
+                            display: flex;
+                            .select-star {
+                                width: 8px;
+                                height: 24px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
                 }
                 .modal-public-input {
                     display: inline-flex;

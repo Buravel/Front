@@ -77,7 +77,7 @@ const WritePlanTitle = ({
     planImage,
     onChangePlanInfo,
     onSave,
-    plans,
+    loading,
 }) => {
     // modal 관련
     const [titleVisible, setTitleVisible] = useState(true);
@@ -91,6 +91,7 @@ const WritePlanTitle = ({
         }
         onSave();
     };
+
     return (
         <>
             <div className="title-container">

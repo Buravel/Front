@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import Loading from '../../components/common/Loading';
 import WritePlanTitle from '../../components/write/WritePlanTitle';
 import {
     category_type,
@@ -40,6 +41,9 @@ const WritePlanTitleContainer = () => {
 
     const write = useSelector((state) => state.write.write);
     const writeError = useSelector((state) => state.write.writeError);
+
+    const loading = useSelector((state) => state.loading['write/WRITE_PLAN']);
+    console.log(loading);
     // title 금액관련
     const account = useMemo(() => getAccount(plans), [plans]);
 
@@ -82,25 +86,27 @@ const WritePlanTitleContainer = () => {
     useEffect(() => {
         if (write) {
             console.log('작성 성공');
-            history.push('/');
+            history.push(`/plan/${write.data.id}`);
         }
         if (writeError) {
             alert('작성 실패');
         }
     }, [history, writeError, write]);
     return (
-        <WritePlanTitle
-            published={published}
-            startDate={startDate}
-            endDate={endDate}
-            planTitle={planTitle}
-            hashTag={hashTag}
-            planImage={planImage}
-            account={account}
-            onChangePlanInfo={onChangePlanInfo}
-            onSave={onSave}
-            plans={plans}
-        />
+        <>
+            <WritePlanTitle
+                published={published}
+                startDate={startDate}
+                endDate={endDate}
+                planTitle={planTitle}
+                hashTag={hashTag}
+                planImage={planImage}
+                account={account}
+                onChangePlanInfo={onChangePlanInfo}
+                onSave={onSave}
+            />
+            {loading && <Loading>저장중</Loading>}
+        </>
     );
 };
 

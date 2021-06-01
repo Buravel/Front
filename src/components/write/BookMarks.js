@@ -29,7 +29,7 @@ const BookMarks = ({ cards }) => {
                     <p>사용하지 않은 북마크</p>
                     <div className="bookmark-list">
                         {cards.map((card) => (
-                            <PostCard card={card} key={card.id} />
+                            <PostCard card={card} key={card.id} bookmarks />
                         ))}
                     </div>
                 </div>
