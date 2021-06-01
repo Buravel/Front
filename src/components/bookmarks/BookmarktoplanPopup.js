@@ -20,10 +20,10 @@ function BookmarktoplanPopup(props) {
 
   const returning = axios.get("/plans/mine/published").then((response) => {
     setBmark(response.data._embedded.planResponseDtoList);
-  });
+  }, []);
   const returning2 = axios.get("/plans/mine/closed").then((response) => {
     setBmarkclosed(response.data._embedded.planResponseDtoList);
-  });
+  }, []);
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!posts) return null;

@@ -42,7 +42,11 @@ function BookmarkDetail({ match }) {
   // };
   const deletepost = (k) => {
     for (let i = 0; i < checkedInputs.length; i++) {
-      axios.delete(`http://34.64.93.115/bookmark/post/${checkedInputs[i]}`);
+      axios
+        .delete(`http://34.64.93.115/bookmark/post/${checkedInputs[i]}`)
+        .then((response) => {
+          setCheckedInputs("");
+        }, []);
     }
   };
 
@@ -51,14 +55,16 @@ function BookmarkDetail({ match }) {
   const returning = axios
     .get(`http://34.64.93.115/bookmark/${match.params.id}`)
     .then((response) => {
-      setBookmarks(response.data._embedded.bookmarkPostResponseDtoList);
-    });
+      response = []
+        ? setBookmarks([])
+        : setBookmarks(response.data._embedded.bookmarkPostResponseDtoList);
+    }, []);
 
   const returningtitle = axios
     .get(`http://34.64.93.115/bookmark`)
     .then((response) => {
       setBookmarkstitle(response.data._embedded.bookmarkResponseDtoList);
-    });
+    }, []);
   const bmarktitleA = bookmarkstitle.filter((k) => k.id == match.params.id);
   const thisbmarktitle = bmarktitleA && bmarktitleA[0];
   const thisbmarktitleA = thisbmarktitle && thisbmarktitle.bookmarkTitle;
@@ -103,15 +109,28 @@ function BookmarkDetail({ match }) {
 
   const handleSubmit = (event) => {
     axios
-      .patch(`http://34.64.93.115/bookmark/${thisbookmarkID}`, [
-        {
-          bookmarkTitle: title,
-        },
-      ])
+      .patch(`http://34.64.93.115/bookmark/${thisbookmarkID}`, {
+        bookmarkTitle: title,
+      })
       .then((res) => {
         setTitle("");
-      });
+      }, []);
   };
+
+  // const handleSubmit = async (a) => {
+  //   token = localStorage.getItem("token");
+  //   if (token) token = token.replace(/\"/gi, "");
+
+  //   axios.defaults.headers.common["Authorization"] = `${token}`;
+
+  //   await axios
+  //     .PATCH(`http://34.64.93.115/bookmark/` + thisbookmarkID, {
+  //       bookmarkTitle: title,
+  //     })
+  //     .then((response) => {
+  //       return console.log(response.data);
+  //     });
+  // };
 
   return (
     <div className="bkDtBackground">
@@ -138,22 +157,7 @@ function BookmarkDetail({ match }) {
                 placeholder="북마크 이름"
                 onChange={handleTitleChange}
               />
-              <button
-                onClick={() => {
-                  axios
-                    .patch(`http://34.64.93.115/bookmark/200`, [
-                      {
-                        bookmarkTitle: "부산역",
-                      },
-                    ])
-
-                    .then((res) => {
-                      setTitle("");
-                    });
-                }}
-              >
-                확인
-              </button>
+              <button onClick={handleSubmit}>확인</button>
               {/* </form> */}
             </>
           )}

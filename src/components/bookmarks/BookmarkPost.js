@@ -23,7 +23,7 @@ function BookmarkPost(props) {
     .get(`http://34.64.93.115/bookmark/${props.bmarkId}`)
     .then((response) => {
       setPosts(response.data._embedded.bookmarkPostResponseDtoList);
-    });
+    }, []);
 
   // const togglePopup = () => {
   //   setIsOpen(!isOpen);
@@ -43,7 +43,7 @@ function BookmarkPost(props) {
     .get(`${postit[0]._links.originPlan.href}`)
     .then((response) => {
       setHashtag(response.data.postForPlanResponseDtos);
-    });
+    }, []);
 
   const category = postId && postId.postBookmarkPostResponseDto.category;
 

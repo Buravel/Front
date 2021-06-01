@@ -19,6 +19,8 @@ function BookmarkMain() {
   const [isOpen, setIsOpen] = useState(false);
   const [isdelOpen, setdelIsOpen] = useState(false);
   const [isdetailOpen, setdetailOpen] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [bookmarks, setBookmarks] = useState([]);
   const [bookmarksdata, setBookmarksdata] = useState([]);
 
@@ -29,11 +31,27 @@ function BookmarkMain() {
   token = token.replace(/"/g, "");
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-  const returning = axios
-    .get("http://34.64.93.115/bookmark")
-    .then((response) => {
-      setBookmarks(response.data._embedded.bookmarkResponseDtoList);
-    });
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setError(null);
+        setBookmarks(null);
+        setLoading(true);
+        const response = await axios.get("http://34.64.93.115/bookmark");
+        setBookmarks(response.data._embedded.bookmarkResponseDtoList);
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
+    };
+
+    fetchPosts();
+  }, []);
+  // const returning = axios
+  //   .get("http://34.64.93.115/bookmark")
+  //   .then((response) => {
+  //     setBookmarks(response.data._embedded.bookmarkResponseDtoList);
+  //   }, []);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -46,8 +64,10 @@ function BookmarkMain() {
   };
 
   const bmarkListN = bookmarks && bookmarks.map((k) => k);
+  console.log(bmarkListN);
+  // if (!bmarkListN) return [];
   const bmarknumber = [];
-  for (let i = 0; i <= bmarkListN.length; i++) {
+  for (let i = 0; i <= bmarkListN && bmarkListN.length; i++) {
     bmarknumber.push(bmarkListN && bmarkListN.map((k) => k));
   }
   const bmarkListNum = bmarkListN && bmarkListN.map((k) => k);
@@ -60,7 +80,7 @@ function BookmarkMain() {
   for (let i = 0; i < bmarkListN.length; i++) {
     bmarkIdArray.push(bmarkListN[i].id);
   }
-  const ImgArray = bmarknumber[0].map((k) => k.bookmarkImages)[1];
+  // const ImgArray = bmarknumber[0].map((k) => k.bookmarkImages)[1];
 
   // for (let i = 0; i < bmarkListN.length; i++) {
   //   axios
@@ -152,10 +172,10 @@ function BookmarkMain() {
                             .then((res) => {
                               setBookmarks([...bookmarks, res.data]);
                               alert(`파일이 생성되었습니다`);
-                            })
+                            }, [])
                             .catch(function (error) {
                               alert("기존 '새 폴더'의 이름을 변경해 주세요");
-                            });
+                            }, []);
                         }}
                       >
                         <Bicon
@@ -172,10 +192,10 @@ function BookmarkMain() {
                             .then((res) => {
                               setBookmarks([bookmarks]);
                               alert(`폴더가 삭제되었습니다`);
-                            })
+                            }, [])
                             .catch(function (error) {
                               alert("삭제되었거나 없는 폴더입니다");
-                            });
+                            }, []);
                         }}
                       >
                         <Bicon
@@ -186,57 +206,58 @@ function BookmarkMain() {
                     </div>
                     <div className="bmarkTitlebuttom" />
                     <div className="bmarkPostBackground">
-                      {bmarknumber[0].reverse().map((item) => (
-                        <Link to={"bookmarks/" + item.id}>
-                          <span className="bmarkptbk">
-                            <span
-                              className="bmarkPhotobk"
-                              onClick={toggledetailPopup}
-                            >
-                              <span className="bptl">
-                                {item.bookmarkImages[0] !== "" &&
-                                  item.bookmarkImages[0] !== undefined && (
-                                    <img
-                                      src={`data:image/png;base64,${item.bookmarkImages[0]}`}
-                                      className="bkimg1"
-                                    />
-                                  )}
-                              </span>
-                              <span className="bptr">
-                                {item.bookmarkImages[1] !== "" &&
-                                  item.bookmarkImages[1] !== undefined && (
-                                    <img
-                                      src={`data:image/png;base64,${item.bookmarkImages[1]}`}
-                                      className="bkimg2"
-                                    />
-                                  )}
-                              </span>
-                              <span className="bpbl">
-                                {item.bookmarkImages[2] !== "" &&
-                                  item.bookmarkImages[2] !== undefined && (
-                                    <img
-                                      src={`data:image/png;base64,${item.bookmarkImages[2]}`}
-                                      className="bkimg3"
-                                    />
-                                  )}
-                              </span>
-                              <span className="bpbr">
-                                {item.bookmarkImages[3] !== "" &&
-                                  item.bookmarkImages[3] !== undefined && (
-                                    <img
-                                      src={`data:image/png;base64,${item.bookmarkImages[3]}`}
-                                      className="bkimg4"
-                                    />
-                                  )}
-                              </span>
-                              <span className="bkname">
-                                {item.bookmarkTitle}
-                                <BmarkNum id={item.id} />
+                      {bmarknumber[0] &&
+                        bmarknumber[0].reverse().map((item) => (
+                          <Link to={"bookmarks/" + item.id}>
+                            <span className="bmarkptbk">
+                              <span
+                                className="bmarkPhotobk"
+                                onClick={toggledetailPopup}
+                              >
+                                <span className="bptl">
+                                  {item.bookmarkImages[0] !== "" &&
+                                    item.bookmarkImages[0] !== undefined && (
+                                      <img
+                                        src={`data:image/png;base64,${item.bookmarkImages[0]}`}
+                                        className="bkimg1"
+                                      />
+                                    )}
+                                </span>
+                                <span className="bptr">
+                                  {item.bookmarkImages[1] !== "" &&
+                                    item.bookmarkImages[1] !== undefined && (
+                                      <img
+                                        src={`data:image/png;base64,${item.bookmarkImages[1]}`}
+                                        className="bkimg2"
+                                      />
+                                    )}
+                                </span>
+                                <span className="bpbl">
+                                  {item.bookmarkImages[2] !== "" &&
+                                    item.bookmarkImages[2] !== undefined && (
+                                      <img
+                                        src={`data:image/png;base64,${item.bookmarkImages[2]}`}
+                                        className="bkimg3"
+                                      />
+                                    )}
+                                </span>
+                                <span className="bpbr">
+                                  {item.bookmarkImages[3] !== "" &&
+                                    item.bookmarkImages[3] !== undefined && (
+                                      <img
+                                        src={`data:image/png;base64,${item.bookmarkImages[3]}`}
+                                        className="bkimg4"
+                                      />
+                                    )}
+                                </span>
+                                <span className="bkname">
+                                  {item.bookmarkTitle}
+                                  <BmarkNum id={item.id} />
+                                </span>
                               </span>
                             </span>
-                          </span>
-                        </Link>
-                      ))}
+                          </Link>
+                        ))}
 
                       {isOpen && <AddBmark handleClose={togglePopup} />}
                       {isdelOpen && <DelBmark handleClose={toggledelPopup} />}
