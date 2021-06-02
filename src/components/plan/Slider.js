@@ -57,7 +57,7 @@ function Slider(props) {
   const postTerm = posts.postForPlanResponseDtos;
 
   const dayMax =
-    postTerm &&
+    postTerm !== undefined &&
     postTerm.filter((k) => k.day === props.day - 1).map((item, i) => item.id)
       .length;
 
