@@ -30,6 +30,7 @@ const Product = (props) => {
   const hotelprice = parseInt(props.product.hotelTotalPrice / 1000);
   const trafficprice = parseInt(props.product.flightTotalPrice / 1000);
   const shoppingprice = parseInt(props.product.etcTotalPrice / 1000);
+  //천원단위로 표시한다고 해서 .
 
   const postTitle = props.product.planTitle;
   const planTagTitle = props.product.planTagResponseDtos[0].planTagTitle;
@@ -59,9 +60,9 @@ const Product = (props) => {
         <Link to={`/plans/${planId}`}>
             <div className="col-xs-2">
               <div className="product_img">
-                {planImage ? (<img src={`data:image/png;base64,${planImage}`}/>) : (<img
+                {planImage ? (<img src={`data:image/png;base64,${planImage}`} className="product_img"/>) : (<img
                   className="img-full"
-                  src="http://placehold.it/200x185"
+                  src="/images/mainpage/default.png"
                   alt="Product Images"
                 />)}
 
