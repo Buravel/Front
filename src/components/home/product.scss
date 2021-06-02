@@ -1,0 +1,191 @@
+//수정확인 O => 결과 확인필요
+.home-product-shadowbox {
+    cursor: pointer;
+    width: 230px;
+    height: 300px;
+    padding: 0 13px 0 15px;
+    margin-bottom: 70px;
+    .product-img {
+        img {
+            position: absolute;
+            max-width: 201px;
+            max-height: 185px;
+            min-width: 201px;
+            min-height: 185px;
+        }
+        .product-tag {
+            position: absolute;
+            height: 20px;
+            padding: 1px 10px 1px 10px;
+            background-color: #0070ef;
+            margin-top: 165px;
+            font-size: 12px;
+            color: #ffffff;
+            min-width: 55px;
+        }
+    }
+    .product-info {
+        margin-top: 185px;
+        .info-top {
+            height: 30px;
+            .product-title {
+                float: left;
+                width: 100px;
+                height: 30px;
+                font-size: 15px;
+                color: #535353;
+                padding : 10px 0 0 10px;
+            }
+            .product-price {
+                float: right;
+                color: #0070ef;
+                width: 100px;
+                height: 30px;
+                font-size: 18px;
+                text-align: right;
+                padding: 7px 10px 0 0;
+            }
+        }
+        .info-mid {
+            padding-left: 10px;
+            .product-date {
+                width: 100px;
+                height: 18px;
+                font-size: 12px;
+                color: #b5b5b5; 
+            }
+        }
+        
+        .info-bottom {
+            width: 200px;
+            height: 30px;
+            padding: 0 10px;
+            .product-top-three {
+                min-width: 30px;
+                float: left;
+                margin-right: 5px;
+                .icon {
+                    margin-right: 1.5px;
+                }
+                .plan {
+                    font-size:12px;
+                }
+            }
+            .product-rating {
+                float:right;
+                .icon {
+                    margin-right: 3.5px;
+                }
+                .rating {
+                    font-size: 12px;
+                    color : #ef9f00;
+                }
+            }
+        }
+    }
+
+    
+    // .product_name {
+    //     z-index: 3;
+    //     position: absolute;
+    //     top:40%;
+    //     left: 5px;
+    //     width: 100px;
+    //     height: 22px;
+    //     margin: 2px;
+    //     font-family: 'Noto Sans KR', sans-serif;    
+    //     font-size: 15px;
+    //     font-weight: bold;
+    //     font-stretch: normal;
+    //     font-style: normal;
+    //     line-height: 1.47;
+    //     letter-spacing: normal;
+    //     text-align: left;
+    //     color: #535353;
+    // }
+    
+    // .price {
+    //     z-index: 3;
+    //     position: absolute;
+    //     top:50%;
+    //     right: -13%;
+    //     color: #0070ef;
+    //     font-size: 18px;
+    //     font-weight: bolder;
+    
+    //     width: 100px;
+    //     height: 27px;
+    //     margin: 0 2px 0 0;
+    //     font-family: 'Noto Sans KR', sans-serif;
+    //     font-size: 18px;
+    //     font-weight: bold;
+    //     font-stretch: normal;
+    //     font-style: normal;
+    //     line-height: 1.5;
+    //     letter-spacing: normal;
+    //     text-align: left;
+    //     color: #0070ef;
+    // }
+    
+    // .icon {
+    //     z-index: 3;
+    //     width: 5px;
+    //     height: 12.9px;
+    //     margin: 3.3px 1.5px 1.9px 0;
+    //     object-fit: contain;
+    // }
+    // .plan{
+    //     z-index: 3;
+    //     width: 5px;
+    //     height: 18px;
+    //     margin: 0 9.6px 0 1.5px;
+    //     -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+    //     font-family: 'Noto Sans KR', sans-serif;  
+    //     font-size: 12px;
+    //     font-weight: normal;
+    //     font-stretch: normal;
+    //     font-style: normal;
+    //     line-height: 1.5;
+    //     letter-spacing: normal;
+    //     text-align: left;
+    //     color: #535353;
+    // }
+    // .plan_text {
+    //     z-index: 3;
+    //     position: absolute;
+    //     top: 215px;
+    //     left: 8px;
+    //     width: 100px;
+    //     height: 18px;
+    //     font-family: 'Noto Sans KR', sans-serif;    
+    //     font-size: 12px;
+    //     font-weight: normal;
+    //     font-stretch: normal;
+    //     font-style: normal;
+    //     line-height: 1.5;
+    //     letter-spacing: normal;
+    //     text-align: left;
+    //     color: #b5b5b5;
+    // }
+    
+    // .plan_star{
+    //     z-index: 3;
+    //     color: #ef9f00;
+    // }
+    
+    // .product_box{
+    //     z-index: 3;
+    //     position:relative;
+    //     width:220px;
+    //     height: 18px;
+    //     left: 10px;
+    //     top: 28px;
+    // }
+    
+    // .star {
+    //     z-index: 3;
+    //     position: absolute;
+    //     left: 70%;
+    // }
+
+}

@@ -37,7 +37,7 @@ const Map = ({ location }) => {
     return isLoaded && visible ? (
         <div className="map-container">
             <button className="close-map" onClick={onMap}>
-                <img src="./images/map/close-btn.png" />
+                <img src="./images/map/close-btn.png" alt="close" />
             </button>
             <GoogleMap
                 id="circle-example"

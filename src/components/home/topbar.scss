@@ -1,0 +1,59 @@
+//수정사항 0601
+.topbar-title{
+    // z-index: 1;
+    // // position: absolute;
+    // // top: 30px;
+    // left: 1%;
+    // width: 400px;
+    // height: 29px;
+    // margin: 0 154px 29px 81px;
+    // font-family: 'Noto Sans KR', sans-serif;    
+    // font-size: 20px;
+    // font-weight: bold;
+    // font-stretch: normal;
+    // font-style: normal;
+    // line-height: 0.6;
+    // letter-spacing: normal;
+    // text-align: left;
+    // color: #535353;
+   
+}
+
+.product-topbar{
+  // z-index: 3;
+  // // position: absolute;
+  // top: 10%;
+  // right: 10%;
+  // padding: 5px;
+
+  // width: 53.1px;
+  // height: 20px;
+}
+
+.home-topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 80px 25px 80px;
+  .home-title {
+    font-size: 20px;
+    color : #535353;
+    .search-keyword {
+      color: #0070ef;
+    }
+  }
+  select {
+    border:none;
+    border-bottom: 1px solid #535353;
+    text-align-last: center;
+    background: none;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+  option {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 14px;
+    /* text-align-last: center;적용안됨 */
+  }
+}
+  
