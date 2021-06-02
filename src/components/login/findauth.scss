@@ -1,27 +1,37 @@
 $lightblue: #0070ef;
+$darkgray: #535353;
+$gray: #c1c1c1;
+$lightgray: #d9d9d9;
 .findauth {
+  text-align: center;
+  .logo-complete {
+    display: inline-block;
+    width: 6.8vw;
+    margin: 6vh 38.1vw 14vh 38.1vw;
+    width: 6.8vw;
+    margin-top: 10.1vw;
+    margin-bottom: 6.4vw;
+    margin-left: 38.2vw;
+    margin-right: 38.2vw;
+  }
   .h302 {
-    margin-bottom: 5px;
+    margin-bottom: 2vh;
     line-height: 0;
     text-align: center;
+    font-weight: 400;
   }
 
   .h508 {
-    color: $lightblue;
-    margin: 0;
-    line-height: 0;
-  }
-
-  .h509 {
-    text-align: left;
+    text-align: center;
     width: 24vw;
     margin: 0;
-  }
-
-  .authNumForm {
-    width: 26.8vw;
-    margin-left: auto;
-    margin-right: auto;
+    font-weight: 300;
+    margin-bottom: 8vh;
+    .h509 {
+      color: $lightblue;
+      margin: 0;
+      line-height: 0;
+    }
   }
 
   .error-msg {
@@ -29,27 +39,28 @@ $lightblue: #0070ef;
     font-size: 10px;
     text-align: center;
   }
-  .buttonsection {
-    .button03 {
-      color: white;
+
+  .btnsection {
+    .login-btn {
       font-size: 1.3vw;
       border: none;
       margin-left: 0.7vw;
       margin-right: 0.7vw;
-    }
-
-    .button03.style01 {
       width: 10vw;
       height: 3.1vw;
       background-color: $lightblue;
       border-radius: 0.5vw;
-      color: white;
+      a {
+        color: white;
+      }
     }
 
-    .button03.style02 {
+    .mainpage-btn {
+      font-size: 1.3vw;
+      margin-left: 0.7vw;
+      margin-right: 0.7vw;
       width: 17.4vw;
       height: 3.1vw;
-
       border-radius: 0.5vw;
       border: 0.2vw solid $lightblue;
       color: $lightblue;

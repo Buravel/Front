@@ -24,11 +24,13 @@ const Product = (props) => {
   const category = postId && postId.map((k) => k.category)[0];
 
   const planImage = props.product.planImage;
+
   const outputPlanTotalPrice = props.product.outputPlanTotalPrice;
 
   const hotelprice = parseInt(props.product.hotelTotalPrice / 1000);
   const trafficprice = parseInt(props.product.flightTotalPrice / 1000);
   const shoppingprice = parseInt(props.product.etcTotalPrice / 1000);
+  //천원단위로 표시한다고 해서 .
 
   const postTitle = props.product.planTitle;
   const planTagTitle = props.product.planTagResponseDtos[0].planTagTitle;
@@ -55,19 +57,25 @@ const Product = (props) => {
   return (
     <>
       <div className="product-shadowbox">
-        <Link to={`/plan/${planId}`}>
+        <Link to={`/plans/${planId}`}>
           <div className="col-xs-2">
             <div className="product_img">
-              <img
-                className="img-full"
-                src="http://placehold.it/200x185"
-                alt="Product Images"
-              />
-              <div className="tag">
-                <span className="tag_text">#{planTagTitle}</span>
-              </div>
-            </div>
+              {planImage ? (
+                <img
+                  src={`data:image/png;base64,${planImage}`}
+                  className="product_img"
+                />
+              ) : (
+                <img
+                  className="img-full"
+                  src="/images/mainpage/default.png"
+                  alt="Product Images"
+                />
+              )}
 
+              {/* {planImage !== "" && planImage !== undefined && (<img src={`data:image/png;base64,${planImage}`}/>)} */}
+              <span className="tag">&nbsp;#{planTagTitle}&nbsp;</span>
+            </div>
             <div className="product_topline">
               <span className="product_name">&nbsp;{postTitle}</span>
               <span className="price">&nbsp;{outputPlanTotalPrice}</span>
@@ -96,6 +104,9 @@ const Product = (props) => {
                 </span>
                 <span className="plan plan_star">{planRating}&nbsp; </span>
               </span>
+            </div>
+            <div className="stackimg">
+              <img src="/images/mainpage/stack.png" />
             </div>
           </div>
         </Link>

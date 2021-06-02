@@ -14,18 +14,30 @@ $blue: #0070ef;
     margin: 0 0 7.8px;
     padding: 165px 150px 0 0;
     background-color: $darkgray;
+    position: relative;
+    .image_fix {
+      width: 200px;
+      min-width: 100%;
+      min-height: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
     .tagSection {
-      width: 60px;
+      position: absolute;
+      text-align: left;
+      width: 80px;
       height: 20px;
       padding: 1px 10px 1px 11px;
       background-color: $blue;
       color: white;
-      font-size: small;
+      font-size: 10px;
     }
   }
   .infoSection {
     height: 79px;
     .title {
+      width: 120px;
       margin: 0 0 0 5px;
       font-family: NotoSansKR;
       font-size: 15px;
@@ -38,7 +50,6 @@ $blue: #0070ef;
       color: #535353;
     }
     .cost {
-      margin: 0 0 0 60px;
       font-family: NotoSansKR;
       font-size: 18px;
       font-weight: bold;
@@ -46,8 +57,10 @@ $blue: #0070ef;
       font-style: normal;
       line-height: 1.5;
       letter-spacing: normal;
-      text-align: right;
       color: #0070ef;
+      position: absolute;
+      width: 70px;
+      text-align: right;
     }
     .date {
       margin: 0px 0px 2px 5px;
@@ -63,6 +76,9 @@ $blue: #0070ef;
     }
 
     .rate {
+      text-align: right;
+      justify-content: right;
+      position: absolute;
       .rate-text {
         margin: 0 0 0 3.5px;
         font-family: NotoSansKR;
@@ -72,16 +88,14 @@ $blue: #0070ef;
         font-style: normal;
         line-height: 1.5;
         letter-spacing: normal;
-        //      text-align: left;
         color: #ef9f00;
       }
     }
-    .rate-image {
-      margin-left: 43px;
-    }
   }
 }
+
 .cost-sort {
+  width: 160px;
   .cost-image {
     width: 10.5px;
     height: 12.9px;

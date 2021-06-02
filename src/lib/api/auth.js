@@ -1,6 +1,6 @@
 import axios from "axios";
 axios.defaults.baseURL = "http://34.64.93.115";
-let token;
+let token, errormsg;
 export const login = async ({ username, password }) =>
   await axios({
     method: "POST",
@@ -23,7 +23,7 @@ export const login = async ({ username, password }) =>
       return Promise.reject(error);
     });
 
-export const register = async ({ nickname, username, email, password }) =>
+export const register = async ({ nickname, username, email, password }) => {
   await axios({
     method: "POST",
     url: "/signUp",
@@ -38,8 +38,10 @@ export const register = async ({ nickname, username, email, password }) =>
       return response;
     })
     .catch((error) => {
-      return Promise.reject(error);
+      errormsg = error.response.data.errors[0].defaultMessage;
+      return Promise.reject(errormsg);
     });
+};
 
 export const registerAuth = async ({ number }) => {
   token = localStorage.getItem("token");

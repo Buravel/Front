@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import SetupPage from "../../components/mypage/SetupPage";
@@ -9,16 +9,31 @@ const SetupPageForm = () => {
   const [email, setEmail] = useState(null);
   const [emailVerified, setEmailVerified] = useState(null);
   const [profile, setProfile] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   let token = localStorage.getItem("token");
   if (token) token = token.replace(/\"/gi, "");
-  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-  const returning = axios.get("/mypage").then((response) => {
-    setNickname(response.data.nickname);
-    setUsername(response.data.username);
-    setEmail(response.data.email);
-    setProfile(response.data.profile);
-    setEmailVerified(response.data.emailVerified);
-  });
+  axios.defaults.headers.common["Authorization"] = `${token}`;
+
+  useEffect(() => {
+    const myInfo = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get("/mypage");
+        setNickname(response.data.nickname);
+        setUsername(response.data.username);
+        setEmail(response.data.email);
+        setProfile(response.data.profileImage);
+        setEmailVerified(response.data.emailVerified);
+      } catch (e) {
+        console.log(e);
+        return Promise.reject(e);
+      }
+      setLoading(false);
+    };
+    myInfo();
+  }, []);
+
   return (
     <SetupPage
       type="setuppage"
@@ -26,10 +41,9 @@ const SetupPageForm = () => {
       username={username}
       email={email}
       emailVerified={emailVerified}
-      profileImage={profile}
+      profile={profile}
     ></SetupPage>
   );
-  //  localStorage.removeItem("token");
 };
 
 export default withRouter(SetupPageForm);

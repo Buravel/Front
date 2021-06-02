@@ -2,6 +2,7 @@ $gray: #c1c1c1;
 $darkgray: #535353;
 $lightgray: #d9d9d9;
 $blue: #66a7ff;
+$darkblue: #2b71f3;
 
 .privacyBlock {
   width: 33.6vw;
@@ -15,6 +16,7 @@ $blue: #66a7ff;
     .h503 {
       margin-bottom: 1.7vh;
       font-weight: 500;
+      font-size: 1vw;
     }
 
     .privacytext {
@@ -25,6 +27,8 @@ $blue: #66a7ff;
       .h602 {
         margin: 0;
         text-align: initial;
+        font-size: 5px;
+        font-weight: 300;
       }
     }
 
@@ -48,5 +52,26 @@ $blue: #66a7ff;
     display: flex;
     width: 33.6vw;
     justify-content: space-around;
+    .agree-btn {
+      height: 7.5vh;
+      border-radius: 2.1vw;
+      font-size: 1.3vw;
+      color: white;
+      width: 14.9vw;
+      background-color: $darkblue;
+      border: none;
+      margin-top: 1vh;
+    }
+    .cancel-btn {
+      height: 7.5vh;
+      border-radius: 2.1vw;
+      font-size: 1.3vw;
+      background-color: $darkblue;
+      width: 14.9vw;
+      background-color: $lightgray;
+      border: none;
+      color: $darkgray;
+      margin-top: 1vh;
+    }
   }
 }

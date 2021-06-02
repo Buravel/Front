@@ -16,15 +16,6 @@ $darkblue: #2b71f3;
       margin: 0%;
     }
   }
-
-  .privacy {
-    .h601 {
-      font-size: 12px;
-      text-decoration: underline;
-      font-weight: 500;
-    }
-  }
-
   .checkbtn {
     margin-bottom: 1.1vw;
     width: 26.8vw;
@@ -34,5 +25,10 @@ $darkblue: #2b71f3;
     font-size: 1.3vw;
     background-color: $darkblue;
     color: white;
+  }
+  .error-msg {
+    color: red;
+    font-size: 0.8vw;
+    text-align: center;
   }
 }

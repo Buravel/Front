@@ -1,6 +1,7 @@
 $gray: #f5f5f5;
 $lightgray: #b5b5b5;
 $darkgray: #767676;
+$gray-post: #bfbfbf;
 $blue: #0070ef;
 
 .userSection {
@@ -11,21 +12,24 @@ $blue: #0070ef;
   right: 0;
   top: 0;
   bottom: 0;
-  overflow: auto;
-  //  justify-content: center;
   margin-top: 79px;
   height: 295px;
   align-items: center;
   .profileImage {
-    width: 174px;
-    height: 174px;
-    margin: 62px 50px 59px 92px;
+    width: 13vw;
+    //    height: 174px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 6.4vw;
+    margin-right: 3.5vw;
   }
   .userBox {
-    //    width: 20vw;
-    width: 30vw;
+    width: 40vw;
     justify-content: left;
-    margin: 62px 50px 59px 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 6.4vw;
+    margin-right: 3.5vw;
     h1 {
       font-size: 2vw;
       line-height: 0;
@@ -35,7 +39,7 @@ $blue: #0070ef;
     }
     .email {
       color: $lightgray;
-      font-size: 14px;
+      font-size: 1vw;
     }
     .email:hover {
       color: $blue;
@@ -49,6 +53,7 @@ $blue: #0070ef;
         border-radius: 2.1vw;
         font-size: 0.97vw;
         color: $darkgray;
+        margin-right: 0.9vw;
       }
       .logout {
         width: 5.5vw;
@@ -81,6 +86,30 @@ $blue: #0070ef;
     margin: 60px 0px 22px 81px;
     height: 300px;
     align-items: center;
+    .no-post {
+      background-color: $gray-post;
+      height: 350px;
+      text-align: center;
+      margin-top: 50px;
+      font-size: 40px;
+      color: $darkgray;
+      line-height: 330px;
+    }
+    .paging {
+      list-style: none;
+      text-align: center;
+      font-weight: 600;
+      .pNum {
+        width: 200px;
+        height: 100px;
+        font-size: 15px;
+        letter-spacing: 8px;
+        color: #707070;
+        .highlight {
+          color: $blue;
+        }
+      }
+    }
   }
 
   .boxtitle {

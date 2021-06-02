@@ -34,7 +34,7 @@ const Mainpage_afterlogin = () => {
             <Navbar.Brand href="#home">Header</Navbar.Brand>
         </Navbar> */}
       <div className="topbar">
-        <After_Topnav product={product[0]} />;
+        <After_Topnav product={product[0]} />
       </div>
 
       <div className="afterlogin-main-background">
@@ -43,7 +43,7 @@ const Mainpage_afterlogin = () => {
         </div>
 
         <div className="After_topbar">
-          <After_topBar />
+          <After_topBar product={product.length} />
         </div>
 
         <div className="container">

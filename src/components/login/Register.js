@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./common.scss";
 import "./register.scss";
 
 const style = { display: "inline-block" };
-const Register = ({ form, onChange, onSubmit }) => {
+const Register = ({ form, onChange, onSubmit, error, errormsg, success }) => {
   return (
     <div className="registerBlock">
       <form onSubmit={onSubmit}>
@@ -61,12 +60,14 @@ const Register = ({ form, onChange, onSubmit }) => {
             ></input>
           </div>
         </div>
-        <div className="privacy">
-          <Link to="/privacyPolicy">
-            <h6 className="h601" style={style}>
-              약관 확인 및 동의하기(필수)
-            </h6>
-          </Link>
+        <div className="error-msg">
+          {error ? (
+            <div>{error}</div>
+          ) : (
+            <div className="error-msg">
+              {success ? <div> </div> : <div>{errormsg}</div>}
+            </div>
+          )}
         </div>
         <button className="checkbtn" type="submit">
           확인
