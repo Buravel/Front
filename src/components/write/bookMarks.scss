@@ -14,7 +14,7 @@
         text-align: center;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        border: solid 1px #0070ef;
+        border: solid 1.1px #0070ef;
         border-bottom: solid 1px white;
         position: relative;
         z-index: 30;
@@ -32,7 +32,7 @@
     .bookmark-info {
         width: 1280px;
         height: 370px;
-        border: solid 1px #0070ef;
+        border: solid 1.1px #0070ef;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         background-color: #ffffff;
@@ -49,8 +49,22 @@
             display: flex;
             overflow-x: hidden;
             height: 300px;
-            width: 1235px;
+            width: 1190px;
             margin: 17px 0 0 43px;
+        }
+        .list-arrow {
+            position: absolute;
+            top:0;
+            height: 100%;
+            button {
+                margin: 165px 0;
+            }
+        }
+        .left {
+            left:0;
+        }
+        .right {
+            right:0;
         }
     }
 }

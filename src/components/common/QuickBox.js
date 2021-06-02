@@ -37,7 +37,7 @@ const QuickBox = ({ onLogout, onClick }) => {
                 </Link>
             </div>
             <div className="quick-btn">
-                <Link to="writeplan">
+                <Link to="/writeplan">
                     <div>
                         <img src="/images/header/add_plan.png" alt="newplan" />
                     </div>

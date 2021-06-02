@@ -78,28 +78,28 @@ const After_Topnav = (props) => {
                     <img
                         src="/images/mainpage/bus.png"
                         /*srcset="img/food@2x.png 2x,img/food@3x.png 3x"*/
-                        class="food"
+                        className="food"
                         alt="bus"
                     />
                     {trafficTotalPrice} &nbsp;&nbsp;
                     <img
                         src="/images/mainpage/plane.png"
                         /*srcset="img/food@2x.png 2x,img/food@3x.png 3x"*/
-                        class="food"
+                        className="food"
                         alt="plane"
                     />
                     {flightTotalPrice} &nbsp;&nbsp;
                     <img
                         src="/images/mainpage/food.png"
                         /*srcset="img/food@2x.png 2x,img/food@3x.png 3x"*/
-                        class="food"
+                        className="food"
                         alt="food"
                     />
                     {dishTotalPrice} &nbsp;&nbsp;
                     <img
                         src="/images/mainpage/dot.png"
                         /*srcset="img/food@2x.png 2x,img/food@3x.png 3x"*/
-                        class="food"
+                        className="food"
                         alt="dot"
                     />
                 </span>

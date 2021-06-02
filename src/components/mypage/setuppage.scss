@@ -4,36 +4,55 @@ $darkgray: #535353;
 $blue: #0070ef;
 
 .setup {
-  .profileImage {
+  .prof_img {
     display: block;
-    margin: 6vh auto 6vh auto;
-    width: 174px;
-    height: 174px;
+    text-align: center;
+    margin: 0 auto;
+    .profileImage {
+      display: block;
+      margin: 6vh auto 6vh auto;
+      width: 174px;
+      height: 174px;
+    }
   }
   .info {
     .msg {
       text-align: center;
       color: $blue;
       font-weight: 400;
-      font-size: 12px;
+      font-size: 0.8vw;
       margin-bottom: 30px;
     }
     .error-msg {
       text-align: center;
       color: red;
       font-weight: 400;
-      font-size: 12px;
+      font-size: 0.8vw;
       margin-bottom: 30px;
     }
     .profileBox {
+      text-align: center;
+      .choose-file {
+        border: 2px solid $blue;
+        border-radius: 10px;
+      }
+      .upload-btn {
+        display: inline-block;
+        margin-right: 0.5vw;
+        border: 2px solid $blue;
+        border-radius: 10px;
+        background-color: white;
+        width: 10vw;
+        color: $blue;
+      }
+
       .profile-btn {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+        display: inline-block;
+        margin-left: 0.5vw;
         border: 2px solid $blue;
         border-radius: 10px;
         background-color: $blue;
-        width: 10vw;
+        width: 5vw;
         color: white;
       }
       margin-bottom: 8vh;

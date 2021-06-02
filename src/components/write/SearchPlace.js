@@ -24,7 +24,7 @@ const SearchPlace = compose(
                         formatted_address,
                         geometry: { location },
                     } = place;
-                    this.props.addPlace({
+                    this.props.setLocation({
                         name: formatted_address,
                         lat: location.lat(),
                         lng: location.lng(),

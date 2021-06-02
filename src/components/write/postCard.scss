@@ -1,5 +1,6 @@
 .postcard-container {
-    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
     height: 275px;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
