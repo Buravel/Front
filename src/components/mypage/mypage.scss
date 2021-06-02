@@ -1,6 +1,7 @@
 $gray: #f5f5f5;
 $lightgray: #b5b5b5;
 $darkgray: #767676;
+$gray-post: #bfbfbf;
 $blue: #0070ef;
 
 .userSection {
@@ -15,8 +16,8 @@ $blue: #0070ef;
   height: 295px;
   align-items: center;
   .profileImage {
-    width: 174px;
-    height: 174px;
+    width: 13vw;
+    //    height: 174px;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 6.4vw;
@@ -85,6 +86,30 @@ $blue: #0070ef;
     margin: 60px 0px 22px 81px;
     height: 300px;
     align-items: center;
+    .no-post {
+      background-color: $gray-post;
+      height: 350px;
+      text-align: center;
+      margin-top: 50px;
+      font-size: 40px;
+      color: $darkgray;
+      line-height: 330px;
+    }
+    .paging {
+      list-style: none;
+      text-align: center;
+      font-weight: 600;
+      .pNum {
+        width: 200px;
+        height: 100px;
+        font-size: 15px;
+        letter-spacing: 8px;
+        color: #707070;
+        .highlight {
+          color: $blue;
+        }
+      }
+    }
   }
 
   .boxtitle {
