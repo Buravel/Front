@@ -30,7 +30,7 @@ const Product = ({ product }) => {
         planImage,
         outputPlanTotalPrice,
         planTitle,
-        planTagTitle,
+        planTagResponseDtos,
         planRating,
         startDate,
         endDate,
@@ -50,6 +50,7 @@ const Product = ({ product }) => {
         shoppingTotalPrice,
         trafficTotalPrice,
     });
+    console.log(planTagResponseDtos);
     const [sY, sM, sD] = splitDate(startDate.split('-').join(''));
     const [eY, eM, eD] = splitDate(endDate.split('-').join(''));
     const night = getNight(`${sY}-${sM}-${sD}`, `${eY}-${eM}-${eD}`);
@@ -78,7 +79,7 @@ const Product = ({ product }) => {
                         />
                     )}
                     <span className="product-tag">
-                        &nbsp;#{planTagTitle}&nbsp;
+                        &nbsp;#{planTagResponseDtos[0].planTagTitle}&nbsp;
                     </span>
                 </div>
                 <div className="product-info">
