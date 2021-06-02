@@ -8,18 +8,16 @@ $lightgray: #d9d9d9;
   .logo-complete {
     display: inline-block;
     width: 6.8vw;
-    margin: 7vh 38.1vw 50vh 38.1vw;
-    width: 6.8vw;
-    margin-top: 10.1vw;
-    margin-bottom: 6.4vw;
+    margin-top: 5vh;
     margin-left: 38.2vw;
     margin-right: 38.2vw;
+    margin-bottom: 10vh;
   }
   .h302 {
-    margin-bottom: 2vh;
     line-height: 0;
     text-align: center;
     font-weight: 400;
+    margin-bottom: 3vh;
   }
 
   .h509 {
@@ -29,6 +27,7 @@ $lightgray: #d9d9d9;
   }
 
   .authNumForm {
+    margin-top: 10vh;
     .inputBox {
       .h511 {
         color: red;
@@ -40,7 +39,7 @@ $lightgray: #d9d9d9;
 
   .error-msg {
     color: red;
-    font-size: 10px;
+    font-size: 0.8vw;
     text-align: center;
   }
 
