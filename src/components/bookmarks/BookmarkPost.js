@@ -8,21 +8,27 @@ import Icon from "../plan/Icon";
 import Bicon from "./Bicon";
 
 function BookmarkPost(props) {
+  let token = localStorage.getItem("token");
+  token = token.replace(/"/g, "");
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   const [posts, setPosts] = useState([]);
-
+  const [hashtag, setHashtag] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isbmarkOpen, setBmarkisOpen] = useState(false);
   const [isPrivate, setisPrivate] = useState(false);
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         setError(null);
         setPosts(null);
         setLoading(true);
-        const response = await axios.get("http://localhost:8080/post");
-        setPosts(response.data);
+        const response = await axios.get(
+          `http://34.64.93.115/bookmark/${props.bmarkId}`
+        );
+        setPosts(response.data._embedded.bookmarkPostResponseDtoList);
       } catch (e) {
         setError(e);
       }
@@ -31,7 +37,28 @@ function BookmarkPost(props) {
 
     fetchPosts();
   }, []);
-  if (!posts) return null;
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setError(null);
+        setHashtag(null);
+        setLoading(true);
+        const response = await axios.get(`${postit[0]._links.originPlan.href}`);
+        setHashtag(response.data.postForPlanResponseDtos);
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
+    };
+
+    fetchPosts();
+  }, []);
+
+  // const returning = axios
+  //   .get(`http://34.64.93.115/bookmark/${props.bmarkId}`)
+  //   .then((response) => {
+  //     setPosts(response.data._embedded.bookmarkPostResponseDtoList);
+  //   }, []);
 
   // const togglePopup = () => {
   //   setIsOpen(!isOpen);
@@ -39,19 +66,36 @@ function BookmarkPost(props) {
   const toggleBmarkPopup = () => {
     setBmarkisOpen(!isbmarkOpen);
   };
-  const postTerm = posts.postForPlanResponseDtos;
-  const postId = postTerm && postTerm.filter((k) => k.id === props.id);
-  const category = postId && postId.map((k) => k.category)[0];
-  const postImg = postId && postId.map((k) => k.postImage)[0];
-  const price = postId && postId.map((k) => k.price)[0];
-  const postTitle = postId && postId.map((k) => k.postTitle)[0];
-  const rating = postId && postId.map((k) => k.rating)[0];
-  const hashTag = postId && postId.map((k) => k.postTagResponseDtoList);
+  const postTerm = props.bookmarkInfo.map((k) => k);
+  const postArray = [];
+  for (let i = 0; i < postTerm.length; i++) {
+    postArray.push(postTerm[i]);
+  }
+  const postit =
+    postArray !== undefined && postArray.filter((k) => k.id == props.thisId);
+  const postId = postit && postit[0];
+
+  // const returning2 = axios
+  //   .get(`${postit[0]._links.originPlan.href}`)
+  //   .then((response) => {
+  //     setHashtag(response.data.postForPlanResponseDtos);
+  //   }, []);
+
+  const category = postId && postId.postBookmarkPostResponseDto.category;
+
+  const postImg = postId && postId.postBookmarkPostResponseDto.postImage;
+  const price = postId && postId.postBookmarkPostResponseDto.price;
+  const postTitle = postId && postId.postBookmarkPostResponseDto.postTitle;
+  const rating = postId && postId.postBookmarkPostResponseDto.rating;
+  const hashTag = hashtag && hashtag.map((k) => k.postTagResponseDtoList)[0];
+
+  const tagsLINE = hashTag && hashTag.map((k) => k.postTagTitle);
+
   const tags = hashTag && hashTag.map((k) => k).length;
   const tagsArray = [];
-  for (let i = 0; i <= tags; i++) {
-    tagsArray.push(hashTag && hashTag.map((k) => k[i].postTagTitle));
-  }
+  // for (let i = 0; i <= tags; i++) {
+  //   tagsArray.push(hashTag && hashTag.map((k) => k[i].postTagTitle));
+  // }
   const K = [];
   for (let i = 0; i < tagsArray.length - 1; i++) {
     K.push(tagsArray && tagsArray.map((k) => k[i]));
@@ -90,7 +134,6 @@ function BookmarkPost(props) {
           ""
         )}
         <div className="bkpostBox">
-          {/* <input type="button" onClick={togglePopup} className="postButton" /> */}
           <div className="bkDtmark">
             <input
               type="button"
@@ -108,7 +151,10 @@ function BookmarkPost(props) {
           </div>
 
           <div className="postPicture">
-            <img src={postImg} className="postPictureArray" />
+            <img
+              src={`data:image/png;base64,${postImg}`}
+              className="postPictureArray"
+            />
           </div>
           <div className="postContent">
             <span className="postName">{postTitle}</span>
@@ -122,10 +168,12 @@ function BookmarkPost(props) {
               <span className="moneyName">만원</span>
             </div>
             <span className="hashTagLine">
-              {tagTitle &&
-                tagTitle.map((num) => (
-                  <span className="postHashTag">#{num}</span>
-                ))}
+              {tagsLINE && tagsLINE[0] === ""
+                ? ""
+                : tagsLINE &&
+                  tagsLINE.map((num) => (
+                    <span className="postHashTag">#{num}</span>
+                  ))}
             </span>
           </div>
           {clicklist && clicklist.includes(props.thisId) && (

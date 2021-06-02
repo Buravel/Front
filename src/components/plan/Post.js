@@ -69,7 +69,11 @@ function Post(props) {
   };
   const postTerm = posts.postForPlanResponseDtos;
 
-  const postId = postTerm && postTerm.filter((k) => k.id === props.id);
+  const postId =
+    postTerm !== null &&
+    postTerm !== [] &&
+    postTerm !== undefined &&
+    postTerm.filter((k) => k.id === props.id);
   const category = postId && postId.map((k) => k.category)[0];
   const postImg = postId && postId.map((k) => k.postImage)[0];
   const price = postId && postId.map((k) => k.price)[0];
@@ -137,10 +141,12 @@ function Post(props) {
             <span className="moneyName">만원</span>
           </div>
           <span className="hashTagLine">
-            {tagsLINE &&
-              tagsLINE.map((num) => (
-                <span className="postHashTag">#{num}</span>
-              ))}
+            {tagsLINE && tagsLINE[0] === ""
+              ? ""
+              : tagsLINE &&
+                tagsLINE.map((num) => (
+                  <span className="postHashTag">#{num}</span>
+                ))}
             {/* 여기 주석은 풀지말것 */}
             {/* {hashTags.map((num) => (
               <span className="postHashTag">#{num}</span>

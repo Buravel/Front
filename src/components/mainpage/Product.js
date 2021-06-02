@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // import './Mainpage.scss';
-import './Product.scss';
-import axios from 'axios';
-import { getNight, splitDate } from '../../util/date';
+import "./Product.scss";
+import axios from "axios";
+import { getNight, splitDate } from "../../util/date";
 
 const Product = (props) => {
   // let [product, product변경] = useState(Data);
@@ -56,55 +56,62 @@ const Product = (props) => {
   // src={`data:image/png;base64,${planImage}`} 나중에 잇기(지금 이미지가 없어,,)
   return (
     <>
-        <div className="product-shadowbox">
-          <Link to={`/plans/${planId}`}>
-              <div className="col-xs-2">
-                <div className="product_img">
-                  {planImage ? (<img src={`data:image/png;base64,${planImage}`} className="product_img"/>) : (<img
-                    className="img-full"
-                    src="/images/mainpage/default.png"
-                    alt="Product Images"
-                  />)}
+      <div className="product-shadowbox">
+        <Link to={`/plans/${planId}`}>
+          <div className="col-xs-2">
+            <div className="product_img">
+              {planImage ? (
+                <img
+                  src={`data:image/png;base64,${planImage}`}
+                  className="product_img"
+                />
+              ) : (
+                <img
+                  className="img-full"
+                  src="/images/mainpage/default.png"
+                  alt="Product Images"
+                />
+              )}
 
-                  {/* {planImage !== "" && planImage !== undefined && (<img src={`data:image/png;base64,${planImage}`}/>)} */}
-                  <span className="tag">
-                    &nbsp;#{planTagTitle}&nbsp;
-                  </span>
-                </div>
-                <div className="product_topline">
-                  <span className="product_name">&nbsp;{postTitle}</span>
-                  <span className="price">&nbsp;{outputPlanTotalPrice}</span>
-                </div>
-                <div className="plan">
-                  <span className="plan_text">
-                    &nbsp;{night}박{day}일
-                  </span>
-                </div>
-                <div className="product_box">
-                  <span className="icon">
-                    <img src="/images/mainpage/plane_product.png" alt="" />
-                  </span>
-                  <span className="plan">{trafficprice}</span>
-                  <span className="icon">
-                    <img src="/images/mainpage/hotel_product.png" alt="" />
-                  </span>
-                  <span className="plan">{hotelprice}</span>
-                  <span className="icon">
-                    <img src="/images/mainpage/food_product.png" alt="" />
-                  </span>
-                  <span className="plan">{shoppingprice}</span>
-                  <span className="star">
-                    <span className="icon">
-                      <img src="/images/mainpage/star.png" alt="" />
-                    </span>
-                    <span className="plan plan_star">{planRating}&nbsp; </span>
-                  </span>
-                </div>
-                <div className="stackimg"><img  src= "/images/mainpage/stack.png"/></div>
-                </div>
-            </Link>
-        </div>
-      </>
-    );
+              {/* {planImage !== "" && planImage !== undefined && (<img src={`data:image/png;base64,${planImage}`}/>)} */}
+              <span className="tag">&nbsp;#{planTagTitle}&nbsp;</span>
+            </div>
+            <div className="product_topline">
+              <span className="product_name">&nbsp;{postTitle}</span>
+              <span className="price">&nbsp;{outputPlanTotalPrice}</span>
+            </div>
+            <div className="plan">
+              <span className="plan_text">
+                &nbsp;{night}박{day}일
+              </span>
+            </div>
+            <div className="product_box">
+              <span className="icon">
+                <img src="/images/mainpage/plane_product.png" alt="" />
+              </span>
+              <span className="plan">{trafficprice}</span>
+              <span className="icon">
+                <img src="/images/mainpage/hotel_product.png" alt="" />
+              </span>
+              <span className="plan">{hotelprice}</span>
+              <span className="icon">
+                <img src="/images/mainpage/food_product.png" alt="" />
+              </span>
+              <span className="plan">{shoppingprice}</span>
+              <span className="star">
+                <span className="icon">
+                  <img src="/images/mainpage/star.png" alt="" />
+                </span>
+                <span className="plan plan_star">{planRating}&nbsp; </span>
+              </span>
+            </div>
+            <div className="stackimg">
+              <img src="/images/mainpage/stack.png" />
+            </div>
+          </div>
+        </Link>
+      </div>
+    </>
+  );
 };
 export default Product;
