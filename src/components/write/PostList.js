@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PostCard from './PostCard';
 import PostModal from './PostModal';
+import { useDrop } from 'react-dnd';
 import './postList.scss';
 
 const PostList = ({
@@ -93,7 +94,11 @@ const PostList = ({
 
     useEffect(() => {
         setCurIdx(Math.floor(plan.length / 5) * 5);
-        // setCurIdx()
+        listEl.current.scrollTo({
+            top: 0,
+            left: 1124 * plan.length,
+            behavior: 'smooth',
+        });
     }, [plan]);
     useEffect(() => {
         listEl.current.scrollTo({
@@ -102,8 +107,27 @@ const PostList = ({
             behavior: 'smooth',
         });
     }, [curIdx, listEl]);
+
+    const [{ isOver }, drop] = useDrop(
+        () => ({
+            accept: 'card',
+            drop: (selectItem) => {
+                onClickAdd({
+                    ...selectItem,
+                });
+            },
+            collect: (monitor) => ({
+                isOver: !!monitor.isOver(),
+            }),
+        }),
+        [],
+    );
+    const style = {
+        backgroundColor: '#0070ef',
+        opacity: '0.2',
+    };
     return (
-        <>
+        <div ref={drop} style={isOver ? style : undefined}>
             <div className="post-list-container">
                 <div className="post-circle-line">
                     <div className="circle"></div>
@@ -138,7 +162,10 @@ const PostList = ({
                         {curIdx !== 0 ? (
                             <div className="list-arrow left">
                                 <button onClick={onClickLeftArrow}>
-                                    <img src="./images/write/left-arrow.png" />
+                                    <img
+                                        src="./images/write/left-arrow.png"
+                                        alt=""
+                                    />
                                 </button>
                             </div>
                         ) : null}
@@ -146,7 +173,10 @@ const PostList = ({
                         {plan.length >= curIdx + 5 ? (
                             <div className="list-arrow right">
                                 <button onClick={onClickRightArrow}>
-                                    <img src="./images/write/right-arrow.png" />
+                                    <img
+                                        src="./images/write/right-arrow.png"
+                                        alt=""
+                                    />
                                 </button>
                             </div>
                         ) : null}
@@ -161,7 +191,7 @@ const PostList = ({
                     onClickRemove={onClickRemove}
                 />
             )}
-        </>
+        </div>
     );
 };
 

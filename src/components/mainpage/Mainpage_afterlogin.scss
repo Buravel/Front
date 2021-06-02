@@ -1,6 +1,18 @@
  //수정확인O => 정상 작동 확인필요
  .afterlogin-main-background {
-
+  .col-xs-2 {
+    position: relative;
+    /* relative */
+    top:85px;
+    left: 60px;
+    
+    width: 200px;
+    height: 264px;
+    margin: 0 9px 50px 15px;
+    padding: 0 0 8px;
+    border-radius: 3px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);  
+}
     .btn {
       position:absolute;
         /* width:100%; */

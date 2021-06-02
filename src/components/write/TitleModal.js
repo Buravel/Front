@@ -15,7 +15,6 @@ const TitleModal = ({
     const [hash, setHash] = useState(hashTag);
     const [imgBase64, setImgBase64] = useState(planImage); // 파일 base64
     // const [imgFile, setImgFile] = useState(null); //파일
-
     const [inputHash, setInputHash] = useState(false);
     const [textHash, setTextHash] = useState(hashTag);
     // 저장
@@ -144,6 +143,9 @@ const TitleModal = ({
                                     onChange={(e) =>
                                         setTextHash(e.target.value)
                                     }
+                                    onKeyPress={(e) => {
+                                        if (e.key === 'Enter') onClickAddHash();
+                                    }}
                                 />
                                 <div
                                     className="add-hash"
