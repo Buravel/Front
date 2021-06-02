@@ -716,3 +716,19 @@
   color: #535353;
   background-color: transparent;
 }
+.editbtn {
+  position: absolute;
+  z-index: 20;
+  top: 32.4px;
+  left: 168.1px;
+  width: 27.1px;
+  height: 27.1px;
+
+  object-fit: contain;
+  background-color: transparent;
+  border-color: transparent;
+}
+.bkDtNameEdittext {
+  position: relative;
+  left: 10px;
+}

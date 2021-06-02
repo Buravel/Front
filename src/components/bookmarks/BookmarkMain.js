@@ -25,6 +25,7 @@ function BookmarkMain() {
   const [bookmarks, setBookmarks] = useState([]);
   const [bookmarksdata, setBookmarksdata] = useState([]);
   const [checkedInputs, setCheckedInputs] = useState([]);
+  const [bmarknum, setbmarknum] = useState([]);
   const [thisbmarkid, setthisbmarkid] = useState("");
 
   const [title, setTitle] = useState("");
@@ -33,6 +34,33 @@ function BookmarkMain() {
   let token = localStorage.getItem("token");
   token = token.replace(/"/g, "");
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+  // function Thisbmarkcount(props) {
+  //   const [postcount, setpostcount] = useState([]);
+  //   useEffect(() => {
+  //     const fetchCount = async () => {
+  //       try {
+  //         setpostcount(null);
+  //         const response = await axios.get(
+  //           `http://34.64.93.115/bookmark/${props}`
+  //         );
+  //         setpostcount(response.data._embedded.bookmarkPostResponseDtoList);
+  //       } catch (e) {
+  //         setError(e);
+  //       }
+  //       setLoading(false);
+  //     };
+  //     fetchCount();
+  //   }, []);
+  //   const Bmarklt =
+  //     bookmarks !== null &&
+  //     bookmarks !== [] &&
+  //     bookmarks.length !== undefined &&
+  //     bookmarks;
+
+  //   const BmarkltN = Bmarklt && Bmarklt.map((k) => k).length;
+  //   return BmarkltN == [] ? "0" : BmarkltN;
+  // }
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -63,6 +91,7 @@ function BookmarkMain() {
 
     alert("북마크가 삭제되었습니다");
   };
+
   // const returning = axios
   //   .get("http://34.64.93.115/bookmark")
   //   .then((response) => {
@@ -86,10 +115,7 @@ function BookmarkMain() {
   };
   //처음에 undefind를 생각해야함
   const bmarkListN =
-    bookmarks !== null &&
-    bookmarks !== [] &&
-    bookmarks.length !== undefined &&
-    bookmarks.map((k) => k);
+    bookmarks !== null && bookmarks !== [] && bookmarks.map((k) => k);
 
   // // if (!bmarkListN) return [];
   const bmarknumber = [];
@@ -307,7 +333,7 @@ function BookmarkMain() {
                                   </span>
                                   <span className="bkname">
                                     {item.bookmarkTitle}
-                                    <BmarkNum id={item.id} />
+                                    <span>{BmarkNum(item.id)}</span>
                                   </span>
                                 </span>
                               </span>
@@ -363,6 +389,7 @@ function BookmarkMain() {
                                     </span>
                                     <span className="bkname">
                                       {item.bookmarkTitle}
+
                                       <BmarkNum id={item.id} />
                                     </span>
                                   </span>

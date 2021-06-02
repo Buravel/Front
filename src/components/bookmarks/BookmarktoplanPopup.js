@@ -3,6 +3,7 @@ import axios from "axios";
 import Icon from "../plan/Icon";
 import ModalPortal from "./ModalPortal";
 import { withRouter } from "react-router-dom";
+import { render } from "react-dom";
 axios.defaults.baseURL = "http://34.64.93.115";
 // axios.defaults.baseURL = "http://34.64.93.115";
 
@@ -17,13 +18,45 @@ function BookmarktoplanPopup(props) {
   let token = localStorage.getItem("token");
   token = token.replace(/"/g, "");
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setError(null);
+        setBmark(null);
+        setLoading(true);
+        const response = await axios.get("/plans/mine/published");
+        setBmark(response.data._embedded.planResponseDtoList);
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
+    };
 
-  const returning = axios.get("/plans/mine/published").then((response) => {
-    setBmark(response.data._embedded.planResponseDtoList);
+    fetchPosts();
   }, []);
-  const returning2 = axios.get("/plans/mine/closed").then((response) => {
-    setBmarkclosed(response.data._embedded.planResponseDtoList);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setError(null);
+        setBmarkclosed(null);
+        setLoading(true);
+        const response = await axios.get("/plans/mine/closed");
+        setBmarkclosed(response.data._embedded.planResponseDtoList);
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
+    };
+
+    fetchPosts();
   }, []);
+
+  // const returning = axios.get("/plans/mine/published").then((response) => {
+  //   setBmark(response.data._embedded.planResponseDtoList);
+  // }, []);
+  // const returning2 = axios.get("/plans/mine/closed").then((response) => {
+  //   setBmarkclosed(response.data._embedded.planResponseDtoList);
+  // }, []);
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!posts) return null;
@@ -80,7 +113,6 @@ function BookmarktoplanPopup(props) {
     postTerm.filter((k) => k.id === props.id);
   const thisPost = postId && postId[0];
   const checkdeplans = props.checkedplan;
-  console.log(bmarkinputValue.id);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -91,16 +123,16 @@ function BookmarktoplanPopup(props) {
       .then((res) => {
         setBmark([...bmark, res.data]);
       });
-    setSearchValue("");
   };
 
   const bringtoMyplan = (k) => {
-    for (let i = 0; i < checkdeplans.length; i++) {
-      axios.post(
-        `http://34.64.93.115/bookmark/post/${checkdeplans[i]}/${bmarkinputValue.id}/checking`
-      );
-    }
+    axios.post(`http://34.64.93.115/bookmark/post/checking`, {
+      planId: bmarkinputValue.id,
+      bookmarkPostIdList: checkdeplans,
+    });
+    alert(`${bmarkinputValue.planTitle}(으)로 이동되었습니다`);
   };
+  console.log(totalbmarklist);
 
   return (
     <ModalPortal>
@@ -118,14 +150,15 @@ function BookmarktoplanPopup(props) {
           />
           <div className="blank"></div>
           <div className="bmarkChoice">
-            {totalbmarklist.map((num) => (
-              <button
-                className="bmarkName"
-                onClick={() => setBmarkinputValue(num)}
-              >
-                <div className="bmarkNameText">{num.planTitle}</div>
-              </button>
-            ))}
+            {totalbmarklist &&
+              totalbmarklist.map((num) => (
+                <button
+                  className="bmarkName"
+                  onClick={() => setBmarkinputValue(num)}
+                >
+                  <div className="bmarkNameText">{num.planTitle}</div>
+                </button>
+              ))}
           </div>
           <div className="bmarklineone" />
           <form onSubmit={handleSubmit}>
