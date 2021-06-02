@@ -3,15 +3,11 @@ import axios from "axios";
 import "./Bookmark.scss";
 import Icon from "./Bicon";
 
-import ReactDOM, { createPortal } from "react-dom";
-import ModalPortal from "./ModalPortal";
-
 function DelBmark(props) {
   const [bookmarks, setBookmarks] = useState([]);
   const [title, setTitle] = useState("");
   const [deltitle, setDeltitle] = useState("");
 
-  const url = "http://localhost:1000";
   useEffect(() => {
     const fetchBookmarks = async () => {
       const response = await axios("http://localhost:1000/bookmark");
@@ -50,7 +46,6 @@ function DelBmark(props) {
   // idList = { handleDeltitleChange };
   return (
     <>
-      {/* <ModalPortal> */}
       <meta charset="UTF-8" />
       <div className="popupbkdelBackground">
         <div className="popupbkBox">
@@ -84,10 +79,7 @@ function DelBmark(props) {
             {/* </form> */}
           </div>
         </div>
-
-        {props.content}
       </div>
-      {/* </ModalPortal> */}
     </>
   );
 }

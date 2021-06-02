@@ -1,6 +1,4 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import Register from "../../components/login/Register";
 axios.defaults.baseURL = "http://34.64.93.115";
 let token, errormsg;
 export const login = async ({ username, password }) =>

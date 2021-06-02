@@ -1,10 +1,11 @@
 import React from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import "./mypage.scss";
-//import profile from "./profile.png";
+import basicProfile from "./profile.png";
 import Box from "./Box";
-axios.defaults.baseURL = "http://34.64.93.115";
+import { Row } from "antd";
+import leftBar from "./leftbar.png";
+import rightBar from "./rightbar.png";
 const style = { display: "inline-block" };
 
 const MyPage = ({
@@ -14,16 +15,36 @@ const MyPage = ({
   emailVerified,
   profile,
   onLogout,
+  boxes1,
+  boxes2,
+  prev1,
+  prev2,
+  next1,
+  next2,
+  elements1,
+  elements2,
+  pageNum1,
+  pageNum2,
+  current1,
+  current2,
 }) => {
+  const pages1 = [];
+  const pages2 = [];
+  for (let i = 0; i < pageNum1; i++) pages1.push(i + 1);
+  for (let i = 0; i < pageNum2; i++) pages2.push(i + 1);
   return (
     <>
       <div className="userSection">
-        <img
-          className="profileImage"
-          src={`data:image/png;base64,${profile}`}
-          alt=""
-          style={style}
-        />
+        {profile ? (
+          <img
+            className="profileImage"
+            src={`data:image/png;base64,${profile}`}
+            alt=""
+            style={style}
+          />
+        ) : (
+          <img src={basicProfile} alt="" className="profileImage" />
+        )}
         <div className="userBox" style={style}>
           <div>
             <h1>
@@ -58,24 +79,108 @@ const MyPage = ({
       </div>
       <div className="postSection">
         <div className="open">
-          <div className="boxtitle">공개한 여행 </div>
-          <Box>박스</Box>
-          <Box>박스</Box>
-          <Box>박스</Box>
-          <Box>박스</Box>
-          <Box>박스</Box>
+          <div className="boxtitle">
+            공개한 여행 ({elements1 ? elements1 : 0}){" "}
+          </div>
+          {elements1 ? (
+            <>
+              <Row>
+                {boxes1 &&
+                  boxes1.map((box, i) => {
+                    return <Box box={box} key={i}></Box>;
+                  })}
+              </Row>
+              <div className="paging">
+                {current1 !== 0 ? (
+                  <button onClick={prev1} style={style}>
+                    <img src={leftBar} alt="" />
+                  </button>
+                ) : (
+                  <div></div>
+                )}
+                &nbsp;&nbsp;
+                <div style={style} className="pNum">
+                  {pages1 &&
+                    pages1.map((i) =>
+                      current1 === i - 1 ? (
+                        <span className="highlight">{i}</span>
+                      ) : (
+                        <span>{i}</span>
+                      )
+                    )}
+                </div>
+                &nbsp;&nbsp;
+                {current1 + 1 !== pageNum1 ? (
+                  <button onClick={next1} style={style}>
+                    <img src={rightBar} alt="" />
+                  </button>
+                ) : (
+                  <div></div>
+                )}
+              </div>
+            </>
+          ) : (
+            <div className="no-post">여행을 작성해주세요</div>
+          )}
         </div>
+
         <div className="closed">
-          <div className="boxtitle">비공개 여행 </div>
-          <Box>박스</Box>
-          <Box>박스</Box>
-          <Box>박스</Box>
-          <Box>박스</Box>
-          <Box>박스</Box>
+          <div className="boxtitle">
+            비공개 여행 ({elements2 ? elements2 : 0})
+          </div>
+          {elements2 ? (
+            <>
+              <Row>
+                {boxes2 &&
+                  boxes2.map((box, i) => {
+                    return <Box box={box} key={i}></Box>;
+                  })}
+              </Row>
+              <div className="paging">
+                {current2 !== 0 ? (
+                  <button onClick={prev2} style={style}>
+                    <img src={leftBar} alt="" />
+                  </button>
+                ) : (
+                  <div></div>
+                )}
+                &nbsp;&nbsp;
+                <div style={style} className="pNum">
+                  {pages2 &&
+                    pages2.map((i) =>
+                      current2 === i - 1 ? (
+                        <span className="highlight">{i}</span>
+                      ) : (
+                        <span>{i}</span>
+                      )
+                    )}
+                </div>
+                &nbsp;&nbsp;
+                {current2 + 1 !== pageNum2 ? (
+                  <button onClick={next2} style={style}>
+                    <img src={rightBar} alt="" />
+                  </button>
+                ) : (
+                  <div></div>
+                )}
+              </div>
+            </>
+          ) : (
+            <div className="no-post">여행을 작성해주세요</div>
+          )}
         </div>
       </div>
     </>
   );
 };
-
-export default MyPage;
+/*
+              &nbsp; &nbsp; &nbsp; &nbsp; <li>1</li>
+              &nbsp; &nbsp;<li>|</li>
+              &nbsp; &nbsp; <li>2 </li>
+              &nbsp; &nbsp;<li>|</li>
+              &nbsp; &nbsp; <li>3</li>
+              &nbsp; &nbsp;<li>|</li>
+              &nbsp; &nbsp; <li>4 </li>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+*/
+export default React.memo(MyPage);

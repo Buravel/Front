@@ -9,39 +9,41 @@ const RegisterAuth = ({ form, onChange, onSubmit, reSubmit, error }) => {
   return (
     <div className="registerauth">
       <img className="logo-complete" src={logoImg2} alt="" />
-      <h3 className="h302">이메일 인증 코드가 발송되었습니다.</h3>
-      <h5>
-        이메일이 도착하지 않았나요?{" "}
-        <h5 className="h509" style={style}>
-          <Link to="/registerAuth" onClick={reSubmit}>
-            재전송
-          </Link>
+      <div>
+        <h3 className="h302">이메일 인증 코드가 발송되었습니다.</h3>
+        <h5>
+          이메일이 도착하지 않았나요?{" "}
+          <h5 className="h509" style={style}>
+            <Link to="/registerAuth" onClick={reSubmit}>
+              재전송
+            </Link>
+          </h5>
         </h5>
-      </h5>
-      <form onSubmit={onSubmit}>
-        <div className="authNumForm">
-          <div className="inputBox">
-            <input
-              className="inputCell"
-              name="number"
-              onChange={onChange}
-              value={form.number}
-              placeholder="인증번호를 입력해주세요."
-            ></input>
+        <form onSubmit={onSubmit}>
+          <div className="authNumForm">
+            <div className="inputBox">
+              <input
+                className="inputCell"
+                name="number"
+                onChange={onChange}
+                value={form.number}
+                placeholder="인증번호를 입력해주세요."
+              ></input>
+            </div>
           </div>
-        </div>
-        <div className="error-msg">
-          {error ? <div>{error}</div> : <div></div>}
-        </div>
-        <div className="btnsection">
-          <button className="ok-btn" type="submit">
-            확인
-          </button>
-          <Link to="/mypage">
-            <button className="cancel-btn">취소 </button>
-          </Link>{" "}
-        </div>
-      </form>
+          <div className="error-msg">
+            {error ? <div>{error}</div> : <div></div>}
+          </div>
+          <div className="btnsection">
+            <button className="ok-btn" type="submit">
+              확인
+            </button>
+            <Link to="/mypage">
+              <button className="cancel-btn">취소 </button>
+            </Link>{" "}
+          </div>
+        </form>
+      </div>{" "}
     </div>
   );
 };
