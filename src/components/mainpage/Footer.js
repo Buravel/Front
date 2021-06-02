@@ -9,7 +9,7 @@ const Footer = () => {
                     <img
                         src="/images/mainpage/footer_icon.png"
                         /*srcSet="img/food@2x.png 2x,img/food@3x.png 3x"*/
-                        class="footer_icon"
+                        className="footer_icon"
                         alt="footer"
                     />
                 </span>

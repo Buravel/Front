@@ -1,5 +1,4 @@
 import client from './client';
-import axios from 'axios';
 
 export const write = (plan) => {
     client.defaults.headers.common['Authorization'] = localStorage
