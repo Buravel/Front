@@ -19,6 +19,10 @@ const Header = ({
     const [maxNum, setMaxNum] = useState('');
 
     const onClickSearchBtn = () => {
+        if (keyword.length < 2) {
+            alert('검색어를 2글자 이상 입력해주세요.');
+            return;
+        }
         history.push(
             `/search?keyword=${keyword}&min=${minNum === '' ? 0 : minNum}&max=${
                 maxNum === '' ? 0 : maxNum

@@ -50,7 +50,6 @@ const Product = ({ product }) => {
         shoppingTotalPrice,
         trafficTotalPrice,
     });
-    console.log(planTagResponseDtos);
     const [sY, sM, sD] = splitDate(startDate.split('-').join(''));
     const [eY, eM, eD] = splitDate(endDate.split('-').join(''));
     const night = getNight(`${sY}-${sM}-${sD}`, `${eY}-${eM}-${eD}`);
