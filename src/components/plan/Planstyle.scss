@@ -211,6 +211,7 @@
 
 .dayCircle {
   position: relative;
+  top: -5px;
   width: 20px;
   height: 20px;
   object-fit: contain;
@@ -324,7 +325,7 @@
   position: absolute;
   top: 78px;
   right: 42px;
-  width: 361px;
+  width: 300px;
   height: 68px;
   border-radius: 3px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
@@ -400,54 +401,54 @@
 
 .TotalAirplane {
   position: absolute;
-  top: 15.1px;
-  left: 150px;
+  top: 14px;
+  left: 137px;
 }
 
 .Totalfood {
   position: absolute;
-  top: 15.1px;
-  left: 206px;
+  top: 14px;
+  left: 194px;
 }
 .Totalshopping {
   position: absolute;
-  top: 14.1px;
-  left: 257px;
+  top: 40px;
+  left: 244px;
 }
 .Totalbus {
   position: absolute;
-  top: 14.1px;
-  right: 38px;
+  top: 14px;
+  left: 244px;
 }
 .Totalbed {
   position: absolute;
-  top: 43.5px;
-  left: 148.5px;
+  top: 40px;
+  left: 137px;
 }
 .TotalAirplaneCost {
   position: absolute;
   top: 11px;
-  left: 171px;
+  left: 160px;
 }
 .TotalfoodCost {
   position: absolute;
   top: 11px;
-  left: 221px;
+  left: 217px;
 }
 .TotalshoppingCost {
   position: absolute;
-  top: 11px;
-  left: 273px;
+  top: 37px;
+  left: 267px;
 }
 .TotalbusCost {
   position: absolute;
   top: 11px;
-  left: 327px;
+  left: 267px;
 }
 .TotalbedCost {
   position: absolute;
   top: 37px;
-  left: 171px;
+  left: 160px;
 }
 
 .popupBackground {
@@ -704,7 +705,7 @@
 }
 
 .postButton {
-  z-index: +1;
+  z-index: 1;
   position: absolute;
   width: 200px;
   height: 278px;
@@ -768,7 +769,7 @@
 }
 
 .bmark {
-  z-index: 2;
+  z-index: 1;
   position: absolute;
   top: 14.2px;
   right: 16.6px;
@@ -778,7 +779,7 @@
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
 }
 .bmarkButton {
-  z-index: 3;
+  z-index: 2;
   position: inherit;
   width: 17px;
   height: 22.7px;
@@ -1016,13 +1017,13 @@
 }
 .Totaletc {
   position: absolute;
-  top: 43.5px;
-  left: 204.5px;
+  top: 40px;
+  left: 194px;
 }
 .TotaletcCost {
   position: absolute;
   top: 37px;
-  left: 221px;
+  left: 217px;
 }
 
 .bmarktoplanpopupBox {
@@ -1058,4 +1059,12 @@
   top: 40vh;
   width: 58px;
   height: 291px;
+}
+.mapbackground {
+  width: 50px;
+  height: 74px;
+  z-index: 20;
+}
+.mapback {
+  z-index: +2;
 }

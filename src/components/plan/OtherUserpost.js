@@ -5,6 +5,7 @@ import PostLine from "./PostLine";
 import Post from "./Post";
 import Icon from "./Icon";
 import Slider from "./Slider";
+import Planmap from "./Planmap";
 
 function OtherUserpost() {
   const [posts, setPosts] = useState([]);

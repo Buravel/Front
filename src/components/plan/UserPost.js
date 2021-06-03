@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Appstyle from "./Planstyle.scss";
 import Icon from "./Icon";
+import Planmap from "./Planmap";
 
 function UserPost(props) {
   const [posts, setPosts] = useState([]);
