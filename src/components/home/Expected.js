@@ -1,7 +1,7 @@
 import React from 'react';
 import './expected.scss';
 import { getTopThree } from './Product';
-const Expected = ({ product }) => {
+const Expected = ({ product, nickname }) => {
     if (!product) return null;
     const {
         outputPlanTotalPrice,
@@ -25,7 +25,7 @@ const Expected = ({ product }) => {
     return (
         <div className="expected-container">
             <div className="div">
-                <p className="div-top">{'지수'}님의 예정된 여행</p>
+                <p className="div-top">{nickname}님의 예정된 여행</p>
                 <p className="div-bottom">{startDate}</p>
             </div>
             <div className="div">

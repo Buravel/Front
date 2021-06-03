@@ -12,10 +12,7 @@ const HomeContainer = () => {
     const plans = useSelector((state) => state.home.plans);
     const loading = useSelector((state) => state.loading['home/LIST_PLANS']);
 
-    // 로그인 유무
-    const [loginCheck, setLoginCheck] = useState(
-        !!localStorage.getItem('token'),
-    );
+    const user = useSelector(({ user }) => user.user);
 
     //페이지 열자마자 정보 가져오기.
     useEffect(() => {
@@ -33,7 +30,12 @@ const HomeContainer = () => {
 
     return (
         <div className="content">
-            {loginCheck && <Expected product={plans[0]} />}
+            {user && (
+                <Expected
+                    product={user.data.planResponseDto}
+                    nickname={user.data.account.nickname}
+                />
+            )}
             <Advertise />
             <Topbar />
             <ProductList plans={plans} />
