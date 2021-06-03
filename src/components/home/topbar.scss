@@ -1,0 +1,29 @@
+//수정사항 0601
+
+
+.home-topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 80px 25px 80px;
+  .home-title {
+    font-size: 20px;
+    color : #535353;
+    .search-keyword {
+      color: #0070ef;
+    }
+  }
+  select {
+    border:none;
+    border-bottom: 1px solid #535353;
+    text-align-last: center;
+    background: none;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+  option {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 14px;
+  }
+}
+  

@@ -9,7 +9,7 @@ import FindID from './pages/FindIDPage';
 import FindPW from './pages/FindPWPage';
 import FindAuth from './pages/FindAuthPage';
 import RegisterAuth from './pages/RegisterAuthPage';
-import MainPage from './pages/MainPage';
+// import MainPage from './pages/MainPage';
 import BookMarks from './pages/BookMarks';
 import MyPage from './pages/MyPage';
 import Plan from './pages/Plan';
@@ -20,16 +20,17 @@ import EditPage from './pages/EditPage';
 import AuthCompletePage from './pages/AuthCompletePage';
 import QuitPage from './pages/QuitPage';
 import QuitCompletePage from './pages/QuitCompletePage';
+import HomePage from './pages/HomePage';
 
 const App = () => {
     return (
         <>
-            <Route path="/" component={MainPage} exact />
+            <Route path="/" component={HomePage} exact />
             <Route path="/login" component={LoginPage} />
             <Route path="/bookmarks" component={BookMarks} />
             <Route path="/mypage" component={MyPage} />
             <Route path="/plan/:planId" component={Plan} />
-            <Route path="/searchpage" component={SearchPage} />
+            <Route path="/search" component={SearchPage} />
             <Route path="/writeplan" component={WritePlan} />
 
             <Route path="/signUp" component={RegisterPage} />

@@ -1,17 +1,17 @@
 import React from 'react';
-import Responsive from '../components/common/Responsive';
 import HeaderContainer from '../containers/common/HeaderContainer';
-import SearchContainer from '../containers/home/SearchContainer';
+import HomeContainer from '../containers/home/HomeContainer';
+import Responsive from '../components/common/Responsive';
 
-const SearchPage = () => {
+const HomePage = (props) => {
     return (
         <>
             <HeaderContainer />
             <Responsive>
-                <SearchContainer />
+                <HomeContainer />
             </Responsive>
         </>
     );
 };
 
-export default SearchPage;
+export default HomePage;
