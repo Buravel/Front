@@ -71,9 +71,7 @@ function BookmarkMain() {
         setLoading(true);
         const response = await axios.get("http://34.64.93.115/bookmark");
         setBookmarks(response.data._embedded.bookmarkResponseDtoList);
-      } catch (e) {
-        setError(e);
-      }
+      } catch (e) {}
       setLoading(false);
     };
 
@@ -82,16 +80,25 @@ function BookmarkMain() {
 
   const deletebmark = (k) => {
     for (let i = 0; i < checkedInputs.length; i++) {
-      axios
-        .delete(`http://34.64.93.115/bookmark/${checkedInputs[i]}`)
-        .then((response) => {
-          setCheckedInputs("");
-          setdelIsOpen(!isdelOpen);
-        }, []);
+      axios.delete(`http://34.64.93.115/bookmark/${checkedInputs[i]}`);
     }
 
-    alert("북마크가 삭제되었습니다");
+    setBookmarks(
+      bookmarks && bookmarks.filter((k) => !checkedInputs.includes(k.id))
+    );
+
+    setCheckedInputs("");
+    setdelIsOpen(!isdelOpen);
   };
+  // console.log(bookmarks && bookmarks.filter((k) => ![360, 385].includes(k.id)));
+
+  // alert("북마크가 삭제되었습니다");
+
+  // axios
+  //   .get("http://34.64.93.115/bookmark")
+  //   .then((res) => setBookmarks(res.data._embedded.bookmarkResponseDtoList));
+
+  // window.location.href = `/bookmarks`;
 
   // const returning = axios
   //   .get("http://34.64.93.115/bookmark")
@@ -177,36 +184,36 @@ function BookmarkMain() {
                       </span>
                     </span>
 
-                    {/* {isdelOpen && (
-                    <>
-                      <meta charset="UTF-8" />
-                      <div className="popupbkdelBackground">
-                        <div className="popupbkBox">
-                          <div>
-                            <button
-                              type="submit"
-                              className="delBmarkBtn"
-                              onClick={deletebmark}
-                            >
-                              삭제
-                            </button>
-                            <button
-                              onClick={toggledelPopupcancel}
-                              className="BookmarkDeletecancelbuttonbg"
-                            >
-                              <Bicon
-                                picture="BookmarkDeletebutton"
-                                className="BookmarkDeletecancelbutton"
-                              />
-                              <span className="BookmarkDeletebuttonName">
-                                취소
-                              </span>
-                            </button>
+                    {isdelOpen && (
+                      <>
+                        <meta charset="UTF-8" />
+                        <div className="popupbkdelBackground">
+                          <div className="popupbkBox">
+                            <div>
+                              <button
+                                type="submit"
+                                className="delBmarkBtn"
+                                onClick={deletebmark}
+                              >
+                                삭제
+                              </button>
+                              <button
+                                onClick={toggledelPopupcancel}
+                                className="BookmarkDeletecancelbuttonbg"
+                              >
+                                <Bicon
+                                  picture="BookmarkDeletebutton"
+                                  className="BookmarkDeletecancelbutton"
+                                />
+                                <span className="BookmarkDeletebuttonName">
+                                  취소
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  )} */}
+                      </>
+                    )}
 
                     <button
                       className="bookmarkAddbtn"
