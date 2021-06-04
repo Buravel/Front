@@ -6,11 +6,7 @@ import Postconnect from "./Postconnect";
 import Icon from "./Icon";
 import BookmarkPopup from "./BookmarkPopup";
 
-function Post(props) {
-  const [posts, setPosts] = useState([]);
-  const [bookmarks, setBookmarks] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+function Post({ id, posts, bookmarks, bmark, setBmark }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isbmarkOpen, setBmarkisOpen] = useState(false);
   const thisLink = window.location.href;
@@ -27,40 +23,6 @@ function Post(props) {
 
   // middleware handle all request using cors options
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        setError(null);
-        setPosts(null);
-        setLoading(true);
-        const response = await axios.get(`http://34.64.93.115/plans/${Linkid}`);
-        setPosts(response.data);
-      } catch (e) {
-        setError(e);
-      }
-      setLoading(false);
-    };
-
-    fetchPosts();
-  }, []);
-  useEffect(() => {
-    const fetchBookmarks = async () => {
-      try {
-        setError(null);
-        setBookmarks(null);
-        setLoading(true);
-        const response = await axios.get(`http://34.64.93.115/bookmark`);
-        setBookmarks(response.data);
-      } catch (e) {
-        setError(e);
-      }
-      setLoading(false);
-    };
-
-    fetchBookmarks();
-  }, []);
-  if (!posts) return null;
-
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
@@ -73,7 +35,7 @@ function Post(props) {
     postTerm !== null &&
     postTerm !== [] &&
     postTerm !== undefined &&
-    postTerm.filter((k) => k.id === props.id);
+    postTerm.filter((k) => k.id === id);
   const category = postId && postId.map((k) => k.category)[0];
   const postImg = postId && postId.map((k) => k.postImage)[0];
   const price = postId && postId.map((k) => k.price)[0];
@@ -85,30 +47,6 @@ function Post(props) {
 
   const tags = hashTag && hashTag.map((k) => k).length;
   const tagsLINE = hashTag && hashTag.map((k) => k.postTagTitle);
-
-  // const tagsArray = [];
-  // for (let i = 0; i < tags; i++) {
-  //   tagsArray.push(hashTag && hashTag.map((k) => k.postTagTitle));
-  // }
-
-  // const K = [];
-  // for (let i = 0; i < tagsArray.length - 1; i++) {
-  //   K.push(tagsArray && tagsArray.map((k) => k[i]));
-  // }
-  // const tagTitle = K[0];
-  // 여기 주석은 풀지말것
-  // function HashTagArray(a) {
-  //   if (postTerm && postTerm.filter((k) => k.id === a)) {
-  //     return postTerm.filter((k) => k.id === a);
-  //   } else {
-  //     return "";
-  //   }
-  // }
-
-  // const hash = postTerm && HashTagArray(props.id).map((posts) => posts.hashtag);
-
-  // const hashTags = hash.pop();
-  // if (!hashTags) return null;
 
   return (
     <>
@@ -164,31 +102,37 @@ function Post(props) {
         </div>
         {isOpen && (
           <Popup
+            category={category}
             iflogin={bookmarks}
             postTitle={postTitle}
             postPicture={postImg}
             star={rating}
-            // transport={category}
             money={(String(price) / 10000).toFixed(1)}
             icon={category}
             handleClose={togglePopup}
-            id={props.id}
+            id={id}
             location={location}
             memo={memo}
             tags={tagsLINE}
+            posts={posts}
+            bookmarks={bookmarks}
+            setBmark={setBmark}
+            bmark={bmark}
           />
         )}
         {isbmarkOpen && (
           <BookmarkPopup
+            bookmarks={bookmarks}
             postTitle={postTitle}
             postPicture={postImg}
             star={rating}
-            // transport={props.transport}
             money={String(price) / 10000}
             icon={category}
-            id={props.id}
+            id={id}
             thisplanId={Linkid}
             handleClose={toggleBmarkPopup}
+            setBmark={setBmark}
+            bmark={bmark}
           />
         )}
       </div>

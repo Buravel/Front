@@ -14,11 +14,10 @@ import dotenv from "dotenv";
 import "./planmap.scss";
 dotenv.config();
 
-function Planmap() {
+function Planmap({ posts }) {
   const [visible, setVisible] = useState(false);
   const onMap = () => setVisible(!visible);
 
-  const [posts, setPosts] = useState([]);
   const [bookmarks, setBookmarks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [popup, setpopup] = useState(false);
@@ -46,23 +45,6 @@ function Planmap() {
     id: "google-map-script",
     googleMapsApiKey: process.env.REACT_APP_MAP_API_KEY,
   });
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        setError(null);
-        setPosts(null);
-        setLoading(true);
-        const response = await axios.get(`http://34.64.93.115/plans/${Linkid}`);
-        setPosts(response.data);
-      } catch (e) {
-        setError(e);
-      }
-      setLoading(false);
-    };
-
-    fetchPosts();
-  }, []);
 
   const postinfo = posts && posts.postForPlanResponseDtos;
   const postcount = postinfo && postinfo.length;

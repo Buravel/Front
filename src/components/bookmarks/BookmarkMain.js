@@ -321,7 +321,7 @@ function BookmarkMain() {
                                   </span>
                                   <span className="bkname">
                                     {item.bookmarkTitle}
-                                    <span>{BmarkNum(item.id)}</span>
+                                    <BmarkNum id={item.id} />
                                   </span>
                                 </span>
                               </span>

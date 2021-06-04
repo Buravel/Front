@@ -541,6 +541,7 @@
 }
 .halfIcon {
   position: relative;
+  top: 1px;
   width: 16.5px;
   height: 16px;
 }
@@ -591,10 +592,18 @@
   height: 17.5px;
   object-fit: contain;
 }
-.popConCost {
+.popConCostAll {
   position: absolute;
   top: 403.8px;
   left: 78.4px;
+  width: 120px;
+  height: 27px;
+}
+
+.popConCost {
+  position: relative;
+  top: 0px;
+  left: 0px;
   width: 31px;
   height: 27px;
   font-family: NotoSansKR;
@@ -608,9 +617,11 @@
   color: #535353;
 }
 .popConCostname {
-  position: absolute;
-  top: 405.1px;
-  left: 115.9px;
+  position: relative;
+  // top: 405.1px;
+  // left: 115.9px;
+  left: 6.5px;
+
   height: 24px;
   font-family: NotoSansKR;
   font-size: 16px;
@@ -651,10 +662,10 @@
 
 .popConStar {
   position: absolute;
-  top: 499.5px;
+  bottom: 148.5px;
   left: 73.8px;
   width: 288.7px;
-  height: 16px;
+  height: 23px;
 
   /* 이미지이므로 나중에 다시 변경할 것 */
 }
