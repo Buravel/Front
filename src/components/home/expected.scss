@@ -25,7 +25,8 @@
     }
     .product-top-three {
       float: left;
-      min-width: 40px;
+      max-width: 50px;
+      margin-right: 10px;
       .icon {
         margin-right: 3.5px;
       }
