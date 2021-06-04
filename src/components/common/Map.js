@@ -1,10 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import {
-    GoogleMap,
-    useJsApiLoader,
-    Marker,
-    InfoWindow,
-} from '@react-google-maps/api';
+import React, { useState } from 'react';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import dotenv from 'dotenv';
 import './map.scss';
 dotenv.config();
@@ -17,13 +12,6 @@ const containerStyle = {
 const center = {
     lat: 37.497536340141046,
     lng: 127.02763080131218,
-};
-
-const divStyle = {
-    background: `white`,
-    width: '60px',
-    height: '30px',
-    fontSize: '0.6rem',
 };
 
 const Map = ({ location }) => {
@@ -54,7 +42,7 @@ const Map = ({ location }) => {
         </div>
     ) : (
         <div className="map-arrow" onClick={onMap}>
-            <img src="./images/map/arrow.png" />
+            <img src="./images/map/arrow.png" alt="arrow" />
         </div>
     );
 };

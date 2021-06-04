@@ -4,7 +4,7 @@ import { getTopThree } from './Product';
 const Expected = ({ product, nickname }) => {
     if (!product) return null;
     const {
-        outputPlanTotalPrice,
+        totalPrice,
         planTitle,
         startDate,
         hotelTotalPrice,
@@ -14,6 +14,7 @@ const Expected = ({ product, nickname }) => {
         shoppingTotalPrice,
         trafficTotalPrice,
     } = product;
+
     const topThree = getTopThree({
         hotelTotalPrice,
         dishTotalPrice,
@@ -22,6 +23,7 @@ const Expected = ({ product, nickname }) => {
         shoppingTotalPrice,
         trafficTotalPrice,
     });
+
     return (
         <div className="expected-container">
             <div className="div">
@@ -34,7 +36,9 @@ const Expected = ({ product, nickname }) => {
             </div>
             <div className="div">
                 <p className="div-top">예산</p>
-                <p className="div-bottom">{outputPlanTotalPrice}</p>
+                <p className="div-bottom">
+                    {parseFloat((parseInt(totalPrice) / 10000).toFixed(1))}만원
+                </p>
             </div>
             <div className="div">
                 <p className="div-top">예산 상세</p>
@@ -46,7 +50,9 @@ const Expected = ({ product, nickname }) => {
                                 alt=""
                             />
                         </span>
-                        <span className="plan">{parseInt(price / 10000)}</span>
+                        <span className="plan">
+                            {parseFloat((parseInt(price) / 10000).toFixed(1))}
+                        </span>
                     </div>
                 ))}
             </div>

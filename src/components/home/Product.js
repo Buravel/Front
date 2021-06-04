@@ -28,7 +28,7 @@ const Product = ({ product }) => {
     const {
         id,
         planImage,
-        outputPlanTotalPrice,
+        totalPrice,
         planTitle,
         planTagResponseDtos,
         planRating,
@@ -87,7 +87,12 @@ const Product = ({ product }) => {
                             <b>{planTitle}</b>
                         </span>
                         <span className="product-price">
-                            <b>{outputPlanTotalPrice}</b>
+                            <b>
+                                {parseFloat(
+                                    (parseInt(totalPrice) / 10000).toFixed(1),
+                                )}
+                                만원
+                            </b>
                         </span>
                     </div>
                     <div className="info-mid">
@@ -108,7 +113,9 @@ const Product = ({ product }) => {
                                     />
                                 </span>
                                 <span className="plan">
-                                    {parseInt(price / 10000)}
+                                    {parseFloat(
+                                        (parseInt(price) / 10000).toFixed(1),
+                                    )}
                                 </span>
                             </div>
                         ))}
