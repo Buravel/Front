@@ -23,7 +23,11 @@ const PlanContainer = () => {
         const response = await axios.get(`http://34.64.93.115/plans/${Linkid}`);
         setPosts(response.data);
       } catch (e) {
-        setError(e);
+        let token = localStorage.getItem("token");
+        token = token && token.replace(/"/g, "");
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        const response = await axios.get(`http://34.64.93.115/plans/${Linkid}`);
+        setPosts(response.data);
       }
       setLoading(false);
     };
@@ -36,18 +40,30 @@ const PlanContainer = () => {
       try {
         setBookmarks(null);
         const response = await axios.get(`http://34.64.93.115/bookmark`);
+
+        setBmark(response.data._embedded.bookmarkResponseDtoList);
+
         setBookmarks(response.data);
-      } catch (e) {}
+      } catch (e) {
+        let token = localStorage.getItem("token");
+        token = token && token.replace(/"/g, "");
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        const response = await axios.get(`http://34.64.93.115/bookmark`);
+
+        setBmark(response.data._embedded.bookmarkResponseDtoList);
+
+        setBookmarks(response.data);
+      }
     };
 
     fetchBookmarks();
   }, []);
 
-  const returning = axios
-    .get(`http://34.64.93.115/bookmark`)
-    .then((response) => {
-      setBmark(response.data._embedded.bookmarkResponseDtoList);
-    });
+  //   const returning = axios
+  //     .get(`http://34.64.93.115/bookmark`)
+  //     .then((response) => {
+  //       setBmark(response.data._embedded.bookmarkResponseDtoList);
+  //     });
 
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
