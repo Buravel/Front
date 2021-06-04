@@ -6,6 +6,7 @@ import { Redirect, withRouter } from "react-router-dom";
 import BookmarktoplanPopup from "./BookmarktoplanPopup";
 import { render } from "react-dom";
 import BmarkCount from "./BmarkCount";
+import BkPostArray from "./BkPostArray";
 
 function BookmarkDetail({ match }) {
   let token = localStorage.getItem("token");
@@ -53,6 +54,7 @@ function BookmarkDetail({ match }) {
         setBookmarkstitle(null);
         setLoading(true);
         const response = await axios.get(`http://34.64.93.115/bookmark`);
+
         setBookmarkstitle(response.data._embedded.bookmarkResponseDtoList);
       } catch (e) {
         setError(e);
@@ -77,6 +79,7 @@ function BookmarkDetail({ match }) {
         const response = await axios.get(
           `http://34.64.93.115/bookmark/${match.params.id}`
         );
+
         setBookmarks(response.data._embedded.bookmarkPostResponseDtoList);
       } catch (e) {
         setError(e);
@@ -103,13 +106,13 @@ function BookmarkDetail({ match }) {
   }, []);
 
   const bmarkListN = bookmarks && bookmarks.map((k) => k);
-
+  console.log(bmarkListN);
   // const bmarknumber = [];
   // for (let i = 0; i <= bmarkListN.length; i++) {
   //   bmarknumber.push(bmarkListN && bmarkListN.map((k) => k));
   // }
   // const bmarkListNum = bmarkListN && bmarkListN.map((k) => k);
-  console.log(bmarkListN && bmarkListN.map((k) => k.id));
+
   // const bmarkArray = [];
   // for (let i = 0; i < bmarkListN.length; i++) {
   //   bmarkArray.push(bmarkListN[i]);
@@ -152,89 +155,92 @@ function BookmarkDetail({ match }) {
       })
       .then((res) => {
         setTitle("");
+        window.location.reload(false);
       }, []);
   };
-  console.log(match.params.id);
 
   return (
-    <div className="bkDtBackground">
-      {isbmarkOpen && (
-        <BookmarktoplanPopup
-          checkedplan={checkedInputs}
-          handleClose={toggleBmarkPopup}
-        />
-      )}
-      <div className="btDTpage">
-        <div className="bkDtName">
-          <span className="bkDtNamefirst">{thisbmarktitleA}</span>
-          <span className="bkDtNamesecond">
-            ({bmarkListN && bmarkListN.length})
-          </span>
-          <span>
+    <>
+      {/* <div>{bmarkListN == null && alert("빈 북마크입니다")}</div> */}
+      <div className="bkDtBackground">
+        {isbmarkOpen && (
+          <BookmarktoplanPopup
+            checkedplan={checkedInputs}
+            handleClose={toggleBmarkPopup}
+          />
+        )}
+        <div className="btDTpage">
+          <div className="bkDtName">
+            <span className="bkDtNamefirst">{thisbmarktitleA}</span>
+            <span className="bkDtNamesecond">
+              ({bmarkListN && bmarkListN.length})
+            </span>
+            <span className="thisBmarkNameEdit">
+              <input
+                type="button"
+                onClick={toggleEditPopup}
+                className="editbtn"
+              />
+              <Bicon picture="nameEdit" className="bkDtNameEdit" />
+            </span>
+            {isEditOpen && (
+              <>
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="북마크 이름"
+                  onChange={handleTitleChange}
+                  className="bkDtNameEdittext"
+                />
+                <button onClick={handleSubmit} className="bkDtNameEdittext">
+                  확인
+                </button>
+              </>
+            )}
+          </div>
+
+          <span className="bringtoplanbtnbackground">
             <input
               type="button"
-              onClick={toggleEditPopup}
-              className="editbtn"
+              onClick={toggleBmarkPopup}
+              className="bringtoplanbtn"
             />
-            <Bicon picture="nameEdit" className="bkDtNameEdit" />
+            <Bicon picture="bringtoPlan" className="bkDtPlanEdit" />
           </span>
-          {isEditOpen && (
-            <>
-              <input
-                type="text"
-                name="title"
-                placeholder="북마크 이름"
-                onChange={handleTitleChange}
-                className="bkDtNameEdittext"
-              />
-              <button onClick={handleSubmit} className="bkDtNameEdittext">
-                확인
-              </button>
-            </>
-          )}
-        </div>
+          <button onClick={deletepost}>
+            <Bicon picture="BookmarkDeleteButton" className="bkDtDelete" />
+          </button>
+          <div className="bkDtpostBackground">
+            {bmarkListN &&
+              bmarkListN.map((item) => (
+                <span className="bringbmarkClickbox">
+                  <label class="bmarkCheckcontainer">
+                    <input
+                      className="checkInput"
+                      type="checkbox"
+                      id={item.id}
+                      onChange={(e) => {
+                        changeHandler(e.currentTarget.checked, item.id);
+                      }}
+                      checked={checkedInputs.includes(item.id) ? true : false}
+                    />
+                    <span class="checkmark"></span>
+                  </label>
 
-        <span className="bringtoplanbtnbackground">
-          <input
-            type="button"
-            onClick={toggleBmarkPopup}
-            className="bringtoplanbtn"
-          />
-          <Bicon picture="bringtoPlan" className="bkDtPlanEdit" />
-        </span>
-        <button onClick={deletepost}>
-          <Bicon picture="BookmarkDeleteButton" className="bkDtDelete" />
-        </button>
-        <div className="bkDtpostBackground">
-          {bmarkListN &&
-            bmarkListN.map((item) => (
-              <span className="bringbmarkClickbox">
-                <label class="bmarkCheckcontainer">
-                  <input
-                    className="checkInput"
-                    type="checkbox"
-                    id={item.id}
-                    onChange={(e) => {
-                      changeHandler(e.currentTarget.checked, item.id);
-                    }}
-                    checked={checkedInputs.includes(item.id) ? true : false}
+                  <button className="bringbmarkClick" />
+                  <BookmarkPost
+                    thisId={item.id}
+                    bmarkId={match.params.id}
+                    clicked={checkedInputs}
+                    bookmarkInfo={bookmarks}
                   />
-                  <span class="checkmark"></span>
-                </label>
-
-                <button className="bringbmarkClick" />
-                <BookmarkPost
-                  thisId={item.id}
-                  bmarkId={match.params.id}
-                  clicked={checkedInputs}
-                  bookmarkInfo={bookmarks}
-                />
-              </span>
-            ))}
+                </span>
+              ))}
+          </div>
+          <div className="bkDtpostBackgroundbuttom" />
         </div>
-        <div className="bkDtpostBackgroundbuttom" />
       </div>
-    </div>
+    </>
   );
 }
 export default withRouter(BookmarkDetail);

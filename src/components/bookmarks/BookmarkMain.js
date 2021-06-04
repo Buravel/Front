@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 import BookmarkDetail from "./BookmarkDetail";
 import BmarkNum from "./BmarkNum";
+import BkPostArray from "./BkPostArray";
 
 function BookmarkMain() {
   const [isOpen, setIsOpen] = useState(false);
@@ -160,51 +161,53 @@ function BookmarkMain() {
     <>
       <>
         <div>
-          <Router>
-            <Route path="/bookmarks/:id" component={BookmarkDetail} />
+          <Switch>
+            <Router>
+              <Route path="/bookmarks/:id" component={BookmarkDetail} />
 
-            <Route exact path="/bookmarks">
-              {isdetailOpen && (
+              <Route exact path="/bookmarks">
+                {/* {isdetailOpen && ( */}
                 <div>
                   <div className="bookmarkbackground">
                     <span className="bookmarkTitle">
                       <span className="bookmarkMaintitle">북마크</span>
+
                       <span className="bookmarkSubtitle">
                         ({bmarkListN.length})
                       </span>
                     </span>
 
-                    {isdelOpen && (
-                      <>
-                        <meta charset="UTF-8" />
-                        <div className="popupbkdelBackground">
-                          <div className="popupbkBox">
-                            <div>
-                              <button
-                                type="submit"
-                                className="delBmarkBtn"
-                                onClick={deletebmark}
-                              >
-                                삭제
-                              </button>
-                              <button
-                                onClick={toggledelPopupcancel}
-                                className="BookmarkDeletecancelbuttonbg"
-                              >
-                                <Bicon
-                                  picture="BookmarkDeletebutton"
-                                  className="BookmarkDeletecancelbutton"
-                                />
-                                <span className="BookmarkDeletebuttonName">
-                                  취소
-                                </span>
-                              </button>
-                            </div>
+                    {/* {isdelOpen && (
+                    <>
+                      <meta charset="UTF-8" />
+                      <div className="popupbkdelBackground">
+                        <div className="popupbkBox">
+                          <div>
+                            <button
+                              type="submit"
+                              className="delBmarkBtn"
+                              onClick={deletebmark}
+                            >
+                              삭제
+                            </button>
+                            <button
+                              onClick={toggledelPopupcancel}
+                              className="BookmarkDeletecancelbuttonbg"
+                            >
+                              <Bicon
+                                picture="BookmarkDeletebutton"
+                                className="BookmarkDeletecancelbutton"
+                              />
+                              <span className="BookmarkDeletebuttonName">
+                                취소
+                              </span>
+                            </button>
                           </div>
                         </div>
-                      </>
-                    )}
-                    {/* {isdelOpen && <DelBmark />} */}
+                      </div>
+                    </>
+                  )} */}
+
                     <button
                       className="bookmarkAddbtn"
                       onClick={(event) => {
@@ -229,22 +232,7 @@ function BookmarkMain() {
                         className="BookmarkAddbutton"
                       />
                     </button>
-                    <button
-                      className="bookmarkDelbtn"
-                      onClick={toggledelPopup}
-                      // onClick={(event) => {
-                      //   event.preventDefault();
-                      //   axios
-                      //     .delete(`http://34.64.93.115/bookmark/803`)
-                      //     .then((res) => {
-                      //       setBookmarks([bookmarks]);
-                      //       alert(`폴더가 삭제되었습니다`);
-                      //     }, [])
-                      //     .catch(function (error) {
-                      //       alert("삭제되었거나 없는 폴더입니다");
-                      //     }, []);
-                      // }}
-                    >
+                    <button className="bookmarkDelbtn" onClick={toggledelPopup}>
                       <Bicon
                         picture="BookmarkDeletebutton"
                         className="BookmarkDeletebutton"
@@ -404,9 +392,10 @@ function BookmarkMain() {
                     {/* {isOpen && <AddBmark handleClose={togglePopup} />} */}
                   </div>
                 </div>
-              )}
-            </Route>
-          </Router>
+                {/* )} */}
+              </Route>
+            </Router>
+          </Switch>
         </div>
       </>
     </>

@@ -136,9 +136,10 @@ function BookmarkPopup(props) {
             className="bamrkGet"
             onClick={() => {
               axios.post(
-                `http://34.64.93.115/bookmark/post/${thisBmarkId}/${props.id}`,
-                alert(`북마크에 추가되었습니다`)
+                `http://34.64.93.115/bookmark/post/${thisBmarkId}/${props.id}`
               );
+              alert(`북마크에 추가되었습니다`);
+              window.location.href = `/plan/${props.thisplanId}`;
             }}
           >
             <Icon picture="bmarkGet" />

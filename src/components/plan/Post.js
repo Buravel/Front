@@ -15,15 +15,15 @@ function Post(props) {
   const [isbmarkOpen, setBmarkisOpen] = useState(false);
   const thisLink = window.location.href;
   const Linkid = thisLink.split("plan/")[1];
-  let token = localStorage.getItem("token");
-  token = token.replace(/"/g, "");
-  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-  const corsOptions = {
-    origin: "*",
-    credentials: true,
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  };
+  // let token = localStorage.getItem("token");
+  // token = token.replace(/"/g, "");
+  // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  // const corsOptions = {
+  //   origin: "*",
+  //   credentials: true,
+  //   methods: ["GET", "POST", "OPTIONS"],
+  //   allowedHeaders: ["Content-Type", "Authorization"],
+  // };
 
   // middleware handle all request using cors options
 
@@ -116,20 +116,29 @@ function Post(props) {
 
       <div className="postBox">
         <input type="button" onClick={togglePopup} className="postButton" />
-        <div className="bmark">
-          <input
-            type="button"
-            onClick={toggleBmarkPopup}
-            className="bmarkButton"
-          />
-          <Icon picture="bookmark" className="postBookmarkIcon" />
-        </div>
+        {bookmarks !== null && (
+          <div className="bmark">
+            <input
+              type="button"
+              onClick={toggleBmarkPopup}
+              className="bmarkButton"
+            />
+            <Icon picture="bookmark" className="postBookmarkIcon" />
+          </div>
+        )}
 
         <div className="postPicture">
-          <img
-            src={`data:image/png;base64,${postImg}`}
-            className="postPictureArray"
-          />
+          {postImg == "" ? (
+            <img
+              src={`/images/planImg/default${category}.png`}
+              className="postPictureArray"
+            />
+          ) : (
+            <img
+              src={`data:image/png;base64,${postImg}`}
+              className="postPictureArray"
+            />
+          )}
         </div>
         <div className="postContent">
           <span className="postName">{postTitle}</span>
@@ -137,7 +146,7 @@ function Post(props) {
           <Icon picture="rating" className="postRateIcon" />
           <span className="rateValue">{rating}</span>
           <div className="moneyBox">
-            <span className="money">{String(price) / 10000}</span>
+            <span className="money">{(String(price) / 10000).toFixed(1)}</span>
             <span className="moneyName">만원</span>
           </div>
           <span className="hashTagLine">
@@ -155,11 +164,12 @@ function Post(props) {
         </div>
         {isOpen && (
           <Popup
+            iflogin={bookmarks}
             postTitle={postTitle}
             postPicture={postImg}
             star={rating}
             // transport={category}
-            money={String(price) / 10000}
+            money={(String(price) / 10000).toFixed(1)}
             icon={category}
             handleClose={togglePopup}
             id={props.id}
@@ -177,6 +187,7 @@ function Post(props) {
             money={String(price) / 10000}
             icon={category}
             id={props.id}
+            thisplanId={Linkid}
             handleClose={toggleBmarkPopup}
           />
         )}

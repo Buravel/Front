@@ -48,6 +48,7 @@ function Popup(props) {
   const postId = postTerm && postTerm.filter((k) => k.id === props.id);
   const hashTag = postId && postId.map((k) => k.postTagResponseDtoList)[0];
   const postImg = postId && postId.map((k) => k.postImage)[0];
+  const category = postId && postId.map((k) => k.category)[0];
 
   // const tags = hashTag && hashTag.map((k) => k).length;
   // const tagsLINE = hashTag && hashTag.map((k) => k.postTagTitle);
@@ -86,6 +87,7 @@ function Popup(props) {
               <BookmarkPopup
                 postTitle={props.postTitle}
                 star={props.rate}
+                thisplanId={Linkid}
                 handleClose={toggleBmarkPopup}
                 id={props.id}
               />
@@ -93,23 +95,33 @@ function Popup(props) {
             </>
           )}
         </div>
+
         <div className="popupBackground">
           <div className="popupBox">
-            <div className="pupbmark">
-              <input
-                type="button"
-                onClick={toggleBmarkPopup}
-                className="popupBookmarkbutton"
-              />
+            {props.iflogin !== null && (
+              <div className="pupbmark">
+                <input
+                  type="button"
+                  onClick={toggleBmarkPopup}
+                  className="popupBookmarkbutton"
+                />
+                <img
+                  src="/images/planImg/bookmark.svg"
+                  className="popupBookmark"
+                />
+              </div>
+            )}
+            {postImg == "" ? (
               <img
-                src="/images/planImg/bookmark.svg"
-                className="popupBookmark"
+                src={`/images/planImg/default${category}.png`}
+                className="popupPicture"
               />
-            </div>
-            <img
-              src={`data:image/png;base64,${postImg}`}
-              className="popupPicture"
-            />
+            ) : (
+              <img
+                src={`data:image/png;base64,${postImg}`}
+                className="popupPicture"
+              />
+            )}
 
             <span className="popupList">
               <span className="popupTitle">제목</span>

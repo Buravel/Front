@@ -116,7 +116,7 @@ function UserPost(props) {
         <span className="CostBackground">
           <span className="TotalCost">
             <span className="TotalMoney">
-              {String(posts.totalPrice) / 10000}
+              {(String(posts.totalPrice) / 10000).toFixed(1)}
             </span>
             <span className="TotalMoneyname">만원</span>
           </span>
@@ -138,22 +138,22 @@ function UserPost(props) {
           </span>
           <span className="TotalMoneylist">
             <span className="TotalAirplaneCost">
-              {String(posts.flightTotalPrice) / 10000}
+              {(String(posts.flightTotalPrice) / 10000).toFixed(1)}
             </span>
             <span className="TotalfoodCost">
-              {String(posts.dishTotalPrice) / 10000}
+              {(String(posts.dishTotalPrice) / 10000).toFixed(1)}
             </span>
             <span className="TotalshoppingCost">
-              {String(posts.shoppingTotalPrice) / 10000}
+              {(String(posts.shoppingTotalPrice) / 10000).toFixed(1)}
             </span>
             <span className="TotalbusCost">
-              {String(posts.trafficTotalPrice) / 10000}
+              {(String(posts.trafficTotalPrice) / 10000).toFixed(1)}
             </span>
             <span className="TotalbedCost">
-              {String(posts.hotelTotalPrice) / 10000}
+              {(String(posts.hotelTotalPrice) / 10000).toFixed(1)}
             </span>
             <span className="TotaletcCost">
-              {String(posts.etcTotalPrice) / 10000}
+              {(String(posts.etcTotalPrice) / 10000).toFixed(1)}
             </span>
           </span>
         </span>
