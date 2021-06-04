@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 import BookmarkDetail from "./BookmarkDetail";
 import BmarkNum from "./BmarkNum";
+import BkPostArray from "./BkPostArray";
 
 function BookmarkMain() {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,9 +71,7 @@ function BookmarkMain() {
         setLoading(true);
         const response = await axios.get("http://34.64.93.115/bookmark");
         setBookmarks(response.data._embedded.bookmarkResponseDtoList);
-      } catch (e) {
-        setError(e);
-      }
+      } catch (e) {}
       setLoading(false);
     };
 
@@ -81,16 +80,25 @@ function BookmarkMain() {
 
   const deletebmark = (k) => {
     for (let i = 0; i < checkedInputs.length; i++) {
-      axios
-        .delete(`http://34.64.93.115/bookmark/${checkedInputs[i]}`)
-        .then((response) => {
-          setCheckedInputs("");
-          setdelIsOpen(!isdelOpen);
-        }, []);
+      axios.delete(`http://34.64.93.115/bookmark/${checkedInputs[i]}`);
     }
-
     alert("북마크가 삭제되었습니다");
+    setBookmarks(
+      bookmarks && bookmarks.filter((k) => !checkedInputs.includes(k.id))
+    );
+
+    setCheckedInputs("");
+    setdelIsOpen(!isdelOpen);
   };
+  // console.log(bookmarks && bookmarks.filter((k) => ![360, 385].includes(k.id)));
+
+  // alert("북마크가 삭제되었습니다");
+
+  // axios
+  //   .get("http://34.64.93.115/bookmark")
+  //   .then((res) => setBookmarks(res.data._embedded.bookmarkResponseDtoList));
+
+  // window.location.href = `/bookmarks`;
 
   // const returning = axios
   //   .get("http://34.64.93.115/bookmark")
@@ -160,15 +168,17 @@ function BookmarkMain() {
     <>
       <>
         <div>
-          <Router>
-            <Route path="/bookmarks/:id" component={BookmarkDetail} />
+          <Switch>
+            <Router>
+              <Route path="/bookmarks/:id" component={BookmarkDetail} />
 
-            <Route exact path="/bookmarks">
-              {isdetailOpen && (
+              <Route exact path="/bookmarks">
+                {/* {isdetailOpen && ( */}
                 <div>
                   <div className="bookmarkbackground">
                     <span className="bookmarkTitle">
                       <span className="bookmarkMaintitle">북마크</span>
+
                       <span className="bookmarkSubtitle">
                         ({bmarkListN.length})
                       </span>
@@ -204,7 +214,7 @@ function BookmarkMain() {
                         </div>
                       </>
                     )}
-                    {/* {isdelOpen && <DelBmark />} */}
+
                     <button
                       className="bookmarkAddbtn"
                       onClick={(event) => {
@@ -229,22 +239,7 @@ function BookmarkMain() {
                         className="BookmarkAddbutton"
                       />
                     </button>
-                    <button
-                      className="bookmarkDelbtn"
-                      onClick={toggledelPopup}
-                      // onClick={(event) => {
-                      //   event.preventDefault();
-                      //   axios
-                      //     .delete(`http://34.64.93.115/bookmark/803`)
-                      //     .then((res) => {
-                      //       setBookmarks([bookmarks]);
-                      //       alert(`폴더가 삭제되었습니다`);
-                      //     }, [])
-                      //     .catch(function (error) {
-                      //       alert("삭제되었거나 없는 폴더입니다");
-                      //     }, []);
-                      // }}
-                    >
+                    <button className="bookmarkDelbtn" onClick={toggledelPopup}>
                       <Bicon
                         picture="BookmarkDeletebutton"
                         className="BookmarkDeletebutton"
@@ -333,7 +328,7 @@ function BookmarkMain() {
                                   </span>
                                   <span className="bkname">
                                     {item.bookmarkTitle}
-                                    <span>{BmarkNum(item.id)}</span>
+                                    <BmarkNum id={item.id} />
                                   </span>
                                 </span>
                               </span>
@@ -404,9 +399,10 @@ function BookmarkMain() {
                     {/* {isOpen && <AddBmark handleClose={togglePopup} />} */}
                   </div>
                 </div>
-              )}
-            </Route>
-          </Router>
+                {/* )} */}
+              </Route>
+            </Router>
+          </Switch>
         </div>
       </>
     </>

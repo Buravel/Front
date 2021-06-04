@@ -102,7 +102,7 @@
     "test": "node scripts/test.js",
     "fakeserver": "json-server ./data.json --port 4000 ",
     "dev": "concurrently \"yarn start\" \"yarn fakeserver\"",
-    "deploy" : "aws s3 sync ./build s3://fund-buravel --profile=buravel-deploy-s3"
+    "deploy": "aws s3 sync ./build s3://fund-buravel --profile=buravel-deploy-s3"
   },
   "eslintConfig": {
     "extends": [

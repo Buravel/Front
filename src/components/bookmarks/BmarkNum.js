@@ -61,7 +61,6 @@ function BmarkNum(props) {
     bookmarks;
 
   const BmarkltN = Bmarklt && Bmarklt.map((k) => k).length;
-
   return <span>({BmarkltN == [] ? "0" : BmarkltN})</span>;
 }
 export default BmarkNum;

@@ -296,8 +296,8 @@
 }
 .bkDtNameEdit {
   position: relative;
-  top: 8.4px;
-  left: 6.1px;
+  top: 0px;
+  left: -27px;
   width: 27.1px;
   height: 27.1px;
   object-fit: contain;
@@ -384,7 +384,7 @@
 }
 .bookmarkChecked {
   position: absolute;
-  top: 2px;
+  top: 1.5px;
   right: 4px;
   z-index: 6;
   width: 50px;
@@ -590,15 +590,6 @@
 
 /* Style the checkmark/indicator */
 .bmarkCheckcontainer .checkmark:after {
-  left: 8px;
-  top: 3.5px;
-  width: 7px;
-  height: 12px;
-  border: solid white;
-  border-width: 0 3.5px 3.5px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
 }
 .bringtoplanbtn {
   z-index: 10;
@@ -717,10 +708,10 @@
   background-color: transparent;
 }
 .editbtn {
-  position: absolute;
+  position: relative;
   z-index: 20;
-  top: 32.4px;
-  left: 168.1px;
+  top: 10px;
+  left: 0px;
   width: 27.1px;
   height: 27.1px;
 
@@ -730,5 +721,17 @@
 }
 .bkDtNameEdittext {
   position: relative;
+  height: 40px;
+  top: -8px;
   left: 10px;
+
+  background-color: #f5f5f5;
+}
+.thisBmarkNameEdit {
+  position: relative;
+  top: 0px;
+  left: 6.1px;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }

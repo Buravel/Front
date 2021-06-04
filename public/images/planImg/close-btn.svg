@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 58 58">
+    <defs>
+        <filter id="패스_96" width="58" height="58" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur result="blur" stdDeviation="3"/>
+            <feFlood flood-opacity=".31"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <style>
+            .cls-2{fill:none;stroke:#535353;stroke-linecap:round;stroke-width:2px}
+        </style>
+    </defs>
+    <g id="그룹_244" transform="translate(-1206 -103)">
+        <g filter="url(#패스_96)" transform="translate(1206 103)">
+            <path id="패스_96-2" fill="#fff" d="M20 0A20 20 0 1 1 0 20 20 20 0 0 1 20 0z" transform="translate(9 6)"/>
+        </g>
+        <g id="그룹_76" transform="translate(-93.173 -957.682)">
+            <path id="선_13" d="M15.364 0L0 15.364" class="cls-2" transform="translate(1320.491 1079.491)"/>
+            <path id="선_14" d="M0 0L15.364 15.364" class="cls-2" transform="translate(1320.491 1079.491)"/>
+        </g>
+    </g>
+</svg>
