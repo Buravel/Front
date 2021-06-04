@@ -40,13 +40,16 @@ function BookmarkDetail({ match }) {
 
   const deletepost = (k) => {
     for (let i = 0; i < checkedInputs.length; i++) {
-      axios
-        .delete(`http://34.64.93.115/bookmark/post/${checkedInputs[i]}`)
-        .then((response) => {
-          setCheckedInputs("");
-        }, []);
+      axios.delete(`http://34.64.93.115/bookmark/post/${checkedInputs[i]}`);
     }
+    alert("포스트가 삭제되었습니다");
+    setBookmarks(
+      bookmarks && bookmarks.filter((k) => !checkedInputs.includes(k.id))
+    );
+
+    setCheckedInputs("");
   };
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -106,7 +109,6 @@ function BookmarkDetail({ match }) {
   }, []);
 
   const bmarkListN = bookmarks && bookmarks.map((k) => k);
-  console.log(bmarkListN);
   // const bmarknumber = [];
   // for (let i = 0; i <= bmarkListN.length; i++) {
   //   bmarknumber.push(bmarkListN && bmarkListN.map((k) => k));
@@ -163,12 +165,12 @@ function BookmarkDetail({ match }) {
     <>
       {/* <div>{bmarkListN == null && alert("빈 북마크입니다")}</div> */}
       <div className="bkDtBackground">
-        {isbmarkOpen && (
+        {/* {isbmarkOpen && (
           <BookmarktoplanPopup
             checkedplan={checkedInputs}
             handleClose={toggleBmarkPopup}
           />
-        )}
+        )} */}
         <div className="btDTpage">
           <div className="bkDtName">
             <span className="bkDtNamefirst">{thisbmarktitleA}</span>
@@ -199,14 +201,14 @@ function BookmarkDetail({ match }) {
             )}
           </div>
 
-          <span className="bringtoplanbtnbackground">
+          {/* <span className="bringtoplanbtnbackground">
             <input
               type="button"
               onClick={toggleBmarkPopup}
               className="bringtoplanbtn"
             />
             <Bicon picture="bringtoPlan" className="bkDtPlanEdit" />
-          </span>
+          </span> */}
           <button onClick={deletepost}>
             <Bicon picture="BookmarkDeleteButton" className="bkDtDelete" />
           </button>

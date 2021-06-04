@@ -97,8 +97,8 @@ function BookmarkPopup({
               axios.post(
                 `http://34.64.93.115/bookmark/post/${thisBmarkId}/${id}`
               );
+
               alert(`북마크에 추가되었습니다`);
-              window.location.href = `/plan/${thisplanId}`;
             }}
           >
             <Icon picture="bmarkGet" />

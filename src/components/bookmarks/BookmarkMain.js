@@ -82,7 +82,7 @@ function BookmarkMain() {
     for (let i = 0; i < checkedInputs.length; i++) {
       axios.delete(`http://34.64.93.115/bookmark/${checkedInputs[i]}`);
     }
-
+    alert("북마크가 삭제되었습니다");
     setBookmarks(
       bookmarks && bookmarks.filter((k) => !checkedInputs.includes(k.id))
     );
