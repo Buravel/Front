@@ -25,11 +25,15 @@ const PlanRemote = ({ account, onSave }) => {
     for (const value of Object.values(account)) {
         total += value;
     }
+    console.log(total);
     return (
         <div className="plan-remote">
             <div className="white-box">
                 <div className="total">
-                    <span className="blue-text">{total}</span>만원
+                    <span className="blue-text">
+                        {parseFloat(total.toFixed(1))}
+                    </span>
+                    만원
                 </div>
                 <div className="individual">
                     <div>
@@ -37,36 +41,36 @@ const PlanRemote = ({ account, onSave }) => {
                             src="./images/write/mini_FLIGHT_black.png"
                             alt="1"
                         />
-                        {account.FLIGHT}
+                        {parseFloat(account.FLIGHT.toFixed(1))}
                     </div>
                     <div>
                         <img src="./images/write/mini_DISH_black.png" alt="1" />
-                        {account.DISH}
+                        {parseFloat(account.DISH.toFixed(1))}
                     </div>
                     <div>
                         <img
                             src="./images/write/mini_SHOPPING_black.png"
                             alt="1"
                         />
-                        {account.SHOPPING}
+                        {parseFloat(account.SHOPPING.toFixed(1))}
                     </div>
                     <div>
                         <img
                             src="./images/write/mini_TRAFFIC_black.png"
                             alt="1"
                         />
-                        {account.TRAFFIC}
+                        {parseFloat(account.TRAFFIC.toFixed(1))}
                     </div>
                     <div>
                         <img
                             src="./images/write/mini_HOTEL_black.png"
                             alt="1"
                         />
-                        {account.HOTEL}
+                        {parseFloat(account.HOTEL.toFixed(1))}
                     </div>
                     <div>
                         <img src="./images/write/mini_ETC_black.png" alt="1" />
-                        {account.ETC}
+                        {parseFloat(account.ETC.toFixed(1))}
                     </div>
                 </div>
             </div>

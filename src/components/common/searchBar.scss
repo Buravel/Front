@@ -1,0 +1,90 @@
+.search-container {
+    display: flex;
+    margin-left : 45px;
+    width: 400px;
+    .tagBox{
+        margin-left:6px;
+        border: solid 1px #b5b5b5;
+        border-radius : 15px;
+        padding: 2px 15px 3px;
+        cursor: pointer;
+        color: #0070ef;
+        font-size:14px;
+    }
+    input[type=text] {
+        width:160px;
+    }
+    input[type=number] {
+        width: 70px;
+        margin: 0;
+    }
+    input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    .text-search-container {
+        width: 340px;
+        height: 39px;
+        border-radius: 20px;
+        border:1px solid #0070ef;
+        img{
+            margin-left: -2px;
+            margin-top: -5px;
+            cursor: pointer;
+        }
+        input[type=text] {
+            border: none;
+            margin: 6px 20px;
+            width:220px;
+        }
+    }
+    .price-search-btn {
+        font-size: 13px;
+        color: #b5b5b5;
+        width: 100px;
+        img {
+            margin-left: 2px;
+        }
+    }
+    .price-search-container {
+        position: absolute;
+        width: 300px;
+        height: 80px;
+        background: white;
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        margin-top: 40px;
+        margin: 40px 95px;
+        .input-container {
+            padding:0 5px
+        }
+        p{
+            font-size:13px;
+            color :#535353;
+            margin:10px 0;
+            text-align: center;
+        }
+        input {
+            margin : 0px 10px;
+            border:1px solid #eeeeee;
+            color :#535353;
+            font-size:12px;
+            width: 75px;
+            height: 25px;
+            text-align: center;
+        }
+        span {
+            color :#535353;
+            font-size:14px;
+        }
+        .search-button {
+            background-color: #0070ef;
+            width:45px;
+            height: 25px;
+            color:white;
+            border-radius: 5px;
+            font-size: 13px;
+            margin:0 10px;
+        }
+    }
+}

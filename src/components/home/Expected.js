@@ -1,10 +1,10 @@
 import React from 'react';
 import './expected.scss';
 import { getTopThree } from './Product';
-const Expected = ({ product }) => {
+const Expected = ({ product, nickname }) => {
     if (!product) return null;
     const {
-        outputPlanTotalPrice,
+        totalPrice,
         planTitle,
         startDate,
         hotelTotalPrice,
@@ -14,6 +14,7 @@ const Expected = ({ product }) => {
         shoppingTotalPrice,
         trafficTotalPrice,
     } = product;
+
     const topThree = getTopThree({
         hotelTotalPrice,
         dishTotalPrice,
@@ -22,10 +23,11 @@ const Expected = ({ product }) => {
         shoppingTotalPrice,
         trafficTotalPrice,
     });
+
     return (
         <div className="expected-container">
             <div className="div">
-                <p className="div-top">{'지수'}님의 예정된 여행</p>
+                <p className="div-top">{nickname}님의 예정된 여행</p>
                 <p className="div-bottom">{startDate}</p>
             </div>
             <div className="div">
@@ -34,7 +36,9 @@ const Expected = ({ product }) => {
             </div>
             <div className="div">
                 <p className="div-top">예산</p>
-                <p className="div-bottom">{outputPlanTotalPrice}</p>
+                <p className="div-bottom">
+                    {parseFloat((parseInt(totalPrice) / 10000).toFixed(1))}만원
+                </p>
             </div>
             <div className="div">
                 <p className="div-top">예산 상세</p>
@@ -46,7 +50,9 @@ const Expected = ({ product }) => {
                                 alt=""
                             />
                         </span>
-                        <span className="plan">{parseInt(price / 10000)}</span>
+                        <span className="plan">
+                            {parseFloat((parseInt(price) / 10000).toFixed(1))}
+                        </span>
                     </div>
                 ))}
             </div>

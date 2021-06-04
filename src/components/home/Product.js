@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './product.scss';
 import { getNight, splitDate } from '../../util/date';
@@ -28,7 +28,7 @@ const Product = ({ product }) => {
     const {
         id,
         planImage,
-        outputPlanTotalPrice,
+        totalPrice,
         planTitle,
         planTagResponseDtos,
         planRating,
@@ -50,7 +50,6 @@ const Product = ({ product }) => {
         shoppingTotalPrice,
         trafficTotalPrice,
     });
-    console.log(planTagResponseDtos);
     const [sY, sM, sD] = splitDate(startDate.split('-').join(''));
     const [eY, eM, eD] = splitDate(endDate.split('-').join(''));
     const night = getNight(`${sY}-${sM}-${sD}`, `${eY}-${eM}-${eD}`);
@@ -88,7 +87,12 @@ const Product = ({ product }) => {
                             <b>{planTitle}</b>
                         </span>
                         <span className="product-price">
-                            <b>{outputPlanTotalPrice}</b>
+                            <b>
+                                {parseFloat(
+                                    (parseInt(totalPrice) / 10000).toFixed(1),
+                                )}
+                                만원
+                            </b>
                         </span>
                     </div>
                     <div className="info-mid">
@@ -109,7 +113,9 @@ const Product = ({ product }) => {
                                     />
                                 </span>
                                 <span className="plan">
-                                    {parseInt(price / 10000)}
+                                    {parseFloat(
+                                        (parseInt(price) / 10000).toFixed(1),
+                                    )}
                                 </span>
                             </div>
                         ))}
