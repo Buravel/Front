@@ -5,7 +5,6 @@ import QuickBox from './QuickBox';
 import SearchBar from './SearchBar';
 
 const Header = ({ user, tagList, onLogout, border }) => {
-    console.log(!!border);
     // 퀵버튼 활성화 여부
     const [quickCheck, setQuickCheck] = useState(false);
     const profileImage = user?.data?.account?.profileImage;

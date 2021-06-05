@@ -153,7 +153,7 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                             onClick={() => setCategorySelect(!categorySelect)}
                         >
                             <img
-                                src={`./images/write/mini_${category}_blue.png`}
+                                src={`/images/write/mini_${category}_blue.png`}
                                 alt=""
                                 style={{ width: '25px' }}
                             />
@@ -174,7 +174,7 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                                         key={c}
                                     >
                                         <img
-                                            src={`./images/write/mini_${c}_${
+                                            src={`/images/write/mini_${c}_${
                                                 hover[i] ? 'blue' : 'black'
                                             }.png`}
                                             alt=""
@@ -223,7 +223,7 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                                             : 'star_full';
                                     return (
                                         <img
-                                            src={`./images/write/${src}.png`}
+                                            src={`/images/write/${src}.png`}
                                             alt=""
                                             className="harf-star"
                                             key={'star' + idx}
@@ -271,7 +271,7 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
                                     onClick={onClickAddHash}
                                 >
                                     <img
-                                        src="./images/write/check.png"
+                                        src="/images/write/check.png"
                                         alt="check"
                                     />
                                 </div>

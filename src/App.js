@@ -32,6 +32,7 @@ const App = () => {
             <Route path="/plan/:planId" component={Plan} />
             <Route path="/search" component={SearchPage} />
             <Route path="/writeplan" component={WritePlan} />
+            <Route path="/editplan/:planId" component={WritePlan} />
 
             <Route path="/signUp" component={RegisterPage} />
             <Route path="/privacyPolicy" component={PrivacyPolicy} />
