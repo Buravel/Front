@@ -116,7 +116,7 @@ const TitleModal = ({
                                 {closure ? (
                                     <>
                                         <img
-                                            src={`./images/write/unlock.png`}
+                                            src={`/images/write/unlock.png`}
                                             alt=""
                                         />
                                         <span className="blue">공개</span>
@@ -124,7 +124,7 @@ const TitleModal = ({
                                 ) : (
                                     <>
                                         <img
-                                            src={`./images/write/lock.png`}
+                                            src={`/images/write/lock.png`}
                                             alt=""
                                         />
                                         <span className="gray">비공개</span>
@@ -152,7 +152,7 @@ const TitleModal = ({
                                     onClick={onClickAddHash}
                                 >
                                     <img
-                                        src="./images/write/check.png"
+                                        src="/images/write/check.png"
                                         alt="check"
                                     />
                                 </div>

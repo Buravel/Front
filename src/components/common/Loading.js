@@ -3,7 +3,7 @@ import './loading.scss';
 const Loading = ({ children }) => {
     return (
         <div className="loading-container">
-            <img src="./icon.png" alt="logo" />
+            <img src="/icon.png" alt="logo" />
             <p>{children}</p>
         </div>
     );

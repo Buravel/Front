@@ -15,7 +15,7 @@ const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
             </p>
             <span className="plan-title">{planTitle}</span>
             <button onClick={openModal}>
-                <img src="./images/write/modify.png" alt="" />
+                <img src="/images/write/modify.png" alt="" />
             </button>
         </div>
     );
@@ -25,7 +25,6 @@ const PlanRemote = ({ account, onSave }) => {
     for (const value of Object.values(account)) {
         total += value;
     }
-    console.log(total);
     return (
         <div className="plan-remote">
             <div className="white-box">
@@ -38,38 +37,35 @@ const PlanRemote = ({ account, onSave }) => {
                 <div className="individual">
                     <div>
                         <img
-                            src="./images/write/mini_FLIGHT_black.png"
+                            src="/images/write/mini_FLIGHT_black.png"
                             alt="1"
                         />
                         {parseFloat(account.FLIGHT.toFixed(1))}
                     </div>
                     <div>
-                        <img src="./images/write/mini_DISH_black.png" alt="1" />
+                        <img src="/images/write/mini_DISH_black.png" alt="1" />
                         {parseFloat(account.DISH.toFixed(1))}
                     </div>
                     <div>
                         <img
-                            src="./images/write/mini_SHOPPING_black.png"
+                            src="/images/write/mini_SHOPPING_black.png"
                             alt="1"
                         />
                         {parseFloat(account.SHOPPING.toFixed(1))}
                     </div>
                     <div>
                         <img
-                            src="./images/write/mini_TRAFFIC_black.png"
+                            src="/images/write/mini_TRAFFIC_black.png"
                             alt="1"
                         />
                         {parseFloat(account.TRAFFIC.toFixed(1))}
                     </div>
                     <div>
-                        <img
-                            src="./images/write/mini_HOTEL_black.png"
-                            alt="1"
-                        />
+                        <img src="/images/write/mini_HOTEL_black.png" alt="1" />
                         {parseFloat(account.HOTEL.toFixed(1))}
                     </div>
                     <div>
-                        <img src="./images/write/mini_ETC_black.png" alt="1" />
+                        <img src="/images/write/mini_ETC_black.png" alt="1" />
                         {parseFloat(account.ETC.toFixed(1))}
                     </div>
                 </div>
