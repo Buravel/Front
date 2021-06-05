@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/common/Header';
 import { logout } from '../../modules/user';
 
-const HeaderContainer = () => {
+const HeaderContainer = ({ border }) => {
     const dispatch = useDispatch();
     const user = useSelector(({ user }) => user.user);
     // 추천검색어
@@ -18,7 +18,14 @@ const HeaderContainer = () => {
         dispatch(logout());
         localStorage.removeItem('token');
     }, [dispatch]);
-    return <Header user={user} tagList={tagList} onLogout={onLogout} />;
+    return (
+        <Header
+            user={user}
+            tagList={tagList}
+            onLogout={onLogout}
+            border={border}
+        />
+    );
 };
 
 export default HeaderContainer;
