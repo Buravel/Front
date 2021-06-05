@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { initialize } from '../../modules/auth';
 import './quickBox.scss';
-const QuickBox = ({ onLogout, onClick }) => {
+const QuickBox = ({ onLogout, onClick, profileImage }) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const onClickLogout = () => {
@@ -21,7 +21,15 @@ const QuickBox = ({ onLogout, onClick }) => {
                 <Link to="/mypage">
                     <div className="icon">
                         <img
-                            src="/images/header/default_profile.png"
+                            src={
+                                profileImage
+                                    ? `data:image/png;base64,${profileImage}`
+                                    : './images/header/default_profile.png'
+                            }
+                            style={{
+                                maxWidth: '70%',
+                                maxHeight: '70%',
+                            }}
                             alt="mypage"
                         />
                     </div>
