@@ -4,7 +4,7 @@ import './header.scss';
 import QuickBox from './QuickBox';
 import SearchBar from './SearchBar';
 
-const Header = ({ user, tagList, onLogout }) => {
+const Header = ({ user, tagList, onLogout, border }) => {
     // 퀵버튼 활성화 여부
     const [quickCheck, setQuickCheck] = useState(false);
     const profileImage = user?.data?.account?.profileImage;
@@ -12,7 +12,10 @@ const Header = ({ user, tagList, onLogout }) => {
     const onClick = useCallback(() => setQuickCheck(!quickCheck), [quickCheck]);
     return (
         <>
-            <div className="header-container">
+            <div
+                className="header-container"
+                style={border ? { border: 'none' } : undefined}
+            >
                 <SearchBar tagList={tagList} />
                 <div className="logo-container">
                     <Link to="/">
@@ -46,7 +49,11 @@ const Header = ({ user, tagList, onLogout }) => {
                     )}
                 </div>
                 {quickCheck && (
-                    <QuickBox onLogout={onLogout} onClick={onClick} />
+                    <QuickBox
+                        onLogout={onLogout}
+                        onClick={onClick}
+                        profileImage={profileImage}
+                    />
                 )}
             </div>
             <div className="spacer" />

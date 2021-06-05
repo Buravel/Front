@@ -40,7 +40,7 @@ const BookMarks = ({ cards }) => {
                 >
                     {on ? '' : '사용하지 않은 북마크  '}
                     <img
-                        src={`./images/write/${on ? 'down' : 'up'}-arrow.png`}
+                        src={`/images/write/${on ? 'down' : 'up'}-arrow.png`}
                         alt=""
                     />
                 </div>
@@ -55,7 +55,7 @@ const BookMarks = ({ cards }) => {
                         <div className="list-arrow left">
                             <button onClick={onClickLeftArrow}>
                                 <img
-                                    src="./images/write/left-arrow.png"
+                                    src="/images/write/left-arrow.png"
                                     alt=""
                                 />
                             </button>
@@ -65,7 +65,7 @@ const BookMarks = ({ cards }) => {
                         <div className="list-arrow right">
                             <button onClick={onClickRightArrow}>
                                 <img
-                                    src="./images/write/right-arrow.png"
+                                    src="/images/write/right-arrow.png"
                                     alt=""
                                 />
                             </button>

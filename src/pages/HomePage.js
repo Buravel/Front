@@ -6,7 +6,7 @@ import Responsive from '../components/common/Responsive';
 const HomePage = (props) => {
     return (
         <>
-            <HeaderContainer />
+            <HeaderContainer border={true} />
             <Responsive>
                 <HomeContainer />
             </Responsive>

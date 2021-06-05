@@ -40,7 +40,7 @@ const PostCard = ({ card, onClick, bookmarks }) => {
                 <img
                     src={
                         postImage === ''
-                            ? `./images/write/thumb_${category}.png`
+                            ? `/images/write/thumb_${category}.png`
                             : `data:image/png;base64,${postImage}`
                     }
                     alt=""
@@ -51,13 +51,13 @@ const PostCard = ({ card, onClick, bookmarks }) => {
                     <div className="postcard-header left">
                         <span className="postcard-title">{title1}</span>
                         <img
-                            src={`./images/write/mini_${category}_black.png`}
+                            src={`/images/write/mini_${category}_black.png`}
                             alt="1"
                             style={{ maxWidth: '19px' }}
                         />
                     </div>
                     <div className="postcard-header right">
-                        <img src="./images/write/star.png" alt="rating" />
+                        <img src="/images/write/star.png" alt="rating" />
                         <span className="postcard-rating">{rating}</span>
                     </div>
                 </div>

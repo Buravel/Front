@@ -25,7 +25,7 @@ const Map = ({ location }) => {
     return isLoaded && visible ? (
         <div className="map-container">
             <button className="close-map" onClick={onMap}>
-                <img src="./images/map/close-btn.png" alt="close" />
+                <img src="/images/map/close-btn.png" alt="close" />
             </button>
             <GoogleMap
                 id="circle-example"
@@ -42,7 +42,7 @@ const Map = ({ location }) => {
         </div>
     ) : (
         <div className="map-arrow" onClick={onMap}>
-            <img src="./images/map/arrow.png" alt="arrow" />
+            <img src="/images/map/arrow.png" alt="arrow" />
         </div>
     );
 };
