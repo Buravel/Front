@@ -153,7 +153,10 @@ function BookmarkMain() {
   };
   const NewFold = bmarkArray.filter((el) => el.includes("새 폴더"));
   const NewFolde = NewFold.map((k) => Number(k.replace("새 폴더", "")));
-  const folderMax = NewFolde == "" ? 1 : Math.max.apply(null, NewFolde) + 1;
+  const folderMax =
+    NewFolde == "" || NewFolde == undefined
+      ? 1
+      : Math.max.apply(null, NewFolde) + 1;
   const handleSubmit = (event) => {
     axios
       .patch(`http://34.64.93.115/bookmark/${thisbmarkid}`, {
@@ -226,7 +229,11 @@ function BookmarkMain() {
                             }`,
                           })
                           .then((res) => {
-                            setBookmarks([...bookmarks, res.data]);
+                            setBookmarks(
+                              bookmarks == "" || bookmarks == undefined
+                                ? [res.data]
+                                : [...bookmarks, res.data]
+                            );
                             alert(`파일이 생성되었습니다`);
                           }, [])
                           .catch(function (error) {
