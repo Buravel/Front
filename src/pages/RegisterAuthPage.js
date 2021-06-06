@@ -1,14 +1,14 @@
 import React from "react";
-import Template4 from "../components/login/Template4";
+import TemplateNew2 from "../components/login/TemplateNew2";
 import RegisterAuthForm from "../containers/mypage/RegisterAuthForm";
 import Responsive from "../components/common/Responsive";
 
 const RegisterAuthPage = () => {
   return (
     <Responsive>
-      <Template4>
+      <TemplateNew2>
         <RegisterAuthForm />
-      </Template4>
+      </TemplateNew2>
     </Responsive>
   );
 };

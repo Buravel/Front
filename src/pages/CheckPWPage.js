@@ -1,18 +1,18 @@
 import React from "react";
-import EditPage1 from "../components/mypage/EditPage";
 import Responsive from "../components/common/Responsive";
+import CheckPW from "../components/mypage/checkPW";
 import TemplateNew3 from "../components/login/TemplateNew3";
 
-const EditPage = () => {
+const CheckPWPage = () => {
   return (
     <>
       <Responsive>
         <TemplateNew3>
-          <EditPage1 />
+          <CheckPW />
         </TemplateNew3>
       </Responsive>
     </>
   );
 };
 
-export default EditPage;
+export default CheckPWPage;

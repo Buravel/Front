@@ -3,67 +3,66 @@ $darkgray: #535353;
 $gray: #c1c1c1;
 $lightgray: #d9d9d9;
 .findauth {
+  margin: 0 auto;
   text-align: center;
+  margin-top: 193px;
+  width: 1194px;
   .logo-complete {
-    display: inline-block;
-    width: 6.8vw;
-    margin: 6vh 38.1vw 14vh 38.1vw;
-    width: 6.8vw;
-    margin-top: 10.1vw;
-    margin-bottom: 6.4vw;
-    margin-left: 38.2vw;
-    margin-right: 38.2vw;
+    width: 98px;
+    margin: 0 124px 60px 123px;
   }
-  .h302 {
-    margin-bottom: 2vh;
-    line-height: 0;
-    text-align: center;
-    font-weight: 400;
+  .send {
+    height: 38px;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.46;
+    letter-spacing: -0.52px;
+    color: #535353;
   }
 
-  .h508 {
+  .emailQ {
     text-align: center;
-    width: 24vw;
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: -0.28px;
     margin: 0;
     font-weight: 300;
-    margin-bottom: 8vh;
-    .h509 {
-      color: $lightblue;
-      margin: 0;
-      line-height: 0;
+    margin: 5px 69px 39px;
+    color: #535353;
+    .re-send {
+      color: #0070ef;
+      font-size: 14px;
     }
   }
 
   .error-msg {
     color: red;
-    font-size: 10px;
+    font-size: 14px;
     text-align: center;
   }
 
   .btnsection {
-    .login-btn {
-      font-size: 1.3vw;
+    .login-btn,
+    .mainpage-btn {
+      font-size: 18px;
       border: none;
-      margin-left: 0.7vw;
-      margin-right: 0.7vw;
-      width: 10vw;
-      height: 3.1vw;
+      width: 144px;
+      height: 45px;
       background-color: $lightblue;
-      border-radius: 0.5vw;
+      border-radius: 10px;
       a {
         color: white;
       }
     }
 
     .mainpage-btn {
-      font-size: 1.3vw;
-      margin-left: 0.7vw;
-      margin-right: 0.7vw;
-      width: 17.4vw;
-      height: 3.1vw;
-      border-radius: 0.5vw;
+      width: 181px;
+      margin-left: 20px;
+      background-color: white;
       border: 0.2vw solid $lightblue;
-      color: $lightblue;
+      a {
+        color: $lightblue;
+      }
     }
   }
 }

@@ -1,0 +1,46 @@
+.templatenew2 {
+  .full-screen-new2 {
+    height: 1024px;
+    position: absolute;
+    display: grid;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    justify-content: center;
+    width: 100%;
+
+    padding: 55.8px 0 0;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    background-color: #f5f5f5;
+
+    a {
+      height: 0;
+    }
+    .logo-center {
+      width: 128.1px;
+      height: 31.2px;
+      margin: 0 575.9px 58px 576px;
+      object-fit: contain;
+    }
+
+    .white-screen-new2 {
+      width: 1194px;
+      height: 740px;
+      margin: 58px 43px 49px;
+      //      padding: 0 135px 0 0;
+      border-radius: 3px;
+      -webkit-backdrop-filter: blur(30px);
+      backdrop-filter: blur(30px);
+      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
+      background-color: #ffffff;
+      .TemplateBlockNew2 {
+        width: 1194px;
+        text-align: center;
+        margin: 0 auto;
+      }
+    }
+  }
+}

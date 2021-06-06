@@ -1,16 +1,16 @@
 import React from "react";
 import Responsive from "../components/common/Responsive";
 import QuitComplete from "../components/mypage/QuitCompletePage";
-import Template2 from "../components/login/Template2";
+import TemplateNew3 from "../components/login/TemplateNew3";
 
 const QuitCompletePage = () => {
   return (
     <>
-      <Template2>
-        <Responsive>
+      <Responsive>
+        <TemplateNew3>
           <QuitComplete />
-        </Responsive>
-      </Template2>{" "}
+        </TemplateNew3>
+      </Responsive>
     </>
   );
 };

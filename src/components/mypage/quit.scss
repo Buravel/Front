@@ -6,14 +6,23 @@ $darkblue: #2b71f3;
   justify-content: center;
   color: $darkgray;
   font-size: 1.1vw;
-  .quitImage {
+  .quitImage,
+  .quitCImage {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15vh;
+    margin: 208px auto 40px auto;
   }
-  .bold {
-    font-weight: 600;
+  .quitCImage {
+    margin-top: 266px;
+  }
+  .txt {
+    font-size: 16px;
+    line-height: 1.69;
+    letter-spacing: -0.32px;
+    text-align: center;
+    color: #535353;
+    .bold {
+      font-weight: 600;
+    }
   }
   .quit-input {
     margin-top: 6vh;
@@ -32,27 +41,28 @@ $darkblue: #2b71f3;
     margin-top: 1vh;
     margin-bottom: 3vh;
   }
-  .quit-btn {
-    border-radius: 5px;
-    font-size: 1.4vw;
-    background-color: $darkblue;
+  .quit-btn,
+  .quit-cancel {
+    border-radius: 10px;
+    font-size: 18px;
+    background-color: #0070ef;
     color: white;
-    width: 7vw;
+    width: 127px;
+    height: 45px;
+    margin: 0 26px 0 0;
   }
   .quit-cancel {
-    border-radius: 5px;
-    font-size: 1.4vw;
     background-color: $gray;
     color: $darkgray;
-    width: 7vw;
   }
+
   .main-btn {
-    margin-top: 7vh;
-    border-radius: 20px;
-    background-color: $darkblue;
+    border-radius: 23px;
+    background-color: #0070ef;
     color: white;
-    font-size: 1vw;
-    width: 10vw;
-    height: 7vh;
+    width: 160px;
+    height: 45px;
+    font-size: 18px;
+    margin: 52px 64px 0;
   }
 }

@@ -4,6 +4,7 @@ $darkgray: #535353;
 $blue: #0070ef;
 
 .setup {
+  margin-top: 150px;
   .prof_img {
     display: block;
     text-align: center;
@@ -60,20 +61,27 @@ $blue: #0070ef;
     .infoBox {
       display: block;
       margin: auto;
-      width: 24vw;
+      margin-top: 10px;
+      width: 305px;
       .name {
-        color: $darkgray;
-        font-weight: 500;
-        font-size: 1vw;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.5;
+        letter-spacing: normal;
+        text-align: left;
+        color: #535353;
       }
       .box {
-        width: 24vw;
+        width: 305px;
         font-size: 1.2vw;
         margin-bottom: 30px;
         border: none;
-        border-bottom: 2px solid $blue;
+        border-bottom: 2px solid #b5b5b5;
         color: $gray;
         outline: none;
+      }
+      .box:hover {
+        border-bottom: 2px solid #0070ef;
       }
       .edit {
         font-size: 1vw;

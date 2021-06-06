@@ -30,10 +30,14 @@ const QuitPage = ({ history }) => {
   return (
     <div className="quitpage">
       <img className="quitImage" src={quitImage} alt="" />
-      <div>탈퇴 즉시 개인정보 및 이용기록이 모두 삭제됩니다. </div>
-      <div>재가입시 탈퇴한 계정의 기록을 다시 복구할 수 없습니다. </div>
-      <div>이점 모두 양지해 주시길 바랍니다. </div>&nbsp;
-      <div>
+      <div className="txt">
+        탈퇴 즉시 개인정보 및 이용기록이 모두 삭제됩니다.{" "}
+      </div>
+      <div className="txt">
+        재가입시 탈퇴한 계정의 기록을 다시 복구할 수 없습니다.{" "}
+      </div>
+      <div className="txt">이점 모두 양지해 주시길 바랍니다. </div>&nbsp;
+      <div className="txt">
         탈퇴를 원하시면 입력란에{" "}
         <div className="bold" style={style}>
           '탈퇴하기'
