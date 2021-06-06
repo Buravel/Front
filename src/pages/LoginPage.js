@@ -1,14 +1,14 @@
 import React from "react";
-import Template from "../components/login/Template";
+import TemplateNew1 from "../components/login/TemplateNew1";
 import LoginForm from "../containers/login/LoginForm";
 import Responsive from "../components/common/Responsive";
 
 const LoginPage = () => {
   return (
     <Responsive>
-      <Template>
+      <TemplateNew1>
         <LoginForm />
-      </Template>
+      </TemplateNew1>
     </Responsive>
   );
 };

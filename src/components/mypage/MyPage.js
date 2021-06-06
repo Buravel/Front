@@ -46,7 +46,7 @@ const MyPage = ({
           <img src={basicProfile} alt="" className="profileImage" />
         )}
         <div className="userBox" style={style}>
-          <div>
+          <div className="greeting">
             <h1>
               <h1 className="colorH1" style={style}>
                 {nickname}
@@ -66,7 +66,7 @@ const MyPage = ({
           <div className="buttons">
             <Link to="/setupPage">
               <button className="setup" style={style}>
-                설정
+                계정 설정
               </button>
             </Link>
             <Link to="/">
@@ -173,14 +173,4 @@ const MyPage = ({
     </>
   );
 };
-/*
-              &nbsp; &nbsp; &nbsp; &nbsp; <li>1</li>
-              &nbsp; &nbsp;<li>|</li>
-              &nbsp; &nbsp; <li>2 </li>
-              &nbsp; &nbsp;<li>|</li>
-              &nbsp; &nbsp; <li>3</li>
-              &nbsp; &nbsp;<li>|</li>
-              &nbsp; &nbsp; <li>4 </li>
-              &nbsp; &nbsp; &nbsp; &nbsp;
-*/
 export default React.memo(MyPage);

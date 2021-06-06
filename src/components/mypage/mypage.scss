@@ -24,45 +24,48 @@ $blue: #0070ef;
     margin-right: 3.5vw;
   }
   .userBox {
-    width: 40vw;
+    width: 800px;
     justify-content: left;
-    margin-top: auto;
+    margin-top: 10px;
     margin-bottom: auto;
     margin-left: 6.4vw;
     margin-right: 3.5vw;
-    h1 {
-      font-size: 2vw;
-      line-height: 0;
-    }
-    .colorH1 {
-      color: $blue;
+    .greeting {
+      margin-top: 80px;
+      margin-bottom: 0;
+      h1 {
+        font-size: 36px;
+        line-height: 0;
+      }
+      .colorH1 {
+        color: $blue;
+      }
     }
     .email {
-      color: $lightgray;
+      color: #b5b5b5;
       font-size: 1vw;
     }
+
     .email:hover {
       color: $blue;
     }
+
     .buttons {
-      margin-top: 2.7vw;
-      .setup {
-        width: 4.3vw;
-        height: 2.01vw;
-        border: solid $blue;
-        border-radius: 2.1vw;
-        font-size: 0.97vw;
-        color: $darkgray;
-        margin-right: 0.9vw;
-      }
+      margin-top: 39px;
+      height: 40px;
+      .setup,
       .logout {
-        width: 5.5vw;
-        height: 2.01vw;
+        margin-top: 0;
+        width: 91px;
         border: solid $blue;
         border-radius: 2.1vw;
         font-size: 0.97vw;
         background-color: $blue;
         color: white;
+      }
+      .logout {
+        background-color: white;
+        color: #0070ef;
       }
     }
   }
