@@ -7,75 +7,53 @@ import ReactDOM, { createPortal } from "react-dom";
 import ModalPortal from "./ModalPortal";
 import { Link } from "react-router-dom";
 
-function Popup(props) {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+function Popup({
+  category,
+  iflogin,
+  postTitle,
+  postPicture,
+  star,
+  money,
+  icon,
+  handleClose,
+  id,
+  location,
+  memo,
+  tags,
+  posts,
+  bookmarks,
+  setBmark,
+  bmark,
+}) {
   const [isbmarkOpen, setBmarkisOpen] = useState(false);
   const thisLink = window.location.href;
   const Linkid = thisLink.split("plan/")[1];
   const toggleBmarkPopup = () => {
     setBmarkisOpen(!isbmarkOpen);
   };
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        setError(null);
-        setPosts(null);
-        setLoading(true);
-        const response = await axios.get(`http://34.64.93.115/plans/${Linkid}`);
-        setPosts(response.data);
-      } catch (e) {
-        setError(e);
-      }
-      setLoading(false);
-    };
 
-    fetchPosts();
-  }, []);
-  if (!posts) return null;
-
-  // function HashTagArray(a) {
-  //   return posts.filter((k) => k.id === a);
-  // }
-  // const hash = HashTagArray(props.id).map((posts) => posts.hashtag);
-
-  // const hashTags = hash.pop();
-  // if (!hashTags) return null;
   const starArray = [];
 
-  const postTerm = posts.postForPlanResponseDtos;
-  const postId = postTerm && postTerm.filter((k) => k.id === props.id);
-  const hashTag = postId && postId.map((k) => k.postTagResponseDtoList)[0];
-  const postImg = postId && postId.map((k) => k.postImage)[0];
+  // const postTerm = posts && posts.postForPlanResponseDtos;
+  // const postId = postTerm && postTerm.filter((k) => k.id === props.id);
+  // const hashTag = postId && postId.map((k) => k.postTagResponseDtoList)[0];
+  // const postImg = postId && postId.map((k) => k.postImage)[0];
+  // const category = postId && postId.map((k) => k.category)[0];
 
-  // const tags = hashTag && hashTag.map((k) => k).length;
-  // const tagsLINE = hashTag && hashTag.map((k) => k.postTagTitle);
-  const tags = props.tags;
-  const postMemo = postId && postId.map((k) => k.memo)[0];
-  // const tags = hashTag && hashTag.map((k) => k).length;
-  // const tagsArray = [];
-  // for (let i = 0; i <= tags; i++) {
-  //   tagsArray.push(hashTag && hashTag.map((k) => k[i].postTagTitle));
-  // }
-  // const K = [];
-  // for (let i = 0; i < tagsArray.length - 1; i++) {
-  //   K.push(tagsArray && tagsArray.map((k) => k[i]));
-  // }
-  // const tagTitle = K[0];
-  // console.log(tagTitle);
+  // const tags = tags;
+  // const postMemo = postId && postId.map((k) => k.memo)[0];
 
-  if (props.star % 1 === 0) {
-    for (let i = 0; i < props.star; i++) {
+  if (star % 1 === 0) {
+    for (let i = 0; i < star; i++) {
       starArray.push(i);
     }
   } else {
-    for (let i = 0; i < props.star - 1; i++) {
+    for (let i = 0; i < star - 1; i++) {
       starArray.push(i);
     }
   }
   const modalRoot = document.getElementById("root");
-
+  console.log(posts);
   return (
     <>
       <ModalPortal>
@@ -84,32 +62,49 @@ function Popup(props) {
             <>
               {/* <Link to="/bookmark"> */}
               <BookmarkPopup
-                postTitle={props.postTitle}
-                star={props.rate}
+                bookmarks={bookmarks}
+                postTitle={postTitle}
+                postPicture={postPicture}
+                star={star}
+                money={money}
+                icon={category}
+                id={id}
+                thisplanId={Linkid}
                 handleClose={toggleBmarkPopup}
-                id={props.id}
+                setBmark={setBmark}
+                bmark={bmark}
               />
               {/* </Link> */}
             </>
           )}
         </div>
+
         <div className="popupBackground">
           <div className="popupBox">
-            <div className="pupbmark">
-              <input
-                type="button"
-                onClick={toggleBmarkPopup}
-                className="popupBookmarkbutton"
-              />
+            {iflogin !== null && (
+              <div className="pupbmark">
+                <input
+                  type="button"
+                  onClick={toggleBmarkPopup}
+                  className="popupBookmarkbutton"
+                />
+                <img
+                  src="/images/planImg/bookmark.svg"
+                  className="popupBookmark"
+                />
+              </div>
+            )}
+            {postPicture == "" ? (
               <img
-                src="/images/planImg/bookmark.svg"
-                className="popupBookmark"
+                src={`/images/planImg/default${category}.png`}
+                className="popupPicture"
               />
-            </div>
-            <img
-              src={`data:image/png;base64,${postImg}`}
-              className="popupPicture"
-            />
+            ) : (
+              <img
+                src={`data:image/png;base64,${postPicture}`}
+                className="popupPicture"
+              />
+            )}
 
             <span className="popupList">
               <span className="popupTitle">제목</span>
@@ -120,11 +115,13 @@ function Popup(props) {
               <span className="popupMemo">메모</span>
             </span>
             <span className="popupContent">
-              <span className="popConTitle">{props.postTitle}</span>
-              <Icon picture={props.icon} className="popConIcon" />
-              <span className="popConCost">{props.money}</span>
-              <span className="popConCostname">만원</span>
-              <span className="popConLocation">{props.location}</span>
+              <span className="popConTitle">{postTitle}</span>
+              <Icon picture={icon} className="popConIcon" />
+              <span className="popConCostAll">
+                <span className="popConCost">{money}</span>
+                <span className="popConCostname">만원</span>
+              </span>
+              <span className="popConLocation">{location}</span>
               <span className="popConLocationLine"></span>
               <span className="popConStar">
                 {starArray.map(() => (
@@ -133,7 +130,7 @@ function Popup(props) {
                   </>
                 ))}
 
-                {props.star % 1 !== 0 && <HalfStar />}
+                {star % 1 !== 0 && <HalfStar />}
               </span>
               <span className="popConTag">
                 {tags &&
@@ -141,14 +138,13 @@ function Popup(props) {
                     <span className="popConTagText">#{num}</span>
                   ))}
               </span>
-              <span className="popConMemo">{props.memo} </span>
+              <span className="popConMemo">{memo} </span>
             </span>
-            {props.content}
           </div>
           <img
             src="/images/planImg/closeButton.svg"
             className="exit"
-            onClick={props.handleClose}
+            onClick={handleClose}
           />
         </div>
       </ModalPortal>

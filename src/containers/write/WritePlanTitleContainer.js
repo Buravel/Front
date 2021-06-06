@@ -6,6 +6,7 @@ import WritePlanTitle from '../../components/write/WritePlanTitle';
 import {
     category_type,
     changePlanInfo,
+    editPlan,
     initialize,
     writePlan,
 } from '../../modules/write';
@@ -31,6 +32,7 @@ const WritePlanTitleContainer = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     // title 플랜 입력 관련
+    const id = useSelector((state) => state.write.id);
     const planTitle = useSelector((state) => state.write.planTitle);
     const startDate = useSelector((state) => state.write.startDate);
     const endDate = useSelector((state) => state.write.endDate);
@@ -42,7 +44,8 @@ const WritePlanTitleContainer = () => {
     const write = useSelector((state) => state.write.write);
     const writeError = useSelector((state) => state.write.writeError);
 
-    const loading = useSelector((state) => state.loading['write/WRITE_PLAN']);
+    const loading1 = useSelector((state) => state.loading['write/WRITE_PLAN']);
+    const loading2 = useSelector((state) => state.loading['write/EDIT_PLAN']);
     // title 금액관련
     const account = useMemo(() => getAccount(plans), [plans]);
 
@@ -65,23 +68,40 @@ const WritePlanTitleContainer = () => {
         );
     };
 
-    const onSave = () =>
-        dispatch(
-            writePlan({
-                planTitle,
-                published,
-                startDate,
-                endDate,
-                planImage,
-                planTag: hashTag,
-                postDtos: [...plans],
-            }),
-        );
+    const onSave = () => {
+        if (id) {
+            dispatch(
+                editPlan({
+                    planId: id,
+                    planTitle,
+                    published,
+                    startDate,
+                    endDate,
+                    planImage,
+                    planTag: hashTag,
+                    postDtos: [...plans],
+                }),
+            );
+        } else {
+            dispatch(
+                writePlan({
+                    planTitle,
+                    published,
+                    startDate,
+                    endDate,
+                    planImage,
+                    planTag: hashTag,
+                    postDtos: [...plans],
+                }),
+            );
+        }
+    };
+
     useEffect(() => {
         return () => {
             dispatch(initialize());
         };
-    }, []);
+    }, [dispatch]);
     useEffect(() => {
         if (write) {
             console.log('작성 성공');
@@ -104,7 +124,7 @@ const WritePlanTitleContainer = () => {
                 onChangePlanInfo={onChangePlanInfo}
                 onSave={onSave}
             />
-            {loading && <Loading>저장중</Loading>}
+            {(loading1 || loading2) && <Loading>저장중</Loading>}
         </>
     );
 };

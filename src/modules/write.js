@@ -1,4 +1,4 @@
-import { createAction, handleActions } from 'redux-actions';
+import { createAction, createActions, handleActions } from 'redux-actions';
 import createRequestSaga, {
     createRequestActionTypes,
 } from '../lib/createRequestSaga';
@@ -22,9 +22,13 @@ const CHANGE_PLAN_INFO = 'write/CHANGE_PLAN_INFO';
 const ADD_POST = 'write/ADD_POST';
 const UPDATE_POST = 'write/UPDATE_POST';
 const REMOVE_POST = 'write/REMOVE_POST';
+const SET_PLAN = 'write/SET_PLAN';
+
 const [WRITE_PLAN, WRITE_PLAN_SUCCESS, WRITE_PLAN_FAILURE] =
     createRequestActionTypes('write/WRITE_PLAN');
 
+const [EDIT_PLAN, EDIT_PLAN_SUCCESS, EDIT_PLAN_FAILURE] =
+    createRequestActionTypes('write/EDIT_PLAN');
 //action 생성
 export const initialize = createAction(INITIALIZE);
 export const changePlanInfo = createAction(
@@ -46,200 +50,203 @@ export const removePost = createAction(REMOVE_POST, (day, idx) => ({
     idx,
 }));
 export const writePlan = createAction(WRITE_PLAN, (card) => card);
+export const setPlan = createAction(SET_PLAN, (plans) => plans);
+export const editPlan = createAction(EDIT_PLAN, (card) => card);
 
 const writePlanSaga = createRequestSaga(WRITE_PLAN, writeAPI.write);
+const editPlanSaga = createRequestSaga(EDIT_PLAN, writeAPI.edit);
 
 export function* writeSaga() {
     yield takeLatest(WRITE_PLAN, writePlanSaga);
+    yield takeLatest(EDIT_PLAN, editPlanSaga);
 }
 
+/*{
+    id: 0,
+    title1: '루프트한자',
+    title2: '이코노미',
+    price: 1200000,
+    postImage: '',
+    category: category_type.FLIGHT,
+    location: {
+        name: '',
+        lat: 0,
+        lng: 0,
+    },
+    rating: 4.5,
+    hashTags: ['ktx', 'ktx', 'ktx'],
+    memo: '111',
+},
+{
+    id: 1,
+    title1: '루프트한자',
+    title2: '이코노미',
+    price: 1200000,
+    postImage: '',
+    category: category_type.DISH,
+    location: {
+        name: '',
+        lat: 0,
+        lng: 0,
+    },
+    rating: 4.5,
+    hashTags: ['ktx', 'ktx', 'ktx'],
+    memo: '111',
+},
+{
+    id: 2,
+    title1: '루프트한자',
+    title2: '이코노미',
+    price: 1200000,
+    postImage: '',
+    category: category_type.ETC,
+    location: {
+        name: '',
+        lat: 0,
+        lng: 0,
+    },
+    rating: 4.5,
+    hashTags: ['ktx', 'ktx', 'ktx'],
+    memo: '111',
+},
+{
+    id: 3,
+    title1: '루프트한자',
+    title2: '이코노미',
+    price: 1200000,
+    postImage: '',
+    category: category_type.HOTEL,
+    location: {
+        name: '',
+        lat: 0,
+        lng: 0,
+    },
+    rating: 4.5,
+    hashTags: ['ktx', 'ktx', 'ktx'],
+    memo: '111',
+},
+{
+    id: 4,
+    title1: '루프트한자',
+    title2: '이코노미',
+    price: 1200000,
+    postImage: '',
+    category: category_type.TRAFFIC,
+    location: {
+        name: '',
+        lat: 0,
+        lng: 0,
+    },
+    rating: 4.5,
+    hashTags: ['ktx', 'ktx', 'ktx'],
+    memo: '111',
+},
+{
+    id: 6,
+    title1: '루프트한자',
+    title2: '이코노미',
+    price: 1200000,
+    postImage: '',
+    category: category_type.TRAFFIC,
+    location: {
+        name: '',
+        lat: 0,
+        lng: 0,
+    },
+    rating: 4.5,
+    hashTags: ['ktx', 'ktx', 'ktx'],
+    memo: '111',
+},
+{
+    id: 7,
+    title1: '루프트한자',
+    title2: '이코노미',
+    price: 1200000,
+    postImage: '',
+    category: category_type.DISH,
+    location: {
+        name: '',
+        lat: 0,
+        lng: 0,
+    },
+    rating: 4.5,
+    hashTags: ['ktx', 'ktx', 'ktx'],
+    memo: '111',
+},
+{
+    id: 8,
+    title1: '루프트한자',
+    title2: '이코노미',
+    price: 1200000,
+    postImage: '',
+    category: category_type.ETC,
+    location: {
+        name: '',
+        lat: 0,
+        lng: 0,
+    },
+    rating: 4.5,
+    hashTags: ['ktx', 'ktx', 'ktx'],
+    memo: '111',
+},
+{
+    id: 9,
+    title1: '루프트한자',
+    title2: '이코노미',
+    price: 1200000,
+    postImage: '',
+    category: category_type.HOTEL,
+    location: {
+        name: '',
+        lat: 0,
+        lng: 0,
+    },
+    rating: 4.5,
+    hashTags: ['ktx', 'ktx', 'ktx'],
+    memo: '111',
+},
+{
+    id: 10,
+    title1: '루프트한자',
+    title2: '이코노미',
+    price: 1200000,
+    postImage: '',
+    category: category_type.TRAFFIC,
+    location: {
+        name: '',
+        lat: 0,
+        lng: 0,
+    },
+    rating: 4.5,
+    hashTags: ['ktx', 'ktx', 'ktx'],
+    memo: '111',
+},
+{
+    id: 11,
+    title1: '루프트한자',
+    title2: '이코노미',
+    price: 1200000,
+    postImage: '',
+    category: category_type.TRAFFIC,
+    location: {
+        name: '',
+        lat: 0,
+        lng: 0,
+    },
+    rating: 4.5,
+    hashTags: ['ktx', 'ktx', 'ktx'],
+    memo: '111',
+}*/
 const initialState = {
+    id: null,
     planTitle: '',
     planImage: '',
-
     startDate: getToday().join('-'),
     endDate: getToday().join('-'),
     published: false,
     hashTag: '', //planTag
     plans: [[]],
-    bookmarks: [
-        {
-            id: 0,
-            title1: '루프트한자',
-            title2: '이코노미',
-            price: 1200000,
-            postImage: '',
-            category: category_type.FLIGHT,
-            location: {
-                name: '',
-                lat: 0,
-                lng: 0,
-            },
-            rating: 4.5,
-            hashTags: ['ktx', 'ktx', 'ktx'],
-            memo: '111',
-        },
-        {
-            id: 1,
-            title1: '루프트한자',
-            title2: '이코노미',
-            price: 1200000,
-            postImage: '',
-            category: category_type.DISH,
-            location: {
-                name: '',
-                lat: 0,
-                lng: 0,
-            },
-            rating: 4.5,
-            hashTags: ['ktx', 'ktx', 'ktx'],
-            memo: '111',
-        },
-        {
-            id: 2,
-            title1: '루프트한자',
-            title2: '이코노미',
-            price: 1200000,
-            postImage: '',
-            category: category_type.ETC,
-            location: {
-                name: '',
-                lat: 0,
-                lng: 0,
-            },
-            rating: 4.5,
-            hashTags: ['ktx', 'ktx', 'ktx'],
-            memo: '111',
-        },
-        {
-            id: 3,
-            title1: '루프트한자',
-            title2: '이코노미',
-            price: 1200000,
-            postImage: '',
-            category: category_type.HOTEL,
-            location: {
-                name: '',
-                lat: 0,
-                lng: 0,
-            },
-            rating: 4.5,
-            hashTags: ['ktx', 'ktx', 'ktx'],
-            memo: '111',
-        },
-        {
-            id: 4,
-            title1: '루프트한자',
-            title2: '이코노미',
-            price: 1200000,
-            postImage: '',
-            category: category_type.TRAFFIC,
-            location: {
-                name: '',
-                lat: 0,
-                lng: 0,
-            },
-            rating: 4.5,
-            hashTags: ['ktx', 'ktx', 'ktx'],
-            memo: '111',
-        },
-        {
-            id: 6,
-            title1: '루프트한자',
-            title2: '이코노미',
-            price: 1200000,
-            postImage: '',
-            category: category_type.TRAFFIC,
-            location: {
-                name: '',
-                lat: 0,
-                lng: 0,
-            },
-            rating: 4.5,
-            hashTags: ['ktx', 'ktx', 'ktx'],
-            memo: '111',
-        },
-        {
-            id: 7,
-            title1: '루프트한자',
-            title2: '이코노미',
-            price: 1200000,
-            postImage: '',
-            category: category_type.DISH,
-            location: {
-                name: '',
-                lat: 0,
-                lng: 0,
-            },
-            rating: 4.5,
-            hashTags: ['ktx', 'ktx', 'ktx'],
-            memo: '111',
-        },
-        {
-            id: 8,
-            title1: '루프트한자',
-            title2: '이코노미',
-            price: 1200000,
-            postImage: '',
-            category: category_type.ETC,
-            location: {
-                name: '',
-                lat: 0,
-                lng: 0,
-            },
-            rating: 4.5,
-            hashTags: ['ktx', 'ktx', 'ktx'],
-            memo: '111',
-        },
-        {
-            id: 9,
-            title1: '루프트한자',
-            title2: '이코노미',
-            price: 1200000,
-            postImage: '',
-            category: category_type.HOTEL,
-            location: {
-                name: '',
-                lat: 0,
-                lng: 0,
-            },
-            rating: 4.5,
-            hashTags: ['ktx', 'ktx', 'ktx'],
-            memo: '111',
-        },
-        {
-            id: 10,
-            title1: '루프트한자',
-            title2: '이코노미',
-            price: 1200000,
-            postImage: '',
-            category: category_type.TRAFFIC,
-            location: {
-                name: '',
-                lat: 0,
-                lng: 0,
-            },
-            rating: 4.5,
-            hashTags: ['ktx', 'ktx', 'ktx'],
-            memo: '111',
-        },
-        {
-            id: 11,
-            title1: '루프트한자',
-            title2: '이코노미',
-            price: 1200000,
-            postImage: '',
-            category: category_type.TRAFFIC,
-            location: {
-                name: '',
-                lat: 0,
-                lng: 0,
-            },
-            rating: 4.5,
-            hashTags: ['ktx', 'ktx', 'ktx'],
-            memo: '111',
-        },
-    ],
+    bookmarks: [],
     write: null,
     writeError: null,
 };
@@ -390,6 +397,84 @@ const write = handleActions(
                 ...state,
                 write: null,
                 writeError: error,
+            };
+        },
+        [EDIT_PLAN]: (state) => {
+            return {
+                ...state,
+            };
+        },
+        [EDIT_PLAN_SUCCESS]: (state, { payload }) => {
+            return {
+                ...state,
+                write: payload,
+                writeError: null,
+            };
+        },
+        [EDIT_PLAN_FAILURE]: (state, { payload, error }) => {
+            return {
+                ...state,
+                write: null,
+                writeError: error,
+            };
+        },
+        [SET_PLAN]: (state, { payload }) => {
+            const {
+                id,
+                planTitle,
+                planImage,
+                startDate,
+                endDate,
+                published,
+                planTagResponseDtos: [{ planTagTitle }],
+                postForPlanResponseDtos,
+                accountResponseDto,
+            } = payload;
+            const plans = postForPlanResponseDtos.reduce(
+                (arr, plan) => {
+                    const {
+                        day,
+                        postTitle,
+                        price,
+                        location,
+                        lng,
+                        lat,
+                        rating,
+                        postTagResponseDtoList,
+                        memo,
+                        category,
+                        postImage,
+                    } = plan;
+                    if (arr.length - 1 !== day) {
+                        arr.push([]);
+                    }
+                    arr[day].push({
+                        title1: postTitle,
+                        price,
+                        location: { name: location, lng, lat },
+                        rating,
+                        memo,
+                        category,
+                        postImage,
+                        hashTags: postTagResponseDtoList.map(
+                            (tag) => tag.postTagTitle,
+                        ),
+                    });
+                    return arr;
+                },
+                [[]],
+            );
+
+            return {
+                ...state,
+                id,
+                planTitle,
+                planImage,
+                startDate,
+                endDate,
+                published,
+                plans,
+                hashTag: planTagTitle,
             };
         },
     },

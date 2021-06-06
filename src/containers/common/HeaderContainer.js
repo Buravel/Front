@@ -1,17 +1,11 @@
 import React, { useCallback, useState } from 'react';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/common/Header';
+import { logout } from '../../modules/user';
 
-const HeaderContainer = () => {
-    const user = useSelector(({ user }) => user);
-
-    // 로그인 유무
-    const [loginCheck, setLoginCheck] = useState(
-        !!localStorage.getItem('token'),
-    );
-    // 프로필사진 유무
-    const [profilePicture, setProfilePicture] = useState(null);
+const HeaderContainer = ({ border }) => {
+    const dispatch = useDispatch();
+    const user = useSelector(({ user }) => user.user);
     // 추천검색어
     const [tagList, setTagList] = useState([
         '강릉',
@@ -20,24 +14,16 @@ const HeaderContainer = () => {
         '스위스',
     ]);
 
-    // 퀵버튼 활성화 여부
-    const [quickCheck, setQuickCheck] = useState(false);
-
-    // 퀵버튼 눌렀을때
-    const onClick = useCallback(() => setQuickCheck(!quickCheck), [quickCheck]);
-
     const onLogout = useCallback(() => {
-        setLoginCheck(false);
+        dispatch(logout());
         localStorage.removeItem('token');
-    }, [setLoginCheck]);
+    }, [dispatch]);
     return (
         <Header
-            loginCheck={loginCheck}
-            picture={profilePicture}
+            user={user}
             tagList={tagList}
-            quickCheck={quickCheck}
-            onClick={onClick}
             onLogout={onLogout}
+            border={border}
         />
     );
 };

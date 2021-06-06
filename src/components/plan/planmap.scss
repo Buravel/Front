@@ -1,0 +1,33 @@
+.planmap-arrow {
+  z-index: 10;
+  position: fixed;
+  width: 30px;
+  height: 273px;
+  background-color: #0070ef;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  right: 0;
+  top: 415px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.planmap-container {
+  z-index: 10;
+  width: 50%;
+  height: 74%;
+  background-color: white;
+  position: fixed;
+  top: 237px;
+  right: 0;
+  .planclose-map {
+    position: fixed;
+    right: 0;
+    z-index: 30;
+  }
+  .gm-fullscreen-control {
+    display: none;
+  }
+}
+//겹치지 않게 모든 이름 다 바꿀것!중요!

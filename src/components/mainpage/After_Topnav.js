@@ -26,9 +26,10 @@ const After_Topnav = (props) => {
     const outputPlanTotalPrice = props.product.outputPlanTotalPrice;
 
     // const hotelprice = props.product.hotelTotalPrice;
-    const flightTotalPrice = parseInt(props.product.flightTotalPrice/ 1000);
-    const dishTotalPrice = parseInt(props.product.dishTotalPricee/ 1000);
     const trafficTotalPrice = parseInt(props.product.trafficTotalPrice/ 1000);
+    const flightTotalPrice = parseInt(props.product.flightTotalPrice/ 1000);
+    const dishTotalPrice = parseInt(props.product.dishTotalPrice/ 1000);
+    //const trafficTotalPrice = parseInt(props.product.trafficTotalPrice/ 1000);
     const planTagTitle = parseInt(props.product.planTagResponseDtos[0].planTagTitle/ 1000);
     const username = props.product.accountResponseDto.username;
 

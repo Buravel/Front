@@ -14,6 +14,7 @@ body {
 }
 #root {
     min-height: 100vh;
+    // background-color: #f5f5f5;
 }
 html {
     height: 100%;
@@ -24,6 +25,7 @@ button {
 input {
   font-family: "Noto Sans KR";
 }
+input:focus { outline: none; }
 p {
   margin:0;
 }
