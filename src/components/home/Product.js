@@ -59,7 +59,7 @@ const Product = ({ product }) => {
         <>
             <div
                 style={{
-                    backgroundImage: `url("./images/mainpage/stack.png")`,
+                    backgroundImage: `url("/images/mainpage/stack.png")`,
                 }}
                 className="home-product-shadowbox"
                 onClick={() => history.push(`/plan/${id}`)}
@@ -73,7 +73,7 @@ const Product = ({ product }) => {
                     ) : (
                         <img
                             className="img-full"
-                            src={`./images/write/thumb_${topThree[0].category}.png`}
+                            src={`/images/write/thumb_${topThree[0].category}.png`}
                             alt="Product Images"
                         />
                     )}
@@ -108,7 +108,7 @@ const Product = ({ product }) => {
                             >
                                 <span className="icon">
                                     <img
-                                        src={`./images/write/mini_${category}_black.png`}
+                                        src={`/images/write/mini_${category}_black.png`}
                                         alt=""
                                     />
                                 </span>

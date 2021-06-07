@@ -50,6 +50,7 @@ const WritePlanTitleContainer = () => {
 
     const loading1 = useSelector((state) => state.loading['write/WRITE_PLAN']);
     const loading2 = useSelector((state) => state.loading['write/EDIT_PLAN']);
+    const loading3 = useSelector((state) => state.loading['write/REMOVE_PLAN']);
     // title 금액관련
     const account = useMemo(() => getAccount(plans), [plans]);
 
@@ -145,6 +146,7 @@ const WritePlanTitleContainer = () => {
                 edit={!!id}
             />
             {(loading1 || loading2) && <Loading>저장중</Loading>}
+            {loading3 && <Loading>삭제중</Loading>}
         </>
     );
 };

@@ -53,7 +53,7 @@ const SearchBar = ({ tagList }) => {
                 <>
                     <div className="text-search-container">
                         <img
-                            src="./images/header/search-icon.png"
+                            src="/images/header/search-icon.png"
                             alt=""
                             onClick={() => {
                                 setSearchOn((state) => !state);
@@ -75,7 +75,7 @@ const SearchBar = ({ tagList }) => {
                     >
                         금액 검색
                         <img
-                            src={`./images/header/${
+                            src={`/images/header/${
                                 !searchPriceOn ? 'arrow-down' : 'arrow-up'
                             }.png`}
                             alt=""
