@@ -23,6 +23,7 @@ const ADD_POST = 'write/ADD_POST';
 const UPDATE_POST = 'write/UPDATE_POST';
 const REMOVE_POST = 'write/REMOVE_POST';
 const SET_PLAN = 'write/SET_PLAN';
+const SET_BOOKMARS = 'write/SET_BOOKMARKS';
 
 const [WRITE_PLAN, WRITE_PLAN_SUCCESS, WRITE_PLAN_FAILURE] =
     createRequestActionTypes('write/WRITE_PLAN');
@@ -57,7 +58,10 @@ export const writePlan = createAction(WRITE_PLAN, (card) => card);
 export const setPlan = createAction(SET_PLAN, (plans) => plans);
 export const editPlan = createAction(EDIT_PLAN, (card) => card);
 export const removePlan = createAction(REMOVE_PLAN, (id) => id);
-
+export const setBookmarks = createAction(
+    SET_BOOKMARS,
+    (bookmarks) => bookmarks,
+);
 const writePlanSaga = createRequestSaga(WRITE_PLAN, writeAPI.writePlan);
 const editPlanSaga = createRequestSaga(EDIT_PLAN, writeAPI.editPlan);
 const removePlanSaga = createRequestSaga(REMOVE_PLAN, writeAPI.removePlan);
@@ -439,6 +443,7 @@ const write = handleActions(
                 postForPlanResponseDtos,
                 accountResponseDto,
             } = payload;
+            console.log(payload);
             const [sY, sM, sD] = startDate.split('-'); //splitDate(startDate);
             const [eY, eM, eD] = endDate.split('-'); //splitDate(endDate);
             const night = getNight(`${sY}-${sM}-${sD}`, `${eY}-${eM}-${eD}`);
@@ -493,6 +498,52 @@ const write = handleActions(
                 published,
                 plans,
                 hashTag: planTagTitle,
+            };
+        },
+        [SET_BOOKMARS]: (state, { payload }) => {
+            // originPost_id,
+            // title1,
+            // title2,
+            // price,
+            // postImage,
+            // category,
+            // location,
+            // rating,
+            // hashTags,
+            // memo,
+
+            const bookmarks = payload.map(
+                ({
+                    postBookmarkPostResponseDto: {
+                        category,
+                        closed,
+                        lat,
+                        lng,
+                        location,
+                        name,
+                        memo,
+                        originPost_id,
+                        postImage,
+                        postTitle,
+                        price,
+                        rating,
+                        postTagResponseDtoList,
+                    },
+                }) => ({
+                    id: originPost_id,
+                    title1: postTitle,
+                    price,
+                    postImage,
+                    category,
+                    location: [],
+                    rating,
+                    hashTags: [],
+                    memo,
+                }),
+            );
+            return {
+                ...state,
+                bookmarks: [...bookmarks],
             };
         },
         [REMOVE_PLAN_SUCCESS]: (state, { payload }) => {

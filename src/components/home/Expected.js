@@ -46,7 +46,7 @@ const Expected = ({ product, nickname }) => {
                     <div className="product-top-three" key={'expected' + i}>
                         <span className="icon">
                             <img
-                                src={`./images/mainpage/sky_${category}.png`}
+                                src={`/images/mainpage/sky_${category}.png`}
                                 alt=""
                             />
                         </span>

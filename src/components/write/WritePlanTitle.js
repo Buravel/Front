@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './writePlanTitle.scss';
 import { getNight } from '../../util/date';
 import TitleModal from './TitleModal';
+import { useHistory } from 'react-router';
 const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
     const [sY, sM, sD] = startDate.split('-'); //splitDate(startDate);
     const [eY, eM, eD] = endDate.split('-'); //splitDate(endDate);
@@ -21,6 +22,7 @@ const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
     );
 };
 const PlanRemote = ({ account, onSave, onRemove, edit }) => {
+    const history = useHistory();
     let total = 0;
     for (const value of Object.values(account)) {
         total += value;
@@ -76,7 +78,13 @@ const PlanRemote = ({ account, onSave, onRemove, edit }) => {
                 </button>
                 <button
                     className="plan-delete"
-                    onClick={edit ? onRemove : undefined}
+                    onClick={
+                        edit
+                            ? onRemove
+                            : () => {
+                                  history.push('/');
+                              }
+                    }
                 >
                     {edit ? '삭제' : '취소'}
                 </button>

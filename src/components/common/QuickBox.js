@@ -24,7 +24,7 @@ const QuickBox = ({ onLogout, onClick, profileImage }) => {
                             src={
                                 profileImage
                                     ? `data:image/png;base64,${profileImage}`
-                                    : './images/header/default_profile.png'
+                                    : '/images/header/default_profile.png'
                             }
                             style={{
                                 maxWidth: '70%',
