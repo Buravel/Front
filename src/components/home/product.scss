@@ -37,6 +37,9 @@
                 font-size: 15px;
                 color: #535353;
                 padding : 10px 0 0 10px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             .product-price {
                 float: right;
