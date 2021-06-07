@@ -1,14 +1,14 @@
 import React from "react";
-import Template from "../components/login/Template";
+import TemplateNew1 from "../components/login/TemplateNew1";
 import Privacy from "../components/login/Privacy";
 import Responsive from "../components/common/Responsive";
 
 const PrivacyPolicy = () => {
   return (
     <Responsive>
-      <Template>
+      <TemplateNew1>
         <Privacy />
-      </Template>
+      </TemplateNew1>
     </Responsive>
   );
 };
