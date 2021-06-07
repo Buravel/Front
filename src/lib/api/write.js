@@ -1,6 +1,6 @@
 import client from './client';
 
-export const write = (plan) => {
+export const writePlan = (plan) => {
     client.defaults.headers.common['Authorization'] = localStorage
         .getItem('token')
         .replaceAll('"', '');
@@ -37,7 +37,7 @@ export const write = (plan) => {
     return client.post('/plans', body);
 };
 
-export const edit = (plan) => {
+export const editPlan = (plan) => {
     client.defaults.headers.common['Authorization'] = localStorage
         .getItem('token')
         .replaceAll('"', '');
@@ -72,4 +72,11 @@ export const edit = (plan) => {
         ),
     };
     return client.patch('/plans', body);
+};
+
+export const removePlan = (id) => {
+    client.defaults.headers.common['Authorization'] = localStorage
+        .getItem('token')
+        .replaceAll('"', '');
+    return client.delete(`/plans/${id}`);
 };

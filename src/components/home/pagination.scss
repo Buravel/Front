@@ -1,0 +1,15 @@
+.pagination-container {
+    text-align: center;
+    height :50px;
+    span {
+        font-size: 14px;
+        color : #707070;
+        margin : 0 5px;
+        img {
+            cursor: pointer;
+        }
+    }
+    .current {
+        color:#0070ef;
+    }
+}

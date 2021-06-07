@@ -6,6 +6,7 @@ import Topbar from '../../components/home/Topbar';
 import { listPlans, initalize } from '../../modules/home';
 import Expected from '../../components/home/Expected';
 import Loading from '../../components/common/Loading';
+import Pagination from '../../components/home/Pagination';
 
 const HomeContainer = () => {
     const dispatch = useDispatch();
@@ -13,6 +14,11 @@ const HomeContainer = () => {
     const loading = useSelector((state) => state.loading['home/LIST_PLANS']);
 
     const user = useSelector(({ user }) => user.user);
+    const [sort, setSort] = useState('lastModified,desc');
+
+    const [currentPage, setCurrentPage] = useState(0);
+    const totalElements = useSelector((state) => state.home.totalElements);
+    const totalPages = useSelector((state) => state.home.totalPages);
 
     //페이지 열자마자 정보 가져오기.
     useEffect(() => {
@@ -22,9 +28,22 @@ const HomeContainer = () => {
                 keyword: '',
                 min: 0,
                 max: 0,
+                sort: 'lastModified,desc',
+                page: 0,
             }),
         );
     }, [dispatch]);
+    useEffect(() => {
+        dispatch(
+            listPlans({
+                keyword: '',
+                min: 0,
+                max: 0,
+                sort,
+                page: currentPage,
+            }),
+        );
+    }, [currentPage, dispatch, sort]);
 
     if (loading) return <Loading>불러오는중</Loading>;
 
@@ -37,8 +56,16 @@ const HomeContainer = () => {
                 />
             )}
             <Advertise />
-            <Topbar />
+            <Topbar sort={sort} setSort={setSort} />
             <ProductList plans={plans} />
+            {!!plans.length && (
+                <Pagination
+                    totalPages={totalPages}
+                    totalElements={totalElements}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                />
+            )}
         </div>
     );
 };
