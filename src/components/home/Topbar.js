@@ -1,8 +1,7 @@
-import React /* useState, map*/ from 'react';
+import React from 'react';
 import './topbar.scss';
 
-const Topbar = ({ keyword }) => {
-    const onChange = () => {};
+const Topbar = ({ keyword, sort, setSort }) => {
     return (
         <>
             <div className="home-topbar">
@@ -20,11 +19,11 @@ const Topbar = ({ keyword }) => {
                         )}
                     </b>
                 </span>
-                <select value={0} onChange={onChange}>
-                    <option value="0">최신순</option>
-                    <option value="1">오래된순</option>
-                    <option value="2">낮은가격순</option>
-                    <option value="3">높은가격순</option>
+                <select value={sort} onChange={(e) => setSort(e.target.value)}>
+                    <option value="lastModified,desc">최신순</option>
+                    <option value="lastModified,asc">오래된순</option>
+                    <option value="totalPrice,asc">낮은가격순</option>
+                    <option value="totalPrice,desc">높은가격순</option>
                 </select>
             </div>
         </>

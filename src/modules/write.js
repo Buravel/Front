@@ -2,7 +2,7 @@ import { createAction, createActions, handleActions } from 'redux-actions';
 import createRequestSaga, {
     createRequestActionTypes,
 } from '../lib/createRequestSaga';
-import { getNextDate, getToday } from '../util/date';
+import { getNextDate, getNight, getToday } from '../util/date';
 import * as writeAPI from '../lib/api/write';
 import { takeLatest } from 'redux-saga/effects';
 
@@ -29,6 +29,10 @@ const [WRITE_PLAN, WRITE_PLAN_SUCCESS, WRITE_PLAN_FAILURE] =
 
 const [EDIT_PLAN, EDIT_PLAN_SUCCESS, EDIT_PLAN_FAILURE] =
     createRequestActionTypes('write/EDIT_PLAN');
+
+const [REMOVE_PLAN, REMOVE_PLAN_SUCCESS, REMOVE_PLAN_FAILURE] =
+    createRequestActionTypes('write/REMOVE_PLAN');
+
 //action 생성
 export const initialize = createAction(INITIALIZE);
 export const changePlanInfo = createAction(
@@ -52,13 +56,16 @@ export const removePost = createAction(REMOVE_POST, (day, idx) => ({
 export const writePlan = createAction(WRITE_PLAN, (card) => card);
 export const setPlan = createAction(SET_PLAN, (plans) => plans);
 export const editPlan = createAction(EDIT_PLAN, (card) => card);
+export const removePlan = createAction(REMOVE_PLAN, (id) => id);
 
-const writePlanSaga = createRequestSaga(WRITE_PLAN, writeAPI.write);
-const editPlanSaga = createRequestSaga(EDIT_PLAN, writeAPI.edit);
+const writePlanSaga = createRequestSaga(WRITE_PLAN, writeAPI.writePlan);
+const editPlanSaga = createRequestSaga(EDIT_PLAN, writeAPI.editPlan);
+const removePlanSaga = createRequestSaga(REMOVE_PLAN, writeAPI.removePlan);
 
 export function* writeSaga() {
     yield takeLatest(WRITE_PLAN, writePlanSaga);
     yield takeLatest(EDIT_PLAN, editPlanSaga);
+    yield takeLatest(REMOVE_PLAN, removePlanSaga);
 }
 
 /*{
@@ -249,6 +256,8 @@ const initialState = {
     bookmarks: [],
     write: null,
     writeError: null,
+    remove: null,
+    removeError: null,
 };
 
 const write = handleActions(
@@ -430,6 +439,10 @@ const write = handleActions(
                 postForPlanResponseDtos,
                 accountResponseDto,
             } = payload;
+            const [sY, sM, sD] = startDate.split('-'); //splitDate(startDate);
+            const [eY, eM, eD] = endDate.split('-'); //splitDate(endDate);
+            const night = getNight(`${sY}-${sM}-${sD}`, `${eY}-${eM}-${eD}`);
+
             const plans = postForPlanResponseDtos.reduce(
                 (arr, plan) => {
                     const {
@@ -460,21 +473,40 @@ const write = handleActions(
                             (tag) => tag.postTagTitle,
                         ),
                     });
-                    return arr;
+                    return [...arr];
                 },
                 [[]],
             );
-
             return {
                 ...state,
                 id,
                 planTitle,
                 planImage,
                 startDate,
-                endDate,
+                endDate:
+                    plans.length !== night + 1
+                        ? getNextDate(
+                              startDate.split('-').join(''),
+                              plans.length - 1,
+                          ).join('-')
+                        : endDate,
                 published,
                 plans,
                 hashTag: planTagTitle,
+            };
+        },
+        [REMOVE_PLAN_SUCCESS]: (state, { payload }) => {
+            return {
+                ...state,
+                remove: payload,
+                removeError: null,
+            };
+        },
+        [REMOVE_PLAN_FAILURE]: (state, { payload, error }) => {
+            return {
+                ...state,
+                remove: null,
+                removeError: error,
             };
         },
     },
