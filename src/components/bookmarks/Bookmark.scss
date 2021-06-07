@@ -4,12 +4,13 @@
 }
 
 .bookmarkbackground {
+  position: relative;
   height: 132px;
   width: 1280px;
   background-color: #f5f5f5;
 }
 .bookmarkTitle {
-  position: relative;
+  position: absolute;
   left: 150.7px;
   top: 68px;
 }
@@ -39,14 +40,22 @@
   color: #535353;
 }
 .bookmarkAddbtn {
-  position: relative;
-  left: 813.3px;
-  top: 82px;
+  position: absolute;
+  padding: 0px 0px 0px 0px;
+  border-radius: 30px;
+  right: 232px;
+  top: 79px;
+  width: 84px;
+  height: 33px;
+  font-size: 16px;
+  color: #ffffff;
+  border-radius: 20px;
+  background-color: #0070ef;
 }
 .bookmarkDelbtn {
-  position: relative;
-  left: 828.3px;
-  top: 82px;
+  position: absolute;
+  right: 145px;
+  top: 79px;
   width: 72px;
   height: 33px;
   object-fit: contain;
@@ -55,7 +64,9 @@
 .BookmarkAddbutton {
   width: 84px;
   height: 33px;
+  border-radius: 20px;
   object-fit: contain;
+  background-color: transparent;
 }
 .BookmarkDeletebutton {
   width: 72px;
@@ -193,23 +204,25 @@
 }
 .delBmarkBtn {
   position: absolute;
-
+  z-index: 1;
+  padding: 0px 0px 0px 0px;
   top: 0px;
-  width: 90px;
-  height: 32px;
+  right: 232px;
+  width: 84px;
+  height: 33px;
   font-size: 16px;
   color: #ffffff;
   border-radius: 20px;
   background-color: #0070ef;
 }
 .popupbkBox {
-  position: relative;
-  width: 300px;
-  margin: 0 auto;
-  height: 32px;
-  left: 452px;
-  top: 54px;
-  background: transparent;
+  z-index: 2;
+  position: absolute;
+  width: 1280px;
+  height: 34px;
+  left: 0px;
+  top: 79px;
+  background: #f5f5f5;
   border-radius: 3px;
   overflow: auto;
 }
@@ -513,13 +526,14 @@
   top: -18px;
   left: 30px;
   width: 72px;
-  height: 32px;
+  height: 33px;
 }
 .BookmarkDeletecancelbuttonbg {
-  position: relative;
+  z-index: 1;
+  position: absolute;
   background-color: transparent;
-  top: 0px;
-  left: 110px;
+  top: 19px;
+  right: 229px;
 }
 .BookmarkDeletebuttonName {
   position: absolute;

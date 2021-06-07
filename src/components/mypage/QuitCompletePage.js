@@ -9,9 +9,9 @@ const style = { display: "inline-block" };
 const QuitCompletePage = () => {
   return (
     <div className="quitpage">
-      <img className="quitImage" src={completeImage} alt="" />
-      <div>탈퇴가 완료되었습니다. </div>
-      <div>
+      <img className="quitCImage" src={completeImage} alt="" />
+      <div className="txt">탈퇴가 완료되었습니다. </div>
+      <div className="txt">
         지금까지{" "}
         <div className="bold" style={style}>
           버라벨

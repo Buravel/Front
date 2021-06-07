@@ -1,0 +1,68 @@
+$lightgray: #f5f5f5;
+$gray: #767676;
+$darkgray: #535353;
+$blue: #0070ef;
+.checkPW {
+  .lockBox {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    .lockImg {
+      width: 51px;
+      height: 62.5px;
+      margin: 220px 128px 70.5px 127px;
+    }
+  }
+
+  .msg {
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: -0.32px;
+    text-align: center;
+    color: #535353;
+  }
+
+  .pwBox {
+    display: block;
+    margin: auto;
+    width: 304px;
+    .box {
+      font-size: 18px;
+      width: 304px;
+      height: 30px;
+      margin: 30px 0 0;
+      border: none;
+      outline: none;
+      border-bottom: solid 2px #b5b5b5;
+    }
+    .box:hover {
+      border-bottom: 2px solid $blue;
+    }
+  }
+  .error-msg {
+    text-align: center;
+    color: red;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 30px 0 0;
+  }
+  .btnSection {
+    margin-top: 63px;
+    .change-btn,
+    .cancel-btn {
+      font-size: 18px;
+      border: none;
+      width: 127px;
+      height: 45px;
+      background-color: #0070ef;
+      border-radius: 10px;
+      color: white;
+    }
+
+    .cancel-btn {
+      margin-left: 20px;
+      background-color: #d9d9d9;
+      color: #535353;
+    }
+  }
+}

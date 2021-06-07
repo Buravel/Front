@@ -1,14 +1,14 @@
 import React from "react";
-import Template from "../components/login/Template";
+import TemplateNew1 from "../components/login/TemplateNew1";
 import FindPWForm from "../containers/login/FindPWForm";
 import Responsive from "../components/common/Responsive";
 
 const FindPWPage = () => {
   return (
     <Responsive>
-      <Template>
+      <TemplateNew1>
         <FindPWForm />
-      </Template>
+      </TemplateNew1>
     </Responsive>
   );
 };
