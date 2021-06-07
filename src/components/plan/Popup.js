@@ -53,7 +53,10 @@ function Popup({
     }
   }
   const modalRoot = document.getElementById("root");
-  console.log(posts);
+  function NumComma(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   return (
     <>
       <ModalPortal>
@@ -118,8 +121,8 @@ function Popup({
               <span className="popConTitle">{postTitle}</span>
               <Icon picture={icon} className="popConIcon" />
               <span className="popConCostAll">
-                <span className="popConCost">{money}</span>
-                <span className="popConCostname">만원</span>
+                <span className="popConCost">{NumComma(money * 10000)}</span>
+                <span className="popConCostname">원</span>
               </span>
               <span className="popConLocation">{location}</span>
               <span className="popConLocationLine"></span>

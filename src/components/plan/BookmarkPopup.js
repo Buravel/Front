@@ -43,7 +43,7 @@ function BookmarkPopup({
   const thisBmark =
     bmarkList && bmarkList.filter((k) => k.bookmarkTitle === bmarkinputValue);
 
-  const thisBmarkId = thisBmark.map((k) => k.id)[0];
+  const thisBmarkId = thisBmark && thisBmark.map((k) => k.id)[0];
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -52,7 +52,9 @@ function BookmarkPopup({
         bookmarkTitle: searchValue,
       })
       .then((res) => {
-        setBmark([...bmark, res.data]);
+        setBmark(
+          bmark == undefined || bmark == "" ? [res.data] : [...bmark, res.data]
+        );
       });
     setSearchValue("");
   };
