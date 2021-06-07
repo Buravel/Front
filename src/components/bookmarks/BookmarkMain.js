@@ -241,10 +241,11 @@ function BookmarkMain() {
                           }, []);
                       }}
                     >
-                      <Bicon
+                      {/* <Bicon
                         picture="BookmarkAddbutton"
                         className="BookmarkAddbutton"
-                      />
+                      /> */}
+                      새폴더
                     </button>
                     <button className="bookmarkDelbtn" onClick={toggledelPopup}>
                       <Bicon

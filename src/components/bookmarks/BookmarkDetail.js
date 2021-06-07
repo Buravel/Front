@@ -175,7 +175,7 @@ function BookmarkDetail({ match }) {
           <div className="bkDtName">
             <span className="bkDtNamefirst">{thisbmarktitleA}</span>
             <span className="bkDtNamesecond">
-              ({bmarkListN && bmarkListN.length})
+              ({bmarkListN !== null ? bmarkListN.length : 0})
             </span>
             <span className="thisBmarkNameEdit">
               <input
