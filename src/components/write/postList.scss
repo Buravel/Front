@@ -65,6 +65,7 @@
                 overflow-x: hidden;
                 position: relative;
                 align-items: center;
+                color: #b5b5b5;
             }
         }
         .add-post {
@@ -81,7 +82,8 @@
             justify-content: center;
             align-items: center;
             font-size: 60px;
-            color: #9b9b9b;
+            color: #9b9b9b;    
+            margin: 0 10px;
         }
     }
 }

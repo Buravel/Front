@@ -127,7 +127,7 @@ const PostList = ({
         opacity: '0.2',
     };
     return (
-        <div ref={drop} style={isOver ? style : undefined}>
+        <div ref={drop} /*style={isOver ? style : undefined}*/>
             <div className="post-list-container">
                 <div className="post-circle-line">
                     <div className="circle"></div>
@@ -146,11 +146,14 @@ const PostList = ({
                         <div className="list" ref={listEl}>
                             {plan.length !== 0 &&
                                 plan.map((post, idx) => (
-                                    <PostCard
-                                        key={`post${idx}`}
-                                        card={{ ...post, idx }}
-                                        onClick={openEditPostModal}
-                                    />
+                                    <>
+                                        <PostCard
+                                            key={`post${idx}`}
+                                            card={{ ...post, idx }}
+                                            onClick={openEditPostModal}
+                                        />
+                                        ...
+                                    </>
                                 ))}
                             <div
                                 className="add-post"

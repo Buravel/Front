@@ -8,53 +8,78 @@ import Icon from '../plan/Icon';
 import Bicon from './Bicon';
 
 function BookmarkPost(props) {
-    let token = localStorage.getItem('token');
-    token = token.replace(/"/g, '');
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-    const [posts, setPosts] = useState([]);
-    const [hashtag, setHashtag] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const [isOpen, setIsOpen] = useState(false);
     const [isbmarkOpen, setBmarkisOpen] = useState(false);
-    const [isPrivate, setisPrivate] = useState(false);
+    const bookmarkInfo = props.bookmarkInfo;
+    const category =
+        bookmarkInfo && bookmarkInfo.postBookmarkPostResponseDto.category;
 
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                setError(null);
-                setPosts(null);
-                setLoading(true);
-                const response = await axios.get(
-                    `http://34.64.93.115/bookmark/${props.bmarkId}`,
-                );
-                setPosts(response.data._embedded.bookmarkPostResponseDtoList);
-            } catch (e) {
-                setError(e);
-            }
-            setLoading(false);
-        };
+    const postImg =
+        bookmarkInfo && bookmarkInfo.postBookmarkPostResponseDto.postImage;
+    const price =
+        bookmarkInfo && bookmarkInfo.postBookmarkPostResponseDto.price;
+    const postTitle =
+        bookmarkInfo && bookmarkInfo.postBookmarkPostResponseDto.postTitle;
+    const rating =
+        bookmarkInfo && bookmarkInfo.postBookmarkPostResponseDto.rating;
+    const tags =
+        bookmarkInfo &&
+        bookmarkInfo.postBookmarkPostResponseDto.postTagResponseDtoList;
+    // console.log(tags);
 
-        fetchPosts();
-    }, []);
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                setError(null);
-                setHashtag(null);
-                setLoading(true);
-                const response = await axios.get(
-                    `${postit[0]._links.originPlan.href}`,
-                );
-                setHashtag(response.data.postForPlanResponseDtos);
-            } catch (e) {
-                setError(e);
-            }
-            setLoading(false);
-        };
+    const toggleBmarkPopup = () => {
+        setBmarkisOpen(!isbmarkOpen);
+    };
+    const clicklist = props.clicked && props.clicked.map((k) => k);
 
-        fetchPosts();
-    }, []);
+    // console.log('BookmarkPost');
+    // console.log(props.bookmarkInfo);
+    // let token = localStorage.getItem('token');
+    // token = token.replace(/"/g, '');
+    // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    // const [isbmarkOpen, setBmarkisOpen] = useState(false);
+    // const [posts, setPosts] = useState([]);
+    // const [hashtag, setHashtag] = useState([]);
+    // const [loading, setLoading] = useState(false);
+    // const [error, setError] = useState(null);
+    // const [isOpen, setIsOpen] = useState(false);
+    // const [isPrivate, setisPrivate] = useState(false);
+
+    // useEffect(() => {
+    //     const fetchPosts = async () => {
+    //         try {
+    //             setError(null);
+    //             setPosts(null);
+    //             setLoading(true);
+    //             const response = await axios.get(
+    //                 `http://34.64.93.115/bookmark/${props.bmarkId}`,
+    //             );
+    //             setPosts(response.data._embedded.bookmarkPostResponseDtoList);
+    //         } catch (e) {
+    //             setError(e);
+    //         }
+    //         setLoading(false);
+    //     };
+
+    //     fetchPosts();
+    // }, []);
+    // useEffect(() => {
+    //     const fetchPosts = async () => {
+    //         try {
+    //             setError(null);
+    //             setHashtag(null);
+    //             setLoading(true);
+    //             const response = await axios.get(
+    //                 `${postit[0]._links.originPlan.href}`,
+    //             );
+    //             setHashtag(response.data.postForPlanResponseDtos);
+    //         } catch (e) {
+    //             setError(e);
+    //         }
+    //         setLoading(false);
+    //     };
+
+    //     fetchPosts();
+    // }, []);
 
     // const returning = axios
     //   .get(`http://34.64.93.115/bookmark/${props.bmarkId}`)
@@ -65,18 +90,18 @@ function BookmarkPost(props) {
     // const togglePopup = () => {
     //   setIsOpen(!isOpen);
     // };
-    const toggleBmarkPopup = () => {
-        setBmarkisOpen(!isbmarkOpen);
-    };
-    const postTerm = props.bookmarkInfo.map((k) => k);
-    const postArray = [];
-    for (let i = 0; i < postTerm.length; i++) {
-        postArray.push(postTerm[i]);
-    }
-    const postit =
-        postArray !== undefined &&
-        postArray.filter((k) => k.id == props.thisId);
-    const postId = postit && postit[0];
+    // const toggleBmarkPopup = () => {
+    //     setBmarkisOpen(!isbmarkOpen);
+    // };
+    // const postTerm = props.bookmarkInfo.map((k) => k);
+    // const postArray = [];
+    // for (let i = 0; i < postTerm.length; i++) {
+    //     postArray.push(postTerm[i]);
+    // }
+    // const postit =
+    //     postArray !== undefined &&
+    //     postArray.filter((k) => k.id == props.thisId);
+    // const postId = postit && postit[0];
 
     // const returning2 = axios
     //   .get(`${postit[0]._links.originPlan.href}`)
@@ -84,27 +109,36 @@ function BookmarkPost(props) {
     //     setHashtag(response.data.postForPlanResponseDtos);
     //   }, []);
 
-    const category = postId && postId.postBookmarkPostResponseDto.category;
+    // const category =
+    //     bookmarkInfo && bookmarkInfo.postBookmarkPostResponseDto.category;
 
-    const postImg = postId && postId.postBookmarkPostResponseDto.postImage;
-    const price = postId && postId.postBookmarkPostResponseDto.price;
-    const postTitle = postId && postId.postBookmarkPostResponseDto.postTitle;
-    const rating = postId && postId.postBookmarkPostResponseDto.rating;
-    const hashTag = hashtag && hashtag.map((k) => k.postTagResponseDtoList)[0];
-    const tagsLINE = hashTag && hashTag.map((k) => k.postTagTitle);
+    // const postImg =
+    //     bookmarkInfo && bookmarkInfo.postBookmarkPostResponseDto.postImage;
+    // const price =
+    //     bookmarkInfo && bookmarkInfo.postBookmarkPostResponseDto.price;
+    // const postTitle =
+    //     bookmarkInfo && bookmarkInfo.postBookmarkPostResponseDto.postTitle;
+    // const rating =
+    //     bookmarkInfo && bookmarkInfo.postBookmarkPostResponseDto.rating;
+    // const tags =
+    //     bookmarkInfo &&
+    //     bookmarkInfo.postBookmarkPostResponseDto.postTagResponseDtoList;
+    // console.log(tags);
+    // const hashTag = hashtag && hashtag.map((k) => k.postTagResponseDtoList)[0];
+    // const tagsLINE = hashTag && hashTag.map((k) => k.postTagTitle);
 
-    const tags = hashTag && hashTag.map((k) => k).length;
-    const tagsArray = [];
+    // const tags = hashTag && hashTag.map((k) => k).length;
+    // const tagsArray = [];
     // for (let i = 0; i <= tags; i++) {
     //   tagsArray.push(hashTag && hashTag.map((k) => k[i].postTagTitle));
     // }
-    const K = [];
-    for (let i = 0; i < tagsArray.length - 1; i++) {
-        K.push(tagsArray && tagsArray.map((k) => k[i]));
-    }
-    const tagTitle = K[0];
+    // const K = [];
+    // for (let i = 0; i < tagsArray.length - 1; i++) {
+    //     K.push(tagsArray && tagsArray.map((k) => k[i]));
+    // }
+    // const tagTitle = K[0];
 
-    const clicklist = props.clicked && props.clicked.map((k) => k);
+    // const clicklist = props.clicked && props.clicked.map((k) => k);
 
     // function HashTagArray(a) {
     //   if (postTerm && postTerm.filter((k) => k.id === a)) {
@@ -157,8 +191,13 @@ function BookmarkPost(props) {
 
                     <div className="postPicture">
                         <img
-                            src={`data:image/png;base64,${postImg}`}
+                            src={
+                                postImg
+                                    ? `data:image/png;base64,${postImg}`
+                                    : `/images/write/thumb_${category}.png`
+                            }
                             className="postPictureArray"
+                            alt=""
                         />
                     </div>
                     <div className="postContent">
@@ -176,14 +215,11 @@ function BookmarkPost(props) {
                             <span className="moneyName">만원</span>
                         </div>
                         <span className="hashTagLine">
-                            {tagsLINE && tagsLINE[0] === ''
-                                ? ''
-                                : tagsLINE &&
-                                  tagsLINE.map((num) => (
-                                      <span className="postHashTag">
-                                          #{num}
-                                      </span>
-                                  ))}
+                            {tags.map((tag) => (
+                                <span className="postHashTag">
+                                    #{tag.postTagTitle}
+                                </span>
+                            ))}
                         </span>
                     </div>
                     {clicklist && clicklist.includes(props.thisId) && (

@@ -29,6 +29,7 @@ const QuickBox = ({ onLogout, onClick, profileImage }) => {
                             style={{
                                 maxWidth: '70%',
                                 maxHeight: '70%',
+                                borderRadius: '23px',
                             }}
                             alt="mypage"
                         />

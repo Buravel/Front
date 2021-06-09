@@ -21,13 +21,13 @@ const Advertise = () => {
                         alt="Second slide"
                     />
                 </Carousel.Item>
-                <Carousel.Item>
+                {/* <Carousel.Item>
                     <img
                         className="d-block w-100"
                         src="/images/mainpage/ad3.png"
                         alt="Third slide"
                     />
-                </Carousel.Item>
+                </Carousel.Item> */}
             </Carousel>
         </>
     );

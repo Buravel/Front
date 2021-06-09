@@ -21,7 +21,7 @@ const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
         </div>
     );
 };
-const PlanRemote = ({ account, onSave, onRemove, edit }) => {
+const PlanRemote = ({ account, onSave /* onRemove, edit */ }) => {
     const history = useHistory();
     let total = 0;
     for (const value of Object.values(account)) {
@@ -78,15 +78,13 @@ const PlanRemote = ({ account, onSave, onRemove, edit }) => {
                 </button>
                 <button
                     className="plan-delete"
-                    onClick={
-                        edit
-                            ? onRemove
-                            : () => {
-                                  history.push('/');
-                              }
-                    }
+                    onClick={() => {
+                        if (window.confirm('정말 취소하시겠어요?.')) {
+                            history.push('/');
+                        }
+                    }}
                 >
-                    {edit ? '삭제' : '취소'}
+                    취소
                 </button>
             </div>
         </div>
@@ -102,8 +100,8 @@ const WritePlanTitle = ({
     planImage,
     onChangePlanInfo,
     onSave,
-    onRemove,
-    edit,
+    /*onRemove,
+    edit,*/
 }) => {
     // modal 관련
     const [titleVisible, setTitleVisible] = useState(true);
@@ -130,8 +128,8 @@ const WritePlanTitle = ({
                 <PlanRemote
                     account={account}
                     onSave={onClickSave}
-                    onRemove={onRemove}
-                    edit={edit}
+                    // onRemove={onRemove}
+                    // edit={edit}
                 />
             </div>
             <div className="title-block"></div>

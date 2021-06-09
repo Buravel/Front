@@ -443,7 +443,6 @@ const write = handleActions(
                 postForPlanResponseDtos,
                 accountResponseDto,
             } = payload;
-            console.log(payload);
             const [sY, sM, sD] = startDate.split('-'); //splitDate(startDate);
             const [eY, eM, eD] = endDate.split('-'); //splitDate(endDate);
             const night = getNight(`${sY}-${sM}-${sD}`, `${eY}-${eM}-${eD}`);
@@ -535,12 +534,20 @@ const write = handleActions(
                     price,
                     postImage,
                     category,
-                    location: [],
+                    location: {
+                        lat,
+                        lng,
+                        name: location,
+                    },
                     rating,
-                    hashTags: [],
+                    hashTags: postTagResponseDtoList.map(
+                        (tag) => tag.postTagTitle,
+                    ),
                     memo,
                 }),
             );
+            console.log(bookmarks);
+
             return {
                 ...state,
                 bookmarks: [...bookmarks],
