@@ -10,19 +10,19 @@ const SearchBar = ({ tagList }) => {
     const [searchPriceOn, setSearchPriceOn] = useState(false);
 
     const onClickSearchBtn = () => {
-        if (keyword.length < 2) {
-            alert('검색어를 2글자 이상 입력해주세요.');
-            return;
-        }
         history.push(
             `/search?keyword=${keyword}&min=${
                 minNum === '' ? 0 : parseInt(minNum) * 10000
-            }&max=${maxNum === '' ? 0 : parseInt(maxNum) * 10000}`,
+            }&max=${
+                maxNum === '' ? 0 : parseInt(maxNum) * 10000
+            }&sort=lastModified,desc&page=0`,
         );
     };
 
     const onClickTag = (tag) => {
-        history.push(`/search?keyword=${tag}&min=0&max=0`);
+        history.push(
+            `/search?keyword=${tag}&min=0&max=0&sort=lastModified,desc&page=0`,
+        );
     };
 
     return (
@@ -53,7 +53,7 @@ const SearchBar = ({ tagList }) => {
                 <>
                     <div className="text-search-container">
                         <img
-                            src="./images/header/search-icon.png"
+                            src="/images/header/search-icon.png"
                             alt=""
                             onClick={() => {
                                 setSearchOn((state) => !state);
@@ -75,7 +75,7 @@ const SearchBar = ({ tagList }) => {
                     >
                         금액 검색
                         <img
-                            src={`./images/header/${
+                            src={`/images/header/${
                                 !searchPriceOn ? 'arrow-down' : 'arrow-up'
                             }.png`}
                             alt=""

@@ -106,7 +106,7 @@ export const findPW = async ({ email }) =>
             return Promise.reject(error);
         });
 export const check = () => {
-    const token = localStorage.getItem('token').replaceAll('"', '');
+    const token = localStorage.getItem('token')?.replaceAll('"', '');
     client.defaults.headers.common['Authorization'] = token;
     return client.get('/check');
 };

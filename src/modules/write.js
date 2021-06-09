@@ -2,7 +2,7 @@ import { createAction, createActions, handleActions } from 'redux-actions';
 import createRequestSaga, {
     createRequestActionTypes,
 } from '../lib/createRequestSaga';
-import { getNextDate, getToday } from '../util/date';
+import { getNextDate, getNight, getToday } from '../util/date';
 import * as writeAPI from '../lib/api/write';
 import { takeLatest } from 'redux-saga/effects';
 
@@ -23,12 +23,17 @@ const ADD_POST = 'write/ADD_POST';
 const UPDATE_POST = 'write/UPDATE_POST';
 const REMOVE_POST = 'write/REMOVE_POST';
 const SET_PLAN = 'write/SET_PLAN';
+const SET_BOOKMARS = 'write/SET_BOOKMARKS';
 
 const [WRITE_PLAN, WRITE_PLAN_SUCCESS, WRITE_PLAN_FAILURE] =
     createRequestActionTypes('write/WRITE_PLAN');
 
 const [EDIT_PLAN, EDIT_PLAN_SUCCESS, EDIT_PLAN_FAILURE] =
     createRequestActionTypes('write/EDIT_PLAN');
+
+const [REMOVE_PLAN, REMOVE_PLAN_SUCCESS, REMOVE_PLAN_FAILURE] =
+    createRequestActionTypes('write/REMOVE_PLAN');
+
 //action 생성
 export const initialize = createAction(INITIALIZE);
 export const changePlanInfo = createAction(
@@ -52,13 +57,19 @@ export const removePost = createAction(REMOVE_POST, (day, idx) => ({
 export const writePlan = createAction(WRITE_PLAN, (card) => card);
 export const setPlan = createAction(SET_PLAN, (plans) => plans);
 export const editPlan = createAction(EDIT_PLAN, (card) => card);
-
-const writePlanSaga = createRequestSaga(WRITE_PLAN, writeAPI.write);
-const editPlanSaga = createRequestSaga(EDIT_PLAN, writeAPI.edit);
+export const removePlan = createAction(REMOVE_PLAN, (id) => id);
+export const setBookmarks = createAction(
+    SET_BOOKMARS,
+    (bookmarks) => bookmarks,
+);
+const writePlanSaga = createRequestSaga(WRITE_PLAN, writeAPI.writePlan);
+const editPlanSaga = createRequestSaga(EDIT_PLAN, writeAPI.editPlan);
+const removePlanSaga = createRequestSaga(REMOVE_PLAN, writeAPI.removePlan);
 
 export function* writeSaga() {
     yield takeLatest(WRITE_PLAN, writePlanSaga);
     yield takeLatest(EDIT_PLAN, editPlanSaga);
+    yield takeLatest(REMOVE_PLAN, removePlanSaga);
 }
 
 /*{
@@ -249,6 +260,8 @@ const initialState = {
     bookmarks: [],
     write: null,
     writeError: null,
+    remove: null,
+    removeError: null,
 };
 
 const write = handleActions(
@@ -430,6 +443,11 @@ const write = handleActions(
                 postForPlanResponseDtos,
                 accountResponseDto,
             } = payload;
+            console.log(payload);
+            const [sY, sM, sD] = startDate.split('-'); //splitDate(startDate);
+            const [eY, eM, eD] = endDate.split('-'); //splitDate(endDate);
+            const night = getNight(`${sY}-${sM}-${sD}`, `${eY}-${eM}-${eD}`);
+
             const plans = postForPlanResponseDtos.reduce(
                 (arr, plan) => {
                     const {
@@ -460,21 +478,86 @@ const write = handleActions(
                             (tag) => tag.postTagTitle,
                         ),
                     });
-                    return arr;
+                    return [...arr];
                 },
                 [[]],
             );
-
             return {
                 ...state,
                 id,
                 planTitle,
                 planImage,
                 startDate,
-                endDate,
+                endDate:
+                    plans.length !== night + 1
+                        ? getNextDate(
+                              startDate.split('-').join(''),
+                              plans.length - 1,
+                          ).join('-')
+                        : endDate,
                 published,
                 plans,
                 hashTag: planTagTitle,
+            };
+        },
+        [SET_BOOKMARS]: (state, { payload }) => {
+            // originPost_id,
+            // title1,
+            // title2,
+            // price,
+            // postImage,
+            // category,
+            // location,
+            // rating,
+            // hashTags,
+            // memo,
+
+            const bookmarks = payload.map(
+                ({
+                    postBookmarkPostResponseDto: {
+                        category,
+                        closed,
+                        lat,
+                        lng,
+                        location,
+                        name,
+                        memo,
+                        originPost_id,
+                        postImage,
+                        postTitle,
+                        price,
+                        rating,
+                        postTagResponseDtoList,
+                    },
+                }) => ({
+                    id: originPost_id,
+                    title1: postTitle,
+                    price,
+                    postImage,
+                    category,
+                    location: [],
+                    rating,
+                    hashTags: [],
+                    memo,
+                }),
+            );
+            return {
+                ...state,
+                bookmarks: [...bookmarks],
+            };
+        },
+        [REMOVE_PLAN_SUCCESS]: (state, { payload }) => {
+            return {
+                ...state,
+                remove: payload,
+                removeError: null,
+            };
+        },
+        [REMOVE_PLAN_FAILURE]: (state, { payload, error }) => {
+            return {
+                ...state,
+                remove: null,
+                removeError: error,
             };
         },
     },

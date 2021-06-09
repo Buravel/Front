@@ -8,6 +8,7 @@ import {
     changePlanInfo,
     editPlan,
     initialize,
+    removePlan,
     writePlan,
 } from '../../modules/write';
 const getAccount = (arr) => {
@@ -44,8 +45,12 @@ const WritePlanTitleContainer = () => {
     const write = useSelector((state) => state.write.write);
     const writeError = useSelector((state) => state.write.writeError);
 
+    const remove = useSelector((state) => state.write.remove);
+    const removeError = useSelector((state) => state.write.removeError);
+
     const loading1 = useSelector((state) => state.loading['write/WRITE_PLAN']);
     const loading2 = useSelector((state) => state.loading['write/EDIT_PLAN']);
+    const loading3 = useSelector((state) => state.loading['write/REMOVE_PLAN']);
     // title 금액관련
     const account = useMemo(() => getAccount(plans), [plans]);
 
@@ -96,7 +101,11 @@ const WritePlanTitleContainer = () => {
             );
         }
     };
-
+    const onRemove = () => {
+        if (window.confirm('정말 삭제하시겠어요?')) {
+            dispatch(removePlan(id));
+        }
+    };
     useEffect(() => {
         return () => {
             dispatch(initialize());
@@ -111,6 +120,16 @@ const WritePlanTitleContainer = () => {
             alert('작성 실패');
         }
     }, [history, writeError, write]);
+
+    useEffect(() => {
+        if (remove) {
+            console.log('삭제 성공');
+            history.push(`/mypage`);
+        }
+        if (removeError) {
+            alert('삭제 실패');
+        }
+    }, [history, removeError, remove]);
     return (
         <>
             <WritePlanTitle
@@ -123,8 +142,11 @@ const WritePlanTitleContainer = () => {
                 account={account}
                 onChangePlanInfo={onChangePlanInfo}
                 onSave={onSave}
+                onRemove={onRemove}
+                edit={!!id}
             />
             {(loading1 || loading2) && <Loading>저장중</Loading>}
+            {loading3 && <Loading>삭제중</Loading>}
         </>
     );
 };

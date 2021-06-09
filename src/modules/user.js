@@ -39,11 +39,14 @@ export default handleActions(
             user,
             checkError: null,
         }),
-        [CHECK_FAILURE]: (state, { payload: error }) => ({
-            ...state,
-            user: null,
-            checkError: error,
-        }),
+        [CHECK_FAILURE]: (state, { payload: error }) => {
+            localStorage.removeItem('user');
+            return {
+                ...state,
+                user: null,
+                checkError: error,
+            };
+        },
     },
     initialState,
 );
