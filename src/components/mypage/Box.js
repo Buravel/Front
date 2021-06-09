@@ -15,7 +15,8 @@ const style = { display: "inline-block" };
 const Box = ({ box }) => {
   const title = box.planTitle;
   const top3List = box.top3List;
-  const totalprice = box.outputPlanTotalPrice;
+  const firsttotalprice = box.totalPrice;
+  const totalprice = firsttotalprice / 10000;
   const rating = box.planRating;
   const sday = box.startDate;
   const eday = box.endDate;
@@ -98,7 +99,7 @@ const Box = ({ box }) => {
                   {title.length > 10 ? title.substring(0, 9) + "..." : title}
                 </div>
                 <div className="cost" style={style}>
-                  {totalprice}
+                  {totalprice}만원
                 </div>
                 <div className="date">{period}</div>
                 <div className="cost-sort" style={style}>
