@@ -33,7 +33,7 @@ const MyPage = ({
   for (let i = 0; i < pageNum1; i++) pages1.push(i + 1);
   for (let i = 0; i < pageNum2; i++) pages2.push(i + 1);
   return (
-    <>
+    <div className="myPage">
       <div className="userSection">
         {profile ? (
           <img
@@ -170,7 +170,7 @@ const MyPage = ({
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default React.memo(MyPage);

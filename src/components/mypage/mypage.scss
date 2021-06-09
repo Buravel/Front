@@ -4,128 +4,135 @@ $darkgray: #767676;
 $gray-post: #bfbfbf;
 $blue: #0070ef;
 
-.userSection {
-  position: absolute;
-  display: flex;
-  background-color: white;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin-top: 79px;
-  height: 295px;
-  align-items: center;
-  .profileImage {
-    width: 13vw;
-    //    height: 174px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 6.4vw;
-    margin-right: 3.5vw;
-  }
-  .userBox {
-    width: 800px;
-    justify-content: left;
-    margin-top: 10px;
-    margin-bottom: auto;
-    margin-left: 6.4vw;
-    margin-right: 3.5vw;
-    .greeting {
-      margin-top: 80px;
-      margin-bottom: 0;
-      h1 {
-        font-size: 36px;
-        line-height: 0;
+.myPage {
+  overflow: hidden;
+  width: 100%;
+  .userSection {
+    position: absolute;
+    display: flex;
+    background-color: white;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-top: 79px;
+    height: 295px;
+    align-items: center;
+    .profileImage {
+      width: 174px;
+      height: 174px;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 6.4vw;
+      margin-left: 92px;
+      margin-right: 3.5vw;
+    }
+    .userBox {
+      //      width: 800px;
+      justify-content: left;
+      margin-top: 10px;
+      margin-bottom: auto;
+      margin-left: 6.4vw;
+      margin-right: 3.5vw;
+      .greeting {
+        width: 500px;
+        margin-top: 80px;
+        margin-bottom: 0;
+        h1 {
+          font-size: 36px;
+          line-height: 0;
+        }
+        .colorH1 {
+          color: $blue;
+        }
       }
-      .colorH1 {
+      .email {
+        color: #b5b5b5;
+        font-size: 16px;
+      }
+
+      .email:hover {
         color: $blue;
       }
-    }
-    .email {
-      color: #b5b5b5;
-      font-size: 1vw;
-    }
 
-    .email:hover {
-      color: $blue;
-    }
-
-    .buttons {
-      margin-top: 39px;
-      height: 40px;
-      .setup,
-      .logout {
-        margin-top: 0;
-        width: 91px;
-        border: solid $blue;
-        border-radius: 2.1vw;
-        font-size: 0.97vw;
-        background-color: $blue;
-        color: white;
-      }
-      .logout {
-        background-color: white;
-        color: #0070ef;
-      }
-    }
-  }
-}
-
-.postSection {
-  position: absolute;
-  display: flex;
-  background-color: $gray;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 370px;
-  height: 1011px;
-
-  .open,
-  .closed {
-    margin: 60px 0px 22px 81px;
-    height: 300px;
-    align-items: center;
-    .no-post {
-      background-color: $gray-post;
-      height: 350px;
-      text-align: center;
-      margin-top: 50px;
-      font-size: 40px;
-      color: $darkgray;
-      line-height: 330px;
-    }
-    .paging {
-      list-style: none;
-      text-align: center;
-      font-weight: 600;
-      .pNum {
-        width: 200px;
-        height: 100px;
-        font-size: 15px;
-        letter-spacing: 8px;
-        color: #707070;
-        .highlight {
-          color: $blue;
+      .buttons {
+        margin-top: 39px;
+        height: 40px;
+        .setup,
+        .logout {
+          margin-top: 0;
+          width: 91px;
+          border: solid $blue;
+          border-radius: 2.1vw;
+          font-size: 15px;
+          background-color: $blue;
+          color: white;
+        }
+        .logout {
+          background-color: white;
+          color: #0070ef;
         }
       }
     }
   }
 
-  .boxtitle {
-    margin: 0px 1075px 22px 0px;
-    width: 150px;
-    font-family: NotoSansKR;
-    font-size: 20px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 0.6;
-    letter-spacing: normal;
-    text-align: left;
-    color: #535353;
+  .postSection {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 1011px;
+    margin: 0;
+    padding: 0;
+    margin-top: 370px;
+    position: absolute;
+    display: flex;
+    background-color: $gray;
+    justify-content: center;
+    flex-wrap: wrap;
+    .open,
+    .closed {
+      margin: 60px 0px 22px 81px;
+      height: 300px;
+      align-items: center;
+      .no-post {
+        background-color: $gray-post;
+        height: 350px;
+        text-align: center;
+        margin-top: 50px;
+        font-size: 40px;
+        color: $darkgray;
+        line-height: 330px;
+      }
+      .paging {
+        list-style: none;
+        text-align: center;
+        font-weight: 600;
+        .pNum {
+          width: 200px;
+          height: 100px;
+          font-size: 15px;
+          letter-spacing: 8px;
+          color: #707070;
+          .highlight {
+            color: $blue;
+          }
+        }
+      }
+    }
+
+    .boxtitle {
+      margin: 0px 1075px 22px 0px;
+      width: 150px;
+      font-family: NotoSansKR;
+      font-size: 20px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 0.6;
+      letter-spacing: normal;
+      text-align: left;
+      color: #535353;
+    }
   }
 }

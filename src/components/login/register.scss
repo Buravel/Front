@@ -2,8 +2,7 @@ $blue: #66a7ff;
 $darkblue: #2b71f3;
 .registerBlock {
   margin-left: 117px;
-  margin-top: 45px;
-  width: 26.8vw;
+  margin-top: 48px;
   .registerBox {
     text-align: center;
     margin: 0 auto;
@@ -16,7 +15,7 @@ $darkblue: #2b71f3;
       letter-spacing: normal;
       text-align: center;
       color: #535353;
-      margin-bottom: 75px;
+      margin-bottom: 44px;
     }
 
     .inputBox-reg {
@@ -49,7 +48,7 @@ $darkblue: #2b71f3;
       }
     }
     .checkbtn {
-      margin-bottom: 60px;
+      margin-top: 20px;
       width: 386px;
       height: 55px;
       border: solid $blue;
