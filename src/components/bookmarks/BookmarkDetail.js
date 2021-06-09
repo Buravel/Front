@@ -13,18 +13,18 @@ function BookmarkDetail({ match }) {
     token = token.replace(/"/g, '');
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
-    const [state, setState] = useState([]);
+    // const [state, setState] = useState([]);
     const [bookmarks, setBookmarks] = useState([]);
     const [bookmarkstitle, setBookmarkstitle] = useState([]);
-    const [postClick, setpostClick] = useState(false);
-    const [posts, setPosts] = useState([]);
+    // const [postClick, setpostClick] = useState(false);
+    // const [posts, setPosts] = useState([]);
     const [checkedInputs, setCheckedInputs] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [isbmarkOpen, setBmarkisOpen] = useState(false);
     const [isEditOpen, setEditisOpen] = useState(false);
     const [title, setTitle] = useState('');
-    const [nowstate, setnowstate] = useState('');
+    // const [nowstate, setnowstate] = useState('');
 
     const changeHandler = (checked, id) => {
         if (checked) {
@@ -88,7 +88,6 @@ function BookmarkDetail({ match }) {
                 const response = await axios.get(
                     `http://34.64.93.115/bookmark/${match.params.id}`,
                 );
-
                 setBookmarks(
                     response.data._embedded.bookmarkPostResponseDtoList,
                 );
@@ -237,7 +236,10 @@ function BookmarkDetail({ match }) {
                     <div className="bkDtpostBackground">
                         {bmarkListN &&
                             bmarkListN.map((item) => (
-                                <span className="bringbmarkClickbox">
+                                <span
+                                    className="bringbmarkClickbox"
+                                    key={item.id}
+                                >
                                     <label class="bmarkCheckcontainer">
                                         <input
                                             className="checkInput"
@@ -263,7 +265,7 @@ function BookmarkDetail({ match }) {
                                         thisId={item.id}
                                         bmarkId={match.params.id}
                                         clicked={checkedInputs}
-                                        bookmarkInfo={bookmarks}
+                                        bookmarkInfo={item}
                                     />
                                 </span>
                             ))}

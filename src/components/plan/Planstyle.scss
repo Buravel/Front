@@ -324,7 +324,7 @@
 .CostBackground {
   position: absolute;
   top: 78px;
-  right: 42px;
+  right: 132px;
   width: 300px;
   height: 68px;
   border-radius: 3px;
@@ -1079,4 +1079,29 @@
 }
 .mapback {
   z-index: +2;
+}
+
+.plan-edit-container {
+  display: inline-block;
+  height: 68px;
+  width: 72px;
+  position: absolute;
+  right: 36px;
+  top: 78px;
+  button {
+      display:block;
+      width: 72px;
+      height: 33px;
+      border-radius: 5px;
+  }
+  .plan-edit{
+      background-color: #0070ef;;
+      color:white;
+      margin-bottom: 5px;
+  }
+  .plan-delete{
+      background-color: white;
+      border: 1px solid #d9d9d9;
+      color:#535353;
+  }
 }
