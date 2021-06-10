@@ -118,8 +118,10 @@ function Popup({
               <span className="popupMemo">메모</span>
             </span>
             <span className="popupContent">
-              <span className="popConTitle">{postTitle}</span>
-              <Icon picture={icon} className="popConIcon" />
+              <span className="thispopupTitle">
+                <span className="popConTitle">{postTitle}</span>
+                <Icon picture={icon} className="popConIcon" />
+              </span>
               <span className="popConCostAll">
                 <span className="popConCost">{NumComma(money * 10000)}</span>
                 <span className="popConCostname">원</span>
