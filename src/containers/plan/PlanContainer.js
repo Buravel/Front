@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { setPlan } from "../../modules/write";
 import Loading from "../../components/common/Loading";
+import PlanBackground from "../../components/plan/PlanBackground";
 
 const PlanContainer = () => {
   const [posts, setPosts] = useState([]);
@@ -95,6 +96,7 @@ const PlanContainer = () => {
         posts={posts}
         onClickEditBtn={loginId === writerId ? onClickEditBtn : undefined}
       />
+
       <OtherUserpost
         posts={posts}
         bookmarks={bookmarks}
