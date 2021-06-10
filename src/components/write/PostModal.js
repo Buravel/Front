@@ -3,6 +3,7 @@ import './postModal.scss';
 import SearchPlace from './SearchPlace';
 import { category_type } from '../../modules/write';
 import { useMemo } from 'react';
+import imageCompression from 'browser-image-compression';
 
 const numToArr = (_num) => {
     const quotient = Math.floor(_num / 1);
@@ -88,7 +89,7 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
         setTextHash('');
         setInputHash(false);
     };
-    const onChangeFile = (event) => {
+    const onChangeFile = async (event) => {
         const reader = new FileReader();
         reader.onloadend = () => {
             // 2. 읽기가 완료되면 아래코드가 실행됩니다.
@@ -98,8 +99,19 @@ const PostModal = ({ card, closeModal, onSave, onClickRemove }) => {
             }
         };
         if (event.target.files[0]) {
-            reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
-            // setImgFile(event.target.files[0]); // 파일 상태 업데이트
+            const options = {
+                maxSizeMB: 0.2,
+                maxWidthOrHeight: 600,
+                useWebWorker: true,
+            };
+            // console.log(event.target.files[0]);
+            const compressedFile = await imageCompression(
+                event.target.files[0],
+                options,
+            );
+            // console.log(compressedFile);
+
+            reader.readAsDataURL(compressedFile); // 1. 파일을 읽어 버퍼에 저장합니다.
         }
     };
     const onHover = (i) => {
