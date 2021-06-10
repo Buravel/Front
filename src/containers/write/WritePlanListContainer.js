@@ -36,7 +36,7 @@ const WritePlanListContainer = () => {
     const location = getLocation(plans);
     //bookmark
     const bookmarks = useSelector((state) => state.write.bookmarks);
-
+    console.log(location);
     return (
         <DndProvider backend={HTML5Backend}>
             <PlanList

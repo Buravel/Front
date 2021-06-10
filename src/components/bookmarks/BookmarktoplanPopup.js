@@ -19,13 +19,20 @@ function BookmarktoplanPopup({ checkedplan, handleClose, bookmarks }) {
     const [bmarkinputValue, setBmarkinputValue] = useState(null);
 
     const onClickMyPlan = async () => {
+        const _bookmarks = bookmarks.filter((bookmark) =>
+            checkedplan.includes(bookmark.id),
+        );
+
+        if (!bmarkinputValue?.id) {
+            dispatch(setBookmarks(_bookmarks));
+            history.push(`/writeplan`);
+            return;
+        }
+
         const token = localStorage.getItem('token').replace(/"/g, '');
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         const response = await axios.get(
             `http://34.64.93.115/plans/${bmarkinputValue.id}`,
-        );
-        const _bookmarks = bookmarks.filter((bookmark) =>
-            checkedplan.includes(bookmark.id),
         );
 
         dispatch(setPlan(response.data));
@@ -46,10 +53,11 @@ function BookmarktoplanPopup({ checkedplan, handleClose, bookmarks }) {
                     setLoading(true);
                     const response1 = await axios.get('/plans/mine/published');
                     const response2 = await axios.get('/plans/mine/closed');
-                    setBmark((state) => [
-                        ...response1.data._embedded.planResponseDtoList,
-                        ...response2.data._embedded.planResponseDtoList,
-                    ]);
+                    const arr1 =
+                        response1.data?._embedded?.planResponseDtoList || [];
+                    const arr2 =
+                        response2.data?._embedded?.planResponseDtoList || [];
+                    setBmark((state) => [...arr1, ...arr2]);
                 } catch (e) {
                     setError(e);
                 }
@@ -95,6 +103,14 @@ function BookmarktoplanPopup({ checkedplan, handleClose, bookmarks }) {
                                     </div>
                                 </button>
                             ))}
+                        <button
+                            className="bmarkName"
+                            onClick={() =>
+                                setBmarkinputValue({ planTitle: '새여행' })
+                            }
+                        >
+                            <div className="bmarkNameText">새여행</div>
+                        </button>
                     </div>
                     <div className="bmarklineone" />
                     {/* <button className="addBmarkButtonClick" type="submit" /> */}

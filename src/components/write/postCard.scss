@@ -4,7 +4,7 @@
     height: 275px;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
-    margin-right: 24px;
+    margin: 0 10px;
     display: inline-table;
     cursor: pointer;
     .postcard-thumbnail {
@@ -70,6 +70,7 @@
         }
         .postcard-tags {
             margin-top : 5px;
+            color : #535353;
             // display: inline-block;
             .postcard-tagbox {
                 width: 51px;
