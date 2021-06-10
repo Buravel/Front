@@ -10,7 +10,7 @@ $darkblue: #2b71f3;
     text-align: center;
     margin: 0 auto;
     .title {
-      width: 430px;
+      width: 450px;
       margin-top: 48px;
       margin-bottom: 35px;
       font-size: 28px;
@@ -32,7 +32,7 @@ $darkblue: #2b71f3;
       }
 
       .privacytext {
-        width: 430px;
+        width: 450px;
         height: 433px;
         border: 0.1px solid gray;
         overflow-y: scroll;
@@ -74,9 +74,13 @@ $darkblue: #2b71f3;
         border: none;
         margin-top: 41px;
       }
+      .agree-btn {
+        margin-right: 17px;
+      }
       .cancel-btn {
         background-color: $lightgray;
         color: $darkgray;
+        margin-right: 0px;
       }
     }
   }

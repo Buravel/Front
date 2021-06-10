@@ -14,6 +14,7 @@ $blue: #0070ef;
       margin: 6vh auto 6vh auto;
       width: 174px;
       height: 174px;
+      border-radius: 100px;
     }
   }
   .info {
@@ -21,14 +22,14 @@ $blue: #0070ef;
       text-align: center;
       color: $blue;
       font-weight: 400;
-      font-size: 0.8vw;
+      font-size: 12px;
       margin-bottom: 30px;
     }
     .error-msg {
       text-align: center;
       color: red;
       font-weight: 400;
-      font-size: 0.8vw;
+      font-size: 12px;
       margin-bottom: 30px;
     }
     .profileBox {

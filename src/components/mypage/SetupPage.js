@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import "./setuppage.scss";
-import basicProfile from "./profile.png";
+import basicProfile from "./img/profile.png";
 axios.defaults.baseURL = "http://34.64.93.115";
 
 const style = { display: "inline-block" };

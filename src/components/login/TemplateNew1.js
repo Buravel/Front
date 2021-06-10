@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logoImg from "./logo_png.png";
-import basic from "./trip.png";
+import logoImg from "./img/logo.png";
+import basic from "./img/defaultImg.png";
 import "./templatenew1.scss";
 import "./common.scss";
 
