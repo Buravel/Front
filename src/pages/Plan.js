@@ -3,16 +3,17 @@ import Responsive from "../components/common/Responsive";
 import HeaderContainer from "../containers/common/HeaderContainer";
 import PlanContainer from "../containers/plan/PlanContainer";
 import PlanBackground from "../components/plan/PlanBackground";
+import PostResponsive from "../components/plan/PostResponsive";
 
 const Plan = () => {
   return (
     <>
-      <PlanBackground />
       <HeaderContainer />
-
-      <Responsive>
-        <PlanContainer />
-      </Responsive>
+      <PostResponsive>
+        <Responsive>
+          <PlanContainer />
+        </Responsive>
+      </PostResponsive>
     </>
   );
 };
