@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./mypage.scss";
-import basicProfile from "./profile.png";
 import Box from "./Box";
 import { Row } from "antd";
-import leftBar from "./leftbar.png";
-import rightBar from "./rightbar.png";
+import basicProfile from "./img/profile.png";
+import leftBar from "./img/leftbar.png";
+import rightBar from "./img/rightbar.png";
 const style = { display: "inline-block" };
 
 const MyPage = ({
@@ -33,7 +33,7 @@ const MyPage = ({
   for (let i = 0; i < pageNum1; i++) pages1.push(i + 1);
   for (let i = 0; i < pageNum2; i++) pages2.push(i + 1);
   return (
-    <>
+    <div className="myPage">
       <div className="userSection">
         {profile ? (
           <img
@@ -170,7 +170,7 @@ const MyPage = ({
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default React.memo(MyPage);

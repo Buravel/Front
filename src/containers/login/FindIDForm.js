@@ -9,7 +9,7 @@ const FindIDForm = ({ history }) => {
   const [error, setError] = useState(null);
   const { form, success } = useSelector(({ auth }) => ({
     form: auth.findID,
-    success: auth.success,
+    success: auth.findidsuccess,
   }));
 
   const onChange = (e) => {

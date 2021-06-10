@@ -5,9 +5,10 @@ import Planmap from "../../components/plan/Planmap";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { setPlan } from "../../modules/write";
+import { setPlan, removePlan, initialize } from "../../modules/write";
 import Loading from "../../components/common/Loading";
 import PlanBackground from "../../components/plan/PlanBackground";
+import Planstyle from "../../components/plan/Planstyle.scss";
 
 const PlanContainer = () => {
   const [posts, setPosts] = useState([]);
@@ -23,6 +24,9 @@ const PlanContainer = () => {
   const loginId = user?.data?.account?.id;
   const writerId = posts?.accountResponseDto?.id;
 
+  const remove = useSelector((state) => state.write.remove);
+  const removeError = useSelector((state) => state.write.removeError);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -30,6 +34,23 @@ const PlanContainer = () => {
     dispatch(setPlan(plans));
     history.push(`/editplan/${id}`);
   };
+  const onRemove = (id) => {
+    if (window.confirm("정말 삭제하시겠어요?")) {
+      dispatch(removePlan(id));
+    }
+  };
+
+  useEffect(() => {
+    if (remove) {
+      console.log("삭제 성공");
+      dispatch(initialize());
+      history.push(`/mypage`);
+    }
+    if (removeError) {
+      alert("삭제 실패");
+    }
+  }, [history, removeError, remove, dispatch]);
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -95,8 +116,8 @@ const PlanContainer = () => {
       <UserPost
         posts={posts}
         onClickEditBtn={loginId === writerId ? onClickEditBtn : undefined}
+        onRemove={loginId === writerId ? onRemove : undefined}
       />
-
       <OtherUserpost
         posts={posts}
         bookmarks={bookmarks}
@@ -104,6 +125,7 @@ const PlanContainer = () => {
         bmark={bmark}
       />
       <Planmap posts={posts} />
+      <div className="planrestLine" />
     </>
   );
 };

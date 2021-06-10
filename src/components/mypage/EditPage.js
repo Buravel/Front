@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./setuppage.scss";
-import profile from "./profile.png";
+import "./editpage.scss";
+import profile from "./img/profile.png";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 axios.defaults.baseURL = "http://34.64.93.115";
@@ -114,7 +114,7 @@ const EditPage = () => {
   };
 
   return (
-    <div className="setup">
+    <div className="edit">
       <div className="prof_img">
         {choose === 1 ? (
           <img src={profile} alt="" className="profileImage" />
@@ -131,12 +131,14 @@ const EditPage = () => {
             className="choose-file"
             style={{ display: "none" }}
           />
-          <label className="upload-btn" for="input-file">
-            프로필 사진 업로드
-          </label>
-          <button className="profile-btn" type="submit" onClick={ImageSubmit}>
-            변경
-          </button>
+          <div className="imgUpload">
+            <label className="upload-btn" for="input-file">
+              프로필 사진 업로드
+            </label>
+            <button className="profile-btn" type="submit" onClick={ImageSubmit}>
+              변경
+            </button>
+          </div>{" "}
           <div style={{ color: "#535353" }}>
             업로드 후 '변경'을 눌러주셔야 변경이 완료됩니다.
           </div>

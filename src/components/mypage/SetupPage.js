@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import "./setuppage.scss";
-import basicProfile from "./profile.png";
+import basicProfile from "./img/profile.png";
 axios.defaults.baseURL = "http://34.64.93.115";
 
 const style = { display: "inline-block" };
@@ -32,12 +32,12 @@ const SetupPage = ({ nickname, username, email, emailVerified, profile }) => {
         <div className="infoBox">
           <div className="name">이메일 주소</div>{" "}
           <div className="box">{email}</div>
-          <div className="edit">
-            <a href="/checkPW" style={style}>
-              회원정보 수정 |
-            </a>
-            <a href="/quit"> 회원 탈퇴</a>
-          </div>
+        </div>
+        <div className="edit">
+          <a href="/checkPW" style={style}>
+            회원정보 수정 |
+          </a>
+          <a href="/quit"> 회원 탈퇴</a>
         </div>
       </div>
     </div>

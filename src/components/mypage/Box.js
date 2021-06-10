@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./box.scss";
-import star from "./star.png";
-import flightImg from "./airplane.png";
-import hotelImg from "./hotel.png";
-import dishImg from "./food.png";
-import trafficImg from "./traffic.png";
-import shopImg from "./shopping.png";
-import etcImg from "./etc.png";
-import basicImg from "./basicImg.png";
+import star from "./img/star.png";
+import flightImg from "./img/airplane.png";
+import hotelImg from "./img/hotel.png";
+import dishImg from "./img/food.png";
+import trafficImg from "./img/traffic.png";
+import shopImg from "./img/shopping.png";
+import etcImg from "./img/etc.png";
+import basicImg from "./img/basicImg.png";
+import stackImg from "./img/stack.png";
 
 const style = { display: "inline-block" };
 const Box = ({ box }) => {
   const title = box.planTitle;
   const top3List = box.top3List;
-  const totalprice = box.outputPlanTotalPrice;
+  const getTotalprice = box.totalPrice;
+  const totalprice = Math.round((getTotalprice / 10000) * 10) / 10;
   const rating = box.planRating;
   const sday = box.startDate;
   const eday = box.endDate;
@@ -42,9 +44,6 @@ const Box = ({ box }) => {
   const night = (edate.getTime() - sdate.getTime()) / 1000 / 60 / 60 / 24;
   const period = `${night}박 ${night + 1}일`;
 
-  //top3
-  //(top3Price[0],top3Img[0]) / (top3Price[1],top3Img[1]) / (top3Price[2],top3Img[2]) 순으로 출력
-
   const top3Price = [];
   const top3Img = [];
   if (top3List.includes("FLIGHT")) {
@@ -71,75 +70,87 @@ const Box = ({ box }) => {
     top3Img.push(etcImg);
     top3Price.push(etc);
   }
+
   return (
     <>
       <Link to={"plan/" + planID}>
         <div className="box-container">
-          <div className="imageSection">
-            {planimage ? (
-              <img
-                src={`data:image/png;base64,${planimage}`}
-                alt=""
-                className="image_fix"
-              ></img>
-            ) : (
-              <img src={basicImg} alt="" className="image_fix" />
-            )}
-            <div className="tagSection">
-              {tag !== undefined && tag !== null && tag !== "" && tag !== {}
-                ? `#${tag}`
-                : ""}
-            </div>
-          </div>
-          <div className="infoSection">
-            <div className="title" style={style}>
-              {title}
-            </div>
-            <div className="cost" style={style}>
-              {totalprice}
-            </div>
-            <div className="date">{period}</div>
-            <div className="cost-sort" style={style}>
-              <div className="detail-cost" style={style}>
-                <img
-                  className="cost-image"
-                  src={top3Img[0] ? top3Img[0] : ""}
-                  alt=""
-                  style={style}
-                />
-                <div className="cost-text" style={style}>
-                  {top3Price[0] ? top3Price[0] / 10000 : ""}
+          <div className="stack">
+            <img className="stack-img" alt="" src={stackImg}></img>
+            <div className="contentbox">
+              <div className="imageSection">
+                {planimage ? (
+                  <img
+                    src={`data:image/png;base64,${planimage}`}
+                    alt=""
+                    className="image_fix"
+                  ></img>
+                ) : (
+                  <img src={basicImg} alt="" className="image_fix" />
+                )}
+                <div className="tagSection">
+                  {tag !== undefined && tag !== null && tag !== "" && tag !== {}
+                    ? `#${tag}`
+                    : ""}
                 </div>
               </div>
-              <div className="detail-cost" style={style}>
-                <img
-                  className="cost-image"
-                  src={top3Img[1] ? top3Img[1] : ""}
-                  alt=""
-                  style={style}
-                />
-                <div className="cost-text" style={style}>
-                  {top3Price[1] ? top3Price[1] / 10000 : ""}
+              <div className="infoSection">
+                <div className="title" style={style}>
+                  {title.length > 10 ? title.substring(0, 9) + "..." : title}
+                </div>
+                <div className="cost" style={style}>
+                  {totalprice}만원
+                </div>
+                <div className="date">{period}</div>
+                <div className="cost-sort" style={style}>
+                  <div className="detail-cost" style={style}>
+                    <img
+                      className="cost-image"
+                      src={top3Img[0] ? top3Img[0] : ""}
+                      alt=""
+                      style={style}
+                    />
+                    <div className="cost-text" style={style}>
+                      {top3Price[0]
+                        ? Math.round((top3Price[0] / 10000) * 10) / 10
+                        : ""}
+                    </div>
+                  </div>
+                  <div className="detail-cost" style={style}>
+                    <img
+                      className="cost-image"
+                      src={top3Img[1] ? top3Img[1] : ""}
+                      alt=""
+                      style={style}
+                    />
+                    <div className="cost-text" style={style}>
+                      {top3Price[1]
+                        ? Math.round((top3Price[1] / 10000) * 10) / 10
+                        : ""}
+                    </div>
+                  </div>
+                  <div className="detail-cost" style={style}>
+                    <img
+                      className="cost-image"
+                      src={top3Img[2] ? top3Img[2] : ""}
+                      alt=""
+                      style={style}
+                    />
+                    <div className="cost-text" style={style}>
+                      {top3Price[2]
+                        ? Math.round((top3Price[2] / 10000) * 10) / 10
+                        : ""}
+                    </div>
+                  </div>
+                </div>
+                <div className="rate" style={style}>
+                  <img className="rate-image" src={star} alt="" style={style} />
+                  <div className="rate-text" style={style}>
+                    {Number.isInteger(rating) ? rating + ".0" : rating}
+                  </div>
                 </div>
               </div>
-              <div className="detail-cost" style={style}>
-                <img
-                  className="cost-image"
-                  src={top3Img[2] ? top3Img[2] : ""}
-                  alt=""
-                  style={style}
-                />
-                <div className="cost-text" style={style}>
-                  {top3Price[2] ? top3Price[2] / 10000 : ""}
-                </div>
-              </div>
-            </div>
-            <div className="rate" style={style}>
-              <img className="rate-image" src={star} alt="" style={style} />
-              <div className="rate-text" style={style}>
-                {rating}
-              </div>
-            </div>
+            </div>{" "}
           </div>
         </div>
       </Link>{" "}

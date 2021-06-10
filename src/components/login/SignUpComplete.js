@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import completeImg from "./complete.png";
+import completeImg from "./img/complete_blue.png";
 import "./common.scss";
 import "./signupcomplete.scss";
 
@@ -29,7 +29,7 @@ const Complete = () => {
       </div>
       <div className="buttonsection">
         <Link to="/">
-          <button className="login-btn">메인으로</button>
+          <button className="main-btn">메인으로</button>
         </Link>
       </div>
     </div>

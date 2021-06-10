@@ -3,7 +3,7 @@ import axios from 'axios';
 import Appstyle from './Planstyle.scss';
 import Icon from './Icon';
 
-function UserPost({ posts, onClickEditBtn }) {
+function UserPost({ posts, onClickEditBtn, onRemove }) {
     if (!posts) return null;
 
     const postDate = String(posts.startDate).split('-');
@@ -13,10 +13,15 @@ function UserPost({ posts, onClickEditBtn }) {
 
     const postTerm = posts.postForPlanResponseDtos;
     const { id } = posts;
-    const onClick = () => {
+    const onEditClick = () => {
         // console.log(posts);
         // console.log(id);
         onClickEditBtn(posts, id);
+    };
+    const onRemoveClick = () => {
+        // console.log(posts);
+        // console.log(id);
+        onRemove(id);
     };
     return (
         //     <>
@@ -50,9 +55,14 @@ function UserPost({ posts, onClickEditBtn }) {
                     <span className="UserPlace">{posts.planTitle}</span>
                 </span>
                 {!!onClickEditBtn && (
-                    <span>
-                        <button onClick={onClick}>수정</button>
-                    </span>
+                    <div className="plan-edit-container">
+                        <button className="plan-edit" onClick={onEditClick}>
+                            수정
+                        </button>
+                        <button className="plan-delete" onClick={onRemoveClick}>
+                            삭제
+                        </button>
+                    </div>
                 )}
 
                 <span className="CostBackground">

@@ -12,9 +12,9 @@ import RegisterAuth from "../../components/mypage/RegisterAuth";
 const RegisterAuthForm = ({ history }) => {
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
-  const { form, success } = useSelector(({ auth }) => ({
+  const { form, verification } = useSelector(({ auth }) => ({
     form: auth.registerAuth,
-    success: auth.success,
+    verification: auth.verification,
   }));
 
   const onChange = (e) => {
@@ -45,15 +45,15 @@ const RegisterAuthForm = ({ history }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (success === false) {
+    if (verification === false) {
       setError("인증번호가 일치하지 않습니다.");
       return;
     }
 
-    if (success === true) {
+    if (verification === true) {
       history.push("/authComplete");
     }
-  }, [success, history]);
+  }, [verification, history]);
 
   return (
     <RegisterAuth

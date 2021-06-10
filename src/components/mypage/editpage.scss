@@ -3,18 +3,23 @@ $gray: #767676;
 $darkgray: #535353;
 $blue: #0070ef;
 
-.setup {
-  margin-top: 50px;
+.edit {
+  margin-top: 150px;
   .prof_img {
     display: block;
     text-align: center;
     margin: 0 auto;
-    .profileImage {
-      display: block;
-      margin: 6vh auto 6vh auto;
+    img {
+      margin: 10px auto 30px auto;
       width: 174px;
       height: 174px;
       border-radius: 100px;
+    }
+    .profileImage {
+      display: block;
+      margin: 10px auto 30px auto;
+      width: 174px;
+      height: 174px;
     }
   }
   .info {
@@ -38,32 +43,35 @@ $blue: #0070ef;
         border: 2px solid $blue;
         border-radius: 10px;
       }
-      .upload-btn {
-        display: inline-block;
-        margin-right: 0.5vw;
-        border: 2px solid $blue;
-        border-radius: 10px;
-        background-color: white;
-        width: 10vw;
-        color: $blue;
-      }
 
-      .profile-btn {
-        display: inline-block;
-        margin-left: 0.5vw;
-        border: 2px solid $blue;
-        border-radius: 10px;
-        background-color: $blue;
-        width: 5vw;
-        color: white;
+      .imgUpload {
+        .upload-btn {
+          display: inline-block;
+          margin-right: 10px;
+          border: 2px solid $blue;
+          border-radius: 10px;
+          background-color: white;
+          width: 10vw;
+          color: $blue;
+        }
+
+        .profile-btn {
+          display: inline-block;
+          margin-left: 10px;
+          border: 2px solid $blue;
+          border-radius: 10px;
+          background-color: $blue;
+          width: 5vw;
+          color: white;
+        }
       }
       margin-bottom: 8vh;
     }
     .infoBox {
       display: block;
       margin: auto;
-      margin-top: 20px;
-      width: 350px;
+      margin-top: 10px;
+      width: 305px;
       .name {
         font-size: 16px;
         font-weight: bold;
@@ -73,10 +81,8 @@ $blue: #0070ef;
         color: #535353;
       }
       .box {
-        width: 350px;
-        height: 46px;
-        line-height: 3;
-        font-size: 16px;
+        width: 305px;
+        font-size: 1.2vw;
         margin-bottom: 30px;
         border: none;
         border-bottom: 2px solid #b5b5b5;
@@ -86,14 +92,22 @@ $blue: #0070ef;
       .box:hover {
         border-bottom: 2px solid #0070ef;
       }
-    }
-    .edit {
-      margin-top: 20px;
-      font-size: 16px;
-      text-align: center;
-      a {
-        color: $darkgray;
-        text-decoration: underline;
+      .edit {
+        font-size: 1vw;
+        text-align: center;
+        a {
+          color: $darkgray;
+          text-decoration: underline;
+        }
+      }
+      .change-btn {
+        display: inline-block;
+        position: absolute;
+        font-size: 0.9vw;
+        border: 2px solid $blue;
+        border-radius: 10px;
+        background-color: $blue;
+        color: white;
       }
     }
   }

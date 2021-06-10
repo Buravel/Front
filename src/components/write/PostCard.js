@@ -62,7 +62,9 @@ const PostCard = ({ card, onClick, bookmarks }) => {
                     </div>
                 </div>
                 <div className="postcard-price">
-                    <span className="number">{price / 10000}</span>
+                    <span className="number">
+                        {parseFloat((price / 10000).toFixed(1))}
+                    </span>
                     <span className="man">만원</span>
                 </div>
                 <div className="postcard-tags">

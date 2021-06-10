@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./quit.scss";
-import quitImage from "./quit.png";
+import quitImage from "./img/quit.png";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 axios.defaults.baseURL = "http://34.64.93.115";

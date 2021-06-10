@@ -10,11 +10,16 @@ const [LIST_PLANS, LIST_PLANS_SUCCESS, LIST_PLANS_FAILURE] =
     createRequestActionTypes('home/LIST_PLANS');
 
 export const initalize = createAction(INITIALIZE);
-export const listPlans = createAction(LIST_PLANS, ({ keyword, min, max }) => ({
-    keyword,
-    min,
-    max,
-}));
+export const listPlans = createAction(
+    LIST_PLANS,
+    ({ keyword, min, max, sort, page }) => ({
+        keyword,
+        min,
+        max,
+        sort,
+        page,
+    }),
+);
 
 const listPlansSaga = createRequestSaga(LIST_PLANS, homeAPI.planList);
 
