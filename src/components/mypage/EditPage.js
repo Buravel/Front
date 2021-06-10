@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./editpage.scss";
-import profile from "./profile.png";
+import profile from "./img/profile.png";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 axios.defaults.baseURL = "http://34.64.93.115";

@@ -9,9 +9,10 @@ const RegisterForm = ({ history }) => {
   const dispatch = useDispatch();
   const { form, success, errormsg } = useSelector(({ auth }) => ({
     form: auth.register,
-    success: auth.success,
+    success: auth.registersuccess,
     errormsg: auth.errormsg,
   }));
+
   const onChange = (e) => {
     const { value, name } = e.target;
     dispatch(
@@ -45,7 +46,6 @@ const RegisterForm = ({ history }) => {
 
   useEffect(() => {
     if (success === false) {
-      return;
     }
 
     if (success === true && error === null) {

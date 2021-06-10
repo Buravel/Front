@@ -96,7 +96,11 @@ const initialState = {
   auth: null,
   authError: null,
   errormsg: null,
-  success: null,
+  loginsuccess: null,
+  registersuccess: null,
+  findidsuccess: null,
+  findpwsuccess: null,
+  verification: null,
 };
 
 const auth = handleActions(
@@ -111,55 +115,57 @@ const auth = handleActions(
       [form]: initialState[form],
       auth: null,
       authError: null,
+      errormsg: null,
+      success: null,
     }),
     [REGISTER_SUCCESS]: (state) => ({
       ...state,
-      success: true,
+      registersuccess: true,
     }),
     [REGISTER_FAILURE]: (state, { payload }) => ({
       ...state,
-      success: false,
+      registersuccess: false,
       errormsg: payload,
     }),
     [LOGIN_SUCCESS]: (state) => ({
       ...state,
-      success: true,
+      loginsuccess: true,
     }),
     [LOGIN_FAILURE]: (state) => ({
       ...state,
-      success: false,
+      loginsuccess: false,
     }),
     [FINDID_SUCCESS]: (state) => ({
       ...state,
-      success: true,
+      findidsuccess: true,
     }),
     [FINDID_FAILURE]: (state) => ({
       ...state,
-      success: false,
+      findidsuccess: false,
     }),
     [FINDPW_SUCCESS]: (state) => ({
       ...state,
-      success: true,
+      findpwsuccess: true,
     }),
     [FINDPW_FAILURE]: (state) => ({
       ...state,
-      success: false,
+      findpwsuccess: false,
     }),
     [R_AUTH_SUCCESS]: (state) => ({
       ...state,
-      success: true,
+      verification: true,
     }),
     [R_AUTH_FAILURE]: (state) => ({
       ...state,
-      success: false,
+      verification: false,
     }),
     [RE_AUTH_SUCCESS]: (state) => ({
       ...state,
-      success: null,
+      verification: null,
     }),
     [RE_AUTH_FAILURE]: (state) => ({
       ...state,
-      success: null,
+      verification: null,
     }),
   },
   initialState

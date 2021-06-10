@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./checkPW.scss";
-import lock from "./lock.png";
+import lock from "./img/lock.png";
 import { withRouter } from "react-router-dom";
 axios.defaults.baseURL = "http://34.64.93.115";
 

@@ -5,7 +5,13 @@ $gray-post: #bfbfbf;
 $blue: #0070ef;
 
 .myPage {
-  overflow: hidden;
+  position: absolute;
+  display: grid;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
   width: 100%;
   .userSection {
     position: absolute;
@@ -23,17 +29,14 @@ $blue: #0070ef;
       height: 174px;
       margin-top: auto;
       margin-bottom: auto;
-      margin-left: 6.4vw;
       margin-left: 92px;
-      margin-right: 3.5vw;
+      border-radius: 100px;
     }
     .userBox {
-      //      width: 800px;
       justify-content: left;
       margin-top: 10px;
       margin-bottom: auto;
-      margin-left: 6.4vw;
-      margin-right: 3.5vw;
+      margin-left: 50px;
       .greeting {
         width: 500px;
         margin-top: 80px;
@@ -62,11 +65,13 @@ $blue: #0070ef;
         .logout {
           margin-top: 0;
           width: 91px;
-          border: solid $blue;
-          border-radius: 2.1vw;
-          font-size: 15px;
-          background-color: $blue;
+          height: 29px;
+          border: solid 1px #0070ef;
+          background-color: #0070ef;
+          border-radius: 26px;
+          font-size: 14px;
           color: white;
+          margin-right: 12px;
         }
         .logout {
           background-color: white;
@@ -77,16 +82,15 @@ $blue: #0070ef;
   }
 
   .postSection {
+    width: 100%;
+    display: flex;
+    flex-grow: 3;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    height: 1011px;
-    margin: 0;
-    padding: 0;
     margin-top: 370px;
-    position: absolute;
-    display: flex;
+    height: 1011px;
     background-color: $gray;
     justify-content: center;
     flex-wrap: wrap;

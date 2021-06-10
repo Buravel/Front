@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import completeImg from "./complete.png";
+import completeImg from "./img/complete_blue.png";
 import "./common.scss";
 import "./signupcomplete.scss";
 
