@@ -3,6 +3,7 @@ import './writePlanTitle.scss';
 import { getNight } from '../../util/date';
 import TitleModal from './TitleModal';
 import { useHistory } from 'react-router';
+
 const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
     const [sY, sM, sD] = startDate.split('-'); //splitDate(startDate);
     const [eY, eM, eD] = endDate.split('-'); //splitDate(endDate);
