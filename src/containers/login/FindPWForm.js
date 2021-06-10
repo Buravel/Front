@@ -9,7 +9,7 @@ const FindPWForm = ({ history }) => {
   const [error, setError] = useState(null);
   const { form, success } = useSelector(({ auth }) => ({
     form: auth.findPW,
-    success: auth.success,
+    success: auth.findpwsuccess,
   }));
 
   const onChange = (e) => {

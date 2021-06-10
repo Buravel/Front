@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../../modules/user";
+
 import MyPage from "../../components/mypage/MyPage";
 axios.defaults.baseURL = "http://34.64.93.115";
 let token;
 const MyPageForm = () => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState(null);
   const [nickname, setNickname] = useState(null);
   const [email, setEmail] = useState(null);
@@ -16,8 +20,6 @@ const MyPageForm = () => {
   const [boxes2, setBoxes2] = useState([]);
   const [page1, setPage1] = useState([]);
   const [page2, setPage2] = useState([]);
-  const [pageNum1, setPageNum1] = useState("");
-  const [pageNum2, setPageNum2] = useState("");
   const [current1, setCurrent1] = useState(0);
   const [current2, setCurrent2] = useState(0);
 
@@ -82,9 +84,11 @@ const MyPageForm = () => {
     closed();
   }, [current2]);
 
-  const onLogout = () => {
+  const onLogout = useCallback(() => {
+    dispatch(logout());
     localStorage.removeItem("token");
-  };
+    localStorage.removeItem("user");
+  }, [dispatch]);
 
   const prev1 = () => {
     if (current1 !== 0) setCurrent1(current1 - 1);

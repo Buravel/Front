@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logoImg2 from "./logo2.png";
+import logoImg2 from "./img/complete_send.png";
 import "./common.scss";
 import "./findauth.scss";
 

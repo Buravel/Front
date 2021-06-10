@@ -51,7 +51,6 @@ $darkblue: #2b71f3;
       margin-top: 20px;
       width: 386px;
       height: 55px;
-      border: solid $blue;
       border-radius: 28px;
       font-size: 18px;
       background-color: $darkblue;
@@ -59,7 +58,7 @@ $darkblue: #2b71f3;
     }
     .error-msg {
       color: red;
-      font-size: 0.8vw;
+      font-size: 12px;
       text-align: center;
     }
   }

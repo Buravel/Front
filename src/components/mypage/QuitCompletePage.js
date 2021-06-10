@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./quit.scss";
-import completeImage from "./complete_white.png";
+import completeImage from "./img/complete_white.png";
 axios.defaults.baseURL = "http://34.64.93.115";
 
 const style = { display: "inline-block" };

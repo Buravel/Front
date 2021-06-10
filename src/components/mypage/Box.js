@@ -1,22 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./box.scss";
-import star from "./star.png";
-import flightImg from "./airplane.png";
-import hotelImg from "./hotel.png";
-import dishImg from "./food.png";
-import trafficImg from "./traffic.png";
-import shopImg from "./shopping.png";
-import etcImg from "./etc.png";
-import basicImg from "./basicImg.png";
-import stackImg from "./stack.png";
+import star from "./img/star.png";
+import flightImg from "./img/airplane.png";
+import hotelImg from "./img/hotel.png";
+import dishImg from "./img/food.png";
+import trafficImg from "./img/traffic.png";
+import shopImg from "./img/shopping.png";
+import etcImg from "./img/etc.png";
+import basicImg from "./img/basicImg.png";
+import stackImg from "./img/stack.png";
 
 const style = { display: "inline-block" };
 const Box = ({ box }) => {
   const title = box.planTitle;
   const top3List = box.top3List;
-  const firsttotalprice = box.totalPrice;
-  const totalprice = firsttotalprice / 10000;
+  const getTotalprice = box.totalPrice;
+  const totalprice = Math.round((getTotalprice / 10000) * 10) / 10;
   const rating = box.planRating;
   const sday = box.startDate;
   const eday = box.endDate;
@@ -111,7 +111,9 @@ const Box = ({ box }) => {
                       style={style}
                     />
                     <div className="cost-text" style={style}>
-                      {top3Price[0] ? top3Price[0] / 10000 : ""}
+                      {top3Price[0]
+                        ? Math.round((top3Price[0] / 10000) * 10) / 10
+                        : ""}
                     </div>
                   </div>
                   <div className="detail-cost" style={style}>
@@ -122,7 +124,9 @@ const Box = ({ box }) => {
                       style={style}
                     />
                     <div className="cost-text" style={style}>
-                      {top3Price[1] ? top3Price[1] / 10000 : ""}
+                      {top3Price[1]
+                        ? Math.round((top3Price[1] / 10000) * 10) / 10
+                        : ""}
                     </div>
                   </div>
                   <div className="detail-cost" style={style}>
@@ -133,14 +137,16 @@ const Box = ({ box }) => {
                       style={style}
                     />
                     <div className="cost-text" style={style}>
-                      {top3Price[2] ? top3Price[2] / 10000 : ""}
+                      {top3Price[2]
+                        ? Math.round((top3Price[2] / 10000) * 10) / 10
+                        : ""}
                     </div>
                   </div>
                 </div>
                 <div className="rate" style={style}>
                   <img className="rate-image" src={star} alt="" style={style} />
                   <div className="rate-text" style={style}>
-                    {rating}
+                    {Number.isInteger(rating) ? rating + ".0" : rating}
                   </div>
                 </div>
               </div>
