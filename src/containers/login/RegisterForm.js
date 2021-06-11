@@ -6,6 +6,7 @@ import { withRouter } from "react-router-dom";
 
 const RegisterForm = ({ history }) => {
   const [error, setError] = useState(null);
+  const [doubleChecking, setChecking] = useState(true);
   const dispatch = useDispatch();
   const { form, success, errormsg } = useSelector(({ auth }) => ({
     form: auth.register,
@@ -47,10 +48,11 @@ const RegisterForm = ({ history }) => {
   useEffect(() => {
     if (success === false) {
     }
-    if (success === true && error === null) {
+    if (success === true && error === null && doubleChecking === true) {
       history.push("/signUpComplete");
+      setChecking(false);
     }
-  }, [success, dispatch, history, error]);
+  }, [success, dispatch, history, error, doubleChecking]);
 
   return (
     <Register
