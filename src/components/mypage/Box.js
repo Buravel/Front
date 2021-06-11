@@ -96,10 +96,13 @@ const Box = ({ box }) => {
               </div>
               <div className="infoSection">
                 <div className="title" style={style}>
-                  {title.length > 10 ? title.substring(0, 9) + "..." : title}
+                  {title.length > 8 ? title.substring(0, 7) + "..." : title}
                 </div>
                 <div className="cost" style={style}>
-                  {totalprice}만원
+                  {totalprice}
+                  <div className="unit" style={style}>
+                    만원
+                  </div>
                 </div>
                 <div className="date">{period}</div>
                 <div className="cost-sort" style={style}>
