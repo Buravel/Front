@@ -39,8 +39,7 @@ const FindPWForm = ({ history }) => {
       return;
     }
     if (success === true) {
-      console.log("비밀번호 찾기 성공");
-      history.push("/findAuth");
+      history.push("/findAuthPW");
     }
   }, [success, history]);
 

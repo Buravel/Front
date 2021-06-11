@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import "./quit.scss";
 import quitImage from "./img/quit.png";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
+import { logout } from "../../modules/user";
 axios.defaults.baseURL = "http://34.64.93.115";
 
 const style = { display: "inline-block" };
@@ -12,14 +14,16 @@ if (token) token = token.replace(/\"/gi, "");
 axios.defaults.headers.common["Authorization"] = `${token}`;
 
 const QuitPage = ({ history }) => {
+  const dispatch = useDispatch();
   const [msg, setMsg] = useState(null);
-
   const onSubmit = async (e) => {
     e.preventDefault();
     axios
       .delete("/mypage/account")
       .then((response) => {
-        localStorage.clear(); //localStorage 삭제할 때 사용
+        dispatch(logout());
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
         history.push("/quitComplete");
       })
       .catch((error) => {

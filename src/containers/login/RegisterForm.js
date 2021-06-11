@@ -45,6 +45,8 @@ const RegisterForm = ({ history }) => {
   }, [dispatch]);
 
   useEffect(() => {
+    if (success === false) {
+    }
     if (success === true && error === null) {
       history.push("/signUpComplete");
     }

@@ -32,7 +32,7 @@ const LoginForm = ({ history }) => {
   };
 
   useEffect(() => {
-    //    localStorage.clear(); //localStorage 삭제할 때 사용
+    localStorage.clear(); //localStorage 삭제할 때 사용
     dispatch(initializeForm("login"));
   }, [dispatch]);
 
@@ -51,9 +51,7 @@ const LoginForm = ({ history }) => {
       history.push("/");
       try {
         localStorage.setItem("user", JSON.stringify(user));
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     }
   }, [user, history]);
 

@@ -58,7 +58,6 @@ export const registerAuth = async ({ number }) => {
       return response;
     })
     .catch((error) => {
-      console.log(error);
       return Promise.reject(error);
     });
 };
