@@ -5,18 +5,18 @@ import "./common.scss";
 import "./findauth.scss";
 
 const style = { display: "inline-block" };
-const FindAuth = ({ onSubmit }) => {
+const FindAuthID = ({ onSubmit }) => {
   return (
     <div className="findauth">
       <img className="logo-complete" src={logoImg2} alt="" />
       <h3 className="send">이메일이 발송되었습니다.</h3>
       <h5 className="emailQ" style={style}>
         이메일이 도착하지 않았나요?{" "}
-        <Link to="/">
-          <h5 className="re-send" style={style}>
-            재전송
-          </h5>
-        </Link>
+        <Link to="/findID">
+          <h3 className="re-send" style={style}>
+            이메일 재입력
+          </h3>
+        </Link>{" "}
       </h5>
       <form onSubmit={onSubmit}>
         <div className="btnsection">
@@ -32,4 +32,4 @@ const FindAuth = ({ onSubmit }) => {
   );
 };
 
-export default FindAuth;
+export default FindAuthID;

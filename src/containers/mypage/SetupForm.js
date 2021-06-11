@@ -26,7 +26,6 @@ const SetupPageForm = () => {
         setProfile(response.data.profileImage);
         setEmailVerified(response.data.emailVerified);
       } catch (e) {
-        console.log(e);
         return Promise.reject(e);
       }
       setLoading(false);

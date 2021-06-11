@@ -1,16 +1,16 @@
 import React from "react";
 import TemplateNew2 from "../components/login/TemplateNew2";
-import FindAuth from "../components/login/FindAuth";
+import FindAuthID from "../components/login/FindAuthID";
 import Responsive from "../components/common/Responsive";
 
-const FindAuthPage = () => {
+const FindAuthPageID = () => {
   return (
     <Responsive>
       <TemplateNew2>
-        <FindAuth />
+        <FindAuthID />
       </TemplateNew2>
     </Responsive>
   );
 };
 
-export default FindAuthPage;
+export default FindAuthPageID;

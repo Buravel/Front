@@ -39,8 +39,7 @@ const FindIDForm = ({ history }) => {
       return;
     }
     if (success === true) {
-      console.log("아이디 찾기 성공");
-      history.push("/findAuth");
+      history.push("/findAuthID");
     }
   }, [success, history]);
 

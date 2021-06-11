@@ -38,7 +38,6 @@ const MyPageForm = () => {
         setProfile(response.data.profileImage);
         setEmailVerified(response.data.emailVerified);
       } catch (e) {
-        console.log(e);
         return Promise.reject(e);
       }
       setLoading(false);
@@ -92,22 +91,18 @@ const MyPageForm = () => {
 
   const prev1 = () => {
     if (current1 !== 0) setCurrent1(current1 - 1);
-    console.log("current1:" + current1);
   };
 
   const next1 = () => {
     if (current1 !== page1.totalPages - 1) setCurrent1(current1 + 1);
-    console.log("current1:" + current1);
   };
 
   const prev2 = () => {
     if (current2 !== 0) setCurrent2(current2 - 1);
-    console.log("current2:" + current2);
   };
 
   const next2 = () => {
     if (current2 !== page2.totalPages - 1) setCurrent2(current2 + 1);
-    console.log("current2:" + current2);
   };
 
   return (
