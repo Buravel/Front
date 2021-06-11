@@ -116,7 +116,11 @@ const auth = handleActions(
       auth: null,
       authError: null,
       errormsg: null,
-      success: null,
+      loginsuccess: null,
+      registersuccess: null,
+      findidsuccess: null,
+      findpwsuccess: null,
+      verification: null,
     }),
     [REGISTER_SUCCESS]: (state) => ({
       ...state,

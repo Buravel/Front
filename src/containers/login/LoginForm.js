@@ -33,7 +33,6 @@ const LoginForm = ({ history }) => {
 
   useEffect(() => {
     //    localStorage.clear(); //localStorage 삭제할 때 사용
-    //    setError("");
     dispatch(initializeForm("login"));
   }, [dispatch]);
 
@@ -41,9 +40,7 @@ const LoginForm = ({ history }) => {
     if (success === false) {
       setError("아이디나 비밀번호가 일치하지 않습니다.");
       return;
-    }
-
-    if (success === true) {
+    } else {
       setError("");
       dispatch(check());
     }
