@@ -44,33 +44,16 @@ const Box = ({ box }) => {
   const night = (edate.getTime() - sdate.getTime()) / 1000 / 60 / 60 / 24;
   const period = `${night}박 ${night + 1}일`;
 
-  const top3Price = [];
-  const top3Img = [];
-  if (top3List.includes("FLIGHT")) {
-    top3Img.push(flightImg);
-    top3Price.push(flight);
-  }
-  if (top3List.includes("SHOPPING")) {
-    top3Img.push(shopImg);
-    top3Price.push(shopping);
-  }
-  if (top3List.includes("HOTEL")) {
-    top3Img.push(hotelImg);
-    top3Price.push(hotel);
-  }
-  if (top3List.includes("TRAFFIC")) {
-    top3Img.push(trafficImg);
-    top3Price.push(traffic);
-  }
-  if (top3List.includes("DISH")) {
-    top3Img.push(dishImg);
-    top3Price.push(dish);
-  }
-  if (top3List.includes("ETC")) {
-    top3Img.push(etcImg);
-    top3Price.push(etc);
-  }
-
+  const top3 = [
+    { img: flightImg, price: flight },
+    { img: shopImg, price: shopping },
+    { img: hotelImg, price: hotel },
+    { img: trafficImg, price: traffic },
+    { img: dishImg, price: dish },
+    { img: etcImg, price: etc },
+  ].sort(function (a, b) {
+    return b.price - a.price;
+  });
   return (
     <>
       <Link to={"plan/" + planID}>
@@ -109,39 +92,39 @@ const Box = ({ box }) => {
                   <div className="detail-cost" style={style}>
                     <img
                       className="cost-image"
-                      src={top3Img[0] ? top3Img[0] : ""}
+                      src={top3[0].price ? top3[0].img : ""}
                       alt=""
                       style={style}
                     />
                     <div className="cost-text" style={style}>
-                      {top3Price[0]
-                        ? Math.round((top3Price[0] / 10000) * 10) / 10
+                      {top3[0].price
+                        ? Math.round((top3[0].price / 10000) * 10) / 10
                         : ""}
                     </div>
                   </div>
                   <div className="detail-cost" style={style}>
                     <img
                       className="cost-image"
-                      src={top3Img[1] ? top3Img[1] : ""}
+                      src={top3[1].price ? top3[1].img : ""}
                       alt=""
                       style={style}
                     />
                     <div className="cost-text" style={style}>
-                      {top3Price[1]
-                        ? Math.round((top3Price[1] / 10000) * 10) / 10
+                      {top3[1].price
+                        ? Math.round((top3[1].price / 10000) * 10) / 10
                         : ""}
                     </div>
                   </div>
                   <div className="detail-cost" style={style}>
                     <img
                       className="cost-image"
-                      src={top3Img[2] ? top3Img[2] : ""}
+                      src={top3[2].price ? top3[2].img : ""}
                       alt=""
                       style={style}
                     />
                     <div className="cost-text" style={style}>
-                      {top3Price[2]
-                        ? Math.round((top3Price[2] / 10000) * 10) / 10
+                      {top3[2].price
+                        ? Math.round((top3[2].price / 10000) * 10) / 10
                         : ""}
                     </div>
                   </div>
