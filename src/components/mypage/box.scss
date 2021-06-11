@@ -44,7 +44,7 @@ $blue: #0070ef;
       .infoSection {
         height: 79px;
         .title {
-          width: 120px;
+          width: 110px;
           margin: 0 0 0 5px;
           font-family: NotoSansKR;
           font-size: 15px;
@@ -66,8 +66,13 @@ $blue: #0070ef;
           letter-spacing: normal;
           color: #0070ef;
           position: absolute;
-          width: 70px;
+          width: 83px;
+          padding-right: 8px;
+          margin: 0;
           text-align: right;
+          .unit {
+            font-size: 14px;
+          }
         }
         .date {
           margin: 0px 0px 2px 5px;
