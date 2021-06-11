@@ -41,6 +41,8 @@ function OtherUserpost({ posts, bookmarks, bmark, setBmark }) {
           </div>
         ))}
       </div>
+
+      <div className="planBackgroundDayline" />
     </>
   );
 }
