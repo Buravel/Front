@@ -1,22 +1,53 @@
 $lightblue: #0070ef;
+
 .complete {
-  .h301 {
-    font-weight: 100;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 150px;
+  width: 1194px;
+  .completeImg {
+    width: 98px;
+    margin: 0 124px 60px 123px;
+  }
+  .greeting {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.46;
+    letter-spacing: -0.52px;
     text-align: center;
-    margin: 0;
-  }
-
-  .h504 {
-    margin: 0px;
-    margin-top: 10px;
-  }
-
-  .h505 {
-    color: $lightblue;
-    line-height: 0;
+    color: #535353;
   }
 
   .caution {
     text-align: center;
+    line-height: 1.71;
+    letter-spacing: -0.28px;
+    color: #707070;
+    .black {
+      font-size: 16px;
+      margin: 0px;
+      margin-top: 10px;
+      font-weight: 300;
+    }
+
+    .blue {
+      font-size: 16px;
+      color: $lightblue;
+      line-height: 0;
+      font-weight: 300;
+    }
+  }
+  .buttonsection {
+    text-align: center;
+    margin: 0 auto;
+    .main-btn {
+      color: white;
+      width: 255px;
+      height: 45px;
+      margin: 67px 57px 6px 58px;
+      border-radius: 23px;
+      background-color: #0070ef;
+      font-size: 18px;
+    }
   }
 }

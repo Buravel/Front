@@ -1,47 +1,99 @@
-$gray: #f5f5f5;
-$darkgray: #535353;
+$lightgray: #f5f5f5;
 $gray: #767676;
+$darkgray: #535353;
 $blue: #0070ef;
 
 .setup {
-  .profileImage {
+  margin-top: 50px;
+  .prof_img {
     display: block;
-    margin: 40px auto 60px auto;
-    width: 174px;
-    height: 174px;
+    text-align: center;
+    margin: 0 auto;
+    .profileImage {
+      display: block;
+      margin: 6vh auto 6vh auto;
+      width: 174px;
+      height: 174px;
+      border-radius: 100px;
+    }
   }
   .info {
+    .msg {
+      text-align: center;
+      color: $blue;
+      font-weight: 400;
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+    .error-msg {
+      text-align: center;
+      color: red;
+      font-weight: 400;
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+    .profileBox {
+      text-align: center;
+      .choose-file {
+        border: 2px solid $blue;
+        border-radius: 10px;
+      }
+      .upload-btn {
+        display: inline-block;
+        margin-right: 0.5vw;
+        border: 2px solid $blue;
+        border-radius: 10px;
+        background-color: white;
+        width: 10vw;
+        color: $blue;
+      }
+
+      .profile-btn {
+        display: inline-block;
+        margin-left: 0.5vw;
+        border: 2px solid $blue;
+        border-radius: 10px;
+        background-color: $blue;
+        width: 5vw;
+        color: white;
+      }
+      margin-bottom: 8vh;
+    }
     .infoBox {
       display: block;
       margin: auto;
-      width: 300px;
+      margin-top: 20px;
+      width: 350px;
       .name {
-        font-size: 12px;
-        color: $darkgray;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.5;
+        letter-spacing: normal;
+        text-align: left;
+        color: #535353;
       }
       .box {
-        width: 300px;
-        text-align: left;
+        width: 350px;
+        height: 46px;
+        line-height: 3;
         font-size: 16px;
         margin-bottom: 30px;
         border: none;
-        border-bottom: 2px solid $blue;
+        border-bottom: 2px solid #b5b5b5;
         color: $gray;
         outline: none;
       }
-      .edit {
-        text-decoration: underline;
-        font-size: 14px;
-        text-align: right;
+      .box:hover {
+        border-bottom: 2px solid #0070ef;
       }
-      .change-btn {
-        display: inline-block;
-        position: absolute;
-        font-size: 12px;
-        border: 2px solid $blue;
-        border-radius: 5px;
-        background-color: $blue;
-        color: white;
+    }
+    .edit {
+      margin-top: 20px;
+      font-size: 16px;
+      text-align: center;
+      a {
+        color: $darkgray;
+        text-decoration: underline;
       }
     }
   }

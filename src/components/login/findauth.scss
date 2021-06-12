@@ -1,26 +1,68 @@
 $lightblue: #0070ef;
+$darkgray: #535353;
+$gray: #c1c1c1;
+$lightgray: #d9d9d9;
 .findauth {
-  .h302 {
-    margin-bottom: 5px;
-    line-height: 0;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 193px;
+  width: 1194px;
+  .logo-complete {
+    width: 98px;
+    margin: 0 124px 60px 123px;
+  }
+  .send {
+    height: 38px;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.46;
+    letter-spacing: -0.52px;
+    color: #535353;
+  }
+
+  .emailQ {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: -0.28px;
+    margin: 0;
+    font-weight: 300;
+    margin: 5px 69px 39px;
+    color: #535353;
+    .re-send {
+      color: #0070ef;
+      font-size: 14px;
+    }
+  }
+
+  .error-msg {
+    color: red;
+    font-size: 14px;
     text-align: center;
   }
 
-  .h508 {
-    color: $lightblue;
-    margin: 0;
-    line-height: 0;
-  }
+  .btnsection {
+    .login-btn,
+    .mainpage-btn {
+      font-size: 18px;
+      border: none;
+      width: 144px;
+      height: 45px;
+      background-color: $lightblue;
+      border-radius: 10px;
+      a {
+        color: white;
+      }
+    }
 
-  .h509 {
-    text-align: left;
-    width: 24vw;
-    margin: 0;
-  }
-
-  .authNumForm {
-    width: 26.8vw;
-    margin-left: auto;
-    margin-right: auto;
+    .mainpage-btn {
+      width: 181px;
+      margin-left: 20px;
+      background-color: white;
+      border: 0.2vw solid $lightblue;
+      a {
+        color: $lightblue;
+      }
+    }
   }
 }

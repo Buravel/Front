@@ -1,0 +1,56 @@
+.expected-container {
+  width: 888px;
+  height: 69px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #0070ef;
+  border-radius: 40px;
+  margin: 0 auto -35px auto;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  p{
+    margin : 0;
+  }
+  .div {
+    border-right: 1px solid white;
+    height: 45px;
+    margin-top:13px;
+    .div-top {
+      font-size:12px;
+      color:#cbedf6;
+    }
+    .div-bottom {
+      font-size: 16px;
+      color: #ffffff;
+    }
+    .product-top-three {
+      float: left;
+      max-width: 50px;
+      margin-right: 10px;
+      .icon {
+        margin-right: 3.5px;
+      }
+      .plan {
+        font-size:14px;
+        color : #ffffff;
+      }
+    }
+  }
+  .div:nth-child(1) {
+    width: 340px;
+    padding-left:170px;
+  }
+  .div:nth-child(2) {
+    width: 110px;
+    padding-left:12.5px;
+  }
+  .div:nth-child(3) {
+    width: 115px;
+    padding-left:12.5px;
+  }
+  .div:nth-child(4) {
+    width: 325px;
+    border:none;
+    padding-left:12.5px;
+  }
+}

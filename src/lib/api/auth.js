@@ -1,132 +1,110 @@
-import axios from 'axios';
-import client from './client';
-axios.defaults.baseURL = 'http://34.64.93.115';
-let token;
+import axios from "axios";
+import client from "./client";
+axios.defaults.baseURL = "http://34.64.93.115";
+let token, errormsg;
 export const login = async ({ username, password }) =>
-    await client({
-        method: 'POST',
-        url: '/login',
-        data: {
-            username: username,
-            password: password,
-        },
-    })
-        .then((response) => {
-            token = JSON.stringify(response.headers.authorization);
-            try {
-                localStorage.setItem('token', token);
-            } catch (e) {
-                console.log('localStorage is not working');
-            }
-            return response;
-        })
-        .catch((error) => {
-            return Promise.reject(error);
-        });
-
-export const register = ({ nickname, username, email, password }) =>
-    client.post('/signUp', { nickname, username, email, password });
-
-export const findID = (email) => client.post('/findUsername', { email });
-export const findPW = (email) => client.post('/find', { email });
-export const value = {
-    token,
-};
-//test
-//export const registerAuth = ({ email }) =>
-//  client.post("/api/auth/registerAuth", { email });
-/*
-export const login = async ({ id, password }) =>
   await axios({
-    method: "GET",
-    url: "/user",
+    method: "POST",
+    url: "/login",
     data: {
-      id: id,
+      username: username,
       password: password,
     },
   })
     .then((response) => {
+      token = JSON.stringify(response.headers.authorization);
+      try {
+        localStorage.setItem("token", token);
+      } catch (e) {
+        console.log("localStorage is not working");
+      }
       return response;
     })
     .catch((error) => {
       return Promise.reject(error);
     });
 
-export const register = async ({ username, id, email, password }) =>
-  await axios
-    .post("/user", {
+export const register = async ({ nickname, username, email, password }) => {
+  await axios({
+    method: "POST",
+    url: "/signUp",
+    data: {
+      nickname: nickname,
       username: username,
-      id: id,
       email: email,
       password: password,
-    })
-    .then((response) => {
-      return response;
-    })
-    .catch((error) => {
-      return Promise.reject(error);
-    });
-
-export const check = async (id, password) =>
-  await axios({
-    method: "GET",
-    url: "/user",
-    data: {
-      id: id,
-      password: password,
     },
   })
     .then((response) => {
       return response;
     })
     .catch((error) => {
+      errormsg = error.response.data.errors[0].defaultMessage;
+      return Promise.reject(errormsg);
+    });
+};
+
+export const registerAuth = async ({ number }) => {
+  token = localStorage.getItem("token");
+  if (token) token = token.replace(/\"/gi, "");
+  axios.defaults.headers.common["Authorization"] = `${token}`;
+  await axios
+    .get("/emailVerification", {
+      params: {
+        token: number,
+      },
+    })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
       return Promise.reject(error);
     });
+};
+
+export const registerReAuth = async ({ number }) => {
+  token = localStorage.getItem("token");
+  if (token) token = token.replace(/\"/gi, "");
+  axios.defaults.headers.common["Authorization"] = `${token}`;
+  await axios
+    .post("/emailCheckToken", {
+      params: {
+        token: number,
+      },
+    })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      return Promise.reject(error);
+    });
+};
 
 export const findID = async ({ email }) =>
   await axios
-    .post("/user", {
-      email: email,
+    .get("/findUsername", {
+      params: {
+        email: email,
+      },
     })
     .then((response) => {
-      console.log(response);
       return response;
     })
     .catch((error) => {
       return Promise.reject(error);
     });
 
-export const findPW = async (email) =>
+export const findPW = async ({ email }) =>
   await axios
-    .post("/user", {
-      email: email,
-    })
+    .post("/tempPassword", email)
     .then((response) => {
-      console.log(response);
       return response;
     })
     .catch((error) => {
       return Promise.reject(error);
     });
-*/
-/*axios.get("/user").then((response) => {
-  console.log(response);
-});
-*/
-/*  axios
-    .get("/user", { id, password })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-export const register = ({ username, id, email, password }) =>
-  axios.post("/user", { username, id, email, password }).then((response) => {
-    console.log(response);
-  });
-export const check = () =>
-  axios.get("/user").then((response) => {
-    console.log(response);
-  });
-*/
+export const check = () => {
+  const token = localStorage.getItem("token")?.replaceAll('"', "");
+  client.defaults.headers.common["Authorization"] = token;
+  return client.get("/check");
+};

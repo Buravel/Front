@@ -1,141 +1,443 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./Bookmark.scss";
-import Bicon from "./Bicon";
-import AddBmark from "./AddBmark";
-import DelBmark from "./DelBmark";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './Bookmark.scss';
+import Bicon from './Bicon';
+import AddBmark from './AddBmark';
+import DelBmark from './DelBmark';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  HashRouter,
-} from "react-router-dom";
-import BookmarkDetail from "./BookmarkDetail";
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams,
+    HashRouter,
+} from 'react-router-dom';
+import BookmarkDetail from './BookmarkDetail';
+import BmarkNum from './BmarkNum';
+import BkPostArray from './BkPostArray';
 
 function BookmarkMain() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isdelOpen, setdelIsOpen] = useState(false);
-  const [isdetailOpen, setdetailOpen] = useState(true);
-  const [bookmarks, setBookmarks] = useState([]);
-  const [title, setTitle] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
+    const [isdelOpen, setdelIsOpen] = useState(false);
+    const [isdetailOpen, setdetailOpen] = useState(true);
+    const [isnameEditOpen, setisnameEditOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [bookmarks, setBookmarks] = useState([]);
+    const [bookmarksdata, setBookmarksdata] = useState([]);
+    const [checkedInputs, setCheckedInputs] = useState([]);
+    const [bmarknum, setbmarknum] = useState([]);
+    const [thisbmarkid, setthisbmarkid] = useState('');
 
-  const url = "http://localhost:1000";
-  useEffect(() => {
-    const fetchBookmarks = async () => {
-      const response = await axios("http://localhost:1000/bookmark");
-      setBookmarks(response.data);
+    const [title, setTitle] = useState('');
+    const thisLink = window.location.href;
+    const Linkid = thisLink.split('plan/')[1];
+    let token = localStorage.getItem('token');
+    token = token.replace(/"/g, '');
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+    // function Thisbmarkcount(props) {
+    //   const [postcount, setpostcount] = useState([]);
+    //   useEffect(() => {
+    //     const fetchCount = async () => {
+    //       try {
+    //         setpostcount(null);
+    //         const response = await axios.get(
+    //           `http://34.64.93.115/bookmark/${props}`
+    //         );
+    //         setpostcount(response.data._embedded.bookmarkPostResponseDtoList);
+    //       } catch (e) {
+    //         setError(e);
+    //       }
+    //       setLoading(false);
+    //     };
+    //     fetchCount();
+    //   }, []);
+    //   const Bmarklt =
+    //     bookmarks !== null &&
+    //     bookmarks !== [] &&
+    //     bookmarks.length !== undefined &&
+    //     bookmarks;
+
+    //   const BmarkltN = Bmarklt && Bmarklt.map((k) => k).length;
+    //   return BmarkltN == [] ? "0" : BmarkltN;
+    // }
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                setError(null);
+                setBookmarks(null);
+                setLoading(true);
+                const response = await axios.get(
+                    'http://34.64.93.115/bookmark',
+                );
+                setBookmarks(response.data._embedded.bookmarkResponseDtoList);
+            } catch (e) {}
+            setLoading(false);
+        };
+
+        fetchPosts();
+    }, []);
+
+    const deletebmark = (k) => {
+        for (let i = 0; i < checkedInputs.length; i++) {
+            axios.delete(`http://34.64.93.115/bookmark/${checkedInputs[i]}`);
+        }
+        alert('북마크가 삭제되었습니다');
+        setBookmarks(
+            bookmarks && bookmarks.filter((k) => !checkedInputs.includes(k.id)),
+        );
+
+        setCheckedInputs('');
+        setdelIsOpen(!isdelOpen);
     };
-    fetchBookmarks();
-  }, []);
+    // console.log(bookmarks && bookmarks.filter((k) => ![360, 385].includes(k.id)));
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
-  const toggledelPopup = () => {
-    setdelIsOpen(!isdelOpen);
-  };
-  const toggledetailPopup = () => {
-    setdetailOpen(!isdetailOpen);
-  };
-  const bmarkList = bookmarks.bookmarkplan;
-  const bmarkListN = bookmarks.map((k) => k);
-  const bmarknumber = [];
-  for (let i = 0; i <= bmarkListN.length; i++) {
-    bmarknumber.push(bmarkList && bmarkList.map((k) => k));
-  }
-  const bmarkListNum = bmarkList && bmarkList.map((k) => k);
+    // alert("북마크가 삭제되었습니다");
 
-  console.log(bmarkList);
-  function Child() {
-    // We can use the `useParams` hook here to access
-    // the dynamic pieces of the URL.
-    let { id } = useParams();
+    // axios
+    //   .get("http://34.64.93.115/bookmark")
+    //   .then((res) => setBookmarks(res.data._embedded.bookmarkResponseDtoList));
+
+    // window.location.href = `/bookmarks`;
+
+    // const returning = axios
+    //   .get("http://34.64.93.115/bookmark")
+    //   .then((response) => {
+    //     setBookmarks(response.data._embedded.bookmarkResponseDtoList);
+    //   }, []);
+    const toggledelPopupcancel = () => {
+        setdelIsOpen(!isdelOpen);
+        setCheckedInputs([]);
+    };
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    };
+    const toggledelPopup = () => {
+        setdelIsOpen(!isdelOpen);
+    };
+    const toggledetailPopup = () => {
+        setdetailOpen(!isdetailOpen);
+    };
+    const toggleisnameEditPopup = () => {
+        setisnameEditOpen(!isnameEditOpen);
+    };
+    //처음에 undefind를 생각해야함
+    const bmarkListN =
+        bookmarks !== null && bookmarks !== [] && bookmarks.map((k) => k);
+
+    // // if (!bmarkListN) return [];
+    const bmarknumber = [];
+    for (let i = 0; i <= bmarkListN.length; i++) {
+        bmarknumber.push(bmarkListN && bmarkListN.map((k) => k));
+    }
+    const bmarkListNum = bmarkListN !== false && bmarkListN.map((k) => k);
+
+    const bmarkArray = [];
+    for (let i = 0; i < bmarkListN.length; i++) {
+        bmarkArray.push(bmarkListN[i].bookmarkTitle);
+    }
+    const bmarkIdArray = [];
+    for (let i = 0; i < bmarkListN.length; i++) {
+        bmarkIdArray.push(bmarkListN[i].id);
+    }
+    const changeHandler = (checked, id) => {
+        if (checked) {
+            setCheckedInputs([...checkedInputs, id]);
+        } else {
+            // 체크 해제
+            setCheckedInputs(checkedInputs.filter((el) => el !== id));
+        }
+    };
+    const handleTitleChange = (event) => {
+        setTitle(event.target.value);
+    };
+    const NewFold = bmarkArray.filter((el) => el.includes('새 폴더'));
+    const NewFolde = NewFold.map((k) => Number(k.replace('새 폴더', '')));
+    const folderMax =
+        NewFolde == '' || NewFolde == undefined
+            ? 1
+            : Math.max.apply(null, NewFolde) + 1;
+    const handleSubmit = (event) => {
+        axios
+            .patch(`http://34.64.93.115/bookmark/${thisbmarkid}`, {
+                bookmarkTitle: title,
+            })
+            .then((res) => {
+                setTitle('');
+            }, []);
+    };
 
     return (
-      <>
-        <BookmarkDetail />
-      </>
-    );
-  }
-
-  return (
-    <>
-      <HashRouter basename="">
         <div>
-          <Switch>
-            <Route path="/:id" children={<Child />} />
-          </Switch>
-          {isdetailOpen && (
+            {/* {isdetailOpen && ( */}
             <div>
-              <div className="bookmarkbackground">
-                <span className="bookmarkTitle">
-                  <span className="bookmarkMaintitle">북마크</span>
-                  <span className="bookmarkSubtitle">({bookmarks.length})</span>
-                </span>
-                <button className="bookmarkAddbtn" onClick={togglePopup}>
-                  <Bicon
-                    picture="BookmarkAddbutton"
-                    className="BookmarkAddbutton"
-                  />
-                </button>
-                <button className="bookmarkDelbtn" onClick={toggledelPopup}>
-                  <Bicon
-                    picture="BookmarkDeletebutton"
-                    className="BookmarkDeletebutton"
-                  />
-                </button>
-              </div>
-              <div className="bmarkTitlebuttom" />
-              <div className="bmarkPostBackground">
-                {bmarkListN.map((item) => (
-                  <Link to={"/" + item.id}>
-                    <span className="bmarkptbk">
-                      <span
-                        className="bmarkPhotobk"
-                        onClick={toggledetailPopup}
-                      >
-                        <span className="bptl">
-                          <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMVRuHiPl5TVXtmxi1RvHyczQglb9OosvC5Q&usqp=CAU"
-                            className="bkimg1"
-                          />
-                        </span>
-                        <span className="bptr">
-                          <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMVRuHiPl5TVXtmxi1RvHyczQglb9OosvC5Q&usqp=CAU"
-                            className="bkimg2"
-                          />
-                        </span>
-                        <span className="bpbl">
-                          <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMVRuHiPl5TVXtmxi1RvHyczQglb9OosvC5Q&usqp=CAU"
-                            className="bkimg3"
-                          />
-                        </span>
-                        <span className="bpbr">
-                          <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMVRuHiPl5TVXtmxi1RvHyczQglb9OosvC5Q&usqp=CAU"
-                            className="bkimg4"
-                          />
-                        </span>
-                        <span className="bkname">
-                          {item.title}({})
-                        </span>
-                      </span>
-                    </span>
-                  </Link>
-                ))}
+                <div className="bookmarkbackground">
+                    <span className="bookmarkTitle">
+                        <span className="bookmarkMaintitle">북마크</span>
 
-                {isOpen && <AddBmark handleClose={togglePopup} />}
-                {isdelOpen && <DelBmark handleClose={toggledelPopup} />}
-              </div>
+                        <span className="bookmarkSubtitle">
+                            ({bmarkListN.length})
+                        </span>
+                    </span>
+
+                    {isdelOpen && (
+                        <>
+                            <meta charset="UTF-8" />
+                            <div className="popupbkdelBackground">
+                                <div className="popupbkBox">
+                                    <div>
+                                        <button
+                                            type="submit"
+                                            className="delBmarkBtn"
+                                            onClick={deletebmark}
+                                        >
+                                            삭제
+                                        </button>
+                                        <button
+                                            onClick={toggledelPopupcancel}
+                                            className="BookmarkDeletecancelbuttonbg"
+                                        >
+                                            <Bicon
+                                                picture="BookmarkDeletebutton"
+                                                className="BookmarkDeletecancelbutton"
+                                            />
+                                            <span className="BookmarkDeletebuttonName">
+                                                취소
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+                    )}
+
+                    <button
+                        className="bookmarkAddbtn"
+                        onClick={(event) => {
+                            event.preventDefault();
+                            axios
+                                .post(`http://34.64.93.115/bookmark`, {
+                                    bookmarkTitle: `새 폴더${
+                                        folderMax !== -Infinity && folderMax
+                                    }`,
+                                })
+                                .then((res) => {
+                                    setBookmarks(
+                                        bookmarks == '' ||
+                                            bookmarks == undefined
+                                            ? [res.data]
+                                            : [...bookmarks, res.data],
+                                    );
+                                    alert(`파일이 생성되었습니다`);
+                                }, [])
+                                .catch(function (error) {
+                                    alert(
+                                        '오류가 생겼습니다. 다시 시도해 주세요',
+                                    );
+                                }, []);
+                        }}
+                    >
+                        {/* <Bicon
+                        picture="BookmarkAddbutton"
+                        className="BookmarkAddbutton"
+                      /> */}
+                        새폴더
+                    </button>
+                    <button className="bookmarkDelbtn" onClick={toggledelPopup}>
+                        <Bicon
+                            picture="BookmarkDeletebutton"
+                            className="BookmarkDeletebutton"
+                        />
+                    </button>
+                </div>
+                <div className="bmarkTitlebuttom" />
+                <div className="bmarkPostBackground">
+                    {bmarknumber[0] &&
+                        bmarknumber[0].reverse().map((item) => (
+                            <>
+                                {isdelOpen && (
+                                    <>
+                                        <span className="bmarkptbkdel">
+                                            <label class="bmarktitleCheckcontainer">
+                                                <input
+                                                    className="checkInput"
+                                                    type="checkbox"
+                                                    id={item.id}
+                                                    onChange={(e) => {
+                                                        changeHandler(
+                                                            e.currentTarget
+                                                                .checked,
+                                                            item.id,
+                                                        );
+                                                    }}
+                                                    checked={
+                                                        checkedInputs.includes(
+                                                            item.id,
+                                                        )
+                                                            ? true
+                                                            : false
+                                                    }
+                                                />
+                                                <span class="checktitlemark"></span>
+                                            </label>
+                                            {checkedInputs &&
+                                                checkedInputs.includes(
+                                                    item.id,
+                                                ) && (
+                                                    <span
+                                                        className="bookmarkdelClicked"
+                                                        //이부분 도형으로 덮어씌울수 있도록 수정
+                                                    >
+                                                        <Bicon
+                                                            picture="bookmarkChecked"
+                                                            className="bookmarkdelChecked"
+                                                        />
+                                                    </span>
+                                                )}
+
+                                            <span
+                                                className="bmarkPhotobk"
+                                                onClick={toggledetailPopup}
+                                            >
+                                                <span className="bptl">
+                                                    {item.bookmarkImages[0] !==
+                                                        '' &&
+                                                        item
+                                                            .bookmarkImages[0] !==
+                                                            undefined && (
+                                                            <img
+                                                                src={`data:image/png;base64,${item.bookmarkImages[0]}`}
+                                                                className="bkimg1"
+                                                            />
+                                                        )}
+                                                </span>
+                                                <span className="bptr">
+                                                    {item.bookmarkImages[1] !==
+                                                        '' &&
+                                                        item
+                                                            .bookmarkImages[1] !==
+                                                            undefined && (
+                                                            <img
+                                                                src={`data:image/png;base64,${item.bookmarkImages[1]}`}
+                                                                className="bkimg2"
+                                                            />
+                                                        )}
+                                                </span>
+                                                <span className="bpbl">
+                                                    {item.bookmarkImages[2] !==
+                                                        '' &&
+                                                        item
+                                                            .bookmarkImages[2] !==
+                                                            undefined && (
+                                                            <img
+                                                                src={`data:image/png;base64,${item.bookmarkImages[2]}`}
+                                                                className="bkimg3"
+                                                            />
+                                                        )}
+                                                </span>
+                                                <span className="bpbr">
+                                                    {item.bookmarkImages[3] !==
+                                                        '' &&
+                                                        item
+                                                            .bookmarkImages[3] !==
+                                                            undefined && (
+                                                            <img
+                                                                src={`data:image/png;base64,${item.bookmarkImages[3]}`}
+                                                                className="bkimg4"
+                                                            />
+                                                        )}
+                                                </span>
+                                                <span className="bkname">
+                                                    {item.bookmarkTitle}
+                                                    <BmarkNum id={item.id} />
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </>
+                                )}
+                                {!isdelOpen && (
+                                    <span classname="thisbmarkbackground">
+                                        <Link to={'bookmarks/' + item.id}>
+                                            <span className="bmarkptbk">
+                                                <span
+                                                    className="bmarkPhotobk"
+                                                    onClick={toggledetailPopup}
+                                                >
+                                                    <span className="bptl">
+                                                        {item
+                                                            .bookmarkImages[0] !==
+                                                            '' &&
+                                                            item
+                                                                .bookmarkImages[0] !==
+                                                                undefined && (
+                                                                <img
+                                                                    src={`data:image/png;base64,${item.bookmarkImages[0]}`}
+                                                                    className="bkimg1"
+                                                                />
+                                                            )}
+                                                    </span>
+                                                    <span className="bptr">
+                                                        {item
+                                                            .bookmarkImages[1] !==
+                                                            '' &&
+                                                            item
+                                                                .bookmarkImages[1] !==
+                                                                undefined && (
+                                                                <img
+                                                                    src={`data:image/png;base64,${item.bookmarkImages[1]}`}
+                                                                    className="bkimg2"
+                                                                />
+                                                            )}
+                                                    </span>
+                                                    <span className="bpbl">
+                                                        {item
+                                                            .bookmarkImages[2] !==
+                                                            '' &&
+                                                            item
+                                                                .bookmarkImages[2] !==
+                                                                undefined && (
+                                                                <img
+                                                                    src={`data:image/png;base64,${item.bookmarkImages[2]}`}
+                                                                    className="bkimg3"
+                                                                />
+                                                            )}
+                                                    </span>
+                                                    <span className="bpbr">
+                                                        {item
+                                                            .bookmarkImages[3] !==
+                                                            '' &&
+                                                            item
+                                                                .bookmarkImages[3] !==
+                                                                undefined && (
+                                                                <img
+                                                                    src={`data:image/png;base64,${item.bookmarkImages[3]}`}
+                                                                    className="bkimg4"
+                                                                />
+                                                            )}
+                                                    </span>
+                                                    <span className="bkname">
+                                                        {item.bookmarkTitle}
+
+                                                        <BmarkNum
+                                                            id={item.id}
+                                                        />
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </Link>
+                                        <></>
+                                    </span>
+                                )}
+                            </>
+                        ))}
+
+                    {/* {isOpen && <AddBmark handleClose={togglePopup} />} */}
+                </div>
             </div>
-          )}
+            {/* )} */}
         </div>
-      </HashRouter>
-    </>
-  );
+    );
 }
 export default BookmarkMain;

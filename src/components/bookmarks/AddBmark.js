@@ -10,8 +10,10 @@ function AddBmark(props) {
   const [bookmarks, setBookmarks] = useState([]);
   const [title, setTitle] = useState("");
   const [deltitle, setDeltitle] = useState("");
+  let token = localStorage.getItem("token");
+  token = token.replace(/"/g, "");
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-  const url = "http://localhost:1000";
   useEffect(() => {
     const fetchBookmarks = async () => {
       const response = await axios("http://localhost:1000/bookmark");
@@ -25,16 +27,18 @@ function AddBmark(props) {
   const handleDeltitleChange = (event) => {
     setDeltitle(event.target.value);
   };
+  const AB = props.id;
 
   const handleSubmit = (event) => {
-    axios
-      .post("http://localhost:1000/bookmark", { id: null, title: title })
-      .then((res) => {
-        setBookmarks([...bookmarks, res.data]);
-      });
+    axios.patch(`http://localhost:1000/bookmark/?id=${AB}`, {
+      title: title,
+    });
+    // .then((res) => {
+    //   setBookmarks([...bookmarks, res.data]);
+    // });
     setTitle("");
   };
-
+  console.log(title);
   const bkI = bookmarks.filter((k) => k.title === deltitle);
   const bkId = bkI.map((e) => e.id)[0];
   //map으로 한 다음 추출할것
@@ -61,7 +65,7 @@ function AddBmark(props) {
                   className="addBmarkText"
                 />
                 <button type="submit" className="addBmarkBtn">
-                  북마크 추가
+                  이름 변경
                 </button>
               </form>
               {/* <form onSubmit={handledelSubmit}>
@@ -75,8 +79,6 @@ function AddBmark(props) {
                 </form> */}
             </div>
           </div>
-
-          {props.content}
         </div>
       </ModalPortal>
     </>

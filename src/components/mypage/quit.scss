@@ -1,0 +1,68 @@
+$darkgray: #535353;
+$gray: #c1c1c1;
+$darkblue: #2b71f3;
+.quitpage {
+  text-align: center;
+  justify-content: center;
+  color: $darkgray;
+  font-size: 1.1vw;
+  .quitImage,
+  .quitCImage {
+    display: block;
+    margin: 208px auto 40px auto;
+  }
+  .quitCImage {
+    margin-top: 266px;
+  }
+  .txt {
+    font-size: 16px;
+    line-height: 1.69;
+    letter-spacing: -0.32px;
+    text-align: center;
+    color: #535353;
+    .bold {
+      font-weight: 600;
+    }
+  }
+  .quit-input {
+    margin-top: 6vh;
+    border: none;
+    border-bottom: 1.5px solid $darkgray;
+    outline: none;
+  }
+  .quit-input:hover {
+    border-bottom: 1.5px solid $darkblue;
+  }
+
+  .error-msg {
+    color: red;
+    font-size: 0.9vw;
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+  }
+  .quit-btn,
+  .quit-cancel {
+    border-radius: 10px;
+    font-size: 18px;
+    background-color: #0070ef;
+    color: white;
+    width: 127px;
+    height: 45px;
+    margin: 0 26px 0 0;
+  }
+  .quit-cancel {
+    background-color: $gray;
+    color: $darkgray;
+  }
+
+  .main-btn {
+    border-radius: 23px;
+    background-color: #0070ef;
+    color: white;
+    width: 160px;
+    height: 45px;
+    font-size: 18px;
+    margin: 52px 64px 0;
+  }
+}

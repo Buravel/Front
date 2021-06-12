@@ -1,16 +1,20 @@
 import React from "react";
 import Responsive from "../components/common/Responsive";
-import UserPostInfo from "../components/plan/UserPostInfo";
-import OtherUserpost from "../components/plan/OtherUserpost";
-import UserPost from "../components/plan/UserPost";
+import HeaderContainer from "../containers/common/HeaderContainer";
+import PlanContainer from "../containers/plan/PlanContainer";
+import PlanBackground from "../components/plan/PlanBackground";
+import PostResponsive from "../components/plan/PostResponsive";
 
 const Plan = () => {
   return (
-    <Responsive>
-      <UserPost />
-      {/* <UserPostInfo /> */}
-      <OtherUserpost />
-    </Responsive>
+    <>
+      <HeaderContainer />
+      <PostResponsive>
+        <Responsive>
+          <PlanContainer />
+        </Responsive>
+      </PostResponsive>
+    </>
   );
 };
 

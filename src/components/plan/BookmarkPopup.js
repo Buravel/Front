@@ -2,44 +2,35 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Icon from "./Icon";
 import ModalPortal from "./ModalPortal";
+import { withRouter } from "react-router-dom";
+axios.defaults.baseURL = "http://34.64.93.115";
+// axios.defaults.baseURL = "http://34.64.93.115";
 
-function BookmarkPopup(props) {
-  const [bmark, setBmark] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+function BookmarkPopup({
+  bookmarks,
+  postTitle,
+  postPicture,
+  star,
+  money,
+  icon,
+  id,
+  thisplanId,
+  handleClose,
+  bmark,
+  setBmark,
+}) {
+  // const [currentbmark, setcurrentbmark] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [bmarkinputValue, setBmarkinputValue] = useState("북마크");
   const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        setError(null);
-        setPosts(null);
-        setLoading(true);
-        const response = await axios.get("http://localhost:8080/post");
-        setPosts(response.data);
-      } catch (e) {
-        setError(e);
-      }
-      setLoading(false);
-    };
+  let token = localStorage.getItem("token");
+  token = token.replace(/"/g, "");
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-    fetchPosts();
-  }, []);
-
-  useEffect(() => {
-    const fetchBmark = async () => {
-      const response = await axios("http://localhost:8000/bookmark");
-      setBmark(response.data);
-    };
-    fetchBmark();
-  }, []);
-  if (!posts) return null;
-  if (!bmark) return null;
-
-  const bmarkLi = bmark.bookmarkResponseDtoList;
-  const bmarkList = bmarkLi && bmarkLi.map((k) => k);
-  const bmarkNum = bmarkLi && bmarkLi.map((k) => k).length;
+  const bmarkList = bmark && bmark.map((k) => k);
+  const bmarkNum = bmark && bmark.length;
+  // const bmarkList = bmarkLi && bmarkLi.map((k) => k);
+  // const bmarkNum = bmarkLi && bmarkLi.map((k) => k).length;
   const bmarkArray = [];
   for (let i = 0; i < bmarkNum; i++) {
     bmarkArray.push(bmarkList[i].bookmarkTitle);
@@ -48,31 +39,22 @@ function BookmarkPopup(props) {
   for (let i = 0; i < bmarkNum; i++) {
     bmarkIdArray.push(bmarkList[i].id);
   }
-  console.log(bmarkLi);
 
-  // const bmarkArray = bmark.map((posts) => posts.title);
-  // const bmarkIdArray = bmark.map((posts) => posts.id);
-  const bmarkIdMax = Math.max.apply(null, bmarkIdArray) + 1;
-  const inMyBookmark =
-    "http://localhost:8000/bookmark/mybookmark" + bmarkinputValue;
-  // const styleValue = { background: "orange" };
+  const thisBmark =
+    bmarkList && bmarkList.filter((k) => k.bookmarkTitle === bmarkinputValue);
 
-  // console.log(inMyBookmark);
-
-  const postTerm = posts.postForPlanResponseDtos;
-  const postId = postTerm && postTerm.filter((k) => k.id === props.id);
-  const thisPost = postId && postId[0];
+  const thisBmarkId = thisBmark && thisBmark.map((k) => k.id)[0];
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:8000/bookmark", {
-        id: bmarkIdMax,
+      .post(`http://34.64.93.115/bookmark`, {
         bookmarkTitle: searchValue,
       })
       .then((res) => {
-        console.log(res.data);
-        setBmark([...bmark, res.data]);
+        setBmark(
+          bmark == undefined || bmark == "" ? [res.data] : [...bmark, res.data]
+        );
       });
     setSearchValue("");
   };
@@ -87,7 +69,7 @@ function BookmarkPopup(props) {
           <img
             src="/images/planImg/bmarkexit.svg"
             className="bmarkexit"
-            onClick={props.handleClose}
+            onClick={handleClose}
           />
           <div className="blank"></div>
           <div className="bmarkChoice">
@@ -108,45 +90,22 @@ function BookmarkPopup(props) {
               onChange={(event) => setSearchValue(event.target.value)}
             />
             <Icon picture="addBmarkButton" className="addBmarkButton" />
-            <button
-              className="addBmarkButtonClick"
-              type="submit"
-              // onClick={() => {
-              //   axios.post(
-              //     "http://localhost:8000/bookmark",
-              //     {
-              //       id: bmarkIdMax,
-              //       bookmarkTitle: searchValue,
-              //     }
-              //   accountResponseDto: {
-              //     id: props.id,
-              //     username: props.username,
-              //     profileImage: props.profileImage,
-              //     email: props.email,
-              //     emailVerified: props.emailVerified,
-              //   },
-              //   bookmarkPostResponseDtos: props.bookmarkPostResponseDtos,
-              //   bookmarkImages: props.bookmarkImages,
-              //   _links: {
-              //     self: {
-              //       href: `http://localhost:8080/bookmark/${bmarkIdMax}`,
-              //     },
-              //   },
-              // });
-              // );
-              // }}
-            />
+            <button className="addBmarkButtonClick" type="submit" />
           </form>
           <div className="bmarklinetwo" />
           <button
             className="bamrkGet"
             onClick={() => {
-              axios.post(inMyBookmark, thisPost);
+              axios.post(
+                `http://34.64.93.115/bookmark/post/${thisBmarkId}/${id}`
+              );
+
+              alert(`북마크에 추가되었습니다`);
             }}
           >
             <Icon picture="bmarkGet" />
           </button>
-          <button className="bmarkCancel" onClick={props.handleClose}>
+          <button className="bmarkCancel" onClick={handleClose}>
             <Icon picture="bmarkCancel" />
           </button>
         </div>
@@ -154,4 +113,4 @@ function BookmarkPopup(props) {
     </ModalPortal>
   );
 }
-export default BookmarkPopup;
+export default withRouter(BookmarkPopup);

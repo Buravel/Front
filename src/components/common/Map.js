@@ -1,10 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import {
-    GoogleMap,
-    useJsApiLoader,
-    Marker,
-    InfoWindow,
-} from '@react-google-maps/api';
+import React, { useState } from 'react';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import dotenv from 'dotenv';
 import './map.scss';
 dotenv.config();
@@ -19,13 +14,6 @@ const center = {
     lng: 127.02763080131218,
 };
 
-const divStyle = {
-    background: `white`,
-    width: '60px',
-    height: '30px',
-    fontSize: '0.6rem',
-};
-
 const Map = ({ location }) => {
     const [visible, setVisible] = useState(false);
     const onMap = () => setVisible(!visible);
@@ -37,7 +25,7 @@ const Map = ({ location }) => {
     return isLoaded && visible ? (
         <div className="map-container">
             <button className="close-map" onClick={onMap}>
-                <img src="./images/map/close-btn.png" />
+                <img src="/images/map/close-btn.png" alt="close" />
             </button>
             <GoogleMap
                 id="circle-example"
@@ -54,7 +42,7 @@ const Map = ({ location }) => {
         </div>
     ) : (
         <div className="map-arrow" onClick={onMap}>
-            <img src="./images/map/arrow.png" />
+            <img src="/images/map/arrow.png" alt="arrow" />
         </div>
     );
 };

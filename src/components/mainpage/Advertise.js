@@ -10,21 +10,21 @@ const Advertise = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="http://placehold.it/1280x294"
+            src="/images/mainpage/ad1.png"
             alt="First slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="http://placehold.it/1280x294"
+            src="/images/mainpage/ad2.png"
             alt="Second slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="http://placehold.it/1280x294"
+            src="/images/mainpage/ad3.png"
             alt="Third slide"
           />
         </Carousel.Item>

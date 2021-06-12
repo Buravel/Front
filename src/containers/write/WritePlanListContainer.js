@@ -1,7 +1,10 @@
 import React from 'react';
 import PlanList from '../../components/write/PlanList';
 import Map from '../../components/common/Map';
+import BookMarks from '../../components/write/BookMarks';
 import { useDispatch, useSelector } from 'react-redux';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import {
     addDate,
     addPost,
@@ -31,9 +34,10 @@ const WritePlanListContainer = () => {
     const onClickRemovePost = (key, idx) => dispatch(removePost(key, idx));
     //map 관련
     const location = getLocation(plans);
-
+    //bookmark
+    const bookmarks = useSelector((state) => state.write.bookmarks);
     return (
-        <>
+        <DndProvider backend={HTML5Backend}>
             <PlanList
                 plans={plans}
                 onClickAddBtn={onClickAddBtn}
@@ -43,7 +47,8 @@ const WritePlanListContainer = () => {
                 onClickRemovePost={onClickRemovePost}
             />
             <Map location={location} />
-        </>
+            <BookMarks cards={bookmarks} />
+        </DndProvider>
     );
 };
 

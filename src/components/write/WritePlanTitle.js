@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './writePlanTitle.scss';
 import { getNight } from '../../util/date';
 import TitleModal from './TitleModal';
+import { useHistory } from 'react-router';
+
 const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
     const [sY, sM, sD] = startDate.split('-'); //splitDate(startDate);
     const [eY, eM, eD] = endDate.split('-'); //splitDate(endDate);
@@ -15,12 +17,13 @@ const PlanInfo = ({ startDate, endDate, planTitle, openModal }) => {
             </p>
             <span className="plan-title">{planTitle}</span>
             <button onClick={openModal}>
-                <img src="./images/write/modify.png" alt="" />
+                <img src="/images/write/modify.png" alt="" />
             </button>
         </div>
     );
 };
-const PlanRemote = ({ account, onSave }) => {
+const PlanRemote = ({ account, onSave /* onRemove, edit */ }) => {
+    const history = useHistory();
     let total = 0;
     for (const value of Object.values(account)) {
         total += value;
@@ -29,32 +32,44 @@ const PlanRemote = ({ account, onSave }) => {
         <div className="plan-remote">
             <div className="white-box">
                 <div className="total">
-                    <span className="blue-text">{total}</span>만원
+                    <span className="blue-text">
+                        {parseFloat(total.toFixed(1))}
+                    </span>
+                    만원
                 </div>
                 <div className="individual">
                     <div>
-                        <img src="./images/write/mini_FLIGHT.png" alt="1" />
-                        {account.FLIGHT}
+                        <img
+                            src="/images/write/mini_FLIGHT_black.png"
+                            alt="1"
+                        />
+                        {parseFloat(account.FLIGHT.toFixed(1))}
                     </div>
                     <div>
-                        <img src="./images/write/mini_DISH.png" alt="1" />
-                        {account.DISH}
+                        <img src="/images/write/mini_DISH_black.png" alt="1" />
+                        {parseFloat(account.DISH.toFixed(1))}
                     </div>
                     <div>
-                        <img src="./images/write/mini_SHOPPING.png" alt="1" />
-                        {account.SHOPPING}
+                        <img
+                            src="/images/write/mini_SHOPPING_black.png"
+                            alt="1"
+                        />
+                        {parseFloat(account.SHOPPING.toFixed(1))}
                     </div>
                     <div>
-                        <img src="./images/write/mini_TRAFFIC.png" alt="1" />
-                        {account.TRAFFIC}
+                        <img
+                            src="/images/write/mini_TRAFFIC_black.png"
+                            alt="1"
+                        />
+                        {parseFloat(account.TRAFFIC.toFixed(1))}
                     </div>
                     <div>
-                        <img src="./images/write/mini_HOTEL.png" alt="1" />
-                        {account.HOTEL}
+                        <img src="/images/write/mini_HOTEL_black.png" alt="1" />
+                        {parseFloat(account.HOTEL.toFixed(1))}
                     </div>
                     <div>
-                        <img src="./images/write/mini_ETC.png" alt="1" />
-                        {account.ETC}
+                        <img src="/images/write/mini_ETC_black.png" alt="1" />
+                        {parseFloat(account.ETC.toFixed(1))}
                     </div>
                 </div>
             </div>
@@ -62,7 +77,16 @@ const PlanRemote = ({ account, onSave }) => {
                 <button className="plan-save" onClick={onSave}>
                     저장
                 </button>
-                <button className="plan-delete">삭제</button>
+                <button
+                    className="plan-delete"
+                    onClick={() => {
+                        if (window.confirm('정말 취소하시겠어요?.')) {
+                            history.push('/');
+                        }
+                    }}
+                >
+                    취소
+                </button>
             </div>
         </div>
     );
@@ -77,7 +101,8 @@ const WritePlanTitle = ({
     planImage,
     onChangePlanInfo,
     onSave,
-    plans,
+    /*onRemove,
+    edit,*/
 }) => {
     // modal 관련
     const [titleVisible, setTitleVisible] = useState(true);
@@ -91,6 +116,7 @@ const WritePlanTitle = ({
         }
         onSave();
     };
+
     return (
         <>
             <div className="title-container">
@@ -100,7 +126,12 @@ const WritePlanTitle = ({
                     planTitle={planTitle}
                     openModal={openTitleModal}
                 />
-                <PlanRemote account={account} onSave={onClickSave} />
+                <PlanRemote
+                    account={account}
+                    onSave={onClickSave}
+                    // onRemove={onRemove}
+                    // edit={edit}
+                />
             </div>
             <div className="title-block"></div>
             {titleVisible && (

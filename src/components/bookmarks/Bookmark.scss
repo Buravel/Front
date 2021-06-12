@@ -4,12 +4,13 @@
 }
 
 .bookmarkbackground {
+  position: relative;
   height: 132px;
   width: 1280px;
   background-color: #f5f5f5;
 }
 .bookmarkTitle {
-  position: relative;
+  position: absolute;
   left: 150.7px;
   top: 68px;
 }
@@ -39,14 +40,22 @@
   color: #535353;
 }
 .bookmarkAddbtn {
-  position: relative;
-  left: 813.3px;
-  top: 82px;
+  position: absolute;
+  padding: 0px 0px 0px 0px;
+  border-radius: 30px;
+  right: 232px;
+  top: 79px;
+  width: 84px;
+  height: 33px;
+  font-size: 16px;
+  color: #ffffff;
+  border-radius: 20px;
+  background-color: #0070ef;
 }
 .bookmarkDelbtn {
-  position: relative;
-  left: 828.3px;
-  top: 82px;
+  position: absolute;
+  right: 145px;
+  top: 79px;
   width: 72px;
   height: 33px;
   object-fit: contain;
@@ -55,7 +64,9 @@
 .BookmarkAddbutton {
   width: 84px;
   height: 33px;
+  border-radius: 20px;
   object-fit: contain;
+  background-color: transparent;
 }
 .BookmarkDeletebutton {
   width: 72px;
@@ -141,7 +152,11 @@
 .bmarkptbk:hover {
   top: -8px;
 }
+.bkname:hover {
+  background-color: #c0c0c0;
+}
 .bkname {
+  z-index: 20;
   position: absolute;
   top: 309px;
   left: 6px;
@@ -154,6 +169,7 @@
   letter-spacing: normal;
   text-align: center;
   color: #535353;
+  background-color: transparent;
 }
 .bkimg1 {
   border-top-left-radius: 13px;
@@ -179,41 +195,56 @@
   height: 149px;
   object-fit: cover;
 }
-.popupbkBox {
-  position: relative;
-  width: 600px;
-  margin: 0 auto;
-  height: 40px;
-  max-height: 90vh;
-  left: 81px;
-  top: 82px;
 
-  background: transparent;
-
-  border-radius: 3px;
-  overflow: auto;
-}
 .addBmarkText {
   width: 230px;
   height: 40px;
   box-sizing: border-box;
   font-size: 20px;
 }
-.addBmarkBtn {
-  width: 130px;
-  height: 40px;
-  font-size: 20px;
+.delBmarkBtn {
+  position: absolute;
+  z-index: 1;
+  padding: 0px 0px 0px 0px;
+  top: 0px;
+  right: 232px;
+  width: 84px;
+  height: 33px;
+  font-size: 16px;
   color: #ffffff;
   border-radius: 20px;
   background-color: #0070ef;
 }
+.popupbkBox {
+  z-index: 2;
+  position: absolute;
+  width: 1280px;
+  height: 34px;
+  left: 0px;
+  top: 79px;
+  background: transparent;
+  border-radius: 3px;
+  overflow: auto;
+}
 .bkDtBackground {
   width: 1280px;
-  height: auto;
+  height: 50px;
   top: 0px;
   left: 0px;
   background-color: #ffffff;
 }
+// .popupbkdelBackground {
+//   position: absolute;
+
+//   /* 이 방법이 옳지 못한거 같은데 다른 방법이 없을지? */
+//   z-index: 10;
+
+//   width: 100px;
+//   height: 100px;
+//   top: 50px;
+//   left: 692px;
+// }
+
 .popupbkBackground {
   position: fixed;
   box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
@@ -278,8 +309,8 @@
 }
 .bkDtNameEdit {
   position: relative;
-  top: 8.4px;
-  left: 6.1px;
+  top: 0px;
+  left: -27px;
   width: 27.1px;
   height: 27.1px;
   object-fit: contain;
@@ -314,9 +345,9 @@
 .bkDtpostBox {
   display: inline-flex;
   position: relative;
-  margin-left: 29px;
-  margin-top: 73px;
-  margin-bottom: 25px;
+  // margin-left: 29px;
+  // margin-top: 73px;
+  // margin-bottom: 25px;
   width: 200px;
   height: 275px;
 }
@@ -360,13 +391,13 @@
   position: absolute;
   top: -10px;
   left: -10px;
-  z-index: 4;
+  z-index: 1;
   width: 220px;
   height: 302px;
 }
 .bookmarkChecked {
   position: absolute;
-  top: 2px;
+  top: 1.5px;
   right: 4px;
   z-index: 6;
   width: 50px;
@@ -377,7 +408,7 @@
   position: absolute;
   top: 10px;
   right: 11px;
-  z-index: 10;
+  z-index: 1;
   width: 35px;
   height: 35px;
   background-color: transparent;
@@ -413,4 +444,307 @@
   border-radius: 3px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
+}
+.bringbmarkClick {
+  z-index: 20;
+  position: absolute;
+  top: 19px;
+  right: 13px;
+  width: 31px;
+  height: 31px;
+  border-radius: 20px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.bringbmarkClickbox {
+  display: inline-flex;
+  position: relative;
+  margin-left: 29px;
+  margin-top: 73px;
+  margin-bottom: 25px;
+  width: 200px;
+  height: 275px;
+}
+.bkmainbookamarkchiocebtn {
+  z-index: 10;
+  position: absolute;
+
+  top: 5px;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.bmarkptbkdel {
+  display: inline-flex;
+  position: relative;
+  margin-left: 45px;
+  margin-top: 46px;
+  width: 300px;
+  height: 336px;
+
+  background-color: transparent;
+}
+
+.bringbmarkdelClickbox {
+  z-index: 15;
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 40px;
+  background-color: transparent;
+}
+.bookmarkdelClicked {
+  z-index: 8;
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  object-fit: contain;
+  border-radius: 13px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  border: solid 3px #0070ef;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bookmarkdelChecked {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 6;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.BookmarkDeletecancelbutton {
+  position: absolute;
+  top: -18px;
+  left: 30px;
+  width: 72px;
+  height: 33px;
+}
+.BookmarkDeletecancelbuttonbg {
+  z-index: 1;
+  position: absolute;
+  background-color: transparent;
+  top: 19px;
+  right: 229px;
+}
+.BookmarkDeletebuttonName {
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  font-size: 15px;
+  top: -14px;
+  left: 52px;
+  background-color: #e2e1e1;
+}
+.bmarkCheckcontainer {
+  z-index: 10;
+  position: relative;
+  top: 21.5px;
+  left: 193px;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.bmarkCheckcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 26px;
+  width: 26px;
+  background-color: transparent;
+  border-radius: 27px;
+}
+
+/* On mouse-over, add a grey background color */
+.bmarkCheckcontainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.bmarkCheckcontainer input:checked ~ .checkmark {
+  background-color: transparent;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.bmarkCheckcontainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+
+.bringtoplanbtn {
+  z-index: 10;
+  position: absolute;
+  top: 82px;
+  right: 173px;
+  width: 146px;
+  height: 33px;
+  object-fit: contain;
+  border-color: transparent;
+  background-color: transparent;
+}
+.bringtoplanbtnbackground {
+  top: 82px;
+  right: 173px;
+  width: 146px;
+  height: 33px;
+  object-fit: contain;
+}
+.BmarktoplanHead {
+  position: absolute;
+  top: 20px;
+  left: 22px;
+  width: 200px;
+  height: 29px;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  // font-family: NotoSansKR;
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #535353;
+}
+.bmarktitleCheckcontainer {
+  display: inline-flex;
+  z-index: 10;
+  position: absolute;
+
+  width: 300px;
+  height: 336px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checktitlemark {
+  position: absolute;
+  z-index: 30;
+  top: 15px;
+  right: 14px;
+  height: 32px;
+  width: 32px;
+  background-color: transparent;
+  border-radius: 27px;
+}
+.bmarktitleCheckcontainer input {
+  position: absolute;
+  z-index: 20;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* On mouse-over, add a grey background color */
+.bmarktitleCheckcontainer:hover input ~ .checktitlemark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.bmarktitleCheckcontainer input:checked ~ .checktitlemark {
+  background-color: transparent;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checktitlemark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.bmarktitleCheckcontainer input:checked ~ .checktitlemark:after {
+  display: block;
+}
+.bmarkptbkdel {
+  display: inline-flex;
+  position: relative;
+  margin-left: 45px;
+  margin-top: 46px;
+
+  width: 300px;
+  height: 336px;
+
+  background-color: transparent;
+}
+.bknameEdit {
+  z-index: 20;
+  position: absolute;
+  top: 309px;
+  left: 6px;
+  font-family: NotoSansKR;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #535353;
+  background-color: transparent;
+}
+.editbtn {
+  position: relative;
+  z-index: 20;
+  top: 10px;
+  left: 0px;
+  width: 27.1px;
+  height: 27.1px;
+
+  object-fit: contain;
+  background-color: transparent;
+  border-color: transparent;
+}
+.bkDtNameEdittext {
+  position: relative;
+  height: 40px;
+  top: -8px;
+  left: 10px;
+
+  background-color: #f5f5f5;
+}
+.thisBmarkNameEdit {
+  position: relative;
+  top: 0px;
+  left: 6.1px;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }

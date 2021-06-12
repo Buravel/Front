@@ -1,0 +1,43 @@
+$blue: #66a7ff;
+$gray: #c1c1c1;
+$darkblue: #2b71f3;
+
+.authComplete {
+  .logo2 {
+    width: 98px;
+    margin: 250px 124px 100px 123px;
+  }
+  .msg1 {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.46;
+    letter-spacing: -0.52px;
+    text-align: center;
+    color: #535353;
+  }
+  .msg2 {
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+    color: #535353;
+    margin-top: 15px;
+    font-weight: 400;
+    .blue {
+      color: $darkblue;
+    }
+  }
+  .buttonsection {
+    text-align: center;
+    margin: 0 auto;
+    .check {
+      width: 255px;
+      height: 45px;
+      margin: 47px 57px 6px 58px;
+      border-radius: 23px;
+      background-color: white;
+      color: #0070ef;
+      border: 2px solid #0070ef;
+      font-size: 18px;
+    }
+  }
+}

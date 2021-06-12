@@ -1,28 +1,78 @@
 $blue: #66a7ff;
 $gray: #c1c1c1;
+$darkgray: #535353;
 $darkblue: #2b71f3;
 
 .loginBlock {
-  margin-left: 8.3vw;
-  width: 26.8vw;
-  .h101 {
-    margin: 0;
-    margin-bottom: 5.2vw;
-    width: 26.8vw;
-  }
+  margin-left: 117px;
+  margin-top: 119px;
+  justify-content: center;
+  .loginBox {
+    text-align: center;
+    margin: 0 auto;
+    .title {
+      -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+      font-weight: 100;
+      font-size: 48px;
+      line-height: 1.48;
+      letter-spacing: normal;
+      text-align: center;
+      color: #535353;
+      margin-bottom: 75px;
+    }
 
-  .inputBox {
-    .h501 {
-      text-align: left;
-      font-weight: 500;
-      margin: 0%;
+    .inputBox-new {
+      text-align: center;
+      margin: 0 auto;
+      width: 385px;
+      .id,
+      .pw {
+        font-size: 14px;
+        text-align: left;
+        font-weight: 500;
+        line-height: 1.43;
+        letter-spacing: normal;
+      }
+      .inputCell {
+        width: 386px;
+        height: 55px;
+        outline: none;
+        border: none;
+        border-bottom: 3px solid #c1c1c1;
+        margin-bottom: 0.7vw;
+      }
+      .inputCell:hover {
+        border-bottom: 3px solid $blue;
+      }
+    }
+
+    .error-msg {
+      color: red;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .login-btn {
+      font-size: 18px;
+      width: 386px;
+      height: 55px;
+      border-radius: 28px;
+      background-color: #0070ef;
+      color: white;
+      margin-top: 38px;
     }
   }
 }
-
 .loginFooter {
   text-align: center;
-  font-size: 1vw;
-  font-weight: 200;
-  width: 26.8vw;
+  margin-top: 14px;
+  .text {
+    display: inline;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #535353;
+    line-height: 1.43;
+    letter-spacing: normal;
+  }
 }

@@ -1,15 +1,15 @@
 import React from "react";
-//import SetupForm from "../containers/mypage/SetupForm";
 import EditPage1 from "../components/mypage/EditPage";
 import Responsive from "../components/common/Responsive";
-import HeaderContainer from "../containers/common/HeaderContainer";
+import TemplateNew3 from "../components/login/TemplateNew3";
 
 const EditPage = () => {
   return (
     <>
-      <HeaderContainer />
       <Responsive>
-        <EditPage1 />
+        <TemplateNew3>
+          <EditPage1 />
+        </TemplateNew3>
       </Responsive>
     </>
   );

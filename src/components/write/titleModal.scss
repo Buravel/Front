@@ -6,6 +6,7 @@
     height :100%;
     background: rgba(0, 0, 0, 0.4);
     z-index:99;
+    overflow-y: auto;
     p {
         margin:0;
     }
@@ -20,11 +21,11 @@
             cursor:pointer;
             width: 367px;
             height: 335px;
-            background-color: #8b8b8b;
-            opacity: 37%;
+            background: rgba(139, 139, 139, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #9b9b9b;
             p {
                 font-size: 80px;
             }

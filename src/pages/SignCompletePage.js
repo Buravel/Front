@@ -1,14 +1,14 @@
 import React from "react";
-import Template2 from "../components/login/Template2";
+import TemplateNew2 from "../components/login/TemplateNew2";
 import Complete from "../components/login/SignUpComplete";
 import Responsive from "../components/common/Responsive";
 
 const SignCompletePage = () => {
   return (
     <Responsive>
-      <Template2>
+      <TemplateNew2>
         <Complete />
-      </Template2>{" "}
+      </TemplateNew2>
     </Responsive>
   );
 };

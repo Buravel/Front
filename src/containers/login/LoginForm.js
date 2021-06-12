@@ -3,17 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { changeField, initializeForm, login } from "../../modules/auth";
 import Login from "../../components/login/Login";
-import Header from "../../components/common/Header";
-
+import { check } from "../../modules/user";
 const LoginForm = ({ history }) => {
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
-  const [LoginCheck, setLoginCheck] = useState(null);
-  const { form, auth, authError } = useSelector(({ auth }) => ({
+  const { form, success } = useSelector(({ auth }) => ({
     form: auth.login,
-    auth: auth.auth,
-    authError: auth.authError,
+    success: auth.loginsuccess,
   }));
+
+  const { user } = useSelector(({ user }) => user);
 
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -38,18 +37,23 @@ const LoginForm = ({ history }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (authError != null) {
-      console.log("오류 발생");
-      setLoginCheck(false);
+    if (success === false) {
+      setError("아이디나 비밀번호가 일치하지 않습니다.");
       return;
+    } else {
+      setError("");
+      dispatch(check());
     }
+  }, [success, history, dispatch]);
 
-    if (auth != null) {
-      console.log("로그인 성공");
-      setLoginCheck(true);
+  useEffect(() => {
+    if (user) {
       history.push("/");
+      try {
+        localStorage.setItem("user", JSON.stringify(user));
+      } catch (error) {}
     }
-  }, [auth, authError, dispatch, history]);
+  }, [user, history]);
 
   return (
     <Login
@@ -59,7 +63,7 @@ const LoginForm = ({ history }) => {
       onSubmit={onSubmit}
       error={error}
     />
-    );
+  );
 };
 
 export default withRouter(LoginForm);

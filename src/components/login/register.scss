@@ -1,16 +1,65 @@
+$blue: #66a7ff;
+$darkblue: #2b71f3;
 .registerBlock {
-  margin-left: 8.7vw;
-  width: 26.8vw;
-  .h201 {
-    margin: 0;
-    margin-bottom: 3.3vw;
-    width: 26.8vw;
-  }
+  margin-left: 117px;
+  margin-top: 48px;
+  .registerBox {
+    text-align: center;
+    margin: 0 auto;
+    .title {
+      margin: 18px 7px 0 2px;
+      -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+      font-weight: 100;
+      font-size: 28px;
+      line-height: 1.48;
+      letter-spacing: normal;
+      text-align: center;
+      color: #535353;
+      margin-bottom: 44px;
+    }
 
-  .inputBox {
-    .h502 {
-      text-align: left;
-      margin: 0%;
+    .inputBox-reg {
+      text-align: center;
+      margin: 0 auto;
+      width: 386px;
+      .nick,
+      .id,
+      .pw,
+      .pwC,
+      .emailA {
+        width: 386px;
+        margin: 0 347px 0 0;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1.43;
+        text-align: left;
+        color: #535353;
+      }
+      .inputCell {
+        width: 386px;
+        height: 53px;
+        outline: none;
+        border: none;
+        border-bottom: 3px solid #e3e3e3;
+        margin-bottom: 0.7vw;
+      }
+      .inputCell:hover {
+        border-bottom: 3px solid $blue;
+      }
+    }
+    .checkbtn {
+      margin-top: 20px;
+      width: 386px;
+      height: 55px;
+      border-radius: 28px;
+      font-size: 18px;
+      background-color: $darkblue;
+      color: white;
+    }
+    .error-msg {
+      color: red;
+      font-size: 12px;
+      text-align: center;
     }
   }
 }

@@ -3,24 +3,71 @@ $gray: #c1c1c1;
 $darkblue: #2b71f3;
 
 .findBlock {
-  width: 26.8vw;
-  .h203 {
-    margin: 0;
-    width: 26.8vw;
-    text-align: left;
-    font-weight: 400;
+  width: 386px;
+  margin-left: 114px;
+  .findBox {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 174px;
+    .title {
+      width: 386px;
+      height: 47px;
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.47;
+      letter-spacing: -1.28px;
+      text-align: left;
+      color: #535353;
+    }
+
+    .emailtitle {
+      width: 386px;
+      height: 20px;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.43;
+      letter-spacing: -0.28px;
+      text-align: left;
+      color: #535353;
+    }
+
+    .inputBox-find {
+      text-align: center;
+      margin: 0 auto;
+      width: 385px;
+      .emailA {
+        margin: 0;
+        margin-top: 73px;
+        text-align: left;
+        font-weight: 500;
+        font-size: 14px;
+      }
+      .inputCell {
+        width: 386px;
+        height: 55px;
+        outline: none;
+        border: none;
+        border-bottom: 3px solid #c1c1c1;
+        margin-bottom: 0.7vw;
+      }
+      .inputCell:hover {
+        border-bottom: 3px solid $blue;
+      }
+    }
+  }
+  .error-msg {
+    color: red;
+    font-size: 12px;
+    text-align: center;
   }
 
-  .h506 {
-    margin: 0;
-    text-align: left;
-    font-weight: 300;
-  }
-
-  .h507 {
-    margin: 0;
-    margin-top: 73px;
-    text-align: left;
-    font-weight: 300;
+  .check-btn {
+    margin-top: 34px;
+    width: 386px;
+    height: 55px;
+    border-radius: 28px;
+    font-size: 18px;
+    background-color: #0070ef;
+    color: white;
   }
 }

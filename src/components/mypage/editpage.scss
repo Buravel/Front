@@ -1,0 +1,113 @@
+$lightgray: #f5f5f5;
+$gray: #767676;
+$darkgray: #535353;
+$blue: #0070ef;
+
+.edit {
+  margin-top: 150px;
+  .prof_img {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    img {
+      margin: 10px auto 30px auto;
+      width: 174px;
+      height: 174px;
+      border-radius: 100px;
+    }
+    .profileImage {
+      display: block;
+      margin: 10px auto 30px auto;
+      width: 174px;
+      height: 174px;
+    }
+  }
+  .info {
+    .msg {
+      text-align: center;
+      color: $blue;
+      font-weight: 400;
+      font-size: 12px;
+    }
+    .error-msg {
+      text-align: center;
+      color: red;
+      font-weight: 400;
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+    .profileBox {
+      text-align: center;
+      .choose-file {
+        border: 2px solid $blue;
+        border-radius: 10px;
+      }
+
+      .imgUpload {
+        .upload-btn {
+          display: inline-block;
+          margin-right: 10px;
+          border: 2px solid $blue;
+          border-radius: 10px;
+          background-color: white;
+          width: 10vw;
+          color: $blue;
+        }
+
+        .profile-btn {
+          display: inline-block;
+          margin-left: 10px;
+          border: 2px solid $blue;
+          border-radius: 10px;
+          background-color: $blue;
+          width: 5vw;
+          color: white;
+        }
+      }
+      margin-bottom: 30px;
+    }
+    .infoBox {
+      display: block;
+      margin: auto;
+      margin-top: 10px;
+      width: 305px;
+      .name {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.5;
+        letter-spacing: normal;
+        text-align: left;
+        color: #535353;
+      }
+      .box {
+        width: 305px;
+        font-size: 1.2vw;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 2px solid #b5b5b5;
+        color: $gray;
+        outline: none;
+      }
+      .box:hover {
+        border-bottom: 2px solid #0070ef;
+      }
+      .edit {
+        font-size: 1vw;
+        text-align: center;
+        a {
+          color: $darkgray;
+          text-decoration: underline;
+        }
+      }
+      .change-btn {
+        display: inline-block;
+        position: absolute;
+        font-size: 0.9vw;
+        border: 2px solid $blue;
+        border-radius: 10px;
+        background-color: $blue;
+        color: white;
+      }
+    }
+  }
+}

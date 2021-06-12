@@ -1,0 +1,95 @@
+$lightblue: #0070ef;
+$darkgray: #535353;
+$gray: #c1c1c1;
+$lightgray: #d9d9d9;
+.registerauth {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 193px;
+  width: 1194px;
+  .logo-complete {
+    width: 98px;
+    margin: 0 145px 60px 143px;
+  }
+  .send {
+    height: 38px;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.46;
+    letter-spacing: -0.52px;
+    color: #535353;
+  }
+
+  .emailQ {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: -0.28px;
+    margin: 0;
+    font-weight: 300;
+    margin: 5px 69px 39px;
+    color: #535353;
+    .re-send {
+      color: #0070ef;
+      font-size: 14px;
+    }
+  }
+
+  .authNumForm {
+    text-align: center;
+    margin-top: 44px;
+    margin: 0 auto;
+    width: 400px;
+    .inputBox-RA {
+      text-align: center;
+      margin: 0 auto;
+      .inputCell {
+        width: 386px;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid #b5b5b5;
+        margin-bottom: 0.7vw;
+      }
+
+      .inputCell:hover {
+        border-bottom: 0.2vw solid #66a7ff;
+      }
+      .numtext {
+        width: 52px;
+        height: 20px;
+        margin: 0 295.6px 17px 0.4px;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1.43;
+        letter-spacing: normal;
+        text-align: left;
+        color: #535353;
+      }
+    }
+  }
+
+  .error-msg {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .btnsection {
+    margin-top: 52px;
+    .ok-btn,
+    .cancel-btn {
+      width: 127px;
+      height: 45px;
+      margin: 0 26px 0 0;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #0070ef;
+      color: white;
+    }
+    .cancel-btn {
+      background-color: $lightgray;
+      color: $darkgray;
+    }
+  }
+}
