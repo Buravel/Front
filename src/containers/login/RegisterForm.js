@@ -6,13 +6,15 @@ import { withRouter } from "react-router-dom";
 
 const RegisterForm = ({ history }) => {
   const [error, setError] = useState(null);
-  const [doubleChecking, setChecking] = useState(true);
   const dispatch = useDispatch();
-  const { form, success, errormsg } = useSelector(({ auth }) => ({
-    form: auth.register,
-    success: auth.registersuccess,
-    errormsg: auth.errormsg,
-  }));
+  const { form, success, errormsg, doubleChecking } = useSelector(
+    ({ auth }) => ({
+      form: auth.register,
+      success: auth.registersuccess,
+      errormsg: auth.errormsg,
+      doubleChecking: auth.doubleChecking,
+    })
+  );
 
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -50,7 +52,6 @@ const RegisterForm = ({ history }) => {
     }
     if (success === true && error === null && doubleChecking === true) {
       history.push("/signUpComplete");
-      setChecking(false);
     }
   }, [success, dispatch, history, error, doubleChecking]);
 
