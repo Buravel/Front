@@ -41,6 +41,8 @@
       <h5 align="center">[로그인 / 회원가입]</h5>
       <img src="https://user-images.githubusercontent.com/63658525/122176461-95121e00-cebf-11eb-832a-1ea4e0ff58a2.gif" width=50%/>
       <img src="https://user-images.githubusercontent.com/63658525/122242609-6e270c80-cefe-11eb-9192-6867f2e803e5.gif" width=50%/>
+      <h5 align="center">[이메일-회원가입 인증]</h5>
+      <img src="https://user-images.githubusercontent.com/63658525/122257065-9ae12100-cf0a-11eb-94d6-e2156f717d15.gif" width=100%/>
 </details>
 
 <details>
@@ -80,6 +82,7 @@
       <img src="https://user-images.githubusercontent.com/63658525/122217848-c521e700-cee8-11eb-811c-7609ce022b03.gif" width=50%/>
       <img src="https://user-images.githubusercontent.com/63658525/122217852-c6531400-cee8-11eb-8e86-8de7fe7276da.gif" width=50%/>
       &nbsp
-      <h5 align="center">[로그아웃]</h5>
-      <img src="https://user-images.githubusercontent.com/63658525/122217855-c6531400-cee8-11eb-914d-7528c5c7397b.gif" width=100%/>
+      <h5 align="center">[로그아웃 / 회원탈퇴]</h5>
+      <img src="https://user-images.githubusercontent.com/63658525/122217855-c6531400-cee8-11eb-914d-7528c5c7397b.gif" width=50%/>
+      <img src="https://user-images.githubusercontent.com/63658525/122257070-9caae480-cf0a-11eb-8424-4e6e58045e22.gif" width=50%/>
 </details>
