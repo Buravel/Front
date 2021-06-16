@@ -18,11 +18,11 @@
 	</tr>
 	<tr>
 	  <td>이석훈</td>
-      <td align="center"><a href="https://github.com/orgs/Buravel/people/lsh9955">lsh9955</a></td>
+      <td align="center"><a href="https://github.com/lsh9955">lsh9955</a></td>
 	</tr>
 	<tr>
 	  <td>정다해</td>
-      <td align="center"><a href="https://github.com/orgs/Buravel/people/jungdahae1225">jungdahae1225</a></td>
+      <td align="center"><a href="https://github.com/jungdahae1225">jungdahae1225</a></td>
 	</tr>
     </table>
 &nbsp
