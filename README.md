@@ -48,14 +48,14 @@
 <details>
     <summary>메인 페이지</summary>
       <h5 align="center">[메인페이지]</h5>
-      <img src="./1-6.gif" width=100%/>
+      <img src="./GIF/1-6.gif" width=100%/>
 </details>
 
 <details>
     <summary>다른 사용자의 여행</summary>
       <h5 align="center">[여행글 검색 / 다른 사용자의 여행글]</h5>
       <img src="https://user-images.githubusercontent.com/63658525/122228090-7bd69500-cef2-11eb-8517-e3d7c4944ce2.gif" width=50%/>
-      <img src="./2-3.gif" width=50%/>
+      <img src="./GIF/2-3.gif" width=50%/>
       &nbsp
       <h5 align="center">[북마크로 가져가기]</h5>
       <img src="https://user-images.githubusercontent.com/63658525/122228107-8133df80-cef2-11eb-9454-7b63c4cac7b7.gif" width=100%/>
@@ -69,7 +69,7 @@
       &nbsp
       <h5 align="center">[나의 여행글 / 나의 여행글 수정]</h5>
       <img src="https://user-images.githubusercontent.com/63658525/122228126-83963980-cef2-11eb-8ca3-f2e51ae13a8f.gif" width=50%/>
-      <img src="./1-9.gif" width=50%/>
+      <img src="./GIF/1-9.gif" width=50%/>
 </details>
 
 <details>
