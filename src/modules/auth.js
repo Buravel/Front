@@ -8,6 +8,7 @@ import * as authAPI from "../lib/api/auth";
 const INITIALIZE = "auth/INITIALIZE";
 const CHANGE_FIELD = "auth/CHANGE_FIELD";
 const INITIALIZE_FORM = "auth/INITIALIZE_FORM";
+const PRIVACY = "auth/PRIVACY";
 const [REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE] =
   createRequestActionTypes("auth/REGISTER");
 const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] =
@@ -27,6 +28,7 @@ export const changeField = createAction(
   ({ form, key, value }) => ({ form, key, value })
 );
 export const initializeForm = createAction(INITIALIZE_FORM, (form) => form);
+export const privacy = createAction(PRIVACY);
 export const register = createAction(
   REGISTER,
   ({ nickname, username, email, password }) => ({
@@ -102,6 +104,7 @@ const initialState = {
   findidsuccess: null,
   findpwsuccess: null,
   verification: null,
+  doubleChecking: false,
 };
 
 const auth = handleActions(
@@ -123,13 +126,19 @@ const auth = handleActions(
       findpwsuccess: null,
       verification: null,
     }),
+    [PRIVACY]: (state) => ({
+      ...state,
+      doubleChecking: false,
+    }),
     [REGISTER_SUCCESS]: (state) => ({
       ...state,
       registersuccess: true,
+      doubleChecking: true,
     }),
     [REGISTER_FAILURE]: (state, { payload }) => ({
       ...state,
       registersuccess: false,
+      doubleChecking: false,
       errormsg: payload,
     }),
     [LOGIN_SUCCESS]: (state) => ({

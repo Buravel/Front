@@ -7,11 +7,14 @@ import { withRouter } from "react-router-dom";
 const RegisterForm = ({ history }) => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const { form, success, errormsg } = useSelector(({ auth }) => ({
-    form: auth.register,
-    success: auth.registersuccess,
-    errormsg: auth.errormsg,
-  }));
+  const { form, success, errormsg, doubleChecking } = useSelector(
+    ({ auth }) => ({
+      form: auth.register,
+      success: auth.registersuccess,
+      errormsg: auth.errormsg,
+      doubleChecking: auth.doubleChecking,
+    })
+  );
 
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -47,10 +50,10 @@ const RegisterForm = ({ history }) => {
   useEffect(() => {
     if (success === false) {
     }
-    if (success === true && error === null) {
+    if (success === true && error === null && doubleChecking === true) {
       history.push("/signUpComplete");
     }
-  }, [success, dispatch, history, error]);
+  }, [success, dispatch, history, error, doubleChecking]);
 
   return (
     <Register

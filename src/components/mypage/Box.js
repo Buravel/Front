@@ -79,7 +79,7 @@ const Box = ({ box }) => {
               </div>
               <div className="infoSection">
                 <div className="title" style={style}>
-                  {title.length > 8 ? title.substring(0, 7) + "..." : title}
+                  {title.length > 6 ? title.substring(0, 5) + "..." : title}
                 </div>
                 <div className="cost" style={style}>
                   {totalprice}
